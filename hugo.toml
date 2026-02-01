@@ -5,7 +5,10 @@ theme = 'PaperMod'
 
 [params]
   defaultTheme = "auto"
-  homeInfoParams = {Title = "你好，我是 <你的用户名> ", Content = "欢迎来到我的博客主页：个人 / 博客 / 教程 "}
+
+[params.homeInfoParams]
+  Title = "你好，我是 Tdxxxx"
+  Content = "欢迎来到我的博客主页：个人 / 博客 / 教程"
 
 [[menu.main]]
   name = "个人"
