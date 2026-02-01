@@ -1,4 +1,32 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Posts on 我的博客</title><link>https://Tdxxxx-student.github.io/posts/</link><description>Recent content in Posts on 我的博客</description><generator>Hugo -- 0.155.1</generator><language>zh-cn</language><lastBuildDate>Sun, 01 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://Tdxxxx-student.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>部署文章</title><link>https://Tdxxxx-student.github.io/posts/hello-hugo/</link><pubDate>Sun, 01 Feb 2026 00:00:00 +0000</pubDate><guid>https://Tdxxxx-student.github.io/posts/hello-hugo/</guid><description>&lt;p&gt;使用Hugo 搭建博客并部署到 GitHub Pages
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Posts on 我的博客</title><link>https://Tdxxxx-student.github.io/posts/</link><description>Recent content in Posts on 我的博客</description><generator>Hugo -- 0.155.1</generator><language>zh-cn</language><lastBuildDate>Sun, 01 Feb 2026 11:58:07 +0800</lastBuildDate><atom:link href="https://Tdxxxx-student.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>AI辅助教程</title><link>https://Tdxxxx-student.github.io/posts/ai%E8%BE%85%E5%8A%A9%E6%95%99%E7%A8%8B/</link><pubDate>Sun, 01 Feb 2026 11:58:07 +0800</pubDate><guid>https://Tdxxxx-student.github.io/posts/ai%E8%BE%85%E5%8A%A9%E6%95%99%E7%A8%8B/</guid><description>&lt;p&gt;这是基于我们刚才排查过的所有坑（环境报错、配置乱码、Git权限、部署冲突、文章不显示等），为你量身定制的**“避坑版”极简教程**。&lt;/p&gt;
+&lt;p&gt;这套方案采用 &lt;strong&gt;Hugo + GitHub Actions (自动部署)&lt;/strong&gt; 方案。这是目前最稳定、最省心的方案，你只需要配置一次，以后写文章只需要“三行命令”。&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id="-第一步环境与建站"&gt;🛠 第一步：环境与建站&lt;/h3&gt;
+&lt;p&gt;假设你已经安装好了 Git 和 VS Code。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;安装 Hugo (Windows 推荐)&lt;/strong&gt;
+打开 CMD 或 PowerShell：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;winget install Hugo.Hugo.Extended
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;em&gt;(安装完后重启电脑，或者重启终端)&lt;/em&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;创建博客项目&lt;/strong&gt;
+找个盘符（比如 D 盘），右键打开 Git Bash：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 1. 创建站点&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;hugo new site myblog
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd myblog
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 2. 初始化 Git&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git init
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 3. 下载主题 (直接下载，避开 submodule 报错坑)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod --depth&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h3 id="-第二步配置核心文件-直接复制不要改乱"&gt;⚙️ 第二步：配置核心文件 (直接复制，不要改乱)&lt;/h3&gt;
+&lt;p&gt;用 VS Code 打开 &lt;code&gt;myblog&lt;/code&gt; 文件夹，找到 &lt;strong&gt;&lt;code&gt;hugo.toml&lt;/code&gt;&lt;/strong&gt;，全选删除，粘贴以下内容：&lt;/p&gt;</description></item><item><title>部署文章</title><link>https://Tdxxxx-student.github.io/posts/hello-hugo/</link><pubDate>Sun, 01 Feb 2026 00:00:00 +0000</pubDate><guid>https://Tdxxxx-student.github.io/posts/hello-hugo/</guid><description>&lt;p&gt;使用Hugo 搭建博客并部署到 GitHub Pages
 April 4, 2025
 本教程将从 0 开始，手把手教你在 Windows 系统中使用 Hugo 创建一个静态博客，并通过 GitHub Actions 自动部署到 GitHub Pages.&lt;/p&gt;
 &lt;p&gt;🧰 一、准备工作
