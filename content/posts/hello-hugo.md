@@ -1,3 +1,6 @@
++++
+title = "部署网页"
++++
 使用Hugo 搭建博客并部署到 GitHub Pages
 April 4, 2025
 本教程将从 0 开始，手把手教你在 Windows 系统中使用 Hugo 创建一个静态博客，并通过 GitHub Actions 自动部署到 GitHub Pages.
