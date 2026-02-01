@@ -1,6 +1,6 @@
 +++
 date = '2026-02-01T11:58:07+08:00'
-draft = true
+draft = false
 title = 'AI辅助教程'
 +++
 
