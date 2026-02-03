@@ -3,14 +3,18 @@ title = "部署文章"
 date = 2026-02-01
 draft = false
 
-categories:
-  - hugo网页部署
 
-# 添加标签
-tags:
-  - git仓库下载使用
-  - hugo下载使用
-  - 添加分类和主题
+# 分类和标签
+categories = ["生物信息学", "GWAS"]
+tags = ["重测序", "SNP", "GWAS", "群体结构分析", "变异检测"]
+
+# 自定义分类
+series = ["基因组学系列"]
+authors = ["tdx"]
+
+# 其他元数据
+keywords = ["resequencing", "population genetics"]
+weight = 10
 +++
 
 
@@ -307,6 +311,7 @@ theme = "your-theme"
   section = ["HTML", "RSS"]
   taxonomy = ["HTML", "RSS"]
   term = ["HTML", "RSS"]
+
 # 文件添加分类配制
 # 完整示例
 +++
