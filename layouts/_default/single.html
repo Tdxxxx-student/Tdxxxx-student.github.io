@@ -1,0 +1,65 @@
+{{- define "main" }}
+
+<article class="post-single">
+  <header class="post-header">
+    {{- partial "breadcrumbs.html" . }}
+    <h1 class="post-title entry-hint-parent">
+      {{ .Title }}
+    </h1>
+    {{- if .Description }}
+    <div class="post-description">
+      {{ .Description }}
+    </div>
+    {{- end }}
+    {{- if not (.Param "hideMeta") }}
+    <div class="post-meta">
+      {{- partial "post_meta.html" . -}}
+    </div>
+    {{- end }}
+  </header>
+
+  <!-- 新布局：左右两栏 -->
+  <div class="post-container">
+    
+    <!-- 左侧：文章内容 -->
+    <div class="post-main">
+      <div class="post-content">
+        {{- if not (.Param "disableAnchoredHeadings") }}
+        {{- partial "anchored_headings.html" .Content -}}
+        {{- else }}{{ .Content }}{{ end }}
+      </div>
+      
+      {{- if .Params.tags }}
+      <footer class="post-footer">
+        <ul class="post-tags">
+          {{- range .Params.tags }}
+          <li><a href="{{ "tags/" | absURL }}{{ . | urlize }}">{{ . }}</a></li>
+          {{- end }}
+        </ul>
+      </footer>
+      {{- end }}
+    </div>
+
+    <!-- 右侧：目录 -->
+    {{- if (.Param "ShowToc") }}
+    {{- $headers := findRE "<h[2-4].*?>(.|\n])+?</h[2-4]>" .Content -}}
+    {{- if ge (len $headers) 1 }}
+    <aside class="toc-sidebar">
+      <div class="toc-wrapper">
+        <div class="toc-title">📑 目录</div>
+        <nav class="toc-nav">
+          {{ .TableOfContents }}
+        </nav>
+      </div>
+    </aside>
+    {{- end }}
+    {{- end }}
+
+  </div>
+  <!-- 布局结束 -->
+
+  {{- partial "post_nav_links.html" . -}}
+  {{- partial "comments.html" . -}}
+</article>
+
+{{- end }}{{/* end main */}}

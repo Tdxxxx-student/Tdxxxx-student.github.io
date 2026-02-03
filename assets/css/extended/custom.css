@@ -1,0 +1,182 @@
+/* ========================================
+   文章页面两栏布局
+   ======================================== */
+
+.post-container {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 左侧文章主体 */
+.post-main {
+    flex: 1;
+    min-width: 0;
+    max-width: 850px;
+}
+
+/* 右侧目录侧边栏 */
+.toc-sidebar {
+    width: 280px;
+    flex-shrink: 0;
+}
+
+.toc-wrapper {
+    position: sticky;
+    top: 80px;
+    background: var(--entry);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+}
+
+/* 目录标题 */
+.toc-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary);
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: 3px solid var(--primary);
+}
+
+/* 目录导航 */
+.toc-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.toc-nav > ul > li {
+    margin-bottom: 8px;
+}
+
+.toc-nav ul ul {
+    padding-left: 18px;
+    margin-top: 6px;
+    margin-left: 10px;
+    border-left: 2px solid var(--border);
+}
+
+.toc-nav li {
+    margin: 5px 0;
+}
+
+.toc-nav a {
+    display: block;
+    padding: 10px 14px;
+    font-size: 14px;
+    color: var(--secondary);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    line-height: 1.5;
+}
+
+.toc-nav a:hover {
+    background: linear-gradient(135deg, var(--primary), #667eea);
+    color: white;
+    transform: translateX(8px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* 滚动条 */
+.toc-wrapper::-webkit-scrollbar {
+    width: 5px;
+}
+
+.toc-wrapper::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 5px;
+}
+
+.toc-wrapper::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+/* ========================================
+   隐藏原来顶部的目录
+   ======================================== */
+
+.post-single > .toc {
+    display: none !important;
+}
+
+/* ========================================
+   响应式设计
+   ======================================== */
+
+@media (max-width: 1200px) {
+    .post-container {
+        flex-direction: column;
+        padding: 10px;
+    }
+    
+    .toc-sidebar {
+        width: 100%;
+        order: -1;
+        margin-bottom: 30px;
+    }
+    
+    .toc-wrapper {
+        position: relative;
+        top: 0;
+        max-height: 350px;
+    }
+    
+    .post-main {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .toc-sidebar {
+        display: none;
+    }
+}
+
+/* ========================================
+   暗色模式
+   ======================================== */
+
+.dark .toc-wrapper {
+    background: #1e1e1e;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
+}
+
+.dark .toc-nav a:hover {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+/* ========================================
+   标签样式（额外）
+   ======================================== */
+
+.post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0;
+    list-style: none;
+}
+
+.post-tags a {
+    display: inline-block;
+    padding: 6px 16px;
+    background: var(--primary);
+    color: white;
+    border-radius: 20px;
+    font-size: 13px;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.post-tags a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}

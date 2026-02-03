@@ -10,7 +10,7 @@ hasCJKLanguage = true
   tag = "tags"
 
 [pagination]
-  pagerSize = 4
+  pagerSize = 5
 
 [params]
   defaultTheme = "auto"
@@ -19,6 +19,8 @@ hasCJKLanguage = true
   ShowShareButtons = false
   ShowReadingTime = true
   ShowToc = true
+  TocOpen = true
+  TocSide = "right"
   DateFormat = "2006-01-02"
 
 [params.homeInfoParams]
