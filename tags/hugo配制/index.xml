@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Hugo配制 on 我的空间</title><link>https://Tdxxxx-student.github.io/tags/hugo%E9%85%8D%E5%88%B6/</link><description>Recent content in Hugo配制 on 我的空间</description><generator>Hugo -- 0.155.2</generator><language>zh-cn</language><copyright>tdx0307</copyright><lastBuildDate>Sun, 01 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://Tdxxxx-student.github.io/tags/hugo%E9%85%8D%E5%88%B6/index.xml" rel="self" type="application/rss+xml"/><item><title>部署文章</title><link>https://Tdxxxx-student.github.io/posts/hello-hugo/</link><pubDate>Sun, 01 Feb 2026 00:00:00 +0000</pubDate><guid>https://Tdxxxx-student.github.io/posts/hello-hugo/</guid><description>&lt;p&gt;使用Hugo 搭建博客并部署到 GitHub Pages
+April 4, 2025
+本教程将从 0 开始，手把手教你在 Windows 系统中使用 Hugo 创建一个静态博客，并通过 GitHub Actions 自动部署到 GitHub Pages.&lt;/p&gt;
+&lt;p&gt;🧰 一、准备工作
+✅ 1. 安装 Git
+下载并安装：https://git-scm.com
+安装完成后，右键菜单应该出现 “Git Bash Here”
+验证安装：&lt;/p&gt;</description></item></channel></rss>
