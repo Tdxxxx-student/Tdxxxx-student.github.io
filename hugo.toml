@@ -27,7 +27,7 @@ theme = 'PaperMod'
 
 [params.homeInfoParams]
   Title = "你好，我是 Tdxxxx"
-  Content = "欢迎来到我的博客主页：个人 / 标签 / 代码"
+  Content = "欢迎来到我的博客主页！"
 
  [[menu.main]]
     name = "首页"
@@ -37,12 +37,12 @@ theme = 'PaperMod'
 [[menu.main]]
   name = "个人代码"
   url = "/posts"
-  weight = 1
+  weight = 2
 
 [[menu.main]]
   name = "标签"
   url = "/tags/"
-  weight = 2
+  weight = 4
 
 [[menu.main]]
   name = "分类"

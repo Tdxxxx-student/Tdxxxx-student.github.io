@@ -2,6 +2,15 @@
 title = "部署文章"
 date = 2026-02-01
 draft = false
+
+categories:
+  - hugo网页部署
+
+# 添加标签
+tags:
+  - git仓库下载使用
+  - hugo下载使用
+  - 添加分类和主题
 +++
 
 
@@ -14,6 +23,7 @@ April 4, 2025
 下载并安装：https://git-scm.com
 安装完成后，右键菜单应该出现 “Git Bash Here”
 验证安装：
+```
 # 打开 power shell 检查 git 安装成功
 git --version
 ✅ 2. 安装 Hugo（建议扩展版）
@@ -26,6 +36,7 @@ winget uninstall --name "Hugo (Extended)"
 
 # 检查 Hugo是否安装成功 (重启终端 或 重启电脑)
 hugo version
+```
 ✅ 3. 注册 GitHub 并创建仓库
 Github 注册: https://github.com
 创建一个与你用户名相同的仓库，比如:
@@ -34,6 +45,7 @@ tu
 
 🏗 二、创建 Hugo 博客项目
 在本地找个位置存储 源代码
+```
 # 创建文件夹
 mkdir blog
 
@@ -45,10 +57,12 @@ hugo new site <你的文件夹名>
 
 #打开你的文件夹
 cd <你的文件夹名>
+```
 🎨 三、添加主题 PaperMod
 (此处使用 主题 - PaperMod 作为例子)
 
 在当前文件夹目录下 powershell :
+```
 # git初始化本地仓库
 git init
 
@@ -56,9 +70,11 @@ git init
 git submodule add \
     https://github.com/adityatelange/hugo-PaperMod.git \
     themes/PaperMod  
+```
 如果 git submodule add 不行，则可以网页浏览到PaperMod主页点击 <>Code 下载 zip 文件，压缩文件将文件名改为 PaperMod 并复制粘贴到当前themes目录下即可。
 📝 四、配置 hugo.toml
 将下面代码复制粘贴到hugo.toml下。
+```
 baseURL = 'https://你的用户名.github.io/'
 languageCode = 'zh-cn'
 title = '我的博客'
@@ -85,11 +101,13 @@ theme = 'PaperMod'
   name = "学习"
   url = "/study"
   weight = 3
+```
 baseURL: 访问你个人网页的链接;
 url: 链接的是当前目录下content下的文件夹;
 weight: 表示网页部署位置
 后续视个人情况修改
 ✍️ 五、写第一篇文章
+```
 # 在当前 根目录 下输入
 hugo new posts/hello-hugo.md
 使用hugo new会链接脚本创建markdown的上述链接:
@@ -104,9 +122,10 @@ title: "你好 Hugo"
 date: 2025-04-04
 draft: false
 ---
-
+```
 这是我的第一篇文章！我正在学习 Hugo 😊
 🌐 六、本地预览网站 & 📁 构建 public/ 文件夹
+```
 # 当前根目录下输入
 hugo server -D
 
@@ -126,6 +145,7 @@ git checkout -b gh-pages
 git add .
 git commit -m "手动部署 Hugo 页面"
 git push -f origin gh-pages
+```
 在 GitHub 设置 Pages 分支
 打开你的 GitHub 仓库
 点击菜单栏 Settings → Pages
@@ -135,6 +155,7 @@ git push -f origin gh-pages
 保存并等待 GitHub 自动生成网页（几分钟内）tu
 🚀 七、部署到 GitHub Pages（使用 Actions 自动部署）
 1. 初始化 git 并推送到 GitHub
+```
 # 在根目录下
 git init
 git add .
@@ -142,10 +163,12 @@ git commit -m "first commit"
 git branch -M main
 git remote add origin git@github.com:你的用户名/你的用户名.github.io.git
 git push -u origin main
+```
 ⚠️ 如果你使用的是 HTTPS，请把 git@github.com… 改为 https://github.com/你的用户名/你的用户名.github.io.git
 2. 添加部署工作流
 创建文件 (在根目录下).github/workflows/deploy.yml：(注意 .github 的文件夹也是自己创建的)
 复制一下内容到 deploy.yml 下
+```
 name: Deploy Hugo site to GitHub Pages
 
 on:
@@ -175,8 +198,10 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
+```
 八、总结
 每次想新写内容直接
+```
 # 文件存储在content下
 hugo new <你的文件路径>
 
@@ -193,12 +218,14 @@ git branch
 git add .
 git commit -m "你的日志"
 git push origin main
+```
 此后你写的 deploy.yml 会在 actions 下自动部署网页，无需在进入到public下再次推送静态网页
 您的网页源代码在main分支下，静态部署网页代码在pulic文件夹下(也是访问您网页的代码内容)
 🛠 九、自动提交脚本（可选）
 若您想省去 git add . 过程，以下提供python脚本参考
 
 # 在当前 根目录 下创建auto_push.py
+```
 import subprocess
 from datetime import datetime
 
@@ -210,7 +237,96 @@ def auto_push():
     subprocess.run(["git", "push", "origin", "main"], check=True)
 
 auto_push()
+```
 运行方式：
+```
 python auto_push.py
+```
 🎉 恭喜！
 你已经成功在 Windows 环境下，使用 Hugo + GitHub Pages 创建并部署了自己的博客！
+
+```
+# 目录配制文件示例
+baseURL = "https://example.com/"
+languageCode = "zh-cn"
+title = "生物信息学博客"
+theme = "your-theme"
+
+# 分类法
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  series = "series"
+
+# 永久链接
+[permalinks]
+  posts = "/posts/:year/:month/:slug/"
+  categories = "/category/:slug/"
+  tags = "/tag/:slug/"
+
+# 菜单
+[menu]
+  [[menu.main]]
+    identifier = "home"
+    name = "🏠 首页"
+    url = "/"
+    weight = 1
+
+  [[menu.main]]
+    identifier = "categories"
+    name = "📂 分类"
+    url = "/categories/"
+    weight = 2
+
+  [[menu.main]]
+    identifier = "tags"
+    name = "🏷️ 标签"
+    url = "/tags/"
+    weight = 3
+
+  [[menu.main]]
+    identifier = "about"
+    name = "👤 关于"
+    url = "/about/"
+    weight = 4
+
+# 站点参数
+[params]
+  description = "分享生物信息学知识"
+  author = "Your Name"
+  
+  # 分类相关
+  showCategories = true
+  showTags = true
+  showRelatedPosts = true
+  relatedPostsCount = 5
+
+# 输出格式
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  term = ["HTML", "RSS"]
+# 文件添加分类配制
+# 完整示例
++++
+title = "重测序与群体遗传学"
+date = 2024-01-15T10:00:00+08:00
+draft = false
+description = "云南农业大学重测序项目教程"
+categories = ["生物信息学", "教程"]
+tags = ["重测序", "SNP", "GWAS", "群体遗传学"]
+author = "李详"
++++
+
+## 软件安装
+
+该部分软件很难用conda直接安装，安装步骤比较特殊。
+
+### lumpy-sv
+
+```bash
+conda activate py27
+git clone --recursive https://github.com/arq5x/lumpy-sv.git
+cd lumpy-sv
+make
