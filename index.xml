@@ -12,7 +12,112 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;$ ascp -h
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="基本语法"&gt;基本语法&lt;/h2&gt;
 &lt;p&gt;借鉴
-&lt;a href="https://download.asperasoft.com/download/docs/ascp/2.7/html/index.html"&gt;Aspera ascp Usage (2.7) Documentation - All Aspera Server 2.7 Platforms (asperasoft.com)&lt;/a&gt;&lt;/p&gt;</description></item><item><title>基因家族分析</title><link>https://Tdxxxx-student.github.io/posts/%E5%9F%BA%E5%9B%A0%E5%AE%B6%E6%97%8F%E5%88%86%E6%9E%90/</link><pubDate>Tue, 03 Feb 2026 16:53:01 +0800</pubDate><guid>https://Tdxxxx-student.github.io/posts/%E5%9F%BA%E5%9B%A0%E5%AE%B6%E6%97%8F%E5%88%86%E6%9E%90/</guid><description>&lt;h1 id="基因家族分析流程与文章撰写思路"&gt;基因家族分析流程与文章撰写思路&lt;/h1&gt;
+&lt;a href="https://download.asperasoft.com/download/docs/ascp/2.7/html/index.html"&gt;Aspera ascp Usage (2.7) Documentation - All Aspera Server 2.7 Platforms (asperasoft.com)&lt;/a&gt;&lt;/p&gt;</description></item><item><title>配制侧边目录</title><link>https://Tdxxxx-student.github.io/posts/%E9%85%8D%E5%88%B6%E4%BE%A7%E8%BE%B9%E7%9B%AE%E5%BD%95/</link><pubDate>Tue, 03 Feb 2026 21:48:43 +0800</pubDate><guid>https://Tdxxxx-student.github.io/posts/%E9%85%8D%E5%88%B6%E4%BE%A7%E8%BE%B9%E7%9B%AE%E5%BD%95/</guid><description>&lt;pre tabindex="0"&gt;&lt;code&gt;调整侧边目录位置
+修改 CSS 文件
+notepad assets/css/extended/custom.css
+删除全部内容，粘贴以下代码：
+CSS
+/* ========================================
+隐藏原有顶部目录
+======================================== */
+.post-single &amp;gt; .toc {
+display: none !important;
+}
+/* ========================================
+右侧固定目录 - 移到最右边
+======================================== */
+#TableOfContents {
+position: fixed !important;
+right: 10px !important;
+top: 80px !important;
+width: 220px !important;
+max-height: 75vh !important;
+overflow-y: auto !important;
+background: var(--entry) !important;
+padding: 15px !important;
+border-radius: 10px !important;
+box-shadow: 0 2px 15px rgba(0,0,0,0.1) !important;
+z-index: 999 !important;
+font-size: 13px !important;
+}
+#TableOfContents::before {
+content: &amp;#34;📑 目录&amp;#34;;
+display: block;
+font-size: 16px;
+font-weight: bold;
+color: var(--primary);
+padding-bottom: 10px;
+margin-bottom: 10px;
+border-bottom: 2px solid var(--primary);
+}
+#TableOfContents ul {
+list-style: none !important;
+padding: 0 !important;
+margin: 0 !important;
+}
+#TableOfContents ul ul {
+padding-left: 12px !important;
+border-left: 2px solid var(--border) !important;
+margin-left: 6px !important;
+}
+#TableOfContents li {
+margin: 5px 0 !important;
+}
+#TableOfContents a {
+display: block !important;
+padding: 6px 10px !important;
+color: var(--secondary) !important;
+text-decoration: none !important;
+border-radius: 5px !important;
+font-size: 13px !important;
+line-height: 1.4 !important;
+transition: all 0.3s !important;
+}
+#TableOfContents a:hover {
+background: var(--primary) !important;
+color: white !important;
+}
+/* ========================================
+文章内容区域 - 不受影响
+======================================== */
+.post-content {
+max-width: 100% !important;
+margin-right: 0 !important;
+}
+.main {
+max-width: 800px !important;
+margin: 0 auto !important;
+}
+/* ========================================
+滚动条美化
+======================================== */
+#TableOfContents::-webkit-scrollbar {
+width: 4px;
+}
+#TableOfContents::-webkit-scrollbar-thumb {
+background: var(--primary);
+border-radius: 4px;
+}
+/* ========================================
+小屏幕隐藏目录
+======================================== */
+@media (max-width: 1400px) {
+#TableOfContents {
+display: none !important;
+}
+}
+/* ========================================
+暗色模式
+======================================== */
+.dark #TableOfContents {
+background: #1e1e1e !important;
+box-shadow: 0 2px 15px rgba(0,0,0,0.4) !important;
+}
+重启服务
+Bash
+rm -rf public resources
+hugo server -D
+&lt;/code&gt;&lt;/pre&gt;</description></item><item><title>基因家族分析</title><link>https://Tdxxxx-student.github.io/posts/%E5%9F%BA%E5%9B%A0%E5%AE%B6%E6%97%8F%E5%88%86%E6%9E%90/</link><pubDate>Tue, 03 Feb 2026 16:53:01 +0800</pubDate><guid>https://Tdxxxx-student.github.io/posts/%E5%9F%BA%E5%9B%A0%E5%AE%B6%E6%97%8F%E5%88%86%E6%9E%90/</guid><description>&lt;h1 id="基因家族分析流程与文章撰写思路"&gt;基因家族分析流程与文章撰写思路&lt;/h1&gt;
 &lt;p&gt;基因家族分析是一种常见的生物信息学分析套路，也是生物信息学数据挖掘发表小文章常用的分析方法，和GEO挖掘等类似。基因家族的分析鉴定可以用pfam上的hmm文件进行基因家族的检索鉴定，也可以用blast的方法进行比对鉴定，通常是适用拟南芥对应的基因家族进行比对鉴定。&lt;/p&gt;</description></item><item><title>群体遗传学与重测序分析解释</title><link>https://Tdxxxx-student.github.io/posts/%E7%BE%A4%E4%BD%93%E9%81%97%E4%BC%A0%E5%AD%A6%E4%B8%8E%E9%87%8D%E6%B5%8B%E5%BA%8F%E5%88%86%E6%9E%90%E8%A7%A3%E9%87%8A/</link><pubDate>Tue, 03 Feb 2026 12:17:02 +0800</pubDate><guid>https://Tdxxxx-student.github.io/posts/%E7%BE%A4%E4%BD%93%E9%81%97%E4%BC%A0%E5%AD%A6%E4%B8%8E%E9%87%8D%E6%B5%8B%E5%BA%8F%E5%88%86%E6%9E%90%E8%A7%A3%E9%87%8A/</guid><description>&lt;p&gt;分子层面对生物的研究，在个体水平上主要是看单个基因的变化以及全转录本的变化（RNA-seq）；在对个体的研究的基础上，开始了群体水平的研究。如果说常规的遗传学主要的研究对象是个体或者个体家系的话，那么群体遗传学则是主要研究由不同个体组成的群体的遗传规律。
 在测序技术大力发展之前，对群体主要是依靠表型进行研究，如加拉巴哥群岛的13中鸟雀有着不同的喙，达尔文认为这是自然选择造成的后果1。达尔文的进化论对应的观点可以简单概括为“物竞天择，适者生存”，这也是最为大众所接受的一种进化学说。直到1968年，日本遗传学家提出了中性进化理论[2]，也叫中性演化理论。中性理论的提出很大程度上是基于分子生物化学的发展。可以这样理解中性理论：一群人抽奖，在没有内幕的情况下，每个人抽到一等奖的概率是相等的，这个可能性和参与抽奖的人的身高、年龄、爱好等因素都没有关系。中性理论常作为群体遗传研究中的假设理论（CK）来计算其他各种统计指标。
 群体遗传学，研究的单位是群体，比如粳稻、籼稻、野生稻，就能够构成不同的群体；我们国内的各省份的水稻也可以作为一个个群体。 群体遗传学大概可以分为群体内的研究和群体间的研究。比如研究云南元阳的水稻的遗传多样性；如果研究是的云南元阳的水稻和东北的水稻，那就可以算成是群体间的研究。群体间和群体内的研究是相互的。
