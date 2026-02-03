@@ -1,71 +1,52 @@
-baseURL = 'https://Tdxxxx-student.github.io/'
-languageCode = 'zh-cn'
-title = '我的博客'
-theme = 'PaperMod'
-copyright: tdx0307 # 著作权，位于页脚，指的是博客的著作权，非hugo和该主题
-hasCJKLanguage: true
+baseURL = "https://Tdxxxx-student.github.io/"
+languageCode = "zh-cn"
+title = "我的空间"
+theme = "PaperMod"
+copyright = "tdx0307"
+hasCJKLanguage = true
 
-# 启用分类法（默认已启用，可自定义扩展）
 [taxonomies]
   category = "categories"
   tag = "tags"
-  series = "series"   
-  author = "authors"   
 
 [pagination]
   pagerSize = 4
 
- [dateFormat]
-  published = 2006-01-02
-  lastUpdated = Jan 02, 2006 15:04 MST
-
-[article]
-  math = false # 文章数学公式格式，默认false
-  toc = true # 文章右侧目录
-  readingTime = true # 阅读时间
-   [license] = 
-    enabled = true # 应该是开源证书之类的东西
-    default = Licensed under CC BY-NC-SA 4.0
-
-
-
 [params]
   defaultTheme = "auto"
-  # 分类相关
-  showCategories = true
-  info = "从未停止对未知的探索，尝试分享一些有趣的东西"
-  showTags = true
-  showRelatedPosts = true
-  relatedPostsCount = 5
+  ShowBreadCrumbs = true
+  ShowPostNavLinks = true
+  ShowShareButtons = false
+  ShowReadingTime = true
+  ShowToc = true
+  DateFormat = "2006-01-02"
 
-# 输出格式
+[params.homeInfoParams]
+  Title = "你好，我是 Tdxxxx"
+  Content = "欢迎来到我的博客主页！"
+
 [outputs]
   home = ["HTML", "RSS", "JSON"]
   section = ["HTML", "RSS"]
   taxonomy = ["HTML", "RSS"]
   term = ["HTML", "RSS"]
 
-[params.homeInfoParams]
-  Title = "你好，我是 Tdxxxx"
-  Content = "欢迎来到我的博客主页！"
-
- [[menu.main]]
-    name = "首页"
-    url = "/"
-    weight = 1
+[[menu.main]]
+  name = "首页"
+  url = "/"
+  weight = 1
 
 [[menu.main]]
-  name = "个人代码"
-  url = "/posts"
+  name = "文章"
+  url = "/posts/"
   weight = 2
 
 [[menu.main]]
   name = "分类"
   url = "/categories/"
-  weight = 3  
+  weight = 3
 
 [[menu.main]]
   name = "标签"
   url = "/tags/"
   weight = 4
-
