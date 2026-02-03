@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>部署文章 | 我的空间</title>
+<meta name="keywords" content="hugo配制">
+<meta name="description" content="使用Hugo 搭建博客并部署到 GitHub Pages
+April 4, 2025
+本教程将从 0 开始，手把手教你在 Windows 系统中使用 Hugo 创建一个静态博客，并通过 GitHub Actions 自动部署到 GitHub Pages.
+🧰 一、准备工作
+✅ 1. 安装 Git
+下载并安装：https://git-scm.com
+安装完成后，右键菜单应该出现 “Git Bash Here”
+验证安装：">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/hello-hugo/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.e72f5f222d52fefbb5364978daf95328cfae4a088f7054da95a277e655e96f14.css" integrity="sha256-5y9fIi1S/vu1Nkl42vlTKM&#43;uSgiPcFTalaJ35lXpbxQ=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/hello-hugo/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="我的空间 (Alt + H)">我的空间</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="首页">
+                    <span>首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/posts/" title="文章">
+                    <span>文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/categories/" title="分类">
+                    <span>分类</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="标签">
+                    <span>标签</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header"><div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      部署文章
+    </h1>
+    <div class="post-meta"><span title='2026-02-01 00:00:00 +0000 UTC'>2026-02-01</span>&nbsp;·&nbsp;<span>5 min</span></div>
+  </header>
+
+  
+  <div class="post-container">
+    
+    
+    <div class="post-main">
+      <div class="post-content"><p>使用Hugo 搭建博客并部署到 GitHub Pages
+April 4, 2025
+本教程将从 0 开始，手把手教你在 Windows 系统中使用 Hugo 创建一个静态博客，并通过 GitHub Actions 自动部署到 GitHub Pages.</p>
+<p>🧰 一、准备工作
+✅ 1. 安装 Git
+下载并安装：https://git-scm.com
+安装完成后，右键菜单应该出现 “Git Bash Here”
+验证安装：</p>
+<pre tabindex="0"><code># 打开 power shell 检查 git 安装成功
+git --version
+✅ 2. 安装 Hugo（建议扩展版）
+仅需在 power shell 输入
+# 安装
+winget install Hugo.Hugo.Extended
+
+# 如需卸载
+winget uninstall --name &#34;Hugo (Extended)&#34;
+
+# 检查 Hugo是否安装成功 (重启终端 或 重启电脑)
+hugo version
+</code></pre><p>✅ 3. 注册 GitHub 并创建仓库
+Github 注册: <a href="https://github.com">https://github.com</a>
+创建一个与你用户名相同的仓库，比如:
+&lt;Github用户名&gt;.github.io
+tu</p>
+<p>🏗 二、创建 Hugo 博客项目
+在本地找个位置存储 源代码</p>
+<pre tabindex="0"><code># 创建文件夹
+mkdir blog
+
+# 打开文件夹
+cd blog
+
+# 使用 hugo 创建文件夹(此处是您的代码仓库)
+hugo new site &lt;你的文件夹名&gt;
+
+#打开你的文件夹
+cd &lt;你的文件夹名&gt;
+</code></pre><p>🎨 三、添加主题 PaperMod
+(此处使用 主题 - PaperMod 作为例子)</p>
+<p>在当前文件夹目录下 powershell :</p>
+<pre tabindex="0"><code># git初始化本地仓库
+git init
+
+# 将 PaperMod下载到本地
+git submodule add \
+    https://github.com/adityatelange/hugo-PaperMod.git \
+    themes/PaperMod  
+</code></pre><p>如果 git submodule add 不行，则可以网页浏览到PaperMod主页点击 &lt;&gt;Code 下载 zip 文件，压缩文件将文件名改为 PaperMod 并复制粘贴到当前themes目录下即可。
+📝 四、配置 hugo.toml
+将下面代码复制粘贴到hugo.toml下。</p>
+<pre tabindex="0"><code>baseURL = &#39;https://你的用户名.github.io/&#39;
+languageCode = &#39;zh-cn&#39;
+title = &#39;我的博客&#39;
+theme = &#39;PaperMod&#39;
+
+[params]
+  defaultTheme = &#34;auto&#34;
+  # 这里 homeInfoParams 下注意不要换行，否则 hugo server可能打开不了（复制时候删除这行注释）
+  homeInfoParams = { 
+    Title = &#34;你好，我是 &lt;你的用户名&gt; &#34;, Content = &#34;欢迎来到我的博客主页：个人 / 博客 / 教程 &#34; 
+  }
+
+[[menu.main]]
+  name = &#34;个人&#34;
+  url = &#34;/posts&#34;
+  weight = 1
+
+[[menu.main]]
+  name = &#34;教程&#34;
+  url = &#34;/docs&#34;
+  weight = 2
+
+[[menu.main]]
+  name = &#34;学习&#34;
+  url = &#34;/study&#34;
+  weight = 3
+</code></pre><p>baseURL: 访问你个人网页的链接;
+url: 链接的是当前目录下content下的文件夹;
+weight: 表示网页部署位置
+后续视个人情况修改
+✍️ 五、写第一篇文章</p>
+<pre tabindex="0"><code># 在当前 根目录 下输入
+hugo new posts/hello-hugo.md
+使用hugo new会链接脚本创建markdown的上述链接:
+---
+title: &#34;你好 Hugo&#34;
+date: 2025-04-04
+draft: false
+---
+在当前md下输入&lt;您的内容&gt;:
+---
+title: &#34;你好 Hugo&#34;
+date: 2025-04-04
+draft: false
+---
+</code></pre><p>这是我的第一篇文章！我正在学习 Hugo 😊
+🌐 六、本地预览网站 &amp; 📁 构建 public/ 文件夹</p>
+<pre tabindex="0"><code># 当前根目录下输入
+hugo server -D
+
+# 使用浏览器打开，查看效果
+http://localhost:1313
+当你想部署网站时，运行：
+hugo
+这条命令会生成 public/ 文件夹，它包含了 构建好的静态网页内容，可以直接部署。
+你部署到网页上的内容应该是在 public/ 下
+# 进入 public/ 目录并初始化 Git
+cd public
+git init
+git remote add origin https://github.com/你的用户名/你的用户名.github.io.git
+git checkout -b gh-pages
+
+# 提交构建结果并推送到 gh-pages 分支
+git add .
+git commit -m &#34;手动部署 Hugo 页面&#34;
+git push -f origin gh-pages
+</code></pre><p>在 GitHub 设置 Pages 分支
+打开你的 GitHub 仓库
+点击菜单栏 Settings → Pages
+在 Source 选项中选择：
+分支：gh-pages
+目录：/(root)
+保存并等待 GitHub 自动生成网页（几分钟内）tu
+🚀 七、部署到 GitHub Pages（使用 Actions 自动部署）</p>
+<ol>
+<li>初始化 git 并推送到 GitHub</li>
+</ol>
+<pre tabindex="0"><code># 在根目录下
+git init
+git add .
+git commit -m &#34;first commit&#34;
+git branch -M main
+git remote add origin git@github.com:你的用户名/你的用户名.github.io.git
+git push -u origin main
+</code></pre><p>⚠️ 如果你使用的是 HTTPS，请把 <a href="mailto:git@github.com">git@github.com</a>… 改为 <a href="https://github.com/">https://github.com/</a>你的用户名/你的用户名.github.io.git
+2. 添加部署工作流
+创建文件 (在根目录下).github/workflows/deploy.yml：(注意 .github 的文件夹也是自己创建的)
+复制一下内容到 deploy.yml 下</p>
+<pre tabindex="0"><code>name: Deploy Hugo site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # 👈 每次推送到 main 分支就会自动部署
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: &#39;latest&#39;
+          extended: true
+
+      - name: Build Hugo site
+        run: hugo --minify
+
+      - name: Deploy to GitHub Pages 🚀
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+</code></pre><p>八、总结
+每次想新写内容直接</p>
+<pre tabindex="0"><code># 文件存储在content下
+hugo new &lt;你的文件路径&gt;
+
+# 本地查看
+hugo server -D
+
+# 浏览器查看
+http://localhost:1313
+
+# 之后直接在根目录下,注意你当前的分支应该是 main
+## 查看分支
+git branch
+
+git add .
+git commit -m &#34;你的日志&#34;
+git push origin main
+</code></pre><p>此后你写的 deploy.yml 会在 actions 下自动部署网页，无需在进入到public下再次推送静态网页
+您的网页源代码在main分支下，静态部署网页代码在pulic文件夹下(也是访问您网页的代码内容)
+🛠 九、自动提交脚本（可选）
+若您想省去 git add . 过程，以下提供python脚本参考</p>
+<h1 id="在当前-根目录-下创建auto_pushpy">在当前 根目录 下创建auto_push.py<a hidden class="anchor" aria-hidden="true" href="#在当前-根目录-下创建auto_pushpy">#</a></h1>
+<pre tabindex="0"><code>import subprocess
+from datetime import datetime
+
+def auto_push():
+    now = datetime.now().strftime(&#34;%Y-%m-%d %H:%M:%S&#34;)
+    msg = f&#34;update: {now}&#34;
+    subprocess.run([&#34;git&#34;, &#34;add&#34;, &#34;.&#34;], check=True)
+    subprocess.run([&#34;git&#34;, &#34;commit&#34;, &#34;-m&#34;, msg], check=True)
+    subprocess.run([&#34;git&#34;, &#34;push&#34;, &#34;origin&#34;, &#34;main&#34;], check=True)
+
+auto_push()
+</code></pre><p>运行方式：</p>
+<pre tabindex="0"><code>python auto_push.py
+</code></pre><p>🎉 恭喜！
+你已经成功在 Windows 环境下，使用 Hugo + GitHub Pages 创建并部署了自己的博客！</p>
+<h2 id="补充信息">补充信息<a hidden class="anchor" aria-hidden="true" href="#补充信息">#</a></h2>
+<pre tabindex="0"><code># 文件添加分类配制
+# 完整示例
++++
+title = &#34;重测序与群体遗传学&#34;
+date = 2024-01-15T10:00:00+08:00
+draft = false
+description = &#34;云南农业大学重测序项目教程&#34;
+categories = [&#34;生物信息学&#34;, &#34;教程&#34;]
+tags = [&#34;重测序&#34;, &#34;SNP&#34;, &#34;GWAS&#34;, &#34;群体遗传学&#34;]
+author = &#34;李详&#34;
++++
+</code></pre><p>修改完配制文件后重启服务器，再保存</p>
+<pre tabindex="0"><code>rm -rf public resources
+hugo server -D
+</code></pre>
+
+      </div>
+      <footer class="post-footer">
+        <ul class="post-tags">
+          <li><a href="http://localhost:1313/tags/hugo%E9%85%8D%E5%88%B6">hugo配制</a></li>
+        </ul>
+      </footer>
+    </div>
+
+    
+    <aside class="toc-sidebar">
+      <div class="toc-wrapper">
+        <div class="toc-title">📑 目录</div>
+        <nav class="toc-nav">
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#补充信息">补充信息</a></li>
+  </ul>
+</nav>
+        </nav>
+      </div>
+    </aside>
+
+  </div>
+  
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/posts/ai%E8%BE%85%E5%8A%A9%E6%95%99%E7%A8%8B/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>AI辅助教程</span>
+  </a>
+</nav>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>tdx0307</span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

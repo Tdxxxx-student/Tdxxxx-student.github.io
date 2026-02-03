@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>AI辅助教程 | 我的空间</title>
+<meta name="keywords" content="">
+<meta name="description" content="这是基于我们刚才排查过的所有坑（环境报错、配置乱码、Git权限、部署冲突、文章不显示等），为你量身定制的**“避坑版”极简教程**。
+这套方案采用 Hugo &#43; GitHub Actions (自动部署) 方案。这是目前最稳定、最省心的方案，你只需要配置一次，以后写文章只需要“三行命令”。">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/ai%E8%BE%85%E5%8A%A9%E6%95%99%E7%A8%8B/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.e72f5f222d52fefbb5364978daf95328cfae4a088f7054da95a277e655e96f14.css" integrity="sha256-5y9fIi1S/vu1Nkl42vlTKM&#43;uSgiPcFTalaJ35lXpbxQ=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/ai%E8%BE%85%E5%8A%A9%E6%95%99%E7%A8%8B/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="我的空间 (Alt + H)">我的空间</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="首页">
+                    <span>首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/posts/" title="文章">
+                    <span>文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/categories/" title="分类">
+                    <span>分类</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="标签">
+                    <span>标签</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header"><div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      AI辅助教程
+    </h1>
+    <div class="post-meta"><span title='2026-02-01 11:58:07 +0800 CST'>2026-02-01</span>&nbsp;·&nbsp;<span>3 min</span></div>
+  </header>
+
+  
+  <div class="post-container">
+    
+    
+    <div class="post-main">
+      <div class="post-content"><p>这是基于我们刚才排查过的所有坑（环境报错、配置乱码、Git权限、部署冲突、文章不显示等），为你量身定制的**“避坑版”极简教程**。</p>
+<p>这套方案采用 <strong>Hugo + GitHub Actions (自动部署)</strong> 方案。这是目前最稳定、最省心的方案，你只需要配置一次，以后写文章只需要“三行命令”。</p>
+<hr>
+<h3 id="-第一步环境与建站">🛠 第一步：环境与建站<a hidden class="anchor" aria-hidden="true" href="#-第一步环境与建站">#</a></h3>
+<p>假设你已经安装好了 Git 和 VS Code。</p>
+<ol>
+<li>
+<p><strong>安装 Hugo (Windows 推荐)</strong>
+打开 CMD 或 PowerShell：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>winget install Hugo.Hugo.Extended
+</span></span></code></pre></div><p><em>(安装完后重启电脑，或者重启终端)</em></p>
+</li>
+<li>
+<p><strong>创建博客项目</strong>
+找个盘符（比如 D 盘），右键打开 Git Bash：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 1. 创建站点</span>
+</span></span><span style="display:flex;"><span>hugo new site myblog
+</span></span><span style="display:flex;"><span>cd myblog
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 2. 初始化 Git</span>
+</span></span><span style="display:flex;"><span>git init
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 3. 下载主题 (直接下载，避开 submodule 报错坑)</span>
+</span></span><span style="display:flex;"><span>git clone https://github.com/adityatelange/hugo-PaperMod.git themes/PaperMod --depth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span></code></pre></div></li>
+</ol>
+<hr>
+<h3 id="-第二步配置核心文件-直接复制不要改乱">⚙️ 第二步：配置核心文件 (直接复制，不要改乱)<a hidden class="anchor" aria-hidden="true" href="#-第二步配置核心文件-直接复制不要改乱">#</a></h3>
+<p>用 VS Code 打开 <code>myblog</code> 文件夹，找到 <strong><code>hugo.toml</code></strong>，全选删除，粘贴以下内容：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#a6e22e">baseURL</span> = <span style="color:#e6db74">&#39;https://你的用户名.github.io/&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">languageCode</span> = <span style="color:#e6db74">&#39;zh-cn&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">title</span> = <span style="color:#e6db74">&#39;我的博客&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">theme</span> = <span style="color:#e6db74">&#39;PaperMod&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 注意：不要加 publishDir = &#34;docs&#34;，我们用自动脚本处理</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">params</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">defaultTheme</span> = <span style="color:#e6db74">&#34;auto&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[<span style="color:#a6e22e">params</span>.<span style="color:#a6e22e">homeInfoParams</span>]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Title</span> = <span style="color:#e6db74">&#34;你好，我是博主&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">Content</span> = <span style="color:#e6db74">&#34;欢迎来到我的个人博客&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[[<span style="color:#a6e22e">menu</span>.<span style="color:#a6e22e">main</span>]]
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">name</span> = <span style="color:#e6db74">&#34;文章&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">url</span> = <span style="color:#e6db74">&#34;/posts&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">weight</span> = <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><hr>
+<h3 id="-第三步写第一篇文章-注意格式">📝 第三步：写第一篇文章 (注意格式)<a hidden class="anchor" aria-hidden="true" href="#-第三步写第一篇文章-注意格式">#</a></h3>
+<p>在终端输入：<code>hugo new posts/hello.md</code>
+然后打开该文件，<strong>确保头部信息是这样的（TOML 格式）</strong>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">+++</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">title</span> = <span style="color:#e6db74">&#34;我的第一篇文章&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">date</span> = <span style="color:#e6db74">2024-05-01T12:00:00+08:00</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">draft</span> = <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">+++</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">这里写正文</span>...
+</span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">(注意：</span><span style="color:#a6e22e">date</span> <span style="color:#960050;background-color:#1e0010">不要写未来的时间，</span><span style="color:#a6e22e">draft</span> <span style="color:#960050;background-color:#1e0010">必须是</span> <span style="color:#66d9ef">false</span><span style="color:#960050;background-color:#1e0010">)</span>
+</span></span></code></pre></div><hr>
+<h3 id="-第四步配置自动部署脚本-一次性工作">🤖 第四步：配置自动部署脚本 (一次性工作)<a hidden class="anchor" aria-hidden="true" href="#-第四步配置自动部署脚本-一次性工作">#</a></h3>
+<ol>
+<li>在项目根目录下，手动新建文件夹：<strong><code>.github</code></strong></li>
+<li>在 <code>.github</code> 里面新建文件夹：<strong><code>workflows</code></strong></li>
+<li>在 <code>workflows</code> 里面新建文件：<strong><code>deploy.yml</code></strong></li>
+<li>粘贴以下内容（这是让机器人干活的指令）：</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">name</span>: <span style="color:#ae81ff">Deploy to GitHub Pages</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">on</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">push</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">branches</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">main </span> <span style="color:#75715e"># 监听 main 分支</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">jobs</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">deploy</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">runs-on</span>: <span style="color:#ae81ff">ubuntu-latest</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">steps</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">actions/checkout@v4</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">with</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">submodules</span>: <span style="color:#66d9ef">true</span>  <span style="color:#75715e"># Fetch Hugo themes (true OR recursive)</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">fetch-depth</span>: <span style="color:#ae81ff">0</span>    <span style="color:#75715e"># Fetch all history for .GitInfo and .Lastmod</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Setup Hugo</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">peaceiris/actions-hugo@v2</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">with</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">hugo-version</span>: <span style="color:#e6db74">&#39;latest&#39;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">extended</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Build</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">run</span>: <span style="color:#ae81ff">hugo --minify</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">Deploy</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">uses</span>: <span style="color:#ae81ff">peaceiris/actions-gh-pages@v3</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">with</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">github_token</span>: <span style="color:#ae81ff">${{ secrets.GITHUB_TOKEN }}</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">publish_dir</span>: <span style="color:#ae81ff">./public </span> <span style="color:#75715e"># 机器人把这里生成的网页发布出去</span>
+</span></span></code></pre></div><hr>
+<h3 id="-第五步github-仓库与权限设置-最关键">🔐 第五步：GitHub 仓库与权限设置 (最关键！)<a hidden class="anchor" aria-hidden="true" href="#-第五步github-仓库与权限设置-最关键">#</a></h3>
+<ol>
+<li><strong>去 GitHub 创建仓库：</strong> 仓库名必须是 <code>你的用户名.github.io</code>。</li>
+<li><strong>设置权限 (解决 403 报错)：</strong>
+<ul>
+<li>进入仓库 -&gt; <strong>Settings</strong> -&gt; <strong>Actions</strong> -&gt; <strong>General</strong>。</li>
+<li>拉到最下 <strong>Workflow permissions</strong>。</li>
+<li>勾选 <strong>Read and write permissions</strong>。</li>
+<li>点击 <strong>Save</strong>。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="-第六步推送到-github">🚀 第六步：推送到 GitHub<a hidden class="anchor" aria-hidden="true" href="#-第六步推送到-github">#</a></h3>
+<p>回到本地 Git Bash，执行：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 1. 关联远程仓库 (如果你还没做过)</span>
+</span></span><span style="display:flex;"><span>git remote add origin https://github.com/你的用户名/你的用户名.github.io.git
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 如果提示已存在，用 git remote set-url origin ...</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 2. 推送三连击</span>
+</span></span><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;首次发布&#34;</span>
+</span></span><span style="display:flex;"><span>git push -u origin main
+</span></span></code></pre></div><p><em>(如果网络卡住，记得开手机热点；如果提示冲突，用 <code>git push -f origin main</code>)</em></p>
+<hr>
+<h3 id="-第七步最后的开关">🌍 第七步：最后的开关<a hidden class="anchor" aria-hidden="true" href="#-第七步最后的开关">#</a></h3>
+<ol>
+<li>等待 GitHub Actions 跑完（仓库页面顶部 Actions 标签变绿）。</li>
+<li>进入仓库 -&gt; <strong>Settings</strong> -&gt; <strong>Pages</strong>。</li>
+<li><strong>Build and deployment</strong> 设置：
+<ul>
+<li><strong>Source:</strong> Deploy from a branch</li>
+<li><strong>Branch:</strong> 选 <strong><code>gh-pages</code></strong> (注意：机器人会自动创建这个分支)</li>
+<li><strong>Folder:</strong> 选 <strong><code>/(root)</code></strong></li>
+</ul>
+</li>
+<li>点击 Save。</li>
+</ol>
+<p>等待 1 分钟，访问 <code>https://你的用户名.github.io</code>，成功！</p>
+<hr>
+<h3 id="-以后怎么写新文章日常流程">📅 以后怎么写新文章？(日常流程)<a hidden class="anchor" aria-hidden="true" href="#-以后怎么写新文章日常流程">#</a></h3>
+<p>以后你只需要做这几步，<strong>不需要</strong>再动配置，也<strong>不需要</strong>管 public 文件夹：</p>
+<ol>
+<li><code>hugo new posts/新文章.md</code></li>
+<li>写内容，改 <code>draft = false</code>。</li>
+<li>执行推送命令：
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git add .
+</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;新文章&#34;</span>
+</span></span><span style="display:flex;"><span>git push
+</span></span></code></pre></div></li>
+<li><strong>结束！</strong> 剩下的交给机器人，喝杯茶等网站自动更新。</li>
+</ol>
+
+
+      </div>
+    </div>
+
+    
+    <aside class="toc-sidebar">
+      <div class="toc-wrapper">
+        <div class="toc-title">📑 目录</div>
+        <nav class="toc-nav">
+          <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#-第一步环境与建站">🛠 第一步：环境与建站</a></li>
+        <li><a href="#-第二步配置核心文件-直接复制不要改乱">⚙️ 第二步：配置核心文件 (直接复制，不要改乱)</a></li>
+        <li><a href="#-第三步写第一篇文章-注意格式">📝 第三步：写第一篇文章 (注意格式)</a></li>
+        <li><a href="#-第四步配置自动部署脚本-一次性工作">🤖 第四步：配置自动部署脚本 (一次性工作)</a></li>
+        <li><a href="#-第五步github-仓库与权限设置-最关键">🔐 第五步：GitHub 仓库与权限设置 (最关键！)</a></li>
+        <li><a href="#-第六步推送到-github">🚀 第六步：推送到 GitHub</a></li>
+        <li><a href="#-第七步最后的开关">🌍 第七步：最后的开关</a></li>
+        <li><a href="#-以后怎么写新文章日常流程">📅 以后怎么写新文章？(日常流程)</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </nav>
+      </div>
+    </aside>
+
+  </div>
+  
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/posts/%E4%BA%91%E5%8D%97%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A6%E9%87%8D%E6%B5%8B%E5%BA%8F%E9%A1%B9%E7%9B%AE%E6%95%99%E7%A8%8B/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>云南农业大学重测序项目教程</span>
+  </a>
+  <a class="next" href="http://localhost:1313/posts/hello-hugo/">
+    <span class="title">Next »</span>
+    <br>
+    <span>部署文章</span>
+  </a>
+</nav>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>tdx0307</span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

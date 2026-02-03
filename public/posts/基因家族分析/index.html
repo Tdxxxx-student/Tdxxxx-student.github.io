@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="noindex, nofollow">
+<title>基因家族分析 | 我的空间</title>
+<meta name="keywords" content="多重序列比对, 遗传进化树, motif分析, hmm结构与分析, 理化性质分析, 启动子序列分析, 共线性分析">
+<meta name="description" content="基因家族分析流程与文章撰写思路
+基因家族分析是一种常见的生物信息学分析套路，也是生物信息学数据挖掘发表小文章常用的分析方法，和GEO挖掘等类似。基因家族的分析鉴定可以用pfam上的hmm文件进行基因家族的检索鉴定，也可以用blast的方法进行比对鉴定，通常是适用拟南芥对应的基因家族进行比对鉴定。">
+<meta name="author" content="">
+<link rel="canonical" href="http://localhost:1313/posts/%E5%9F%BA%E5%9B%A0%E5%AE%B6%E6%97%8F%E5%88%86%E6%9E%90/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.e72f5f222d52fefbb5364978daf95328cfae4a088f7054da95a277e655e96f14.css" integrity="sha256-5y9fIi1S/vu1Nkl42vlTKM&#43;uSgiPcFTalaJ35lXpbxQ=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/%E5%9F%BA%E5%9B%A0%E5%AE%B6%E6%97%8F%E5%88%86%E6%9E%90/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="我的空间 (Alt + H)">我的空间</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="首页">
+                    <span>首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/posts/" title="文章">
+                    <span>文章</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/categories/" title="分类">
+                    <span>分类</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="标签">
+                    <span>标签</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header"><div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      基因家族分析
+    </h1>
+    <div class="post-meta"><span title='2026-02-03 16:53:01 +0800 CST'>2026-02-03</span>&nbsp;·&nbsp;<span>6 min</span></div>
+  </header>
+
+  
+  <div class="post-container">
+    
+    
+    <div class="post-main">
+      <div class="post-content"><h1 id="基因家族分析流程与文章撰写思路">基因家族分析流程与文章撰写思路<a hidden class="anchor" aria-hidden="true" href="#基因家族分析流程与文章撰写思路">#</a></h1>
+<p>基因家族分析是一种常见的生物信息学分析套路，也是生物信息学数据挖掘发表小文章常用的分析方法，和GEO挖掘等类似。基因家族的分析鉴定可以用pfam上的hmm文件进行基因家族的检索鉴定，也可以用blast的方法进行比对鉴定，通常是适用拟南芥对应的基因家族进行比对鉴定。</p>
+<p>植物转录因子数据库，点击访问。</p>
+<h2 id="基因家族分析思路及文章撰写思路">基因家族分析思路及文章撰写思路<a hidden class="anchor" aria-hidden="true" href="#基因家族分析思路及文章撰写思路">#</a></h2>
+<p>基因家族分析是继GEO数据挖掘后，一种新的生物信息学挖掘策略。</p>
+<p>如何做基因家族研究，可以参考这个帖子：<a href="http://www.planttech.com.cn/blog/58882464a46">http://www.planttech.com.cn/blog/58882464a46</a>。</p>
+<hr>
+<h2 id="数据准备">数据准备<a hidden class="anchor" aria-hidden="true" href="#数据准备">#</a></h2>
+<p>需要准备的数据主要是参考基因组数据，包括fasta格式的序列文件、gff或gtf格式的基因组注释文件、蛋白质序列文件（通常是每个转录本的蛋白序列）、cDNA序列等文件。如果有转录组数据的话进行对应的转录组分析即可。除开上述这些文件外，还需要适用的文件还有.hmm格式的文件。</p>
+<h2 id="软件准备">软件准备<a hidden class="anchor" aria-hidden="true" href="#软件准备">#</a></h2>
+<p>只需要会使用Linux系统，会安装Docker即可，然后下载组学大讲堂的镜像即可。点击浏览镜像地址。Docker的安装适用方法参考@ref(WSL4Docker)。</p>
+<hr>
+<h2 id="分析过程">分析过程<a hidden class="anchor" aria-hidden="true" href="#分析过程">#</a></h2>
+<h3 id="mrna_id与基因id的提取">mRNA_ID与基因ID的提取<a hidden class="anchor" aria-hidden="true" href="#mrna_id与基因id的提取">#</a></h3>
+<p>由于一个基因会对应多个转录本，因此一个基因下会对应多个mRNA的编号。在后续的分析中，每个基因只需要选择一个转录本的编号进行分析即可，因为每个基因不同的转录本的序列差异是较小的。提取的代码：</p>
+<p>bash</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>perl code/script/mRNAid_to_geneid.pl data/unzip_data/*.gff* results/step.1.get.mRNA.and.gene.ID/mRNA2geneID.txt
+</span></span><span style="display:flex;"><span>perl code/script/geneid_to_mRNAid.pl data/unzip_data/*.gff* results/step.1.get.mRNA.and.gene.ID/geneID2mRNAid.txt
+</span></span></code></pre></div><h3 id="检索结构域">检索结构域<a hidden class="anchor" aria-hidden="true" href="#检索结构域">#</a></h3>
+<p>这一步主要是以.hmm文件为基础检索该物种蛋白序列中含有该结构域的序列。输入文件包括.hmm文件和蛋白文件，输出hmmsearch的检索结果。其中用于后续筛选的是evalue这个参数，部分文章以0.001为阈值。of那一列表示的是某个基因对应的这个结构域有几个。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>hmmsearch --domtblout results/step.2.domain.search/hmm.txt --cut_tc data/unzip_data/*.hmm data/unzip_data/*.pep*
+</span></span></code></pre></div><h3 id="选择结构域">选择结构域<a hidden class="anchor" aria-hidden="true" href="#选择结构域">#</a></h3>
+<p>由于一个基因的单个转录本可能会比对到多个结构域，因此需要对比对到的结构域进行选择。默认选择的是第一个结构域。下面代码的最后一个参数是hmmsearch输出文件里面的E-value,如果需要全部的第一个结构域，将阈值设置为1即可。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>perl code/script/domain_xulie.pl results/step.2.domain.search/hmm.txt data/unzip_data/*.pep* results/step.2.domain.search/domain.fa 1.2e-28
+</span></span></code></pre></div><h3 id="多序列比对">多序列比对<a hidden class="anchor" aria-hidden="true" href="#多序列比对">#</a></h3>
+<p>之所以要进行多序列比对，是因为下载的.hmm文件是来自很多物种的这个结构域组成的隐马尔科夫模型，进行多序列比对后将该物种检索到的结构域序列进行比对，再次构建该物种该基因家族的隐马尔科夫模型，会更加准确。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>echo -e <span style="color:#e6db74">&#39;1\nresults/step.2.domain.search/domain.fa\n2\n1\nresults/step.2.domain.search/out.aln\nr.domain.search/out.dnd\nX\n\n\nX\n&#39;</span> |clustalw
+</span></span></code></pre></div><h3 id="重构隐马尔科夫模型">重构隐马尔科夫模型<a hidden class="anchor" aria-hidden="true" href="#重构隐马尔科夫模型">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>hmmbuild results/step.2.domain.search/new.hmm results/step.2.domain.search/out.aln
+</span></span></code></pre></div><h3 id="重新进行检索">重新进行检索<a hidden class="anchor" aria-hidden="true" href="#重新进行检索">#</a></h3>
+<p>利用构建得到的新的隐马尔科夫模型重新进行检索结构域。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>hmmsearch --domtblout results/step.2.domain.search/new.out.txt --cut_tc results/step.2.domain.search/new.hmm data/unzip_data/*.pep*
+</span></span></code></pre></div><h3 id="筛选输出结果">筛选输出结果<a hidden class="anchor" aria-hidden="true" href="#筛选输出结果">#</a></h3>
+<p>对重新检索后的结果进行筛选，也是对E-value进行筛选。</p>
+<p>bash</p>
+<pre tabindex="0"><code>grep -v &#34;^#&#34; results/step.2.domain.search/new.out.txt|awk &#39;$7&lt;0.001 {print}&#39; &gt; results/step.2.domain.search/domain.new.out.selected.txt
+</code></pre><h3 id="去除重复的id">去除重复的ID<a hidden class="anchor" aria-hidden="true" href="#去除重复的id">#</a></h3>
+<p>上一步筛选得到的是该种中哪些基因是潜在的目标基因家族成员，而一个基因对应了多个mRNA，因此，只需要在筛选后的每个基因中选择一个具有代表性的mRNA进行后续的分析即可。这个提取唯一ID的步骤需要手动完成（PS：手动完成也很快）。手动挑选完mRNA的ID放在第一列，另存为文件uniqueID.txt。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>perl code/script/select_redundant_mRNA.pl results/step.1.get.mRNA.and.gene.ID/mRNA2geneID.txt results/step.2.domain.search/domain.new.out.selected.txt results/step.2.domain.search/remove_redundant_IDlist.txt
+</span></span></code></pre></div><h3 id="提取蛋白序列">提取蛋白序列<a hidden class="anchor" aria-hidden="true" href="#提取蛋白序列">#</a></h3>
+<p>在得到基因ID后需要提取蛋白序列进行后续的分析。在SMART或者Pfam或NCBI CDD确认这些基因是真真正正含有该结构域，没有的基因要剔除！在SMART中没有检索到结构域的基因在gene.not.in.SMART.txt中；在Pfam中全都是WRKY结构域，对应文件为Pfam.results.txt。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>perl code/script/get_fa_by_id.pl results/step.2.domain.search/uniqueID.txt data/unzip_data/*.pep* results/step
+</span></span><span style="display:flex;"><span>.2.domain.search/pep.need.confirm.fa
+</span></span></code></pre></div><h3 id="计算蛋白质分子量等">计算蛋白质分子量等<a hidden class="anchor" aria-hidden="true" href="#计算蛋白质分子量等">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>perl code/script/stat_protein_fa.pl results/step.2.domain.search/pep.need.confirm.fa results/step.2.domain.search/pep.MW.txt
+</span></span></code></pre></div><h3 id="构建进化树">构建进化树<a hidden class="anchor" aria-hidden="true" href="#构建进化树">#</a></h3>
+<p>选择利用软件CLUSTALW进行多序列比对，然后利用MEGA构建进化树。CLUSTALW输出结果转换成.fasta格式的方法参考@ref(pac4xiang)。</p>
+<h3 id="motif分析">Motif分析<a hidden class="anchor" aria-hidden="true" href="#motif分析">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>meme results/step.3.seq.and.tree/pep_confirmed.fa -protein -oc results/step.4.motif/ -nostatus -time <span style="color:#ae81ff">18000</span> -maxsize <span style="color:#ae81ff">6000000</span> -mod anr -nmotifs <span style="color:#ae81ff">10</span> -minw <span style="color:#ae81ff">6</span> -maxw <span style="color:#ae81ff">100</span>
+</span></span></code></pre></div><h3 id="基因结构分析">基因结构分析<a hidden class="anchor" aria-hidden="true" href="#基因结构分析">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>perl code/script/get_gene_exon_from_gff.pl -in1 results/step.2.domain.search/uniqueID.txt -in2 data/unzip_data/*.gff* -out results/step.5.gene.structure/gene_exon_info.gff
+</span></span></code></pre></div><h3 id="基因在染色体上的定位">基因在染色体上的定位<a hidden class="anchor" aria-hidden="true" href="#基因在染色体上的定位">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>samtools faidx data/unzip_data/*.dna*
+</span></span><span style="display:flex;"><span>cp data/unzip_data/*.fai results/step.5.gene.structure/
+</span></span><span style="display:flex;"><span>perl code/script/get_gene_weizhi.pl -in1 results/step.2.domain.search/uniqueID.txt -in2 data/unzip_data/*.gff* -out results/step.5.gene.structure/mrna_location.txt
+</span></span></code></pre></div><h3 id="顺式作用元件分析">顺式作用元件分析<a hidden class="anchor" aria-hidden="true" href="#顺式作用元件分析">#</a></h3>
+<p>脚本默认的启动子长度是1500bp。将提取得到的启动子序列上传到Plane CARE进行分析。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>perl code/script/get_promoter.pl data/unzip_data/*dna.top* results/step.5.gene.structure/mrna_location.txt results/step.6.cis.acting.element/promoter.txt
+</span></span></code></pre></div><h3 id="基因家族成员的亚细胞定位分析">基因家族成员的亚细胞定位分析<a hidden class="anchor" aria-hidden="true" href="#基因家族成员的亚细胞定位分析">#</a></h3>
+<p>两个网站：WolfPsort和Cello。</p>
+<h3 id="基因组共线性分析">基因组共线性分析<a hidden class="anchor" aria-hidden="true" href="#基因组共线性分析">#</a></h3>
+<p>从geneid2mRNAid.txt文件中每个基因挑一个转录本ID存储到allmRNAID.txt，也就是每个基因挑选一个转录本。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir MCScanX
+</span></span><span style="display:flex;"><span>cd MCScanX
+</span></span><span style="display:flex;"><span>mkdir mcscan
+</span></span></code></pre></div><h4 id="获取转录本的位置信息">获取转录本的位置信息：<a hidden class="anchor" aria-hidden="true" href="#获取转录本的位置信息">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>perl ../script/get_mRNA_position.pl allmRNAID.txt ../Arabidopsis_thaliana.TAIR10.41.gff3 AT.gff
+</span></span></code></pre></div><p>输出示例：</p>
+<p>text</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 分别是染色体位置，转录本ID，起始位置和终止位置</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>       Pno01G013682.t2 <span style="color:#ae81ff">7993891</span> <span style="color:#ae81ff">8000167</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>       Pno01G011207.t1 <span style="color:#ae81ff">6521081</span> <span style="color:#ae81ff">6522022</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>       Pno01G002381.t1 <span style="color:#ae81ff">15982661</span>        <span style="color:#ae81ff">15984634</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>       Pno01G006728.t1 <span style="color:#ae81ff">32747373</span>        <span style="color:#ae81ff">32748586</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>       Pno01G001298.t1 <span style="color:#ae81ff">134750756</span>       <span style="color:#ae81ff">134753812</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>       Pno01G000565.t1 <span style="color:#ae81ff">11549686</span>        <span style="color:#ae81ff">11558266</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>       Pno01G005598.t1 <span style="color:#ae81ff">23981500</span>        <span style="color:#ae81ff">23984173</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>       Pno01G012140.t1 <span style="color:#ae81ff">707333</span>  <span style="color:#ae81ff">718266</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>       Pno01G006114.t1 <span style="color:#ae81ff">27812391</span>        <span style="color:#ae81ff">27816942</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span>       Pno01G001551.t1 <span style="color:#ae81ff">14123991</span>        <span style="color:#ae81ff">14125021</span>
+</span></span></code></pre></div><h4 id="获取挑选的转录本的蛋白序列">获取挑选的转录本的蛋白序列：<a hidden class="anchor" aria-hidden="true" href="#获取挑选的转录本的蛋白序列">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>perl ../script/get_fa_by_id.pl allmRNAID.txt ../Arabidopsis_thaliana.TAIR10.pep.all.fa pep.fa
+</span></span></code></pre></div><h4 id="对所有蛋白进行建库">对所有蛋白进行建库：<a hidden class="anchor" aria-hidden="true" href="#对所有蛋白进行建库">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>makeblastdb -in pep.fa  -dbtype prot -title pep.fa
+</span></span></code></pre></div><h4 id="blast比对">blast比对：<a hidden class="anchor" aria-hidden="true" href="#blast比对">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>blastall -i pep.fa -d pep.fa -e 1e-10  -p blastp  -b <span style="color:#ae81ff">5</span> -v <span style="color:#ae81ff">5</span> -m <span style="color:#ae81ff">8</span> -o mcscan/AT.blast
+</span></span><span style="display:flex;"><span>cp AT.gff mcscan/AT.gff
+</span></span></code></pre></div><h4 id="mcscanx查找共线性">MCScanX查找共线性：<a hidden class="anchor" aria-hidden="true" href="#mcscanx查找共线性">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>MCScanX mcscan/AT
+</span></span></code></pre></div><p>得到的结果是整个基因组的结果：</p>
+<p>text</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>-rwxrwxrwx <span style="color:#ae81ff">1</span> xiang xiang  17M Dec  <span style="color:#ae81ff">6</span> 23:59 sanqi.blast
+</span></span><span style="display:flex;"><span>-rwxrwxrwx <span style="color:#ae81ff">1</span> xiang xiang 339K Dec  <span style="color:#ae81ff">7</span> 10:48 sanqi.collinearity <span style="color:#75715e"># 基因组的所有大片段复制</span>
+</span></span><span style="display:flex;"><span>-rwxrwxrwx <span style="color:#ae81ff">1</span> xiang xiang 1.7M Dec  <span style="color:#ae81ff">7</span> 10:47 sanqi.gff
+</span></span><span style="display:flex;"><span>drwxrwxrwx <span style="color:#ae81ff">1</span> xiang xiang 4.0K Dec  <span style="color:#ae81ff">7</span> 10:48 sanqi.html
+</span></span><span style="display:flex;"><span>-rwxrwxrwx <span style="color:#ae81ff">1</span> xiang xiang  39K Dec  <span style="color:#ae81ff">7</span> 10:48 sanqi.tandem <span style="color:#75715e"># 基因组的所有串联重复</span>
+</span></span></code></pre></div><h4 id="结果解读">结果解读：<a hidden class="anchor" aria-hidden="true" href="#结果解读">#</a></h4>
+<p><strong>串联重复</strong>：当一行里面的两个基因都是感兴趣的基因家族基因的时候，就是需要的串联重复基因。</p>
+<p>text</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>Pno01G001040.t1,Pno01G001042.t1
+</span></span><span style="display:flex;"><span>Pno01G001410.t1,Pno01G001412.t1
+</span></span><span style="display:flex;"><span>Pno01G001524.t1,Pno01G001525.t1
+</span></span><span style="display:flex;"><span>Pno01G001558.t1,Pno01G001560.t1
+</span></span><span style="display:flex;"><span>Pno01G001628.t1,Pno01G001629.t1
+</span></span></code></pre></div><p><strong>大片段复制</strong>：当一行里面的两个基因都是感兴趣的基因家族基因的时候，就是需要的大片段复制基因。</p>
+<p>text</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">############### Parameters ###############</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># MATCH_SCORE: 50</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># MATCH_SIZE: 5</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># GAP_PENALTY: -1</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># OVERLAP_WINDOW: 5</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># E_VALUE: 1e-05</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># MAX GAPS: 25</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">############### Statistics ###############</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Number of collinear genes: 10371, Percentage: 21.66</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Number of all genes: 47870</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##########################################</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Alignment 0: score=269.0 e_value=4.6e-10 N=6 1&amp;1 plus</span>
+</span></span><span style="display:flex;"><span>  0-  0:        Pno01G005483.t1 Pno01G005033.t2   8e-54
+</span></span><span style="display:flex;"><span>  0-  1:        Pno01G005544.t1 Pno01G005040.t3  7e-159
+</span></span><span style="display:flex;"><span>  0-  2:        Pno01G005828.t1 Pno01G005055.t1  2e-103
+</span></span><span style="display:flex;"><span>  0-  3:        Pno01G005829.t1 Pno01G005058.t1       <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>  0-  4:        Pno01G005897.t1 Pno01G005088.t1  1e-164
+</span></span><span style="display:flex;"><span>  0-  5:        Pno01G006072.t2 Pno01G005092.t1   1e-80
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Alignment 1: score=362.0 e_value=2.8e-14 N=8 1&amp;1 minus</span>
+</span></span><span style="display:flex;"><span>  1-  0:        Pno01G000527.t2 Pno01G004765.t1   2e-75
+</span></span><span style="display:flex;"><span>  1-  1:        Pno01G000535.t1 Pno01G004763.t1       <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>  1-  2:        Pno01G000542.t2 Pno01G004760.t2  4e-152
+</span></span><span style="display:flex;"><span>  1-  3:        Pno01G000545.t2 Pno01G004757.t1   7e-68
+</span></span><span style="display:flex;"><span>  1-  4:        Pno01G000558.t1 Pno01G004741.t6   8e-20
+</span></span><span style="display:flex;"><span>  1-  5:        Pno01G000568.t2 Pno01G004737.t2  4e-144
+</span></span><span style="display:flex;"><span>  1-  6:        Pno01G000599.t1 Pno01G004735.t1   2e-68
+</span></span><span style="display:flex;"><span>  1-  7:        Pno01G000636.t1 Pno01G004716.t1  1e-144
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Alignment 2: score=290.0 e_value=3.9e-11 N=7 1&amp;1 minus</span>
+</span></span><span style="display:flex;"><span>  2-  0:        Pno01G006165.t1 Pno01G002002.t1   1e-23
+</span></span><span style="display:flex;"><span>  2-  1:        Pno01G006238.t1 Pno01G001895.t1       <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>  2-  2:        Pno01G006400.t1 Pno01G001832.t2   3e-87
+</span></span><span style="display:flex;"><span>  2-  3:        Pno01G006416.t2 Pno01G001818.t1   3e-48
+</span></span><span style="display:flex;"><span>  2-  4:        Pno01G006555.t1 Pno01G001725.t1  2e-130
+</span></span><span style="display:flex;"><span>  2-  5:        Pno01G006745.t1 Pno01G001684.t1   2e-46
+</span></span><span style="display:flex;"><span>  2-  6:        Pno01G006864.t1 Pno01G001662.t1       <span style="color:#ae81ff">0</span>
+</span></span></code></pre></div><h4 id="找打目标基因家族中存在串联重复的基因">找打目标基因家族中存在串联重复的基因：<a hidden class="anchor" aria-hidden="true" href="#找打目标基因家族中存在串联重复的基因">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>perl /biosoft/MCScanX/MCScanX/downstream_analyses/detect_collinearity_within_gene_families.pl -i WRKY_family.txt -d mcscan/AT.collinearity -o WRKY.collinear.pairs
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>perl ../script/get_tandem_gene.pl -id gene_list.txt -tandem mcscan/AT.tandem -od ./ -name WRKY
+</span></span></code></pre></div><h4 id="基因加倍绘图">基因加倍绘图：<a hidden class="anchor" aria-hidden="true" href="#基因加倍绘图">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>mkdir circos
+</span></span><span style="display:flex;"><span>cd circos
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cp ../MCScanX/mcscan/AT.collinearity .   
+</span></span><span style="display:flex;"><span>cp ../MCScanX/WRKY.collinear.pairs .
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>perl ../script/colline_v3.pl -gff ../MCScanX/AT.gff -list WRKY.collinear.pairs -colline AT.collinearity -od data -name WRKY
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cd data
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>circos -conf config3.txt -outputdir ./ -outputfile WRKY
+</span></span></code></pre></div><h4 id="配置文件">配置文件：<a hidden class="anchor" aria-hidden="true" href="#配置文件">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>chromosomes_units<span style="color:#f92672">=</span><span style="color:#ae81ff">1000000</span>    <span style="color:#75715e">#刻度单位Mb</span>
+</span></span><span style="display:flex;"><span>karyotype<span style="color:#f92672">=</span>./chr.info  <span style="color:#75715e">#染色体信息配置文件</span>
+</span></span><span style="display:flex;"><span>show_tick_labels<span style="color:#f92672">=</span>yes
+</span></span><span style="display:flex;"><span>show_ticks<span style="color:#f92672">=</span>yes
+</span></span><span style="display:flex;"><span>spacing<span style="color:#f92672">=</span>10u
+</span></span><span style="display:flex;"><span>&lt;ticks&gt;  <span style="color:#75715e">#设置染色体刻度</span>
+</span></span><span style="display:flex;"><span>    color<span style="color:#f92672">=</span>black
+</span></span><span style="display:flex;"><span>    format<span style="color:#f92672">=</span>%d
+</span></span><span style="display:flex;"><span>    multiplier<span style="color:#f92672">=</span>1e-6
+</span></span><span style="display:flex;"><span>    radius<span style="color:#f92672">=</span>1r
+</span></span><span style="display:flex;"><span>    thickness<span style="color:#f92672">=</span>2p
+</span></span><span style="display:flex;"><span>    &lt;tick&gt;
+</span></span><span style="display:flex;"><span>        size<span style="color:#f92672">=</span>10p
+</span></span><span style="display:flex;"><span>        spacing<span style="color:#f92672">=</span>5u
+</span></span><span style="display:flex;"><span>    &lt;/tick&gt;
+</span></span><span style="display:flex;"><span>    &lt;tick&gt;
+</span></span><span style="display:flex;"><span>        color<span style="color:#f92672">=</span>black
+</span></span><span style="display:flex;"><span>        format<span style="color:#f92672">=</span>%d
+</span></span><span style="display:flex;"><span>        label_offset<span style="color:#f92672">=</span>10p
+</span></span><span style="display:flex;"><span>        label_size<span style="color:#f92672">=</span>25p
+</span></span><span style="display:flex;"><span>        show_label<span style="color:#f92672">=</span>yes
+</span></span><span style="display:flex;"><span>        size<span style="color:#f92672">=</span>15p
+</span></span><span style="display:flex;"><span>        spacing<span style="color:#f92672">=</span>25u
+</span></span><span style="display:flex;"><span>        thickness<span style="color:#f92672">=</span>4p
+</span></span><span style="display:flex;"><span>    &lt;/tick&gt;
+</span></span><span style="display:flex;"><span>&lt;/ticks&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;ideogram&gt; <span style="color:#75715e">#染色体绘制设置</span>
+</span></span><span style="display:flex;"><span>    fill<span style="color:#f92672">=</span>yes   <span style="color:#75715e">#是否填充颜色</span>
+</span></span><span style="display:flex;"><span>    label_font<span style="color:#f92672">=</span>default
+</span></span><span style="display:flex;"><span>    label_parallel<span style="color:#f92672">=</span>yes
+</span></span><span style="display:flex;"><span>    label_radius<span style="color:#f92672">=</span>dims<span style="color:#f92672">(</span>image,radius<span style="color:#f92672">)</span>-60p
+</span></span><span style="display:flex;"><span>    label_size<span style="color:#f92672">=</span><span style="color:#ae81ff">45</span>
+</span></span><span style="display:flex;"><span>    radius<span style="color:#f92672">=</span>0.8r  <span style="color:#75715e">#设置半径，以免基因名称过长超出显示范围</span>
+</span></span><span style="display:flex;"><span>    show_label<span style="color:#f92672">=</span>yes
+</span></span><span style="display:flex;"><span>    &lt;spacing&gt;
+</span></span><span style="display:flex;"><span>        default<span style="color:#f92672">=</span>0.005r
+</span></span><span style="display:flex;"><span>    &lt;/spacing&gt;
+</span></span><span style="display:flex;"><span>    stroke_color<span style="color:#f92672">=</span>dgrey
+</span></span><span style="display:flex;"><span>    stroke_thickness<span style="color:#f92672">=</span>2p
+</span></span><span style="display:flex;"><span>    thickness<span style="color:#f92672">=</span>0.03r
+</span></span><span style="display:flex;"><span>&lt;/ideogram&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;links&gt;  <span style="color:#75715e">#设置连线</span>
+</span></span><span style="display:flex;"><span>    bezier_radius<span style="color:#f92672">=</span>0r
+</span></span><span style="display:flex;"><span>    bezier_radius_purity<span style="color:#f92672">=</span>0.75
+</span></span><span style="display:flex;"><span>    color<span style="color:#f92672">=</span>black
+</span></span><span style="display:flex;"><span>    crest<span style="color:#f92672">=</span>0.5
+</span></span><span style="display:flex;"><span>    &lt;link&gt;  <span style="color:#75715e">#基因家族共线性</span>
+</span></span><span style="display:flex;"><span>        bezier_radius<span style="color:#f92672">=</span>0r
+</span></span><span style="display:flex;"><span>        bezier_radius_purity<span style="color:#f92672">=</span>0.75
+</span></span><span style="display:flex;"><span>        color<span style="color:#f92672">=</span>set2-8-qual-1
+</span></span><span style="display:flex;"><span>        crest<span style="color:#f92672">=</span>0.5
+</span></span><span style="display:flex;"><span>        file<span style="color:#f92672">=</span>./nlr.link.txt    <span style="color:#75715e">#输入文件</span>
+</span></span><span style="display:flex;"><span>        radius<span style="color:#f92672">=</span>0.98r
+</span></span><span style="display:flex;"><span>        &lt;rules&gt;
+</span></span><span style="display:flex;"><span>            &lt;rule&gt;
+</span></span><span style="display:flex;"><span>                color<span style="color:#f92672">=</span>red
+</span></span><span style="display:flex;"><span>                condition<span style="color:#f92672">=</span>var<span style="color:#f92672">(</span>intrachr<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>            &lt;/rule&gt;
+</span></span><span style="display:flex;"><span>            &lt;rule&gt;
+</span></span><span style="display:flex;"><span>                color<span style="color:#f92672">=</span>red
+</span></span><span style="display:flex;"><span>                condition<span style="color:#f92672">=</span>var<span style="color:#f92672">(</span>interchr<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>            &lt;/rule&gt;
+</span></span><span style="display:flex;"><span>        &lt;/rules&gt;
+</span></span><span style="display:flex;"><span>        thickness<span style="color:#f92672">=</span><span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span>        z<span style="color:#f92672">=</span><span style="color:#ae81ff">20</span>   <span style="color:#75715e">#层数</span>
+</span></span><span style="display:flex;"><span>    &lt;/link&gt;
+</span></span><span style="display:flex;"><span>    &lt;link&gt;  <span style="color:#75715e">#全基因组共线性</span>
+</span></span><span style="display:flex;"><span>        bezier_radius<span style="color:#f92672">=</span>0r
+</span></span><span style="display:flex;"><span>        bezier_radius_purity<span style="color:#f92672">=</span>0.75
+</span></span><span style="display:flex;"><span>        color<span style="color:#f92672">=</span>230,230,230,0.2
+</span></span><span style="display:flex;"><span>        crest<span style="color:#f92672">=</span>0.5
+</span></span><span style="display:flex;"><span>        ribbon<span style="color:#f92672">=</span>yes
+</span></span><span style="display:flex;"><span>        file<span style="color:#f92672">=</span>./genome.blocklink.txt   <span style="color:#75715e">#输入文件</span>
+</span></span><span style="display:flex;"><span>        radius<span style="color:#f92672">=</span>0.98r
+</span></span><span style="display:flex;"><span>        thickness<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        z<span style="color:#f92672">=</span><span style="color:#ae81ff">15</span>
+</span></span><span style="display:flex;"><span>    &lt;/link&gt;
+</span></span><span style="display:flex;"><span>    radius<span style="color:#f92672">=</span>0.40r
+</span></span><span style="display:flex;"><span>    thickness<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>&lt;/links&gt;
+</span></span><span style="display:flex;"><span>&lt;plots&gt;
+</span></span><span style="display:flex;"><span>    &lt;plot&gt;
+</span></span><span style="display:flex;"><span>       color<span style="color:#f92672">=</span>black
+</span></span><span style="display:flex;"><span>	   label_snuggle<span style="color:#f92672">=</span>yes  <span style="color:#75715e">#如多个文本文字距离过近，避免重叠  参考：https://www.omicsclass.com/article/678</span>
+</span></span><span style="display:flex;"><span>        file<span style="color:#f92672">=</span>./nlr.text.txt  <span style="color:#75715e">#输入文件</span>
+</span></span><span style="display:flex;"><span>        label_font<span style="color:#f92672">=</span>condensed
+</span></span><span style="display:flex;"><span>        label_size<span style="color:#f92672">=</span>24p
+</span></span><span style="display:flex;"><span>        link_color<span style="color:#f92672">=</span>red
+</span></span><span style="display:flex;"><span>		link_dims<span style="color:#f92672">=</span>10p,10p,50p,20p,10p
+</span></span><span style="display:flex;"><span>        link_thickness<span style="color:#f92672">=</span>2p
+</span></span><span style="display:flex;"><span>        r0<span style="color:#f92672">=</span>1r
+</span></span><span style="display:flex;"><span>        r1<span style="color:#f92672">=</span>1r+500p
+</span></span><span style="display:flex;"><span>        rpadding<span style="color:#f92672">=</span>0p
+</span></span><span style="display:flex;"><span>        padding<span style="color:#f92672">=</span>0p
+</span></span><span style="display:flex;"><span>        show_links<span style="color:#f92672">=</span>yes
+</span></span><span style="display:flex;"><span>        type<span style="color:#f92672">=</span>text
+</span></span><span style="display:flex;"><span>    &lt;/plot&gt;
+</span></span><span style="display:flex;"><span>    type<span style="color:#f92672">=</span>histogram
+</span></span><span style="display:flex;"><span>&lt;/plots&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;colors&gt;
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&lt;&lt;include etc/colors.conf&gt;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&lt;&lt;include</span> etc/brewer.conf&gt;&gt;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#&lt;&lt;include etc/colors_fonts_patterns.conf&gt;&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#&lt;&lt;include colors.ucsc.conf&gt;&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#&lt;&lt;include colors.hsv.conf&gt;&gt;</span>
+</span></span><span style="display:flex;"><span>&lt;/colors&gt;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>&lt;fonts&gt;
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&lt;&lt;include etc/fonts.conf&gt;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&lt;/fonts&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&lt;image&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">&lt;&lt;include</span> etc/image.conf&gt;&gt;
+</span></span><span style="display:flex;"><span>&lt;/image&gt;
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&lt;&lt;include etc/housekeepin</span>g.conf&gt;&gt;
+</span></span></code></pre></div><hr>
+<p>软件JCVI：<a href="https://github.com/lixiang117423/jcvi">https://github.com/lixiang117423/jcvi</a></p>
+
+
+      </div>
+      <footer class="post-footer">
+        <ul class="post-tags">
+          <li><a href="http://localhost:1313/tags/%E5%A4%9A%E9%87%8D%E5%BA%8F%E5%88%97%E6%AF%94%E5%AF%B9">多重序列比对</a></li>
+          <li><a href="http://localhost:1313/tags/%E9%81%97%E4%BC%A0%E8%BF%9B%E5%8C%96%E6%A0%91">遗传进化树</a></li>
+          <li><a href="http://localhost:1313/tags/motif%E5%88%86%E6%9E%90">motif分析</a></li>
+          <li><a href="http://localhost:1313/tags/hmm%E7%BB%93%E6%9E%84%E4%B8%8E%E5%88%86%E6%9E%90">hmm结构与分析</a></li>
+          <li><a href="http://localhost:1313/tags/%E7%90%86%E5%8C%96%E6%80%A7%E8%B4%A8%E5%88%86%E6%9E%90">理化性质分析</a></li>
+          <li><a href="http://localhost:1313/tags/%E5%90%AF%E5%8A%A8%E5%AD%90%E5%BA%8F%E5%88%97%E5%88%86%E6%9E%90">启动子序列分析</a></li>
+          <li><a href="http://localhost:1313/tags/%E5%85%B1%E7%BA%BF%E6%80%A7%E5%88%86%E6%9E%90">共线性分析</a></li>
+        </ul>
+      </footer>
+    </div>
+
+    
+    <aside class="toc-sidebar">
+      <div class="toc-wrapper">
+        <div class="toc-title">📑 目录</div>
+        <nav class="toc-nav">
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#基因家族分析思路及文章撰写思路">基因家族分析思路及文章撰写思路</a></li>
+    <li><a href="#数据准备">数据准备</a></li>
+    <li><a href="#软件准备">软件准备</a></li>
+    <li><a href="#分析过程">分析过程</a>
+      <ul>
+        <li><a href="#mrna_id与基因id的提取">mRNA_ID与基因ID的提取</a></li>
+        <li><a href="#检索结构域">检索结构域</a></li>
+        <li><a href="#选择结构域">选择结构域</a></li>
+        <li><a href="#多序列比对">多序列比对</a></li>
+        <li><a href="#重构隐马尔科夫模型">重构隐马尔科夫模型</a></li>
+        <li><a href="#重新进行检索">重新进行检索</a></li>
+        <li><a href="#筛选输出结果">筛选输出结果</a></li>
+        <li><a href="#去除重复的id">去除重复的ID</a></li>
+        <li><a href="#提取蛋白序列">提取蛋白序列</a></li>
+        <li><a href="#计算蛋白质分子量等">计算蛋白质分子量等</a></li>
+        <li><a href="#构建进化树">构建进化树</a></li>
+        <li><a href="#motif分析">Motif分析</a></li>
+        <li><a href="#基因结构分析">基因结构分析</a></li>
+        <li><a href="#基因在染色体上的定位">基因在染色体上的定位</a></li>
+        <li><a href="#顺式作用元件分析">顺式作用元件分析</a></li>
+        <li><a href="#基因家族成员的亚细胞定位分析">基因家族成员的亚细胞定位分析</a></li>
+        <li><a href="#基因组共线性分析">基因组共线性分析</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </nav>
+      </div>
+    </aside>
+
+  </div>
+  
+<nav class="paginav">
+  <a class="prev" href="http://localhost:1313/posts/%E9%85%8D%E5%88%B6%E4%BE%A7%E8%BE%B9%E7%9B%AE%E5%BD%95/">
+    <span class="title">« Prev</span>
+    <br>
+    <span>配制侧边目录</span>
+  </a>
+  <a class="next" href="http://localhost:1313/posts/%E7%BE%A4%E4%BD%93%E9%81%97%E4%BC%A0%E5%AD%A6%E4%B8%8E%E9%87%8D%E6%B5%8B%E5%BA%8F%E5%88%86%E6%9E%90%E8%A7%A3%E9%87%8A/">
+    <span class="title">Next »</span>
+    <br>
+    <span>群体遗传学与重测序分析解释</span>
+  </a>
+</nav>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>tdx0307</span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
