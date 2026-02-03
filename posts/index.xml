@@ -69,45 +69,53 @@ $F*{st}$值可以和GWAS的结果一起进行分析，$F*{st}$超过一定阈值
 &lt;/ul&gt;
 &lt;h3 id="进化树软件"&gt;进化树软件&lt;/h3&gt;
 &lt;p&gt;常用的绘图软件是&lt;em&gt;Phylip&lt;/em&gt;和&lt;em&gt;Snpphylo&lt;/em&gt;。进化树修饰的软件有&lt;em&gt;MEGA&lt;/em&gt;，&lt;em&gt;ggtree&lt;/em&gt;等，推荐网页版工具&lt;a href="https://itol.embl.de/"&gt;iTOL&lt;/a&gt;，无比强大。
-外群定根法：当群体的个体的差异很小时，可以引入其他物种作为根。如在对三叶草建树时可以引入水稻的序列作为根进行建树。&lt;/p&gt;</description></item><item><title>云南农业大学重测序项目教程</title><link>https://Tdxxxx-student.github.io/posts/%E4%BA%91%E5%8D%97%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A6%E9%87%8D%E6%B5%8B%E5%BA%8F%E9%A1%B9%E7%9B%AE%E6%95%99%E7%A8%8B/</link><pubDate>Tue, 03 Feb 2026 12:08:55 +0800</pubDate><guid>https://Tdxxxx-student.github.io/posts/%E4%BA%91%E5%8D%97%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A6%E9%87%8D%E6%B5%8B%E5%BA%8F%E9%A1%B9%E7%9B%AE%E6%95%99%E7%A8%8B/</guid><description>&lt;p&gt;云南农业大学 云南生物资源保护与利用国家重点实验室&lt;/p&gt;
-&lt;p&gt;李详 | 2019年12月31日&lt;/p&gt;
-&lt;p&gt;目录
+外群定根法：当群体的个体的差异很小时，可以引入其他物种作为根。如在对三叶草建树时可以引入水稻的序列作为根进行建树。&lt;/p&gt;</description></item><item><title>云南农业大学重测序项目教程</title><link>https://Tdxxxx-student.github.io/posts/%E4%BA%91%E5%8D%97%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A6%E9%87%8D%E6%B5%8B%E5%BA%8F%E9%A1%B9%E7%9B%AE%E6%95%99%E7%A8%8B/</link><pubDate>Tue, 03 Feb 2026 12:08:55 +0800</pubDate><guid>https://Tdxxxx-student.github.io/posts/%E4%BA%91%E5%8D%97%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A6%E9%87%8D%E6%B5%8B%E5%BA%8F%E9%A1%B9%E7%9B%AE%E6%95%99%E7%A8%8B/</guid><description>&lt;p&gt;生物信息学变异检测与分析全流程
+云南农业大学 云南生物资源保护与利用国家重点实验室李详 | 2019 年 12 月 31 日
+目录
 软件安装
 变异检测
 群体结构分析
 选择分析
-GWAS分析
-QTL-seq分析
+GWAS 分析
+QTL-seq 分析
+附录：分析流程图
 软件安装
-⚠️ 注意: 该部分软件很难用conda直接安装，安装步骤比较特殊。&lt;/p&gt;
+⚠️ 注意：该部分软件很难用 conda 直接安装，安装步骤比较特殊。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;lumpy-sv
-💡 lumpy-sv 依赖 Python2.7，需切换到 py27 环境下进行安装。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Bash&lt;/p&gt;
-&lt;p&gt;conda activate py27
+💡 lumpy-sv 依赖 Python2.7，需切换到 py27 环境下进行安装。
+bash
+运行
+conda activate py27
 git clone &amp;ndash;recursive &lt;a href="https://github.com/arq5x/lumpy-sv.git"&gt;https://github.com/arq5x/lumpy-sv.git&lt;/a&gt;
 cd lumpy-sv
-make
-2. svtyper
-Bash&lt;/p&gt;
-&lt;p&gt;conda install svtyper
-3. cnvnator
-💡 cnvnator 依赖于 root 软件包及 samtools 软件包（包含HTSlib），因此先安装依赖。&lt;/p&gt;
-&lt;p&gt;3.1 安装 samtools
-Bash&lt;/p&gt;
-&lt;p&gt;wget &lt;a href="https://github.com/samtools/samtools/releases/download/1.9/samtools-1.9.tar.bz2"&gt;https://github.com/samtools/samtools/releases/download/1.9/samtools-1.9.tar.bz2&lt;/a&gt;
+make&lt;/li&gt;
+&lt;li&gt;svtyper
+bash
+运行
+conda install svtyper&lt;/li&gt;
+&lt;li&gt;cnvnator
+💡 cnvnator 依赖于 root 软件包及 samtools 软件包（包含 HTSlib），因此先安装依赖。
+3.1 安装 samtools
+bash
+运行
+wget &lt;a href="https://github.com/samtools/samtools/releases/download/1.9/samtools-1.9.tar.bz2"&gt;https://github.com/samtools/samtools/releases/download/1.9/samtools-1.9.tar.bz2&lt;/a&gt;
 tar -xvf samtools-1.9.tar.bz2
 cd samtools-1.9/
 ./configure
 make
 3.2 安装 root 软件
-Bash&lt;/p&gt;
+bash
+运行&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h1 id="直接下载后解压即可"&gt;直接下载后解压即可&lt;/h1&gt;
 &lt;p&gt;wget &lt;a href="https://root.cern/download/root_v6.18.04.Linux-ubuntu18-x86_64-gcc7.4.tar.gz"&gt;https://root.cern/download/root_v6.18.04.Linux-ubuntu18-x86_64-gcc7.4.tar.gz&lt;/a&gt;
 tar -zxvf root_v6.18.04.Linux-ubuntu18-x86_64-gcc7.4.tar.gz
 3.3 安装 cnvnator
-Bash&lt;/p&gt;</description></item><item><title>AI辅助教程</title><link>https://Tdxxxx-student.github.io/posts/ai%E8%BE%85%E5%8A%A9%E6%95%99%E7%A8%8B/</link><pubDate>Sun, 01 Feb 2026 11:58:07 +0800</pubDate><guid>https://Tdxxxx-student.github.io/posts/ai%E8%BE%85%E5%8A%A9%E6%95%99%E7%A8%8B/</guid><description>&lt;p&gt;这是基于我们刚才排查过的所有坑（环境报错、配置乱码、Git权限、部署冲突、文章不显示等），为你量身定制的**“避坑版”极简教程**。&lt;/p&gt;
+bash
+运行
+git clone &lt;a href="https://github.com/abyzovlab/CNVnator.git"&gt;https://github.com/abyzovlab/CNVnator.git&lt;/a&gt;
+cd CNVnator&lt;/p&gt;</description></item><item><title>AI辅助教程</title><link>https://Tdxxxx-student.github.io/posts/ai%E8%BE%85%E5%8A%A9%E6%95%99%E7%A8%8B/</link><pubDate>Sun, 01 Feb 2026 11:58:07 +0800</pubDate><guid>https://Tdxxxx-student.github.io/posts/ai%E8%BE%85%E5%8A%A9%E6%95%99%E7%A8%8B/</guid><description>&lt;p&gt;这是基于我们刚才排查过的所有坑（环境报错、配置乱码、Git权限、部署冲突、文章不显示等），为你量身定制的**“避坑版”极简教程**。&lt;/p&gt;
 &lt;p&gt;这套方案采用 &lt;strong&gt;Hugo + GitHub Actions (自动部署)&lt;/strong&gt; 方案。这是目前最稳定、最省心的方案，你只需要配置一次，以后写文章只需要“三行命令”。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id="-第一步环境与建站"&gt;🛠 第一步：环境与建站&lt;/h3&gt;
