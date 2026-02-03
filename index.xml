@@ -69,53 +69,682 @@ $F*{st}$值可以和GWAS的结果一起进行分析，$F*{st}$超过一定阈值
 &lt;/ul&gt;
 &lt;h3 id="进化树软件"&gt;进化树软件&lt;/h3&gt;
 &lt;p&gt;常用的绘图软件是&lt;em&gt;Phylip&lt;/em&gt;和&lt;em&gt;Snpphylo&lt;/em&gt;。进化树修饰的软件有&lt;em&gt;MEGA&lt;/em&gt;，&lt;em&gt;ggtree&lt;/em&gt;等，推荐网页版工具&lt;a href="https://itol.embl.de/"&gt;iTOL&lt;/a&gt;，无比强大。
-外群定根法：当群体的个体的差异很小时，可以引入其他物种作为根。如在对三叶草建树时可以引入水稻的序列作为根进行建树。&lt;/p&gt;</description></item><item><title>云南农业大学重测序项目教程</title><link>https://Tdxxxx-student.github.io/posts/%E4%BA%91%E5%8D%97%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A6%E9%87%8D%E6%B5%8B%E5%BA%8F%E9%A1%B9%E7%9B%AE%E6%95%99%E7%A8%8B/</link><pubDate>Tue, 03 Feb 2026 12:08:55 +0800</pubDate><guid>https://Tdxxxx-student.github.io/posts/%E4%BA%91%E5%8D%97%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A6%E9%87%8D%E6%B5%8B%E5%BA%8F%E9%A1%B9%E7%9B%AE%E6%95%99%E7%A8%8B/</guid><description>&lt;p&gt;生物信息学变异检测与分析全流程
-云南农业大学 云南生物资源保护与利用国家重点实验室李详 | 2019 年 12 月 31 日
-目录
-软件安装
-变异检测
-群体结构分析
-选择分析
-GWAS 分析
-QTL-seq 分析
-附录：分析流程图
-软件安装
-⚠️ 注意：该部分软件很难用 conda 直接安装，安装步骤比较特殊。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;lumpy-sv
-💡 lumpy-sv 依赖 Python2.7，需切换到 py27 环境下进行安装。
-bash
-运行
-conda activate py27
-git clone &amp;ndash;recursive &lt;a href="https://github.com/arq5x/lumpy-sv.git"&gt;https://github.com/arq5x/lumpy-sv.git&lt;/a&gt;
-cd lumpy-sv
-make&lt;/li&gt;
-&lt;li&gt;svtyper
-bash
-运行
-conda install svtyper&lt;/li&gt;
-&lt;li&gt;cnvnator
-💡 cnvnator 依赖于 root 软件包及 samtools 软件包（包含 HTSlib），因此先安装依赖。
-3.1 安装 samtools
-bash
-运行
-wget &lt;a href="https://github.com/samtools/samtools/releases/download/1.9/samtools-1.9.tar.bz2"&gt;https://github.com/samtools/samtools/releases/download/1.9/samtools-1.9.tar.bz2&lt;/a&gt;
-tar -xvf samtools-1.9.tar.bz2
-cd samtools-1.9/
-./configure
-make
-3.2 安装 root 软件
-bash
-运行&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id="直接下载后解压即可"&gt;直接下载后解压即可&lt;/h1&gt;
-&lt;p&gt;wget &lt;a href="https://root.cern/download/root_v6.18.04.Linux-ubuntu18-x86_64-gcc7.4.tar.gz"&gt;https://root.cern/download/root_v6.18.04.Linux-ubuntu18-x86_64-gcc7.4.tar.gz&lt;/a&gt;
-tar -zxvf root_v6.18.04.Linux-ubuntu18-x86_64-gcc7.4.tar.gz
-3.3 安装 cnvnator
-bash
-运行
-git clone &lt;a href="https://github.com/abyzovlab/CNVnator.git"&gt;https://github.com/abyzovlab/CNVnator.git&lt;/a&gt;
-cd CNVnator&lt;/p&gt;</description></item><item><title>AI辅助教程</title><link>https://Tdxxxx-student.github.io/posts/ai%E8%BE%85%E5%8A%A9%E6%95%99%E7%A8%8B/</link><pubDate>Sun, 01 Feb 2026 11:58:07 +0800</pubDate><guid>https://Tdxxxx-student.github.io/posts/ai%E8%BE%85%E5%8A%A9%E6%95%99%E7%A8%8B/</guid><description>&lt;p&gt;这是基于我们刚才排查过的所有坑（环境报错、配置乱码、Git权限、部署冲突、文章不显示等），为你量身定制的**“避坑版”极简教程**。&lt;/p&gt;
+外群定根法：当群体的个体的差异很小时，可以引入其他物种作为根。如在对三叶草建树时可以引入水稻的序列作为根进行建树。&lt;/p&gt;</description></item><item><title>云南农业大学重测序项目教程</title><link>https://Tdxxxx-student.github.io/posts/%E4%BA%91%E5%8D%97%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A6%E9%87%8D%E6%B5%8B%E5%BA%8F%E9%A1%B9%E7%9B%AE%E6%95%99%E7%A8%8B/</link><pubDate>Tue, 03 Feb 2026 12:08:55 +0800</pubDate><guid>https://Tdxxxx-student.github.io/posts/%E4%BA%91%E5%8D%97%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A6%E9%87%8D%E6%B5%8B%E5%BA%8F%E9%A1%B9%E7%9B%AE%E6%95%99%E7%A8%8B/</guid><description>&lt;h1 id="生物信息学变异检测与分析全流程"&gt;生物信息学变异检测与分析全流程&lt;/h1&gt;
+&lt;p&gt;云南农业大学 云南生物资源保护与利用国家重点实验室&lt;/p&gt;
+&lt;p&gt;李详 | 2019 年 12 月 31 日&lt;/p&gt;
+&lt;h2 id="目录"&gt;目录&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85"&gt;软件安装&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#%E5%8F%98%E5%BC%82%E6%A3%80%E6%B5%8B"&gt;变异检测&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#%E7%BE%A4%E4%BD%93%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90"&gt;群体结构分析&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#%E9%80%89%E6%8B%A9%E5%88%86%E6%9E%90"&gt;选择分析&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#gwas%E5%88%86%E6%9E%90"&gt;GWAS 分析&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#qtl-seq%E5%88%86%E6%9E%90"&gt;QTL-seq 分析&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#%E9%99%84%E5%BD%95%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B%E5%9B%BE"&gt;附录：分析流程图&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="软件安装"&gt;软件安装&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;⚠️ 注意：该部分软件很难用 conda 直接安装，安装步骤比较特殊。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="1-lumpy-sv"&gt;1. lumpy-sv&lt;/h3&gt;
+&lt;p&gt;💡 lumpy-sv 依赖 Python2.7，需切换到 py27 环境下进行安装。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;conda activate py27
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone --recursive https://github.com/arq5x/lumpy-sv.git
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd lumpy-sv
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;make
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="2-svtyper"&gt;2. svtyper&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;conda install svtyper
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="3-cnvnator"&gt;3. cnvnator&lt;/h3&gt;
+&lt;p&gt;💡 cnvnator 依赖于 root 软件包及 samtools 软件包（包含 HTSlib），因此先安装依赖。&lt;/p&gt;
+&lt;h4 id="31-安装-samtools"&gt;3.1 安装 samtools&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wget https://github.com/samtools/samtools/releases/download/1.9/samtools-1.9.tar.bz2
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tar -xvf samtools-1.9.tar.bz2
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd samtools-1.9/
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;./configure
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;make
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="32-安装-root-软件"&gt;3.2 安装 root 软件&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 直接下载后解压即可&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;wget https://root.cern/download/root_v6.18.04.Linux-ubuntu18-x86_64-gcc7.4.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;tar -zxvf root_v6.18.04.Linux-ubuntu18-x86_64-gcc7.4.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="33-安装-cnvnator"&gt;3.3 安装 cnvnator&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone https://github.com/abyzovlab/CNVnator.git
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd CNVnator
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 链接samtools软件目录到cnvnator目录&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ln -s ../samtools-1.9 ./samtools
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 加载root软件到环境变量&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;export ROOTSYS&lt;span style="color:#f92672"&gt;=&lt;/span&gt;/pub/software/root
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;export PATH&lt;span style="color:#f92672"&gt;=&lt;/span&gt;/pub/software/root/bin:$PATH
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;export LD_LIBRARY_PATH&lt;span style="color:#f92672"&gt;=&lt;/span&gt;$LD_LIBRARY_PATH:$ROOTSYS/lib
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 安装cnvnator&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;make LIBS&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;-lcrypto&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="变异检测"&gt;变异检测&lt;/h2&gt;
+&lt;h3 id="1-构建基因组-index"&gt;1. 构建基因组 index&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 创建软链接&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ln -s ../data/genome.fasta ./genome.fasta
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# for gatk&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;samtools faidx genome.fasta
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# for bwa&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;bwa index genome.fasta
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# for picard&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;picard CreateSequenceDictionary R&lt;span style="color:#f92672"&gt;=&lt;/span&gt;genome.fasta
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="2-比对排序去重"&gt;2. 比对排序去重&lt;/h3&gt;
+&lt;h4 id="21-比对排序"&gt;2.1 比对排序&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;bwa mem -t &lt;span style="color:#ae81ff"&gt;2&lt;/span&gt; -R &lt;span style="color:#e6db74"&gt;&amp;#39;@RG\tID:S1\tSM:S1\tPL:illumina&amp;#39;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ../01.ref/genome.fasta &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ../data/S1_1.fq.gz ../data/S1_2.fq.gz | &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; /pub/software/samtools/samtools sort -@ &lt;span style="color:#ae81ff"&gt;2&lt;/span&gt; -m 1G -o S1.sort.bam -
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;bwa mem -t &lt;span style="color:#ae81ff"&gt;2&lt;/span&gt; -R &lt;span style="color:#e6db74"&gt;&amp;#39;@RG\tID:S2\tSM:S2\tPL:illumina&amp;#39;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ../01.ref/genome.fasta &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ../data/S2_1.fq.gz ../data/S2_2.fq.gz | &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; /pub/software/samtools/samtools sort -@ &lt;span style="color:#ae81ff"&gt;2&lt;/span&gt; -m 1G -o S2.sort.bam -
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="22-去除重复"&gt;2.2 去除重复&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;picard -Xmx4g MarkDuplicates &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; I&lt;span style="color:#f92672"&gt;=&lt;/span&gt;S1.sort.bam &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; O&lt;span style="color:#f92672"&gt;=&lt;/span&gt;S1.sort.rmdup.bam &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; CREATE_INDEX&lt;span style="color:#f92672"&gt;=&lt;/span&gt;true &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; REMOVE_DUPLICATES&lt;span style="color:#f92672"&gt;=&lt;/span&gt;true &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; M&lt;span style="color:#f92672"&gt;=&lt;/span&gt;S1.marked_dup_metrics.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;picard -Xmx4g MarkDuplicates &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; I&lt;span style="color:#f92672"&gt;=&lt;/span&gt;S2.sort.bam &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; O&lt;span style="color:#f92672"&gt;=&lt;/span&gt;S2.sort.rmdup.bam &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; CREATE_INDEX&lt;span style="color:#f92672"&gt;=&lt;/span&gt;true &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; REMOVE_DUPLICATES&lt;span style="color:#f92672"&gt;=&lt;/span&gt;true &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; M&lt;span style="color:#f92672"&gt;=&lt;/span&gt;S2.marked_dup_metrics.txt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="23-比对率统计"&gt;2.3 比对率统计&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/pub/software/samtools/samtools flagstat S1.sort.bam &amp;gt; S1.sort.bam.flagstat
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/pub/software/samtools/samtools flagstat S2.sort.bam &amp;gt; S2.sort.bam.flagstat
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="24-批量比对脚本生成"&gt;2.4 批量比对脚本生成&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;less ../data/sample.list | awk &lt;span style="color:#e6db74"&gt;&amp;#39;{
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt; print &amp;#34;bwa mem -t 2 -R &amp;#39;&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\&amp;#39;&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#39;@RG\\tID:&amp;#34;$1&amp;#34;\\tSM:&amp;#34;$1&amp;#34;\\tPL:illumina&amp;#39;&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\&amp;#39;&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#39; \
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt; ../01.ref/genome.fasta ../data/&amp;#34;$1&amp;#34;_1.fq.gz ../data/&amp;#34;$1&amp;#34;_2.fq.gz | \
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt; /pub/software/samtools/samtools sort -@ 2 -m 1G -o &amp;#34;$1&amp;#34;.sort.bam -&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;}&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="3-snpindel-检测"&gt;3. SNP、Indel 检测&lt;/h3&gt;
+&lt;h4 id="31-haplotypecaller"&gt;3.1 HaplotypeCaller&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gatk --java-options &lt;span style="color:#e6db74"&gt;&amp;#34;-Xmx10g -Djava.io.tmpdir=./tmp&amp;#34;&lt;/span&gt; HaplotypeCaller &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -R ../01.ref/genome.fasta &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -I ../02.mapping/S1.sort.rmdup.bam &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -ERC GVCF &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -O S1.g.vcf 1&amp;gt;S1.HC.log 2&amp;gt;&amp;amp;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gatk --java-options &lt;span style="color:#e6db74"&gt;&amp;#34;-Xmx10g -Djava.io.tmpdir=./tmp&amp;#34;&lt;/span&gt; HaplotypeCaller &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -R ../01.ref/genome.fasta &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -I ../02.mapping/S2.sort.rmdup.bam &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -ERC GVCF &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -O S2.g.vcf 1&amp;gt;S2.HC.log 2&amp;gt;&amp;amp;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="32-combinegvcfs"&gt;3.2 CombineGVCFs&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ls ./S*.g.vcf &amp;gt; gvcf.list
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gatk --java-options &lt;span style="color:#e6db74"&gt;&amp;#34;-Xmx4g -Djava.io.tmpdir=./tmp&amp;#34;&lt;/span&gt; CombineGVCFs &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -R ../01.ref/genome.fasta &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -V gvcf.list &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -O all.merge.g.vcf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="33genotpegvcfs"&gt;3.3GenotpeGVCFs&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gatk --java-options &lt;span style="color:#e6db74"&gt;&amp;#34;-Xmx4g -Djava.io.tmpdir=./tmp&amp;#34;&lt;/span&gt; GenotypeGVCFs &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -R ../01.ref/genome.fasta &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --variant all.merge.g.vcf &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -O all.merge_raw.vcf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="34-snp-过滤"&gt;3.4 SNP 过滤&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 提取SNP&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gatk --java-options &lt;span style="color:#e6db74"&gt;&amp;#34;-Xmx4g -Djava.io.tmpdir=./tmp&amp;#34;&lt;/span&gt; SelectVariants &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -R ../01.ref/genome.fasta &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -V all.merge_raw.vcf &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --select-type SNP &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -O all.raw.snp.vcf
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 标记过滤&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gatk --java-options &lt;span style="color:#e6db74"&gt;&amp;#34;-Xmx4g -Djava.io.tmpdir=./tmp&amp;#34;&lt;/span&gt; VariantFiltration &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -R ../01.ref/genome.fasta &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -V all.raw.snp.vcf &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --filter-expression &lt;span style="color:#e6db74"&gt;&amp;#34;QD &amp;lt; 2.0 || MQ &amp;lt; 40.0 || FS &amp;gt; 60.0 || SOR &amp;gt; 3.0 || MQRankSum &amp;lt; -12.5 || ReadPosRankSum &amp;lt; -8.0&amp;#34;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --filter-name &lt;span style="color:#e6db74"&gt;&amp;#39;SNP_filter&amp;#39;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -O all.filter.snp.vcf
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 提取过滤后的SNP&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gatk --java-options &lt;span style="color:#e6db74"&gt;&amp;#34;-Xmx4g -Djava.io.tmpdir=./tmp&amp;#34;&lt;/span&gt; SelectVariants &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -R ../01.ref/genome.fasta &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -V all.filter.snp.vcf &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --exclude-filtered &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -O all.filtered.snp.vcf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="35-indel-过滤"&gt;3.5 InDel 过滤&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 提取InDel&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gatk --java-options &lt;span style="color:#e6db74"&gt;&amp;#34;-Xmx4g -Djava.io.tmpdir=./tmp&amp;#34;&lt;/span&gt; SelectVariants &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -R ../01.ref/genome.fasta &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -V all.merge_raw.vcf &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --select-type INDEL &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -O all.raw.indel.vcf
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 标记过滤&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gatk --java-options &lt;span style="color:#e6db74"&gt;&amp;#34;-Xmx4g -Djava.io.tmpdir=./tmp&amp;#34;&lt;/span&gt; VariantFiltration &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -R ../01.ref/genome.fasta &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -V all.raw.indel.vcf &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --filter-expression &lt;span style="color:#e6db74"&gt;&amp;#34;QD &amp;lt; 2.0 || FS &amp;gt; 200.0 || SOR &amp;gt; 10.0 || MQRankSum &amp;lt; -12.5 || ReadPosRankSum &amp;lt; -8.0&amp;#34;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --filter-name &lt;span style="color:#e6db74"&gt;&amp;#39;INDEL_filter&amp;#39;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -O all.filter.indel.vcf
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 提取过滤后的InDel&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gatk --java-options &lt;span style="color:#e6db74"&gt;&amp;#34;-Xmx4g -Djava.io.tmpdir=./tmp&amp;#34;&lt;/span&gt; SelectVariants &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -R ../01.ref/genome.fasta &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -V all.filter.indel.vcf &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --exclude-filtered &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -O all.filtered.indel.vcf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="4-sv-检测"&gt;4. SV 检测&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Step 1: 提取 discordants reads&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/pub/software/samtools/samtools view -b -F &lt;span style="color:#ae81ff"&gt;1294&lt;/span&gt; -@ &lt;span style="color:#ae81ff"&gt;12&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ../02.mapping/S1.sort.rmdup.bam &amp;gt; S1.discordants.bam
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/pub/software/samtools/samtools view -b -F &lt;span style="color:#ae81ff"&gt;1294&lt;/span&gt; -@ &lt;span style="color:#ae81ff"&gt;12&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ../02.mapping/S2.sort.rmdup.bam &amp;gt; S2.discordants.bam
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Step 2: 提取 split reads&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/pub/software/samtools/samtools view -h ../02.mapping/S1.sort.rmdup.bam | &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; /pub/software/lumpy-sv/scripts/extractSplitReads_BwaMem -i stdin | &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; /pub/software/samtools/samtools sort - &amp;gt; S1.splitters.bam
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/pub/software/samtools/samtools view -h ../02.mapping/S2.sort.rmdup.bam | &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; /pub/software/lumpy-sv/scripts/extractSplitReads_BwaMem -i stdin | &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; /pub/software/samtools/samtools sort - &amp;gt; S2.splitters.bam
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Step 3: 运行 lumpy&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/pub/software/lumpy-sv/bin/lumpyexpress &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -B ../02.mapping/S1.sort.rmdup.bam,../02.mapping/S2.sort.rmdup.bam &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -S S1.splitters.bam,S2.splitters.bam &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -D S1.discordants.bam,S2.discordants.bam &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -o all.sv.lumpy.vcf
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Step 4: 个体基因型分型&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;vcftools --vcf all.sv.lumpy.vcf --indv S1 --recode --recode-INFO-all --out S1 &lt;span style="color:#f92672"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; svtyper -i S1.recode.vcf -B ../02.mapping/S1.sort.rmdup.bam -o S1.genotype.vcf
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;vcftools --vcf all.sv.lumpy.vcf --indv S2 --recode --recode-INFO-all --out S2 &lt;span style="color:#f92672"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; svtyper -i S2.recode.vcf -B ../02.mapping/S2.sort.rmdup.bam -o S2.genotype.vcf
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="5-cnv-检测"&gt;5. CNV 检测&lt;/h3&gt;
+&lt;h4 id="51-准备基因组"&gt;5.1 准备基因组&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 将基因组拆分为单条染色体&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ln -s ../data/genome.fasta ./genome.fa
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;seqkit split -i ./genome.fa -O split
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 重命名文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ls ./split/genome.id_*.fa | sed &lt;span style="color:#e6db74"&gt;&amp;#39;s/./split/genome.id_//&amp;#39;&lt;/span&gt; | &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; awk &lt;span style="color:#e6db74"&gt;&amp;#39;{print &amp;#34;mv ./split/genome.id_&amp;#34;$aa&amp;#34; ./split/&amp;#34;$aa}&amp;#39;&lt;/span&gt; &amp;gt; mv_name.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sh mv_name.sh
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="52-运行-cnvnator"&gt;5.2 运行 cnvnator&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 设置环境变量&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;export ROOTSYS&lt;span style="color:#f92672"&gt;=&lt;/span&gt;/pub/software/root
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;export PATH&lt;span style="color:#f92672"&gt;=&lt;/span&gt;/pub/software/root/bin:$PATH
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;export LD_LIBRARY_PATH&lt;span style="color:#f92672"&gt;=&lt;/span&gt;$LD_LIBRARY_PATH:$ROOTSYS/lib
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 链接文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ln -s ../02.mapping/S1.sort.rmdup.bam
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 提取比对结果&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/pub/software/CNVnator/cnvnator -genome genome.fa -root S1.root -tree S1.sort.rmdup.bam
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 生成深度分布&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/pub/software/CNVnator/cnvnator -genome genome.fa -root S1.root -his &lt;span style="color:#ae81ff"&gt;500&lt;/span&gt; -d split
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 进行统计计算&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/pub/software/CNVnator/cnvnator -root S1.root -stat &lt;span style="color:#ae81ff"&gt;500&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 检查bin size是否合适&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/pub/software/CNVnator/cnvnator -root S1.root -eval &lt;span style="color:#ae81ff"&gt;500&lt;/span&gt; &amp;gt; S1.eval.ratio
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# RD信号分割&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/pub/software/CNVnator/cnvnator -root S1.root -partition &lt;span style="color:#ae81ff"&gt;500&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 进行CNV检测&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/pub/software/CNVnator/cnvnator -root S1.root -call &lt;span style="color:#ae81ff"&gt;500&lt;/span&gt; &amp;gt; S1.cnv
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="6-snpindel-注释"&gt;6. SNP/InDel 注释&lt;/h3&gt;
+&lt;h4 id="61-准备注释数据库"&gt;6.1 准备注释数据库&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ln -s ../data/genome.gtf
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ln -s ../data/genome.fasta
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gtfToGenePred -genePredExt genome.gtf genome_refGene.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/pub/software/annovar/retrieve_seq_from_fasta.pl &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --format refGene &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --seqfile genome.fasta &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; genome_refGene.txt &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --out genome_refGeneMrna.fa
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="62-注释-vcf-文件"&gt;6.2 注释 VCF 文件&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ln -s ../03.SNP_indel/all.filtered.snp.vcf
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 格式转换&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/pub/software/annovar/convert2annovar.pl &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -format vcf4old &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; all.filtered.snp.vcf &amp;gt; all.snp.vcf.annovar.input
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 进行注释&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/pub/software/annovar/annotate_variation.pl &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -geneanno &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --neargene &lt;span style="color:#ae81ff"&gt;2000&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -buildver genome &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -dbtype refGene &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -outfile all.anno &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -exonsort &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; all.snp.vcf.annovar.input ./
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="7-cnv-和-sv-注释"&gt;7. CNV 和 SV 注释&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 处理SV文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;less -S ../04.SV/all.sv.lumpy.vcf | &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; awk -F &lt;span style="color:#e6db74"&gt;&amp;#34;;&amp;#34;&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;{ if($1!~/#/){print $1&amp;#34;\t&amp;#34;$2&amp;#34;\t&amp;#34;$3&amp;#34;\t&amp;#34;$4} }&amp;#39;&lt;/span&gt; | &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; awk &lt;span style="color:#e6db74"&gt;&amp;#39;{print $1&amp;#34;\t&amp;#34;$2&amp;#34;\t&amp;#34;$11&amp;#34;\t&amp;#34;$3&amp;#34;\t&amp;#34;$8}&amp;#39;&lt;/span&gt; | &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; sed &lt;span style="color:#e6db74"&gt;&amp;#39;s/END=//&amp;#39;&lt;/span&gt; | sed &lt;span style="color:#e6db74"&gt;&amp;#39;s/SVTYPE=//&amp;#39;&lt;/span&gt; &amp;gt; SV.bed
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 过滤BND类型&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;awk &lt;span style="color:#e6db74"&gt;&amp;#39;$5 !~ /BND/&amp;#39;&lt;/span&gt; SV.bed &amp;gt; SV_filter.bed
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# SV注释&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;bedtools intersect -wo -a SV_filter.bed -b gene.gtf &amp;gt; SV_filter.Anno
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 处理CNV文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;less -S ../05.CNV/S1.cnv | &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; awk &lt;span style="color:#e6db74"&gt;&amp;#39;{print $2 &amp;#34;\t&amp;#34; $1}&amp;#39;&lt;/span&gt; | &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; sed &lt;span style="color:#e6db74"&gt;&amp;#39;s/:/\t/&amp;#39;&lt;/span&gt; | sed &lt;span style="color:#e6db74"&gt;&amp;#39;s/-/\t/&amp;#39;&lt;/span&gt; &amp;gt; CNV.bed
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# CNV注释&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;bedtools intersect -wo -a CNV.bed -b gene.gtf &amp;gt; CNV.Anno
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="群体结构分析"&gt;群体结构分析&lt;/h2&gt;
+&lt;h3 id="1-数据过滤"&gt;1. 数据过滤&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;vcf&lt;span style="color:#f92672"&gt;=&lt;/span&gt;../data/all.vcf
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 过滤缺失率和最小等位基因频率&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;plink --vcf $vcf &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --geno 0.1 &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --maf 0.01 &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --out all.missing_maf &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --recode vcf-iid &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --allow-extra-chr &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --set-missing-var-ids @:# &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --keep-allele-order
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 过滤连锁不平衡&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;plink --vcf all.missing_maf.vcf &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --indep-pairwise &lt;span style="color:#ae81ff"&gt;50&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;10&lt;/span&gt; 0.2 &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --out tmp.ld &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --allow-extra-chr &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --set-missing-var-ids @:#
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;plink --vcf all.missing_maf.vcf &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --make-bed &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --extract tmp.ld.prune.in &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --out all.LDfilter &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --recode vcf-iid &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --keep-allele-order &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --allow-extra-chr &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --set-missing-var-ids @:#
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="2-建树分析"&gt;2. 建树分析&lt;/h3&gt;
+&lt;h4 id="21-nj-树"&gt;2.1 NJ 树&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 格式转换&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;perl ../../script/vcf2phy.pl ../../00.filter/all.LDfilter.vcf &amp;gt; sequences.dat
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 计算遗传距离&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;echo -e &lt;span style="color:#e6db74"&gt;&amp;#34;sequences.dat\nY&amp;#34;&lt;/span&gt; &amp;gt; dnadist.cfg
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;dnadist &amp;lt; dnadist.cfg &amp;gt; dnadist.log
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mv outfile infile.dist
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 构建NJ树&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;echo -e &lt;span style="color:#e6db74"&gt;&amp;#34;infile.dist\nY&amp;#34;&lt;/span&gt; &amp;gt; neighbor.cfg
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;neighbor &amp;lt; neighbor.cfg &amp;gt; nj.log
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 格式整理&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;less infile.dist | tr &lt;span style="color:#e6db74"&gt;&amp;#39;\n&amp;#39;&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;|&amp;#39;&lt;/span&gt; | sed &lt;span style="color:#e6db74"&gt;&amp;#39;s/| / /g&amp;#39;&lt;/span&gt; | tr &lt;span style="color:#e6db74"&gt;&amp;#39;|&amp;#39;&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;\n&amp;#39;&lt;/span&gt; &amp;gt; infile.dist.table
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;less outtree | tr &lt;span style="color:#e6db74"&gt;&amp;#39;\n&amp;#39;&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39; &amp;#39;&lt;/span&gt; | sed &lt;span style="color:#e6db74"&gt;&amp;#39;s/ //g&amp;#39;&lt;/span&gt; &amp;gt; outtree.nwk
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h4 id="22-snphylo-建树"&gt;2.2 SNPhylo 建树&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/pub/software/SNPhylo/snphylo.sh &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -v ../../00.filter/all.LDfilter.vcf &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -r &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -l &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -m 0.01 &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -o GA0001 &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -b &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -B &lt;span style="color:#ae81ff"&gt;2&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -P tree_snphylo
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="3-pca-分析"&gt;3. PCA 分析&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;plink --vcf ../00.filter/all.LDfilter.vcf &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --pca &lt;span style="color:#ae81ff"&gt;10&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --out PCA_out &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --allow-extra-chr &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --set-missing-var-ids @:#
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Rscript ../script/draw_PCA.R PCA_out.eigenvec &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;2&lt;/span&gt; ../data/sample.pop PCA_out_figure
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="4-群体结构分析"&gt;4. 群体结构分析&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Step 0: vcf转bed格式&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;plink --vcf ../00.filter/all.LDfilter.vcf &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --make-bed &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --out all &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --allow-extra-chr &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --keep-allele-order &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --set-missing-var-ids @:#
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Step 1: 生成Admixture运行脚本&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;seq &lt;span style="color:#ae81ff"&gt;2&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;4&lt;/span&gt; | awk &lt;span style="color:#e6db74"&gt;&amp;#39;{print &amp;#34;admixture --cv -j2 all.bed &amp;#34;$1&amp;#34; 1&amp;gt;admix.&amp;#34;$1&amp;#34;.log 2&amp;gt;&amp;amp;1&amp;#34;}&amp;#39;&lt;/span&gt; &amp;gt; admixture.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Step 2: 运行Admixture&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;sh admixture.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 也可单独运行&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;admixture --cv -j2 all.bed &lt;span style="color:#ae81ff"&gt;2&lt;/span&gt; 1&amp;gt;admix.2.log 2&amp;gt;&amp;amp;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;admixture --cv -j2 all.bed &lt;span style="color:#ae81ff"&gt;3&lt;/span&gt; 1&amp;gt;admix.3.log 2&amp;gt;&amp;amp;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;admixture --cv -j2 all.bed &lt;span style="color:#ae81ff"&gt;4&lt;/span&gt; 1&amp;gt;admix.4.log 2&amp;gt;&amp;amp;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Step 3: 绘制结构图&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;mkdir result
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cp ./*.Q result/
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Rscript ../script/draw_admixture.R result all.nosex structure
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="5-ld-衰减分析"&gt;5. LD 衰减分析&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Step 1: 计算LD&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/pub/software/PopLDdecay/bin/PopLDdecay &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -InVCF ../data/all.vcf &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -SubPop ../data/pop.SC.table &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -MaxDist &lt;span style="color:#ae81ff"&gt;500&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -OutStat pop.SC.stat
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/pub/software/PopLDdecay/bin/PopLDdecay &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -InVCF ../data/all.vcf &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -SubPop ../data/pop.YZR.table &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -MaxDist &lt;span style="color:#ae81ff"&gt;500&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -OutStat pop.YZR.stat
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Step 2: 绘制单群体LD衰减图&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;perl /pub/software/PopLDdecay/bin/Plot_OnePop.pl &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -inFile pop.SC.stat.gz &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -output pop.SC.ld
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;perl /pub/software/PopLDdecay/bin/Plot_OnePop.pl &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -inFile pop.YZR.stat.gz &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -output pop.YZR.ld
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Step 3: 绘制多群体LD衰减图&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;perl /pub/software/PopLDdecay/bin/Plot_MultiPop.pl &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -inList ld_stat.list &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -output ld_stat.multi
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="选择分析"&gt;选择分析&lt;/h2&gt;
+&lt;h3 id="1-π-和-rod-分析"&gt;1. π 和 ROD 分析&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;vcf&lt;span style="color:#f92672"&gt;=&lt;/span&gt;../../data/all.vcf
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;window&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;20000&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;step&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;2000&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Step 1: 计算pi值&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;vcftools --vcf $vcf &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --window-pi $window &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --window-pi-step $step &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --keep ../../data/pop.SC.table &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --out ./Pi.pop1
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;vcftools --vcf $vcf &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --window-pi $window &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --window-pi-step $step &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --keep ../../data/pop.YZR.table &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --out ./Pi.pop2
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Step 2: 计算ROD&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pi1&lt;span style="color:#f92672"&gt;=&lt;/span&gt;Pi.pop1.windowed.pi
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;pi2&lt;span style="color:#f92672"&gt;=&lt;/span&gt;Pi.pop2.windowed.pi
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;perl ../../script/merge2pi_ROD.pl $pi1 $pi2 &amp;gt; Pi.ROD
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="2-tajimas-d-分析"&gt;2. Tajima&amp;rsquo;s D 分析&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;vcf&lt;span style="color:#f92672"&gt;=&lt;/span&gt;../../data/all.vcf
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;window&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;20000&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;vcftools --vcf $vcf &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --TajimaD $window &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --keep ../../data/pop.SC.table &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --out TajimaD.pop1
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;vcftools --vcf $vcf &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --TajimaD $window &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --keep ../../data/pop.YZR.table &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --out TajimaD.pop2
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="3-fst-分析"&gt;3. Fst 分析&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;vcf&lt;span style="color:#f92672"&gt;=&lt;/span&gt;../../data/all.vcf
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;window&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;20000&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;step&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;2000&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;vcftools --vcf $vcf &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --fst-window-size $window &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --fst-window-step $step &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --weir-fst-pop ../../data/pop.SC.table &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --weir-fst-pop ../../data/pop.YZR.table &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --out ./Fst.pop1.pop2
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="4-rod--fst-联合分析"&gt;4. ROD + Fst 联合分析&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;fst&lt;span style="color:#f92672"&gt;=&lt;/span&gt;../03.Fst/Fst.pop1.pop2.windowed.weir.fst
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ROD&lt;span style="color:#f92672"&gt;=&lt;/span&gt;../01.pi_ROD/Pi.ROD
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gff&lt;span style="color:#f92672"&gt;=&lt;/span&gt;../../data/genome.gff
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 提取显著位点&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;perl ../../script/top_Fst_ROD_S.pl $fst $ROD 0.05 0.05 Fst_ROD.table Fst_ROD.stat
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 筛选top位点&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;awk &lt;span style="color:#e6db74"&gt;&amp;#39;$NF==&amp;#34;top&amp;#34;&amp;#39;&lt;/span&gt; Fst_ROD.table &amp;gt; Fst_ROD.table.top
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 提取基因注释&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;awk &lt;span style="color:#e6db74"&gt;&amp;#39;$3==&amp;#34;gene&amp;#34;&amp;#39;&lt;/span&gt; $gff &amp;gt; gene.gff
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 注释候选基因&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;bedtools intersect -wo -F 0.1 -a Fst_ROD.table.top -b gene.gff | &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; awk -F &lt;span style="color:#e6db74"&gt;&amp;#34;\t&amp;#34;&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#39;{print $7&amp;#34;\t&amp;#34;$10&amp;#34;\t&amp;#34;$11&amp;#34;\t&amp;#34;$13&amp;#34;\t&amp;#34;$15}&amp;#39;&lt;/span&gt; | &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; sort -u &amp;gt; Fst_ROD.table.top.gene
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="gwas-分析"&gt;GWAS 分析&lt;/h2&gt;
+&lt;h3 id="1-基因型填充"&gt;1. 基因型填充&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;beagle -Xmx4g -Djava.io.tmpdir&lt;span style="color:#f92672"&gt;=&lt;/span&gt;./TMP &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; gt&lt;span style="color:#f92672"&gt;=&lt;/span&gt;../data/all.vcf &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; out&lt;span style="color:#f92672"&gt;=&lt;/span&gt;all.impute &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; impute&lt;span style="color:#f92672"&gt;=&lt;/span&gt;true &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; window&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;10&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; nthreads&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;2&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="2-标准-gwas-分析"&gt;2. 标准 GWAS 分析&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Step 1: 准备VCF数据&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;plink --vcf ../data/all.vcf &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --maf 0.05 &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --geno 0.1 &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --recode12 &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --output-missing-genotype &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --transpose &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --out snp_filter &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --set-missing-var-ids @:# &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --allow-extra-chr
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 准备表型数据&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;perl ../script/sort_pheno.pl snp_filter.tfam ../data/trait.table &amp;gt; trait.sort.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Step 2: 计算亲缘关系矩阵&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/pub/software/emmax/emmax-kin-intel64 -v -d &lt;span style="color:#ae81ff"&gt;10&lt;/span&gt; -o ./pop.kinship snp_filter
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Step 3: 运行GWAS&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/pub/software/emmax/emmax-intel64 -v -d &lt;span style="color:#ae81ff"&gt;10&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -t snp_filter &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -p trait.sort.txt &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -k pop.kinship &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -o emmax.out 1&amp;gt; emmax.log 2&amp;gt;emmax.err
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Step 4: 绘制曼哈顿图&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;paste snp_filter.map emmax.out.ps | &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; awk &lt;span style="color:#e6db74"&gt;&amp;#39;BEGIN{print &amp;#34;SNP\tCHR\tBP\tP&amp;#34;}{if($2==$5){print $2&amp;#34;\t&amp;#34;$1&amp;#34;\t&amp;#34;$4&amp;#34;\t&amp;#34;$NF}}&amp;#39;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;gt; emmax.out.ps.manht_input
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Rscript ../script/manhattan.R emmax.out.ps.manht_input emmax.out.ps.manht_figure
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="3-gwas-q-分析加入群体结构协变量"&gt;3. GWAS-Q 分析（加入群体结构协变量）&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 链接文件&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ln -s ../01.GWAS/snp_filter.tped
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ln -s ../01.GWAS/snp_filter.tfam
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ln -s ../01.GWAS/snp_filter.nosex
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ln -s ../01.GWAS/snp_filter.map
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ln -s ../01.GWAS/trait.sort.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ln -s ../../02.population_genetics/03.structure/all.3.Q
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 准备Q矩阵&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;paste snp_filter.nosex all.3.Q | awk &lt;span style="color:#e6db74"&gt;&amp;#39;{print $1&amp;#34; &amp;#34;$1&amp;#34; 1 &amp;#34;$3&amp;#34; &amp;#34;$4}&amp;#39;&lt;/span&gt; &amp;gt; pop.Qmatrix
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 运行GWAS&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/pub/software/emmax/emmax-intel64 -v -d &lt;span style="color:#ae81ff"&gt;10&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -t snp_filter &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -p trait.sort.txt &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -k pop.kinship &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -c pop.Qmatrix &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -o emmax.out 1&amp;gt; emmax.log 2&amp;gt;emmax.err
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 绘制曼哈顿图&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;paste snp_filter.map emmax.out.ps | &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; awk &lt;span style="color:#e6db74"&gt;&amp;#39;BEGIN{print &amp;#34;SNP\tCHR\tBP\tP&amp;#34;}{if($2==$5){print $2&amp;#34;\t&amp;#34;$1&amp;#34;\t&amp;#34;$4&amp;#34;\t&amp;#34;$NF}}&amp;#39;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;gt; emmax.out.ps.manht_input
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Rscript ../script/manhattan.R emmax.out.ps.manht_input emmax.out.ps.manht_figure_Q
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="4-真实数据-gwas"&gt;4. 真实数据 GWAS&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Step 1: 准备数据&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;plink --vcf ../data_real/Sample215.M5M8H3.2allel.vcf &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --maf 0.05 &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --geno 0.1 &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --recode12 &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --output-missing-genotype &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --transpose &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --out snp_filter &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --set-missing-var-ids @:# &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; --allow-extra-chr
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;perl ../script/sort_pheno.pl snp_filter.tfam ../data_real/trait.C16_0.table &amp;gt; trait.sort.txt
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Step 2: 计算亲缘关系矩阵&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/pub/software/emmax/emmax-kin-intel64 -v -d &lt;span style="color:#ae81ff"&gt;10&lt;/span&gt; -o ./pop.kinship snp_filter
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Step 3: 运行GWAS&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/pub/software/emmax/emmax-intel64 -v -d &lt;span style="color:#ae81ff"&gt;10&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -t snp_filter &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -p trait.sort.txt &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -k pop.kinship &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -o emmax.out 1&amp;gt; emmax.log 2&amp;gt;emmax.err
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Step 4: 绘制曼哈顿图&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;paste snp_filter.map emmax.out.ps | &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; awk &lt;span style="color:#e6db74"&gt;&amp;#39;BEGIN{print &amp;#34;SNP\tCHR\tBP\tP&amp;#34;}{if($2==$5){print $2&amp;#34;\t&amp;#34;$1&amp;#34;\t&amp;#34;$4&amp;#34;\t&amp;#34;$NF}}&amp;#39;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &amp;gt; emmax.out.ps.manht_input
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Rscript ../script/manhattan.R emmax.out.ps.manht_input emmax.out.ps.manht_figure_readData
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="qtl-seq-分析"&gt;QTL-seq 分析&lt;/h2&gt;
+&lt;h3 id="1-vcf-转换为-table-格式"&gt;1. VCF 转换为 Table 格式&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ref&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&amp;lt;reference.fasta&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;vcf&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&amp;lt;input.vcf&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;outfile&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&amp;lt;output.table&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;gatk VariantsToTable &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -R $ref &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -V $vcf &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -F CHROM -F POS -F REF -F ALT &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -GF AD -GF DP -GF GQ -GF PL &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; -O $outfile
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="2-qtl-seq-分析r-脚本"&gt;2. QTL-seq 分析（R 脚本）&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-R" data-lang="R"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;library&lt;/span&gt;(QTLseqr)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;library&lt;/span&gt;(ggplot2)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 设置参数&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;HighBulk &lt;span style="color:#f92672"&gt;&amp;lt;-&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;SRR834931&amp;#34;&lt;/span&gt; &lt;span style="color:#75715e"&gt;# 高值混池名称&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;LowBulk &lt;span style="color:#f92672"&gt;&amp;lt;-&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;SRR834927&amp;#34;&lt;/span&gt; &lt;span style="color:#75715e"&gt;# 低值混池名称&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Chroms &lt;span style="color:#f92672"&gt;&amp;lt;-&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;paste0&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;rep&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;Chr&amp;#34;&lt;/span&gt;, &lt;span style="color:#ae81ff"&gt;12&lt;/span&gt;), &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;&lt;span style="color:#f92672"&gt;:&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;12&lt;/span&gt;) &lt;span style="color:#75715e"&gt;# 染色体列表&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# ==================== 数据读取 ====================&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;df &lt;span style="color:#f92672"&gt;&amp;lt;-&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;importFromGATK&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; file &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;../data/Yang_et_al_2013.table&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; highBulk &lt;span style="color:#f92672"&gt;=&lt;/span&gt; HighBulk,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; lowBulk &lt;span style="color:#f92672"&gt;=&lt;/span&gt; LowBulk,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; chromList &lt;span style="color:#f92672"&gt;=&lt;/span&gt; Chroms
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# ==================== 质量检查图 ====================&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 深度分布图&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;p1 &lt;span style="color:#f92672"&gt;&amp;lt;-&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;ggplot&lt;/span&gt;(data &lt;span style="color:#f92672"&gt;=&lt;/span&gt; df) &lt;span style="color:#f92672"&gt;+&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;geom_histogram&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;aes&lt;/span&gt;(x &lt;span style="color:#f92672"&gt;=&lt;/span&gt; DP.HIGH &lt;span style="color:#f92672"&gt;+&lt;/span&gt; DP.LOW)) &lt;span style="color:#f92672"&gt;+&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;xlim&lt;/span&gt;(&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;, &lt;span style="color:#ae81ff"&gt;800&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;pdf&lt;/span&gt;(file &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;SNP_depth.pdf&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;p1
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;dev.off&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# REF等位基因频率分布&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;p2 &lt;span style="color:#f92672"&gt;&amp;lt;-&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;ggplot&lt;/span&gt;(data &lt;span style="color:#f92672"&gt;=&lt;/span&gt; df) &lt;span style="color:#f92672"&gt;+&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;geom_histogram&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;aes&lt;/span&gt;(x &lt;span style="color:#f92672"&gt;=&lt;/span&gt; REF_FRQ))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;pdf&lt;/span&gt;(file &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;ref_allele_frequency.pdf&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;p2
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;dev.off&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 高值混池SNP-index分布&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;p3 &lt;span style="color:#f92672"&gt;&amp;lt;-&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;ggplot&lt;/span&gt;(data &lt;span style="color:#f92672"&gt;=&lt;/span&gt; df) &lt;span style="color:#f92672"&gt;+&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;geom_histogram&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;aes&lt;/span&gt;(x &lt;span style="color:#f92672"&gt;=&lt;/span&gt; SNPindex.HIGH))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;pdf&lt;/span&gt;(file &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;SNPindex.HIGH.dis.pdf&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;p3
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;dev.off&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 低值混池SNP-index分布&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;p4 &lt;span style="color:#f92672"&gt;&amp;lt;-&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;ggplot&lt;/span&gt;(data &lt;span style="color:#f92672"&gt;=&lt;/span&gt; df) &lt;span style="color:#f92672"&gt;+&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;geom_histogram&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;aes&lt;/span&gt;(x &lt;span style="color:#f92672"&gt;=&lt;/span&gt; SNPindex.LOW))
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;pdf&lt;/span&gt;(file &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;SNPindex.LOW.dis.pdf&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;p4
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;dev.off&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# ==================== SNP过滤 ====================&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;df_filt &lt;span style="color:#f92672"&gt;&amp;lt;-&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;filterSNPs&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; SNPset &lt;span style="color:#f92672"&gt;=&lt;/span&gt; df,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; refAlleleFreq &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0.20&lt;/span&gt;, &lt;span style="color:#75715e"&gt;# REF等位基因频率: 0.2~0.8&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; minTotalDepth &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;100&lt;/span&gt;, &lt;span style="color:#75715e"&gt;# 最小总深度&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; maxTotalDepth &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;400&lt;/span&gt;, &lt;span style="color:#75715e"&gt;# 最大总深度&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; minSampleDepth &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;40&lt;/span&gt;, &lt;span style="color:#75715e"&gt;# 单样品最小深度&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; minGQ &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;99&lt;/span&gt;, &lt;span style="color:#75715e"&gt;# 基因型质量阈值&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; verbose &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;TRUE&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# ==================== deltaSNPindex计算 ====================&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;df_filt &lt;span style="color:#f92672"&gt;&amp;lt;-&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;runQTLseqAnalysis&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; df_filt,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; windowSize &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1e6&lt;/span&gt;, &lt;span style="color:#75715e"&gt;# 窗口大小&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; popStruc &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;F2&amp;#34;&lt;/span&gt;, &lt;span style="color:#75715e"&gt;# 群体类型&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; bulkSize &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;c&lt;/span&gt;(&lt;span style="color:#ae81ff"&gt;385&lt;/span&gt;, &lt;span style="color:#ae81ff"&gt;430&lt;/span&gt;), &lt;span style="color:#75715e"&gt;# 混池个体数&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; replications &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;10000&lt;/span&gt;, &lt;span style="color:#75715e"&gt;# Bootstrap次数&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; intervals &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;c&lt;/span&gt;(&lt;span style="color:#ae81ff"&gt;95&lt;/span&gt;, &lt;span style="color:#ae81ff"&gt;99&lt;/span&gt;) &lt;span style="color:#75715e"&gt;# 置信区间&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# ==================== 结果可视化 ====================&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# SNP沿染色体分布&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;p5 &lt;span style="color:#f92672"&gt;&amp;lt;-&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;plotQTLStats&lt;/span&gt;(SNPset &lt;span style="color:#f92672"&gt;=&lt;/span&gt; df_filt, var &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;nSNPs&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;pdf&lt;/span&gt;(file &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;SNP_filter.window.pdf&amp;#34;&lt;/span&gt;, width &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;20&lt;/span&gt;, height &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;4&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;p5
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;dev.off&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# deltaSNPindex沿染色体分布&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;p6 &lt;span style="color:#f92672"&gt;&amp;lt;-&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;plotQTLStats&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; SNPset &lt;span style="color:#f92672"&gt;=&lt;/span&gt; df_filt,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; var &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;deltaSNP&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; plotIntervals &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;TRUE&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;pdf&lt;/span&gt;(file &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;deltaSNPindex.pdf&amp;#34;&lt;/span&gt;, width &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;20&lt;/span&gt;, height &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;4&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;p6
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;dev.off&lt;/span&gt;()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# ==================== 提取显著区域 ====================&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;QTL &lt;span style="color:#f92672"&gt;&amp;lt;-&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;getSigRegions&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; SNPset &lt;span style="color:#f92672"&gt;=&lt;/span&gt; df_filt,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; method &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;QTLseq&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; interval &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;95&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;write.table&lt;/span&gt;(QTL[[1]], &lt;span style="color:#e6db74"&gt;&amp;#34;QTLseq_result.SigRegions.table&amp;#34;&lt;/span&gt;, sep &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;\t&amp;#34;&lt;/span&gt;, quote &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;FALSE&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# ==================== 导出完整结果 ====================&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;results99 &lt;span style="color:#f92672"&gt;&amp;lt;-&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;getQTLTable&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; SNPset &lt;span style="color:#f92672"&gt;=&lt;/span&gt; df_filt,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; method &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;QTLseq&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; interval &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;99&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; export &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;FALSE&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;write.table&lt;/span&gt;(
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; results99,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; file &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;QTLseq_result_deltaSNPindex_CI99.table&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; sep &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;\t&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; quote &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;FALSE&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="附录分析流程图"&gt;附录：分析流程图&lt;/h2&gt;
+&lt;p&gt;plaintext&lt;/p&gt;</description></item><item><title>AI辅助教程</title><link>https://Tdxxxx-student.github.io/posts/ai%E8%BE%85%E5%8A%A9%E6%95%99%E7%A8%8B/</link><pubDate>Sun, 01 Feb 2026 11:58:07 +0800</pubDate><guid>https://Tdxxxx-student.github.io/posts/ai%E8%BE%85%E5%8A%A9%E6%95%99%E7%A8%8B/</guid><description>&lt;p&gt;这是基于我们刚才排查过的所有坑（环境报错、配置乱码、Git权限、部署冲突、文章不显示等），为你量身定制的**“避坑版”极简教程**。&lt;/p&gt;
 &lt;p&gt;这套方案采用 &lt;strong&gt;Hugo + GitHub Actions (自动部署)&lt;/strong&gt; 方案。这是目前最稳定、最省心的方案，你只需要配置一次，以后写文章只需要“三行命令”。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h3 id="-第一步环境与建站"&gt;🛠 第一步：环境与建站&lt;/h3&gt;
