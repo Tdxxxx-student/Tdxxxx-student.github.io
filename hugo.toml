@@ -2,6 +2,8 @@ baseURL = 'https://Tdxxxx-student.github.io/'
 languageCode = 'zh-cn'
 title = '我的博客'
 theme = 'PaperMod'
+copyright: tdx0307 # 著作权，位于页脚，指的是博客的著作权，非hugo和该主题
+hasCJKLanguage: true
 
 # 启用分类法（默认已启用，可自定义扩展）
 [taxonomies]
@@ -10,10 +12,28 @@ theme = 'PaperMod'
   series = "series"   
   author = "authors"   
 
+[pagination]
+  pagerSize = 4
+
+ [dateFormat]
+  published = 2006-01-02
+  lastUpdated = Jan 02, 2006 15:04 MST
+
+[article]
+  math = false # 文章数学公式格式，默认false
+  toc = true # 文章右侧目录
+  readingTime = true # 阅读时间
+   [license] = 
+    enabled = true # 应该是开源证书之类的东西
+    default = Licensed under CC BY-NC-SA 4.0
+
+
+
 [params]
   defaultTheme = "auto"
   # 分类相关
   showCategories = true
+  info = "从未停止对未知的探索，尝试分享一些有趣的东西"
   showTags = true
   showRelatedPosts = true
   relatedPostsCount = 5
