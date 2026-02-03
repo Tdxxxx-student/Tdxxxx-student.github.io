@@ -3,24 +3,48 @@ languageCode = 'zh-cn'
 title = '我的博客'
 theme = 'PaperMod'
 
+# 启用分类法（默认已启用，可自定义扩展）
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  series = "series"   
+  author = "authors"   
+
 [params]
   defaultTheme = "auto"
+  # 分类相关
+  showCategories = true
+  showTags = true
+  showRelatedPosts = true
+  relatedPostsCount = 5
+
+# 输出格式
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  term = ["HTML", "RSS"]
 
 [params.homeInfoParams]
   Title = "你好，我是 Tdxxxx"
-  Content = "欢迎来到我的博客主页：个人 / 博客 / 教程"
+  Content = "欢迎来到我的博客主页：个人 / 标签 / 代码"
+
+ [[menu.main]]
+    name = "首页"
+    url = "/"
+    weight = 1
 
 [[menu.main]]
-  name = "个人"
+  name = "个人代码"
   url = "/posts"
   weight = 1
 
 [[menu.main]]
-  name = "教程"
-  url = "/docs"
+  name = "标签"
+  url = "/tags/"
   weight = 2
 
 [[menu.main]]
-  name = "学习"
-  url = "/study"
+  name = "分类"
+  url = "/categories/"
   weight = 3
