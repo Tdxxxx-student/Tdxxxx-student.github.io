@@ -249,69 +249,8 @@ python auto_push.py
 🎉 恭喜！
 你已经成功在 Windows 环境下，使用 Hugo + GitHub Pages 创建并部署了自己的博客！
 
+## 补充信息
 ```
-# 目录配制文件示例
-baseURL = "https://example.com/"
-languageCode = "zh-cn"
-title = "生物信息学博客"
-theme = "your-theme"
-
-# 分类法
-[taxonomies]
-  category = "categories"
-  tag = "tags"
-  series = "series"
-
-# 永久链接
-[permalinks]
-  posts = "/posts/:year/:month/:slug/"
-  categories = "/category/:slug/"
-  tags = "/tag/:slug/"
-
-# 菜单
-[menu]
-  [[menu.main]]
-    identifier = "home"
-    name = "🏠 首页"
-    url = "/"
-    weight = 1
-
-  [[menu.main]]
-    identifier = "categories"
-    name = "📂 分类"
-    url = "/categories/"
-    weight = 2
-
-  [[menu.main]]
-    identifier = "tags"
-    name = "🏷️ 标签"
-    url = "/tags/"
-    weight = 3
-
-  [[menu.main]]
-    identifier = "about"
-    name = "👤 关于"
-    url = "/about/"
-    weight = 4
-
-# 站点参数
-[params]
-  description = "分享生物信息学知识"
-  author = "Your Name"
-  
-  # 分类相关
-  showCategories = true
-  showTags = true
-  showRelatedPosts = true
-  relatedPostsCount = 5
-
-# 输出格式
-[outputs]
-  home = ["HTML", "RSS", "JSON"]
-  section = ["HTML", "RSS"]
-  taxonomy = ["HTML", "RSS"]
-  term = ["HTML", "RSS"]
-
 # 文件添加分类配制
 # 完整示例
 +++
@@ -323,15 +262,9 @@ categories = ["生物信息学", "教程"]
 tags = ["重测序", "SNP", "GWAS", "群体遗传学"]
 author = "李详"
 +++
-
-## 软件安装
-
-该部分软件很难用conda直接安装，安装步骤比较特殊。
-
-### lumpy-sv
-
-```bash
-conda activate py27
-git clone --recursive https://github.com/arq5x/lumpy-sv.git
-cd lumpy-sv
-make
+```
+修改完配制文件后重启服务器，再保存
+```
+rm -rf public resources
+hugo server -D
+```
