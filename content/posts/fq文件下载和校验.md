@@ -1,8 +1,8 @@
 +++
 date = '2026-02-03T22:20:24+08:00'
 draft = false
-catergory = “fastq文件下载”
-tag = “fastq下载”
+catergory = [“fastq文件下载”]
+tag = [“fastq下载”]
 title = 'Fq文件下载和校验'
 +++
 # Aspera安装
