@@ -1,0 +1,274 @@
+/* =================================================================
+   分类页面样式 (layouts/categories/terms.html)
+   ================================================================= */
+
+/* 页面容器 */
+.custom-categories-page {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 每一个分类块的容器 */
+.category-wrapper {
+    margin-bottom: 25px; /* 分类之间的距离 */
+}
+
+/* 折叠区域 - 背景完全透明，只有边框 */
+.category-accordion {
+    border: 1px solid var(--border); /* 使用主题变量边框 */
+    border-radius: 8px;
+    background: transparent !important; /* 强制透明 */
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+/* 标题栏 - 背景透明 */
+.category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    cursor: pointer;
+    background: transparent !important; /* 强制透明 */
+    list-style: none;
+    user-select: none;
+}
+
+/* 隐藏原生三角箭头 */
+.category-header::-webkit-details-marker {
+    display: none;
+}
+
+/* 悬停时稍微变色，增加交互感 */
+.category-header:hover {
+    background: rgba(128, 128, 128, 0.05) !important;
+}
+
+/* 展开时添加下划线 */
+.category-accordion[open] .category-header {
+    border-bottom: 1px dashed var(--border);
+    margin-bottom: 10px;
+}
+
+/* 左侧标题区域 */
+.category-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+/* 旋转箭头 */
+.category-title .icon {
+    font-size: 0.8rem;
+    color: var(--secondary);
+    transition: transform 0.2s;
+}
+
+.category-accordion[open] .category-title .icon {
+    transform: rotate(90deg);
+}
+
+/* 右侧计数 (📕 + 数字) */
+.category-count {
+    font-size: 0.95rem;
+    color: var(--secondary);
+    font-weight: normal;
+}
+
+/* =================================================================
+   下拉文章列表样式
+   ================================================================= */
+
+.category-posts-list {
+    padding: 0 15px 15px 15px;
+    background: transparent !important; /* 强制透明 */
+}
+
+/* 单个文章卡片 */
+.post-entry-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    /* 核心修改：每篇文章之间保持空白距离 */
+    margin-bottom: 12px; 
+    padding: 12px 15px;
+    
+    /* 样式 */
+    text-decoration: none;
+    background: transparent !important; /* 强制透明，跟随背景 */
+    border: 1px solid var(--border);    /* 细边框 */
+    border-radius: 6px;
+    
+    transition: all 0.2s ease;
+}
+
+/* 最后一篇文章不需要下边距 */
+.post-entry-card:last-child {
+    margin-bottom: 0;
+}
+
+/* 悬停效果：轻微背景色 + 左移 */
+.post-entry-card:hover {
+    background: var(--entry) !important; /* 悬停时显示主题默认卡片背景色 */
+    border-color: var(--primary);
+    transform: translateX(5px);
+}
+
+/* 文章标题 */
+.post-entry-card .post-title {
+    font-size: 1rem;
+    color: var(--primary);
+    font-weight: 500;
+}
+
+/* 文章日期 */
+.post-entry-card .post-date {
+    font-size: 0.85rem;
+    color: var(--secondary);
+    font-family: monospace;
+    margin-left: 20px;
+    white-space: nowrap;
+}
+
+/* =================================================================
+   页码导航样式 (恢复原样)
+   ================================================================= */
+
+.post-nav-full {
+    margin-top: 3rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.post-nav-full .nav-info {
+    font-size: 0.9rem;
+    color: var(--secondary);
+}
+
+.post-nav-full .nav-info strong {
+    color: var(--primary);
+    font-size: 1.1rem;
+}
+
+.post-nav-full .nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.post-nav-full .nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.5rem 1rem;
+    background: var(--code-bg); /* 恢复背景色 */
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.post-nav-full .nav-btn:hover:not(.disabled) {
+    background: var(--primary);
+    color: var(--theme);
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.post-nav-full .nav-btn.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.post-nav-full .nav-btn .btn-icon {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.post-nav-full .nav-btn .btn-text {
+    font-size: 0.85rem;
+}
+
+.post-nav-full .nav-pages {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin: 0 0.5rem;
+}
+
+.post-nav-full .nav-num {
+    min-width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--code-bg); /* 恢复背景色 */
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.post-nav-full .nav-num:hover:not(.current) {
+    background: var(--primary);
+    color: var(--theme);
+    border-color: var(--primary);
+    transform: translateY(-2px);
+}
+
+.post-nav-full .nav-num.current {
+    background: var(--primary);
+    color: var(--theme);
+    border-color: var(--primary);
+    cursor: default;
+}
+
+.post-nav-full .nav-dots {
+    color: var(--secondary);
+    padding: 0 0.3rem;
+    font-size: 1rem;
+}
+
+/* =================================================================
+   响应式调整
+   ================================================================= */
+@media (max-width: 768px) {
+    .post-entry-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .post-entry-card .post-date {
+        margin-left: 0;
+        font-size: 0.8rem;
+    }
+
+    .post-nav-full .nav-btn .btn-text {
+        display: none;
+    }
+    
+    .post-nav-full .nav-num {
+        min-width: 32px;
+        height: 32px;
+        font-size: 0.85rem;
+    }
+}
