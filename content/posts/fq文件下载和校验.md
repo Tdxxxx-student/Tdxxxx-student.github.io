@@ -57,20 +57,17 @@ DEST ./test.fq.gz， 保存地址
 ascp  -l 100M -P 33001 -QT -k 2 -i ~/.aspera/connect/etc/asperaweb_id_dsa.openssh era-fasp@fasp.sra.ebi.ac.uk:/vol1/fastq/SRR576/004/SRR5760814/SRR5760814.fastq.gz ./test.fq.gz
 ```
 
-## EBI下载
+## 下载
 ```bash
 $ ascp -l 100M -P 33001 -QT -k 2 -i ~/.aspera/connect/etc/asperaweb_id_dsa.openssh era-fasp@fasp.sra.ebi.ac.uk:/vol1/fastq/SRR576/002/SRR5760812/SRR5760812.fastq.gz ./test.fq.gz
 ```
 
 师姐解说
-
 ```bash
 WH:
  mamba activate ascp
-
 WH:
 which aspera
-
 WH:
 #密钥地址一般是bin换成etc后边
 ```
@@ -88,35 +85,43 @@ nohub command &
 # 正常退出，否则可能会失败
 exit
 ```
-
+# ENA自动下载校验脚本
 直接在 [ENA](https://www.ebi.ac.uk/ena/browser/view/) 上检索想要下载的数据
-有两个信息很重要，MD5值和Aspera链接。
+有两个信息很重要，MD5值和Aspera链接，第一列为run accession。
 选择TSV下载格式将信息下载下来，然后使用R进行处理，获得最终要的数据格式。R代码如下：
 ## R 处理成最后想要的格式
 ```r
-rm(list = ls())  
-  
-dir("data/生信挖掘/水稻多效基因/data/ENA下载信息/") %>%  
-as.data.frame() %>%  
-magrittr::set_names("file") -> df.file  
-  
-all.ena = NULL  
-  
-for (i in unique(df.file$file)) {  
-sprintf("data/生信挖掘/水稻多效基因/data/ENA下载信息/%s", i) %>%  
-readr::read_delim() %>%  
-magrittr::set_names(c("Run", "md5", "link")) %>%  
-dplyr::mutate(md5 = stringr::str_split(md5, ";"),  
-link = stringr::str_split(link, ";")) %>%  
-tidyr::unnest() %>%  
-dplyr::mutate(file = stringr::str_split(link, "/") %>% sapply("[", 7)) %>%  
-dplyr::select(Run, file, md5, link) %>%  
-dplyr::bind_rows(all.ena) -> all.ena  
-}  
-  
-all.ena %>%  
-dplyr::select(file, md5, link) %>%  
-readr::write_delim("data/生信挖掘/水稻多效基因/data/ena.info.txt", delim = "\t", col_names = FALSE)
+rm(list = ls())
+setwd("tsv文件所在路径")  
+library(tidyverse)
+
+# 获取当前目录的文件列表
+dir() %>% 
+  as.data.frame() %>% 
+  magrittr::set_names("file") %>%
+  dplyr::filter(grepl("\\.tsv$|\\.txt$", file)) -> df.file  # 筛选特定后缀文件
+
+all.ena <- tibble()
+
+for (i in unique(df.file$file)) {
+  readr::read_delim(i, show_col_types = FALSE) %>%   # 直接用文件名
+    magrittr::set_names(c("Run", "md5", "link")) %>% 
+    dplyr::mutate(
+      md5 = stringr::str_split(md5, ";"),
+      link = stringr::str_split(link, ";")
+    ) %>% 
+    tidyr::unnest(cols = c(md5, link)) %>%   # 指定 cols 参数
+    dplyr::mutate(
+      file = stringr::str_split(link, "/") %>% sapply(`[`, 7)
+    ) %>% 
+    dplyr::select(Run, file, md5, link) %>% 
+    dplyr::bind_rows(all.ena) -> all.ena 
+}
+
+# 输出到当前目录
+all.ena %>% 
+  dplyr::select(file, md5, link) %>% 
+  readr::write_delim("ena.info.txt", delim = "\t", col_names = FALSE)
 ```
 得到的文件长这样：
 第一列是 fq 文件名，第二列是 MD 5 校验码，第三列是 aspera 下载地址
@@ -179,9 +184,11 @@ done < "$FILE_LIST"
 ```
 
 ```shell
-nohup bash dl.sh > dl.log 2>&1 &  
+nohup bash aspera_1.sh > dl.log 2>&1 & 
 echo 1646575 > dl.id
 ```
+## 注意
+上面脚本需要自行修改下载速度和密钥！
 
 ```shell
 # 输出日志
