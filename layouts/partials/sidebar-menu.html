@@ -1,0 +1,37 @@
+{{/* 递归渲染菜单的函数 */}}
+{{- define "menu/recurse" }}
+  {{- $currentPage := .currentPage }}
+  {{- range .menuItems }}
+    {{- $active := or ($currentPage.IsMenuCurrent "main" .) ($currentPage.HasMenuCurrent "main" .) }}
+    {{- $hasChildren := .HasChildren }}
+    {{/* 计算当前分类/菜单下的文章数量（关键：统计对应URL下的页面数） */}}
+    {{- $pageCount := len (where site.RegularPages "RelPermalink" "startswith" .URL) }}
+
+    <li class="menu-item {{ if $active }}active{{ end }} {{ if $hasChildren }}has-children{{ end }}">
+      {{/* 菜单链接 + 名称 */}}
+      <a href="{{ .URL }}" class="menu-link">
+        {{ .Name }}
+        {{/* 右侧数量计数 */}}
+        <span class="menu-count">{{ $pageCount }}</span>
+        {{/* 展开/折叠箭头 */}}
+        {{ if $hasChildren }}
+          <span class="menu-arrow {{ if $active }}expanded{{ end }}">▼</span>
+        {{ end }}
+      </a>
+
+      {{/* 渲染子菜单 */}}
+      {{- if $hasChildren }}
+        <ul class="submenu {{ if $active }}show{{ end }}">
+          {{- template "menu/recurse" (dict "menuItems" .Children "currentPage" $currentPage) }}
+        </ul>
+      {{- end }}
+    </li>
+  {{- end }}
+{{- end }}
+
+{{/* 菜单容器 */}}
+<nav class="sidebar-menu">
+  <ul class="main-menu">
+    {{- template "menu/recurse" (dict "menuItems" (site.Menus.main) "currentPage" .) }}
+  </ul>
+</nav>

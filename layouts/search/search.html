@@ -1,0 +1,194 @@
+{{- define "main" }}
+
+<div class="search-page">
+  <header class="page-header">
+    <h1>{{ .Title }}</h1>
+  </header>
+
+  <!-- 搜索框 -->
+  <div class="search-container">
+    <div class="search-box">
+      <span class="search-icon">🔍</span>
+      <input 
+        type="text" 
+        id="search-input" 
+        class="search-input" 
+        placeholder="输入关键字搜索文章..." 
+        autocomplete="off"
+        autofocus
+      >
+      <button id="search-clear" class="search-clear" title="清除">×</button>
+    </div>
+    <div class="search-info">
+      <span id="search-count"></span>
+    </div>
+  </div>
+
+  <!-- 搜索结果 -->
+  <div id="search-results" class="search-results"></div>
+
+  <!-- 默认显示所有文章 -->
+  <div id="all-posts" class="all-posts">
+    <h2>全部文章</h2>
+    <ul class="posts-list">
+      {{- $pages := where .Site.RegularPages "Type" "posts" }}
+      {{- range $pages.ByDate.Reverse }}
+      <li class="post-entry">
+        <span class="post-date">{{ .Date.Format "2006-01-02" }}</span>
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+      </li>
+      {{- end }}
+    </ul>
+  </div>
+</div>
+
+<!-- 搜索脚本 -->
+<script>
+(function() {
+  const searchInput = document.getElementById('search-input');
+  const searchClear = document.getElementById('search-clear');
+  const searchResults = document.getElementById('search-results');
+  const searchCount = document.getElementById('search-count');
+  const allPosts = document.getElementById('all-posts');
+  
+  let searchIndex = [];
+
+  // 加载搜索索引
+  fetch('/index.json')
+    .then(response => response.json())
+    .then(data => {
+      searchIndex = data;
+    })
+    .catch(error => {
+      console.error('加载搜索索引失败:', error);
+    });
+
+  // 搜索函数
+  function performSearch(query) {
+    if (!query || query.trim() === '') {
+      searchResults.innerHTML = '';
+      searchCount.textContent = '';
+      allPosts.style.display = 'block';
+      searchClear.style.display = 'none';
+      return;
+    }
+
+    allPosts.style.display = 'none';
+    searchClear.style.display = 'block';
+    
+    const keywords = query.toLowerCase().trim().split(/\s+/);
+    
+    const results = searchIndex.filter(item => {
+      const title = (item.title || '').toLowerCase();
+      const content = (item.content || '').toLowerCase();
+      const categories = (item.categories || []).join(' ').toLowerCase();
+      const tags = (item.tags || []).join(' ').toLowerCase();
+      const searchText = title + ' ' + content + ' ' + categories + ' ' + tags;
+      
+      return keywords.every(keyword => searchText.includes(keyword));
+    });
+
+    displayResults(results, query);
+  }
+
+  // 显示结果
+  function displayResults(results, query) {
+    if (results.length === 0) {
+      searchResults.innerHTML = `
+        <div class="no-results">
+          <p>😔 没有找到与 "<strong>${escapeHtml(query)}</strong>" 相关的文章</p>
+          <p>试试其他关键字？</p>
+        </div>
+      `;
+      searchCount.textContent = '找到 0 篇文章';
+      return;
+    }
+
+    searchCount.textContent = `找到 ${results.length} 篇文章`;
+    
+    let html = '<ul class="results-list">';
+    results.forEach(item => {
+      const title = highlightText(item.title, query);
+      html += `
+        <li class="result-item">
+          <a href="${item.url}" class="result-link">
+            <span class="result-title">${title}</span>
+            <span class="result-date">${item.date}</span>
+          </a>
+          ${item.categories && item.categories.length ? 
+            `<div class="result-meta">
+              <span class="result-categories">${item.categories.join(', ')}</span>
+            </div>` : ''
+          }
+        </li>
+      `;
+    });
+    html += '</ul>';
+    
+    searchResults.innerHTML = html;
+  }
+
+  // 高亮关键字
+  function highlightText(text, query) {
+    if (!text || !query) return text;
+    const keywords = query.trim().split(/\s+/);
+    let result = escapeHtml(text);
+    keywords.forEach(keyword => {
+      if (keyword) {
+        const regex = new RegExp(`(${escapeRegex(keyword)})`, 'gi');
+        result = result.replace(regex, '<mark>$1</mark>');
+      }
+    });
+    return result;
+  }
+
+  // 转义 HTML
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  // 转义正则特殊字符
+  function escapeRegex(string) {
+    return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  // 防抖函数
+  function debounce(func, wait) {
+    let timeout;
+    return function(...args) {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func.apply(this, args), wait);
+    };
+  }
+
+  // 绑定事件
+  searchInput.addEventListener('input', debounce(function(e) {
+    performSearch(e.target.value);
+  }, 300));
+
+  searchInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      searchInput.value = '';
+      performSearch('');
+    }
+  });
+
+  searchClear.addEventListener('click', function() {
+    searchInput.value = '';
+    performSearch('');
+    searchInput.focus();
+  });
+
+  // 快捷键 Ctrl+K 或 / 聚焦搜索框
+  document.addEventListener('keydown', function(e) {
+    if ((e.ctrlKey && e.key === 'k') || (e.key === '/' && document.activeElement !== searchInput)) {
+      e.preventDefault();
+      searchInput.focus();
+    }
+  });
+})();
+</script>
+
+{{- end }}

@@ -13,6 +13,7 @@ hasCJKLanguage = true
   pagerSize = 5
 
 [params]
+  customCSS = ["css/custom.css"]
   defaultTheme = "auto"
   ShowBreadCrumbs = true
   ShowPostNavLinks = true
@@ -33,15 +34,16 @@ hasCJKLanguage = true
   taxonomy = ["HTML", "RSS"]
   term = ["HTML", "RSS"]
 
-[[menu.main]]
-  name = "首页"
-  url = "/"
-  weight = 1
 
 [[menu.main]]
-  name = "文章"
-  url = "/posts/"
+  name = "归档"
+  url = "/archives/"
   weight = 2
+
+[[menu.main]]
+  name = "首页"
+  url = "/posts/"
+  weight = 1
 
 [[menu.main]]
   name = "分类"
@@ -52,3 +54,9 @@ hasCJKLanguage = true
   name = "标签"
   url = "/tags/"
   weight = 4
+
+[[menu.main]]
+  identifier = "search"
+  name = "🔍 "
+  url = "/search/"
+  weight = 5

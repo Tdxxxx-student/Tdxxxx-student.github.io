@@ -185,7 +185,7 @@ done < "$FILE_LIST"
 
 ```shell
 nohup bash aspera_1.sh > dl.log 2>&1 & 
-echo 1646575 > dl.id
+echo $! > dl.id    # $! 是上一个后台进程的ID
 ```
 ## 注意
 上面脚本需要自行修改下载速度和密钥！

@@ -372,7 +372,7 @@ SRR064554_2.fastq.gz	文件不存在
         document.querySelector("html").dataset.theme = 'light';
     }
 
-</script><meta property="og:url" content="https://Tdxxxx-student.github.io/posts/ena%E6%A0%A1%E9%AA%8C%E8%84%9A%E6%9C%AC/">
+</script><link rel="stylesheet" href="https://Tdxxxx-student.github.io/css/custom.css"><meta property="og:url" content="https://Tdxxxx-student.github.io/posts/ena%E6%A0%A1%E9%AA%8C%E8%84%9A%E6%9C%AC/">
   <meta property="og:site_name" content="我的空间">
   <meta property="og:title" content="ENA校验脚本">
   <meta property="og:description" content="ENA下载的md5校验文件（tsv）格式转化和一键校验脚本 以下为脚本
@@ -771,13 +771,13 @@ SRR064554_2.fastq.gz	文件不存在
         </div>
         <ul id="menu">
             <li>
-                <a href="https://Tdxxxx-student.github.io/" title="首页">
+                <a href="https://Tdxxxx-student.github.io/posts/" title="首页">
                     <span>首页</span>
                 </a>
             </li>
             <li>
-                <a href="https://Tdxxxx-student.github.io/posts/" title="文章">
-                    <span>文章</span>
+                <a href="https://Tdxxxx-student.github.io/archives/" title="归档">
+                    <span>归档</span>
                 </a>
             </li>
             <li>
@@ -788,6 +788,11 @@ SRR064554_2.fastq.gz	文件不存在
             <li>
                 <a href="https://Tdxxxx-student.github.io/tags/" title="标签">
                     <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Tdxxxx-student.github.io/search/" title="🔍  (Alt &#43; /)" accesskey=/>
+                    <span>🔍 </span>
                 </a>
             </li>
         </ul>
@@ -801,14 +806,40 @@ SRR064554_2.fastq.gz	文件不存在
       ENA校验脚本
     </h1>
     <div class="post-meta"><span title='2026-02-04 12:58:06 +0800 CST'>2026-02-04</span>&nbsp;·&nbsp;<span>4 min</span></div>
-  </header>
+  </header><div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
 
-  
-  <div class="post-container">
-    
-    
-    <div class="post-main">
-      <div class="post-content"><p>ENA下载的md5校验文件（tsv）格式转化和一键校验脚本
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e6%9b%b4%e6%96%b0%e8%af%b4%e6%98%8e" aria-label="更新说明">更新说明</a><ul>
+                        
+                <li>
+                    <a href="#1-%e6%94%af%e6%8c%81%e5%8d%95%e7%ab%af%e6%b5%8b%e5%ba%8f" aria-label="1. 支持单端测序">1. 支持单端测序</a></li>
+                <li>
+                    <a href="#2-%e9%94%99%e8%af%af%e6%8a%a5%e5%91%8a%e6%a0%bc%e5%bc%8ftsv" aria-label="2. 错误报告格式（TSV）">2. 错误报告格式（TSV）</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e4%bd%bf%e7%94%a8%e6%96%b9%e6%b3%95" aria-label="使用方法">使用方法</a></li>
+                <li>
+                    <a href="#%e8%be%93%e5%87%ba%e7%a4%ba%e4%be%8b" aria-label="输出示例">输出示例</a><ul>
+                        
+                <li>
+                    <a href="#%e7%bb%88%e7%ab%af%e8%be%93%e5%87%ba" aria-label="终端输出">终端输出</a></li>
+                <li>
+                    <a href="#%e9%94%99%e8%af%af%e6%8a%a5%e5%91%8a%e6%96%87%e4%bb%b6-md5_failed_reporttsv" aria-label="错误报告文件 (md5_failed_report.tsv)">错误报告文件 (md5_failed_report.tsv)</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+
+  <div class="post-content"><p>ENA下载的md5校验文件（tsv）格式转化和一键校验脚本
 以下为脚本</p>
 <pre tabindex="0"><code>#!/bin/bash
 #===============================================================================
@@ -1113,51 +1144,60 @@ SRR064554_2.fastq.gz	文件不存在
 </table>
 
 
-      </div>
-      <footer class="post-footer">
-        <ul class="post-tags">
-          <li><a href="https://Tdxxxx-student.github.io/tags/ena">ENA</a></li>
-          <li><a href="https://Tdxxxx-student.github.io/tags/md5%E6%A0%A1%E9%AA%8C">md5校验</a></li>
-        </ul>
-      </footer>
-    </div>
-
-    
-    <aside class="toc-sidebar">
-      <div class="toc-wrapper">
-        <div class="toc-title">📑 目录</div>
-        <nav class="toc-nav">
-          <nav id="TableOfContents">
-  <ul>
-    <li><a href="#更新说明">更新说明</a>
-      <ul>
-        <li><a href="#1-支持单端测序">1. 支持单端测序</a></li>
-        <li><a href="#2-错误报告格式tsv">2. 错误报告格式（TSV）</a></li>
-      </ul>
-    </li>
-    <li><a href="#使用方法">使用方法</a></li>
-    <li><a href="#输出示例">输出示例</a>
-      <ul>
-        <li><a href="#终端输出">终端输出</a></li>
-        <li><a href="#错误报告文件-md5_failed_reporttsv">错误报告文件 (md5_failed_report.tsv)</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-        </nav>
-      </div>
-    </aside>
-
   </div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://Tdxxxx-student.github.io/tags/ena">ENA</a></li>
+      <li><a href="https://Tdxxxx-student.github.io/tags/md5%E6%A0%A1%E9%AA%8C">md5校验</a></li>
+    </ul>
+  </footer>
+
   
-<nav class="paginav">
-  <a class="next" href="https://Tdxxxx-student.github.io/posts/fq%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%92%8C%E6%A0%A1%E9%AA%8C/">
-    <span class="title">Next »</span>
-    <br>
-    <span>Fq文件下载和校验</span>
-  </a>
-</nav>
-</article>
+
+  <nav class="post-nav-full">
+    
+    <div class="nav-category">
+      分类：<a href="https://Tdxxxx-student.github.io/categories/ena%E6%95%B0%E6%8D%AE%E5%BA%93/">ENA数据库</a>
+    </div>
+    
+    
+    <div class="nav-info">
+      第 <strong>1</strong> / 1 篇 (ENA数据库)
+    </div>
+    
+    
+    <div class="nav-buttons">
+      
+      <span class="nav-btn first disabled">
+        <span class="btn-icon">«</span>
+        <span class="btn-text">首篇</span>
+      </span>
+
+      
+      <span class="nav-btn prev disabled">
+        <span class="btn-icon">‹</span>
+        <span class="btn-text">上一篇</span>
+      </span>
+
+      
+      <div class="nav-pages">
+
+        <span class="nav-num current">1</span>
+      </div>
+
+      
+      <span class="nav-btn next disabled">
+        <span class="btn-text">下一篇</span>
+        <span class="btn-icon">›</span>
+      </span>
+
+      
+      <span class="nav-btn last disabled">
+        <span class="btn-text">末篇</span>
+        <span class="btn-icon">»</span>
+      </span>
+    </div>
+  </nav></article>
     </main>
     
 <footer class="footer">
@@ -1174,6 +1214,41 @@ SRR064554_2.fastq.gz	文件不存在
         <path d="M12 6H0l6-6z" />
     </svg>
 </a>
+<a href="/search/" class="search-fab" title="搜索 (Ctrl+F)">🔍</a>
+
+<style>
+.search-fab {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.search-fab:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .search-fab {
+        bottom: 1rem;
+        right: 1rem;
+        width: 45px;
+        height: 45px;
+    }
+}
+</style>
 
 <script>
     let menu = document.getElementById('menu');

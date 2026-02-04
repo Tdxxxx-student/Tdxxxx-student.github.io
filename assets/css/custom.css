@@ -1,0 +1,584 @@
+/* ========================================
+   分类/标签/归档页面通用样式
+   ======================================== */
+
+/* 页面容器 */
+.categories-page,
+.tags-page,
+.archives-page,
+.taxonomy-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.categories-page h1,
+.tags-page h1,
+.archives-page h1,
+.taxonomy-page h1,
+.taxonomy-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #eee;
+}
+
+/* 分类列表容器 */
+.taxonomy-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* 每个分类项 */
+.taxonomy-item {
+    margin: 0.5rem 0;
+}
+
+/* ========================================
+   折叠栏样式
+   ======================================== */
+
+/* 折叠栏容器 */
+.category-group,
+.tag-group,
+.archive-group,
+.taxonomy-group {
+    margin: 1.5rem 0;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* 折叠栏标题栏 */
+.category-group summary,
+.tag-group summary,
+.archive-group summary,
+.taxonomy-group summary,
+.taxonomy-header {
+    padding: 1.5rem 2rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    list-style: none;
+}
+
+/* 移除默认箭头 */
+.category-group summary::-webkit-details-marker,
+.tag-group summary::-webkit-details-marker,
+.archive-group summary::-webkit-details-marker,
+.taxonomy-group summary::-webkit-details-marker {
+    display: none;
+}
+
+/* 悬停效果 */
+.category-group summary:hover,
+.tag-group summary:hover,
+.archive-group summary:hover,
+.taxonomy-group summary:hover,
+.taxonomy-header:hover {
+    background: linear-gradient(135deg, #f0f0f0 0%, #f8f8f8 100%);
+}
+
+/* 展开状态 */
+.category-group[open] summary,
+.tag-group[open] summary,
+.archive-group[open] summary,
+.taxonomy-group[open] summary {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+/* ========================================
+   分类名称 - 左侧加粗
+   ======================================== */
+
+.category-group .name,
+.tag-group .name,
+.archive-group .name,
+.taxonomy-group .name,
+.taxonomy-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+/* 箭头图标 */
+.category-group .name::before,
+.tag-group .name::before,
+.archive-group .name::before,
+.taxonomy-group .name::before,
+.taxonomy-name::before {
+    content: "▶";
+    font-size: 0.75rem;
+    margin-right: 0.75rem;
+    color: #666;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+/* 展开时箭头旋转 */
+.category-group[open] .name::before,
+.tag-group[open] .name::before,
+.archive-group[open] .name::before,
+.taxonomy-group[open] .name::before,
+.taxonomy-group[open] .taxonomy-name::before {
+    transform: rotate(90deg);
+}
+
+/* ========================================
+   文章数量 - 右侧加粗
+   ======================================== */
+
+.category-group .count,
+.tag-group .count,
+.archive-group .count,
+.taxonomy-group .count,
+.taxonomy-count {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #555;
+    background: #e9ecef;
+    padding: 0.4rem 1rem;
+    border-radius: 25px;
+    min-width: 60px;
+    text-align: center;
+}
+
+/* ========================================
+   文章列表
+   ======================================== */
+
+.category-group .posts,
+.tag-group .posts,
+.archive-group .posts,
+.taxonomy-group .posts,
+.taxonomy-posts {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: #fafafa;
+}
+
+/* 文章项 */
+.category-group .posts li,
+.tag-group .posts li,
+.archive-group .posts li,
+.taxonomy-group .posts li,
+.post-item {
+    padding: 1rem 2rem;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    transition: background 0.2s ease;
+}
+
+.category-group .posts li:last-child,
+.tag-group .posts li:last-child,
+.archive-group .posts li:last-child,
+.taxonomy-group .posts li:last-child,
+.post-item:last-child {
+    border-bottom: none;
+}
+
+.category-group .posts li:hover,
+.tag-group .posts li:hover,
+.archive-group .posts li:hover,
+.taxonomy-group .posts li:hover,
+.post-item:hover {
+    background: #f5f5f5;
+}
+
+/* 日期 */
+.category-group .date,
+.tag-group .date,
+.archive-group .date,
+.taxonomy-group .date,
+.post-date {
+    color: #888;
+    font-size: 0.9rem;
+    margin-right: 1.5rem;
+    min-width: 100px;
+    font-family: monospace;
+}
+
+/* 文章标题链接 */
+.category-group .posts a,
+.tag-group .posts a,
+.archive-group .posts a,
+.taxonomy-group .posts a,
+.post-link {
+    color: #333;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+}
+
+.category-group .posts a:hover,
+.tag-group .posts a:hover,
+.archive-group .posts a:hover,
+.taxonomy-group .posts a:hover,
+.post-link:hover {
+    color: #0066cc;
+}
+
+/* ========================================
+   文章页上下篇导航
+   ======================================== */
+
+.post-navigation {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+
+.nav-previous,
+.nav-next {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 1.2rem 1.5rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.3s ease;
+    border: 1px solid #e0e0e0;
+}
+
+.nav-previous {
+    justify-content: flex-start;
+}
+
+.nav-next {
+    justify-content: flex-end;
+    text-align: right;
+}
+
+.nav-previous:hover,
+.nav-next:hover {
+    background: #f0f0f0;
+    border-color: #ccc;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.nav-disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.nav-arrow {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #666;
+}
+
+.nav-previous .nav-arrow {
+    margin-right: 1rem;
+}
+
+.nav-next .nav-arrow {
+    margin-left: 1rem;
+}
+
+.nav-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.nav-label {
+    font-size: 0.8rem;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.nav-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ========================================
+   列表页分页导航
+   ======================================== */
+
+.pagination {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.pagination-info {
+    font-size: 0.95rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.pagination-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.page-link {
+    padding: 0.6rem 1.2rem;
+    background: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    color: #333;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.page-link:hover:not(.disabled) {
+    background: #e9ecef;
+    border-color: #ccc;
+}
+
+.page-link.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.page-numbers {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.page-number {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    color: #333;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.page-number:hover {
+    background: #f0f0f0;
+}
+
+.page-number.current {
+    background: #333;
+    color: #fff;
+    border-color: #333;
+}
+
+/* ========================================
+   响应式设计
+   ======================================== */
+
+@media (max-width: 768px) {
+    /* 页面容器 */
+    .categories-page,
+    .tags-page,
+    .archives-page,
+    .taxonomy-page {
+        padding: 1rem 0.5rem;
+    }
+
+    /* 折叠栏标题 */
+    .category-group summary,
+    .tag-group summary,
+    .archive-group summary,
+    .taxonomy-group summary,
+    .taxonomy-header {
+        padding: 1rem 1.2rem;
+    }
+
+    .category-group .name,
+    .tag-group .name,
+    .archive-group .name,
+    .taxonomy-group .name,
+    .taxonomy-name {
+        font-size: 1rem;
+    }
+
+    /* 文章项 */
+    .category-group .posts li,
+    .tag-group .posts li,
+    .archive-group .posts li,
+    .taxonomy-group .posts li,
+    .post-item {
+        padding: 0.8rem 1.2rem;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .category-group .date,
+    .tag-group .date,
+    .archive-group .date,
+    .taxonomy-group .date,
+    .post-date {
+        margin-bottom: 0.3rem;
+        margin-right: 0;
+    }
+
+    /* 上下篇导航 */
+    .nav-links {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-previous,
+    .nav-next {
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    .nav-next {
+        flex-direction: row-reverse;
+    }
+
+    .nav-next .nav-arrow {
+        margin-left: 0;
+        margin-right: 1rem;
+    }
+
+    /* 分页 */
+    .pagination-links {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/* ========================================
+   深色模式支持（如果主题支持）
+   ======================================== */
+
+.dark .category-group,
+.dark .tag-group,
+.dark .archive-group,
+.dark .taxonomy-group {
+    background: #1e1e1e;
+    border-color: #333;
+}
+
+.dark .category-group summary,
+.dark .tag-group summary,
+.dark .archive-group summary,
+.dark .taxonomy-group summary,
+.dark .taxonomy-header {
+    background: linear-gradient(135deg, #2a2a2a 0%, #1e1e1e 100%);
+}
+
+.dark .category-group summary:hover,
+.dark .tag-group summary:hover,
+.dark .archive-group summary:hover,
+.dark .taxonomy-group summary:hover {
+    background: linear-gradient(135deg, #333 0%, #2a2a2a 100%);
+}
+
+.dark .category-group .name,
+.dark .tag-group .name,
+.dark .archive-group .name,
+.dark .taxonomy-group .name,
+.dark .taxonomy-name {
+    color: #e0e0e0;
+}
+
+.dark .category-group .count,
+.dark .tag-group .count,
+.dark .archive-group .count,
+.dark .taxonomy-group .count,
+.dark .taxonomy-count {
+    background: #333;
+    color: #ccc;
+}
+
+.dark .category-group .posts,
+.dark .tag-group .posts,
+.dark .archive-group .posts,
+.dark .taxonomy-group .posts,
+.dark .taxonomy-posts {
+    background: #1a1a1a;
+}
+
+.dark .category-group .posts li,
+.dark .tag-group .posts li,
+.dark .archive-group .posts li,
+.dark .taxonomy-group .posts li,
+.dark .post-item {
+    border-color: #333;
+}
+
+.dark .category-group .posts li:hover,
+.dark .tag-group .posts li:hover,
+.dark .archive-group .posts li:hover,
+.dark .taxonomy-group .posts li:hover,
+.dark .post-item:hover {
+    background: #252525;
+}
+
+.dark .category-group .posts a,
+.dark .tag-group .posts a,
+.dark .archive-group .posts a,
+.dark .taxonomy-group .posts a,
+.dark .post-link {
+    color: #e0e0e0;
+}
+
+.dark .category-group .posts a:hover,
+.dark .tag-group .posts a:hover,
+.dark .archive-group .posts a:hover,
+.dark .taxonomy-group .posts a:hover,
+.dark .post-link:hover {
+    color: #66b3ff;
+}
+
+.dark .nav-previous,
+.dark .nav-next {
+    background: #1e1e1e;
+    border-color: #333;
+    color: #e0e0e0;
+}
+
+.dark .nav-previous:hover,
+.dark .nav-next:hover {
+    background: #252525;
+    border-color: #444;
+}
+
+.dark .nav-arrow {
+    color: #888;
+}
+
+.dark .nav-label {
+    color: #888;
+}
+
+.dark .nav-title {
+    color: #e0e0e0;
+}

@@ -18,48 +18,159 @@
     {{- end }}
   </header>
 
-  <!-- 新布局：左右两栏 -->
-  <div class="post-container">
+  {{- if (.Param "ShowToc") }}
+  {{- partial "toc.html" . }}
+  {{- end }}
+
+  <div class="post-content">
+    {{- if not (.Param "disableAnchoredHeadings") }}
+    {{- partial "anchored_headings.html" .Content -}}
+    {{- else }}{{ .Content }}{{ end }}
+  </div>
+
+  {{- if .Params.tags }}
+  <footer class="post-footer">
+    <ul class="post-tags">
+      {{- range .Params.tags }}
+      <li><a href="{{ "tags/" | absURL }}{{ . | urlize }}">{{ . }}</a></li>
+      {{- end }}
+    </ul>
+  </footer>
+  {{- end }}
+
+  <!-- 智能页码导航 -->
+  {{- $currentPage := . }}
+  {{- $allPages := where .Site.RegularPages "Type" "posts" }}
+  {{- $allPages = $allPages.ByDate.Reverse }}
+  
+  {{- /* 获取当前文章的分类 */ -}}
+  {{- $categories := .Params.categories }}
+  {{- $categoryPages := $allPages }}
+  {{- $categoryName := "" }}
+  
+  {{- /* 如果有分类，使用分类内的文章列表 */ -}}
+  {{- if $categories }}
+    {{- $categoryName = index $categories 0 }}
+    {{- $categoryPages = where $allPages ".Params.categories" "intersect" $categories }}
+  {{- end }}
+  
+  {{- $total := len $categoryPages }}
+  {{- $current := 0 }}
+  {{- $prevPage := false }}
+  {{- $nextPage := false }}
+  
+  {{- range $index, $page := $categoryPages }}
+    {{- if eq $page.Permalink $currentPage.Permalink }}
+      {{- $current = add $index 1 }}
+      {{- if gt $index 0 }}
+        {{- $prevPage = index $categoryPages (sub $index 1) }}
+      {{- end }}
+      {{- if lt (add $index 1) $total }}
+        {{- $nextPage = index $categoryPages (add $index 1) }}
+      {{- end }}
+    {{- end }}
+  {{- end }}
+
+  <nav class="post-nav-full">
+    <!-- 分类信息 -->
+    {{- if $categoryName }}
+    <div class="nav-category">
+      分类：<a href="{{ "categories/" | absURL }}{{ $categoryName | urlize }}/">{{ $categoryName }}</a>
+    </div>
+    {{- end }}
     
-    <!-- 左侧：文章内容 -->
-    <div class="post-main">
-      <div class="post-content">
-        {{- if not (.Param "disableAnchoredHeadings") }}
-        {{- partial "anchored_headings.html" .Content -}}
-        {{- else }}{{ .Content }}{{ end }}
-      </div>
-      
-      {{- if .Params.tags }}
-      <footer class="post-footer">
-        <ul class="post-tags">
-          {{- range .Params.tags }}
-          <li><a href="{{ "tags/" | absURL }}{{ . | urlize }}">{{ . }}</a></li>
+    <!-- 页码信息 -->
+    <div class="nav-info">
+      第 <strong>{{ $current }}</strong> / {{ $total }} 篇
+      {{- if $categoryName }} ({{ $categoryName }}){{- end }}
+    </div>
+    
+    <!-- 导航按钮 -->
+    <div class="nav-buttons">
+      <!-- 首页 -->
+      {{- if gt $current 1 }}
+      <a class="nav-btn first" href="{{ (index $categoryPages 0).Permalink }}" title="第一篇">
+        <span class="btn-icon">«</span>
+        <span class="btn-text">首篇</span>
+      </a>
+      {{- else }}
+      <span class="nav-btn first disabled">
+        <span class="btn-icon">«</span>
+        <span class="btn-text">首篇</span>
+      </span>
+      {{- end }}
+
+      <!-- 上一页 -->
+      {{- if $prevPage }}
+      <a class="nav-btn prev" href="{{ $prevPage.Permalink }}" title="{{ $prevPage.Title }}">
+        <span class="btn-icon">‹</span>
+        <span class="btn-text">上一篇</span>
+      </a>
+      {{- else }}
+      <span class="nav-btn prev disabled">
+        <span class="btn-icon">‹</span>
+        <span class="btn-text">上一篇</span>
+      </span>
+      {{- end }}
+
+      <!-- 页码数字 -->
+      <div class="nav-pages">
+        {{- if gt $current 3 }}
+        <span class="nav-dots">...</span>
+        {{- end }}
+
+        {{- range $i := seq (sub $current 2) (sub $current 1) }}
+          {{- if gt $i 0 }}
+            {{- $idx := sub $i 1 }}
+            {{- $p := index $categoryPages $idx }}
+            <a class="nav-num" href="{{ $p.Permalink }}" title="{{ $p.Title }}">{{ $i }}</a>
           {{- end }}
-        </ul>
-      </footer>
+        {{- end }}
+
+        <span class="nav-num current">{{ $current }}</span>
+
+        {{- range $i := seq (add $current 1) (add $current 2) }}
+          {{- if le $i $total }}
+            {{- $idx := sub $i 1 }}
+            {{- $p := index $categoryPages $idx }}
+            <a class="nav-num" href="{{ $p.Permalink }}" title="{{ $p.Title }}">{{ $i }}</a>
+          {{- end }}
+        {{- end }}
+
+        {{- if lt $current (sub $total 2) }}
+        <span class="nav-dots">...</span>
+        {{- end }}
+      </div>
+
+      <!-- 下一页 -->
+      {{- if $nextPage }}
+      <a class="nav-btn next" href="{{ $nextPage.Permalink }}" title="{{ $nextPage.Title }}">
+        <span class="btn-text">下一篇</span>
+        <span class="btn-icon">›</span>
+      </a>
+      {{- else }}
+      <span class="nav-btn next disabled">
+        <span class="btn-text">下一篇</span>
+        <span class="btn-icon">›</span>
+      </span>
+      {{- end }}
+
+      <!-- 末页 -->
+      {{- if lt $current $total }}
+      <a class="nav-btn last" href="{{ (index $categoryPages (sub $total 1)).Permalink }}" title="最后一篇">
+        <span class="btn-text">末篇</span>
+        <span class="btn-icon">»</span>
+      </a>
+      {{- else }}
+      <span class="nav-btn last disabled">
+        <span class="btn-text">末篇</span>
+        <span class="btn-icon">»</span>
+      </span>
       {{- end }}
     </div>
+  </nav>
 
-    <!-- 右侧：目录 -->
-    {{- if (.Param "ShowToc") }}
-    {{- $headers := findRE "<h[2-4].*?>(.|\n])+?</h[2-4]>" .Content -}}
-    {{- if ge (len $headers) 1 }}
-    <aside class="toc-sidebar">
-      <div class="toc-wrapper">
-        <div class="toc-title">📑 目录</div>
-        <nav class="toc-nav">
-          {{ .TableOfContents }}
-        </nav>
-      </div>
-    </aside>
-    {{- end }}
-    {{- end }}
-
-  </div>
-  <!-- 布局结束 -->
-
-  {{- partial "post_nav_links.html" . -}}
   {{- partial "comments.html" . -}}
 </article>
 
-{{- end }}{{/* end main */}}
+{{- end }}

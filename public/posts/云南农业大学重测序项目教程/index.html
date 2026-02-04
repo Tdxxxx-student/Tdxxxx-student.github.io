@@ -84,7 +84,7 @@ QTL-seq 分析
         document.querySelector("html").dataset.theme = 'light';
     }
 
-</script><meta property="og:url" content="https://Tdxxxx-student.github.io/posts/%E4%BA%91%E5%8D%97%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A6%E9%87%8D%E6%B5%8B%E5%BA%8F%E9%A1%B9%E7%9B%AE%E6%95%99%E7%A8%8B/">
+</script><link rel="stylesheet" href="https://Tdxxxx-student.github.io/css/custom.css"><meta property="og:url" content="https://Tdxxxx-student.github.io/posts/%E4%BA%91%E5%8D%97%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A6%E9%87%8D%E6%B5%8B%E5%BA%8F%E9%A1%B9%E7%9B%AE%E6%95%99%E7%A8%8B/">
   <meta property="og:site_name" content="我的空间">
   <meta property="og:title" content="云南农业大学重测序项目教程">
   <meta property="og:description" content="云南农业大学 云南生物资源保护与利用国家重点实验室
@@ -199,13 +199,13 @@ QTL-seq 分析
         </div>
         <ul id="menu">
             <li>
-                <a href="https://Tdxxxx-student.github.io/" title="首页">
+                <a href="https://Tdxxxx-student.github.io/posts/" title="首页">
                     <span>首页</span>
                 </a>
             </li>
             <li>
-                <a href="https://Tdxxxx-student.github.io/posts/" title="文章">
-                    <span>文章</span>
+                <a href="https://Tdxxxx-student.github.io/archives/" title="归档">
+                    <span>归档</span>
                 </a>
             </li>
             <li>
@@ -216,6 +216,11 @@ QTL-seq 分析
             <li>
                 <a href="https://Tdxxxx-student.github.io/tags/" title="标签">
                     <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Tdxxxx-student.github.io/search/" title="🔍  (Alt &#43; /)" accesskey=/>
+                    <span>🔍 </span>
                 </a>
             </li>
         </ul>
@@ -229,14 +234,147 @@ QTL-seq 分析
       云南农业大学重测序项目教程
     </h1>
     <div class="post-meta"><span title='2026-02-03 12:08:55 +0800 CST'>2026-02-03</span>&nbsp;·&nbsp;<span>7 min</span></div>
-  </header>
+  </header><div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
 
-  
-  <div class="post-container">
-    
-    
-    <div class="post-main">
-      <div class="post-content"><p>云南农业大学 云南生物资源保护与利用国家重点实验室</p>
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e7%9b%ae%e5%bd%95" aria-label="目录">目录</a></li>
+                <li>
+                    <a href="#%e8%bd%af%e4%bb%b6%e5%ae%89%e8%a3%85" aria-label="软件安装">软件安装</a><ul>
+                        
+                <li>
+                    <a href="#1-lumpy-sv" aria-label="1. lumpy-sv">1. lumpy-sv</a></li>
+                <li>
+                    <a href="#2-svtyper" aria-label="2. svtyper">2. svtyper</a></li>
+                <li>
+                    <a href="#3-cnvnator" aria-label="3. cnvnator">3. cnvnator</a><ul>
+                        
+                <li>
+                    <a href="#31-%e5%ae%89%e8%a3%85-samtools" aria-label="3.1 安装 samtools">3.1 安装 samtools</a></li>
+                <li>
+                    <a href="#32-%e5%ae%89%e8%a3%85-root-%e8%bd%af%e4%bb%b6" aria-label="3.2 安装 root 软件">3.2 安装 root 软件</a></li>
+                <li>
+                    <a href="#33-%e5%ae%89%e8%a3%85-cnvnator" aria-label="3.3 安装 cnvnator">3.3 安装 cnvnator</a></li></ul>
+                </li></ul>
+                </li>
+                <li>
+                    <a href="#%e5%8f%98%e5%bc%82%e6%a3%80%e6%b5%8b" aria-label="变异检测">变异检测</a><ul>
+                        
+                <li>
+                    <a href="#1-%e6%9e%84%e5%bb%ba%e5%9f%ba%e5%9b%a0%e7%bb%84-index" aria-label="1. 构建基因组 index">1. 构建基因组 index</a></li>
+                <li>
+                    <a href="#2-%e6%af%94%e5%af%b9%e6%8e%92%e5%ba%8f%e5%8e%bb%e9%87%8d" aria-label="2. 比对排序去重">2. 比对排序去重</a><ul>
+                        
+                <li>
+                    <a href="#21-%e6%af%94%e5%af%b9%e6%8e%92%e5%ba%8f" aria-label="2.1 比对排序">2.1 比对排序</a></li>
+                <li>
+                    <a href="#22-%e5%8e%bb%e9%99%a4%e9%87%8d%e5%a4%8d" aria-label="2.2 去除重复">2.2 去除重复</a></li>
+                <li>
+                    <a href="#23-%e6%af%94%e5%af%b9%e7%8e%87%e7%bb%9f%e8%ae%a1" aria-label="2.3 比对率统计">2.3 比对率统计</a></li>
+                <li>
+                    <a href="#24-%e6%89%b9%e9%87%8f%e6%af%94%e5%af%b9%e8%84%9a%e6%9c%ac%e7%94%9f%e6%88%90" aria-label="2.4 批量比对脚本生成">2.4 批量比对脚本生成</a></li></ul>
+                </li>
+                <li>
+                    <a href="#3-snpindel-%e6%a3%80%e6%b5%8b" aria-label="3. SNP、Indel 检测">3. SNP、Indel 检测</a><ul>
+                        
+                <li>
+                    <a href="#31-haplotypecaller" aria-label="3.1 HaplotypeCaller">3.1 HaplotypeCaller</a></li>
+                <li>
+                    <a href="#32-combinegvcfs" aria-label="3.2 CombineGVCFs">3.2 CombineGVCFs</a></li>
+                <li>
+                    <a href="#33genotpegvcfs" aria-label="3.3GenotpeGVCFs">3.3GenotpeGVCFs</a></li>
+                <li>
+                    <a href="#34-snp-%e8%bf%87%e6%bb%a4" aria-label="3.4 SNP 过滤">3.4 SNP 过滤</a></li>
+                <li>
+                    <a href="#35-indel-%e8%bf%87%e6%bb%a4" aria-label="3.5 InDel 过滤">3.5 InDel 过滤</a></li></ul>
+                </li>
+                <li>
+                    <a href="#4-sv-%e6%a3%80%e6%b5%8b" aria-label="4. SV 检测">4. SV 检测</a></li>
+                <li>
+                    <a href="#5-cnv-%e6%a3%80%e6%b5%8b" aria-label="5. CNV 检测">5. CNV 检测</a><ul>
+                        
+                <li>
+                    <a href="#51-%e5%87%86%e5%a4%87%e5%9f%ba%e5%9b%a0%e7%bb%84" aria-label="5.1 准备基因组">5.1 准备基因组</a></li>
+                <li>
+                    <a href="#52-%e8%bf%90%e8%a1%8c-cnvnator" aria-label="5.2 运行 cnvnator">5.2 运行 cnvnator</a></li></ul>
+                </li>
+                <li>
+                    <a href="#6-snpindel-%e6%b3%a8%e9%87%8a" aria-label="6. SNP/InDel 注释">6. SNP/InDel 注释</a><ul>
+                        
+                <li>
+                    <a href="#61-%e5%87%86%e5%a4%87%e6%b3%a8%e9%87%8a%e6%95%b0%e6%8d%ae%e5%ba%93" aria-label="6.1 准备注释数据库">6.1 准备注释数据库</a></li>
+                <li>
+                    <a href="#62-%e6%b3%a8%e9%87%8a-vcf-%e6%96%87%e4%bb%b6" aria-label="6.2 注释 VCF 文件">6.2 注释 VCF 文件</a></li></ul>
+                </li>
+                <li>
+                    <a href="#7-cnv-%e5%92%8c-sv-%e6%b3%a8%e9%87%8a" aria-label="7. CNV 和 SV 注释">7. CNV 和 SV 注释</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e7%be%a4%e4%bd%93%e7%bb%93%e6%9e%84%e5%88%86%e6%9e%90" aria-label="群体结构分析">群体结构分析</a><ul>
+                        
+                <li>
+                    <a href="#1-%e6%95%b0%e6%8d%ae%e8%bf%87%e6%bb%a4" aria-label="1. 数据过滤">1. 数据过滤</a></li>
+                <li>
+                    <a href="#2-%e5%bb%ba%e6%a0%91%e5%88%86%e6%9e%90" aria-label="2. 建树分析">2. 建树分析</a><ul>
+                        
+                <li>
+                    <a href="#21-nj-%e6%a0%91" aria-label="2.1 NJ 树">2.1 NJ 树</a></li>
+                <li>
+                    <a href="#22-snphylo-%e5%bb%ba%e6%a0%91" aria-label="2.2 SNPhylo 建树">2.2 SNPhylo 建树</a></li></ul>
+                </li>
+                <li>
+                    <a href="#3-pca-%e5%88%86%e6%9e%90" aria-label="3. PCA 分析">3. PCA 分析</a></li>
+                <li>
+                    <a href="#4-%e7%be%a4%e4%bd%93%e7%bb%93%e6%9e%84%e5%88%86%e6%9e%90" aria-label="4. 群体结构分析">4. 群体结构分析</a></li>
+                <li>
+                    <a href="#5-ld-%e8%a1%b0%e5%87%8f%e5%88%86%e6%9e%90" aria-label="5. LD 衰减分析">5. LD 衰减分析</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e9%80%89%e6%8b%a9%e5%88%86%e6%9e%90" aria-label="选择分析">选择分析</a><ul>
+                        
+                <li>
+                    <a href="#1-%cf%80-%e5%92%8c-rod-%e5%88%86%e6%9e%90" aria-label="1. π 和 ROD 分析">1. π 和 ROD 分析</a></li>
+                <li>
+                    <a href="#2-tajimas-d-%e5%88%86%e6%9e%90" aria-label="2. Tajima&rsquo;s D 分析">2. Tajima&rsquo;s D 分析</a></li>
+                <li>
+                    <a href="#3-fst-%e5%88%86%e6%9e%90" aria-label="3. Fst 分析">3. Fst 分析</a></li>
+                <li>
+                    <a href="#4-rod--fst-%e8%81%94%e5%90%88%e5%88%86%e6%9e%90" aria-label="4. ROD &#43; Fst 联合分析">4. ROD + Fst 联合分析</a></li></ul>
+                </li>
+                <li>
+                    <a href="#gwas-%e5%88%86%e6%9e%90" aria-label="GWAS 分析">GWAS 分析</a><ul>
+                        
+                <li>
+                    <a href="#1-%e5%9f%ba%e5%9b%a0%e5%9e%8b%e5%a1%ab%e5%85%85" aria-label="1. 基因型填充">1. 基因型填充</a></li>
+                <li>
+                    <a href="#2-%e6%a0%87%e5%87%86-gwas-%e5%88%86%e6%9e%90" aria-label="2. 标准 GWAS 分析">2. 标准 GWAS 分析</a></li>
+                <li>
+                    <a href="#3-gwas-q-%e5%88%86%e6%9e%90%e5%8a%a0%e5%85%a5%e7%be%a4%e4%bd%93%e7%bb%93%e6%9e%84%e5%8d%8f%e5%8f%98%e9%87%8f" aria-label="3. GWAS-Q 分析（加入群体结构协变量）">3. GWAS-Q 分析（加入群体结构协变量）</a></li>
+                <li>
+                    <a href="#4-%e7%9c%9f%e5%ae%9e%e6%95%b0%e6%8d%ae-gwas" aria-label="4. 真实数据 GWAS">4. 真实数据 GWAS</a></li></ul>
+                </li>
+                <li>
+                    <a href="#qtl-seq-%e5%88%86%e6%9e%90" aria-label="QTL-seq 分析">QTL-seq 分析</a><ul>
+                        
+                <li>
+                    <a href="#1-vcf-%e8%bd%ac%e6%8d%a2%e4%b8%ba-table-%e6%a0%bc%e5%bc%8f" aria-label="1. VCF 转换为 Table 格式">1. VCF 转换为 Table 格式</a></li>
+                <li>
+                    <a href="#2-qtl-seq-%e5%88%86%e6%9e%90r-%e8%84%9a%e6%9c%ac" aria-label="2. QTL-seq 分析（R 脚本）">2. QTL-seq 分析（R 脚本）</a></li></ul>
+                </li>
+                <li>
+                    <a href="#%e9%99%84%e5%bd%95%e5%88%86%e6%9e%90%e6%b5%81%e7%a8%8b%e5%9b%be" aria-label="附录：分析流程图">附录：分析流程图</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+
+  <div class="post-content"><p>云南农业大学 云南生物资源保护与利用国家重点实验室</p>
 <p>李详 | 2019 年 12 月 31 日</p>
 <h2 id="目录">目录<a hidden class="anchor" aria-hidden="true" href="#目录">#</a></h2>
 <ul>
@@ -952,97 +1090,63 @@ QTL-seq 分析
 </span></span><span style="display:flex;"><span>   └───────────┘       └───────────┘       └───────────┘
 </span></span></code></pre></div>
 
-      </div>
-      <footer class="post-footer">
-        <ul class="post-tags">
-          <li><a href="https://Tdxxxx-student.github.io/tags/%E7%BE%A4%E4%BD%93%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90">群体结构分析</a></li>
-          <li><a href="https://Tdxxxx-student.github.io/tags/%E5%8F%98%E5%BC%82%E6%A3%80%E6%B5%8B">变异检测</a></li>
-          <li><a href="https://Tdxxxx-student.github.io/tags/%E9%87%8D%E6%B5%8B%E5%BA%8F">重测序</a></li>
-          <li><a href="https://Tdxxxx-student.github.io/tags/gwas">GWAS</a></li>
-          <li><a href="https://Tdxxxx-student.github.io/tags/qtl-seq">QTL-seq</a></li>
-        </ul>
-      </footer>
-    </div>
-
-    
-    <aside class="toc-sidebar">
-      <div class="toc-wrapper">
-        <div class="toc-title">📑 目录</div>
-        <nav class="toc-nav">
-          <nav id="TableOfContents">
-  <ul>
-    <li><a href="#目录">目录</a></li>
-    <li><a href="#软件安装">软件安装</a>
-      <ul>
-        <li><a href="#1-lumpy-sv">1. lumpy-sv</a></li>
-        <li><a href="#2-svtyper">2. svtyper</a></li>
-        <li><a href="#3-cnvnator">3. cnvnator</a></li>
-      </ul>
-    </li>
-    <li><a href="#变异检测">变异检测</a>
-      <ul>
-        <li><a href="#1-构建基因组-index">1. 构建基因组 index</a></li>
-        <li><a href="#2-比对排序去重">2. 比对排序去重</a></li>
-        <li><a href="#3-snpindel-检测">3. SNP、Indel 检测</a></li>
-        <li><a href="#4-sv-检测">4. SV 检测</a></li>
-        <li><a href="#5-cnv-检测">5. CNV 检测</a></li>
-        <li><a href="#6-snpindel-注释">6. SNP/InDel 注释</a></li>
-        <li><a href="#7-cnv-和-sv-注释">7. CNV 和 SV 注释</a></li>
-      </ul>
-    </li>
-    <li><a href="#群体结构分析">群体结构分析</a>
-      <ul>
-        <li><a href="#1-数据过滤">1. 数据过滤</a></li>
-        <li><a href="#2-建树分析">2. 建树分析</a></li>
-        <li><a href="#3-pca-分析">3. PCA 分析</a></li>
-        <li><a href="#4-群体结构分析">4. 群体结构分析</a></li>
-        <li><a href="#5-ld-衰减分析">5. LD 衰减分析</a></li>
-      </ul>
-    </li>
-    <li><a href="#选择分析">选择分析</a>
-      <ul>
-        <li><a href="#1-π-和-rod-分析">1. π 和 ROD 分析</a></li>
-        <li><a href="#2-tajimas-d-分析">2. Tajima&rsquo;s D 分析</a></li>
-        <li><a href="#3-fst-分析">3. Fst 分析</a></li>
-        <li><a href="#4-rod--fst-联合分析">4. ROD + Fst 联合分析</a></li>
-      </ul>
-    </li>
-    <li><a href="#gwas-分析">GWAS 分析</a>
-      <ul>
-        <li><a href="#1-基因型填充">1. 基因型填充</a></li>
-        <li><a href="#2-标准-gwas-分析">2. 标准 GWAS 分析</a></li>
-        <li><a href="#3-gwas-q-分析加入群体结构协变量">3. GWAS-Q 分析（加入群体结构协变量）</a></li>
-        <li><a href="#4-真实数据-gwas">4. 真实数据 GWAS</a></li>
-      </ul>
-    </li>
-    <li><a href="#qtl-seq-分析">QTL-seq 分析</a>
-      <ul>
-        <li><a href="#1-vcf-转换为-table-格式">1. VCF 转换为 Table 格式</a></li>
-        <li><a href="#2-qtl-seq-分析r-脚本">2. QTL-seq 分析（R 脚本）</a></li>
-      </ul>
-    </li>
-    <li><a href="#附录分析流程图">附录：分析流程图</a></li>
-  </ul>
-</nav>
-        </nav>
-      </div>
-    </aside>
-
   </div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://Tdxxxx-student.github.io/tags/%E7%BE%A4%E4%BD%93%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90">群体结构分析</a></li>
+      <li><a href="https://Tdxxxx-student.github.io/tags/%E5%8F%98%E5%BC%82%E6%A3%80%E6%B5%8B">变异检测</a></li>
+      <li><a href="https://Tdxxxx-student.github.io/tags/%E9%87%8D%E6%B5%8B%E5%BA%8F">重测序</a></li>
+      <li><a href="https://Tdxxxx-student.github.io/tags/gwas">GWAS</a></li>
+      <li><a href="https://Tdxxxx-student.github.io/tags/qtl-seq">QTL-seq</a></li>
+    </ul>
+  </footer>
+
   
-<nav class="paginav">
-  <a class="prev" href="https://Tdxxxx-student.github.io/posts/%E7%BE%A4%E4%BD%93%E9%81%97%E4%BC%A0%E5%AD%A6%E4%B8%8E%E9%87%8D%E6%B5%8B%E5%BA%8F%E5%88%86%E6%9E%90%E8%A7%A3%E9%87%8A/">
-    <span class="title">« Prev</span>
-    <br>
-    <span>群体遗传学与重测序分析解释</span>
-  </a>
-  <a class="next" href="https://Tdxxxx-student.github.io/posts/ai%E8%BE%85%E5%8A%A9%E6%95%99%E7%A8%8B/">
-    <span class="title">Next »</span>
-    <br>
-    <span>AI辅助教程</span>
-  </a>
-</nav>
-</article>
+
+  <nav class="post-nav-full">
+    
+    <div class="nav-category">
+      分类：<a href="https://Tdxxxx-student.github.io/categories/%E9%87%8D%E6%B5%8B%E5%BA%8F%E5%88%86%E6%9E%90/">重测序分析</a>
+    </div>
+    
+    
+    <div class="nav-info">
+      第 <strong>1</strong> / 1 篇 (重测序分析)
+    </div>
+    
+    
+    <div class="nav-buttons">
+      
+      <span class="nav-btn first disabled">
+        <span class="btn-icon">«</span>
+        <span class="btn-text">首篇</span>
+      </span>
+
+      
+      <span class="nav-btn prev disabled">
+        <span class="btn-icon">‹</span>
+        <span class="btn-text">上一篇</span>
+      </span>
+
+      
+      <div class="nav-pages">
+
+        <span class="nav-num current">1</span>
+      </div>
+
+      
+      <span class="nav-btn next disabled">
+        <span class="btn-text">下一篇</span>
+        <span class="btn-icon">›</span>
+      </span>
+
+      
+      <span class="nav-btn last disabled">
+        <span class="btn-text">末篇</span>
+        <span class="btn-icon">»</span>
+      </span>
+    </div>
+  </nav></article>
     </main>
     
 <footer class="footer">
@@ -1059,6 +1163,41 @@ QTL-seq 分析
         <path d="M12 6H0l6-6z" />
     </svg>
 </a>
+<a href="/search/" class="search-fab" title="搜索 (Ctrl+F)">🔍</a>
+
+<style>
+.search-fab {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.search-fab:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .search-fab {
+        bottom: 1rem;
+        right: 1rem;
+        width: 45px;
+        height: 45px;
+    }
+}
+</style>
 
 <script>
     let menu = document.getElementById('menu');

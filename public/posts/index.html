@@ -71,7 +71,7 @@
         document.querySelector("html").dataset.theme = 'light';
     }
 
-</script><meta property="og:url" content="https://Tdxxxx-student.github.io/posts/">
+</script><link rel="stylesheet" href="https://Tdxxxx-student.github.io/css/custom.css"><meta property="og:url" content="https://Tdxxxx-student.github.io/posts/">
   <meta property="og:site_name" content="我的空间">
   <meta property="og:title" content="Posts">
   <meta property="og:locale" content="zh-cn">
@@ -126,13 +126,13 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="https://Tdxxxx-student.github.io/" title="首页">
-                    <span>首页</span>
+                <a href="https://Tdxxxx-student.github.io/posts/" title="首页">
+                    <span class="active">首页</span>
                 </a>
             </li>
             <li>
-                <a href="https://Tdxxxx-student.github.io/posts/" title="文章">
-                    <span class="active">文章</span>
+                <a href="https://Tdxxxx-student.github.io/archives/" title="归档">
+                    <span>归档</span>
                 </a>
             </li>
             <li>
@@ -143,6 +143,11 @@
             <li>
                 <a href="https://Tdxxxx-student.github.io/tags/" title="标签">
                     <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Tdxxxx-student.github.io/search/" title="🔍  (Alt &#43; /)" accesskey=/>
+                    <span>🔍 </span>
                 </a>
             </li>
         </ul>
@@ -157,68 +162,71 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">ENA校验脚本
+    <h2 class="entry-hint-parent">提取指定区间bam文件
     </h2>
   </header>
   <div class="entry-content">
-    <p>ENA下载的md5校验文件（tsv）格式转化和一键校验脚本 以下为脚本
-#!/bin/bash #=============================================================================== # 脚本名称: ena_md5_check.sh # 功能描述: 自动转换ENA TSV文件并校验FASTQ文件完整性 # 作者: Claude Assistant # 版本: 1.3 #=============================================================================== set -e # 颜色定义 RED=&#39;\033[0;31m&#39; GREEN=&#39;\033[0;32m&#39; YELLOW=&#39;\033[0;33m&#39; BLUE=&#39;\033[0;34m&#39; NC=&#39;\033[0m&#39; info() { echo -e &#34;${BLUE}[INFO]${NC} $1&#34;; } success() { echo -e &#34;${GREEN}[SUCCESS]${NC} $1&#34;; } warn() { echo -e &#34;${YELLOW}[WARNING]${NC} $1&#34;; } error() { echo -e &#34;${RED}[ERROR]${NC} $1&#34;; exit 1; } # 显示帮助信息 show_help() { cat &lt;&lt; EOF ================================================================================ ENA FASTQ MD5 校验工具 v1.3 ================================================================================ 用法: $0 &lt;tsv文件&gt; [fastq目录] [选项] 参数: &lt;tsv文件&gt; ENA下载的filereport TSV文件 (必需) [fastq目录] FASTQ文件所在目录 (默认: 当前目录) 选项: -s, --suffix 文件后缀 (默认: .fastq.gz) -o, --output 输出的MD5文件名 (默认: md5sums.txt) -r, --report 问题报告文件名 (默认: md5_failed_report.tsv) -h, --help 显示此帮助信息 支持: - 双端测序 (paired-end): SRR*_1.fastq.gz, SRR*_2.fastq.gz - 单端测序 (single-end): SRR*.fastq.gz 输出文件: md5sums.txt 生成的MD5校验文件 md5_failed_report.tsv 仅当有问题时生成 (TSV格式) 示例: $0 filereport_read_run_PRJNA175477.tsv $0 filereport_read_run_PRJNA175477.tsv ./rawdata -s .fq.gz ================================================================================ EOF exit 0 } # 默认参数 TSV_FILE=&#34;&#34; FASTQ_DIR=&#34;.&#34; SUFFIX=&#34;.fastq.gz&#34; OUTPUT=&#34;md5sums.txt&#34; REPORT=&#34;md5_failed_report.tsv&#34; # 参数解析 while [[ $# -gt 0 ]]; do case $1 in -s|--suffix) SUFFIX=&#34;$2&#34;; shift 2 ;; -o|--output) OUTPUT=&#34;$2&#34;; shift 2 ;; -r|--report) REPORT=&#34;$2&#34;; shift 2 ;; -h|--help) show_help ;; -*) error &#34;未知选项: $1&#34; ;; *) if [[ -z &#34;$TSV_FILE&#34; ]]; then TSV_FILE=&#34;$1&#34; else FASTQ_DIR=&#34;$1&#34; fi shift ;; esac done # 参数检查 [[ -z &#34;$TSV_FILE&#34; ]] &amp;&amp; error &#34;请指定TSV文件，使用 -h 查看帮助&#34; [[ ! -f &#34;$TSV_FILE&#34; ]] &amp;&amp; error &#34;TSV文件不存在: $TSV_FILE&#34; [[ ! -d &#34;$FASTQ_DIR&#34; ]] &amp;&amp; error &#34;FASTQ目录不存在: $FASTQ_DIR&#34; FASTQ_DIR=$(cd &#34;$FASTQ_DIR&#34; &amp;&amp; pwd) info &#34;==========================================&#34; info &#34;ENA FASTQ MD5 校验工具 v1.3&#34; info &#34;==========================================&#34; info &#34;TSV文件: $TSV_FILE&#34; info &#34;FASTQ目录: $FASTQ_DIR&#34; info &#34;文件后缀: $SUFFIX&#34; info &#34;==========================================&#34; #=============================================================================== # 步骤1: 转换TSV为MD5格式（支持单端和双端） #=============================================================================== info &#34;正在转换TSV文件...&#34; awk -F&#39;\t&#39; -v suffix=&#34;$SUFFIX&#34; -v dir=&#34;$FASTQ_DIR&#34; &#39; { gsub(/\r/, &#34;&#34;) if ($1 ~ /^[SE]RR[0-9]&#43;$/ &amp;&amp; $2 != &#34;&#34;) { srr = $1 md5_str = $2 n = split(md5_str, md5s, &#34;;&#34;) if (n == 2) { # 双端测序 printf &#34;%s %s/%s_1%s\n&#34;, md5s[1], dir, srr, suffix printf &#34;%s %s/%s_2%s\n&#34;, md5s[2], dir, srr, suffix } else if (n == 1 &amp;&amp; md5s[1] != &#34;&#34;) { # 单端测序 printf &#34;%s %s/%s%s\n&#34;, md5s[1], dir, srr, suffix } } }&#39; &#34;$TSV_FILE&#34; &gt; &#34;$OUTPUT&#34; count=$(wc -l &lt; &#34;$OUTPUT&#34;) [[ $count -eq 0 ]] &amp;&amp; error &#34;未能提取任何MD5记录，请检查TSV文件格式&#34; success &#34;生成MD5文件: $OUTPUT ($count 条记录)&#34; info &#34;预览前5行:&#34; head -5 &#34;$OUTPUT&#34; | sed &#39;s/^/ /&#39; #=============================================================================== # 步骤2: 校验文件完整性 #=============================================================================== echo &#34;&#34; info &#34;开始校验文件完整性...&#34; info &#34;(大文件需要较长时间，请耐心等待)&#34; echo &#34;&#34; total=$count current=0 passed=0 failed=0 missing=0 # 临时存储问题文件（TSV格式：文件名\t原因） FAILED_TMP=$(mktemp) while read -r line; do current=$((current &#43; 1)) expected_md5=$(echo &#34;$line&#34; | awk &#39;{print $1}&#39;) filepath=$(echo &#34;$line&#34; | sed &#39;s/^[^ ]* //&#39;) filename=$(basename &#34;$filepath&#34;) printf &#34;[%d/%d] %s ... &#34; &#34;$current&#34; &#34;$total&#34; &#34;$filename&#34; # 检查文件是否存在 if [[ ! -f &#34;$filepath&#34; ]]; then echo -e &#34;${YELLOW}缺失${NC}&#34; missing=$((missing &#43; 1)) printf &#34;%s\t%s\n&#34; &#34;$filename&#34; &#34;文件不存在&#34; &gt;&gt; &#34;$FAILED_TMP&#34; continue fi # 计算MD5 actual_md5=$(md5sum &#34;$filepath&#34; | awk &#39;{print $1}&#39;) if [[ &#34;$expected_md5&#34; == &#34;$actual_md5&#34; ]]; then echo -e &#34;${GREEN}OK${NC}&#34; passed=$((passed &#43; 1)) else echo -e &#34;${RED}FAILED${NC}&#34; failed=$((failed &#43; 1)) printf &#34;%s\t%s\n&#34; &#34;$filename&#34; &#34;MD5不匹配(期望:${expected_md5},实际:${actual_md5})&#34; &gt;&gt; &#34;$FAILED_TMP&#34; fi done &lt; &#34;$OUTPUT&#34; #=============================================================================== # 步骤3: 输出统计结果 #=============================================================================== echo &#34;&#34; info &#34;==========================================&#34; info &#34;校验完成！统计结果:&#34; info &#34;==========================================&#34; echo &#34; 总计: $total&#34; echo -e &#34; ${GREEN}通过: $passed${NC}&#34; echo -e &#34; ${RED}失败: $failed${NC}&#34; echo -e &#34; ${YELLOW}缺失: $missing${NC}&#34; info &#34;==========================================&#34; #=============================================================================== # 步骤4: 仅当有问题时生成报告（TSV格式） #=============================================================================== if [[ $failed -gt 0 || $missing -gt 0 ]]; then # 生成TSV报告：表头 &#43; 内容 echo -e &#34;filename\treason&#34; &gt; &#34;$REPORT&#34; cat &#34;$FAILED_TMP&#34; &gt;&gt; &#34;$REPORT&#34; echo &#34;&#34; warn &#34;问题文件列表:&#34; echo -e &#34;${YELLOW}filename\treason${NC}&#34; cat &#34;$FAILED_TMP&#34; echo &#34;&#34; warn &#34;✗ 存在问题文件！&#34; success &#34;问题报告已保存至: $REPORT&#34; else rm -f &#34;$REPORT&#34; echo &#34;&#34; success &#34;✓ 所有文件校验通过！无问题报告生成。&#34; fi # 清理 rm -f &#34;$FAILED_TMP&#34; [[ $failed -gt 0 || $missing -gt 0 ]] &amp;&amp; exit 1 || exit 0 更新说明 1. 支持单端测序 测序类型 MD5格式 生成文件 双端 md5_1;md5_2 SRR*_1.fastq.gz, SRR*_2.fastq.gz 单端 md5 SRR*.fastq.gz 2. 错误报告格式（TSV） filename	reason SRR576084_1.fastq.gz	MD5不匹配(期望:ee9c08fd...,实际:a1b2c3d4...) SRR576089_1.fastq.gz	文件不存在 使用方法 chmod &#43;x ena_md5_check.sh # 基本用法 ./ena_md5_check.sh filereport_read_run_PRJNA175477.tsv . # 指定目录和后缀 ./ena_md5_check.sh filereport.tsv ./rawdata -s .fq.gz # 查看错误报告 cat md5_failed_report.tsv # 用Excel或其他工具打开TSV报告 输出示例 终端输出 [INFO] ========================================== [INFO] ENA FASTQ MD5 校验工具 v1.3 [INFO] ========================================== [1/10] SRR064552_1.fastq.gz ... OK [2/10] SRR064552_2.fastq.gz ... OK [3/10] SRR064553.fastq.gz ... OK # 单端测序 [4/10] SRR064554_1.fastq.gz ... FAILED [5/10] SRR064554_2.fastq.gz ... 缺失 ... [INFO] ========================================== [INFO] 校验完成！统计结果: [INFO] ========================================== 总计: 10 通过: 8 失败: 1 缺失: 1 [INFO] ========================================== [WARNING] 问题文件列表: filename	reason SRR064554_1.fastq.gz	MD5不匹配(期望:ee9c08fd...,实际:a1b2c3d4...) SRR064554_2.fastq.gz	文件不存在 [SUCCESS] 问题报告已保存至: md5_failed_report.tsv 错误报告文件 (md5_failed_report.tsv) filename reason SRR064554_1.fastq.gz MD5不匹配(期望:ee9c08fd…,实际:a1b2c3d4…) SRR064554_2.fastq.gz 文件不存在 </p>
+    <p>提取bed文件 cat /home2/pubdata/ref_data/TBlch_lgst.gff3 | awk -F &#34;\t&#34; &#39;{if ($3==&#34;gene&#34;) print $1 &#39;\t&#39; $4-5001 &#39;\t&#39; $5&#43;5000}&#39; &gt; LITCHI001829.bed sambamba/samtolols sambamba slice -L target.bed deduped.bam &gt; sambamba_view_L_target.bam samtools view -hb -L target.bed deduped.bam &gt; samtools_view_L_target.bam </p>
   </div>
-  <footer class="entry-footer"><span title='2026-02-04 12:58:06 +0800 CST'>2026-02-04</span>&nbsp;·&nbsp;<span>4 min</span></footer>
-  <a class="entry-link" aria-label="post link to ENA校验脚本" href="https://Tdxxxx-student.github.io/posts/ena%E6%A0%A1%E9%AA%8C%E8%84%9A%E6%9C%AC/"></a>
+  <footer class="entry-footer"><span title='2026-02-04 20:45:36 +0800 CST'>2026-02-04</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>tdx</span></footer>
+  <a class="entry-link" aria-label="post link to 提取指定区间bam文件" href="https://Tdxxxx-student.github.io/posts/%E6%8F%90%E5%8F%96%E6%8C%87%E5%AE%9A%E5%8C%BA%E9%97%B4bam%E6%96%87%E4%BB%B6/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Fq文件下载和校验
+    <h2 class="entry-hint-parent">提取指定区间含有的基因
     </h2>
   </header>
   <div class="entry-content">
-    <p>Aspera安装 可以conda/mamba安装 Linux系统上安装aspera并用其批量高速下载转录组数据 - 知乎 (zhihu.com) 手动安装
-wget https://ak-delivery04-mul.dhe.ibm.com/sar/CMA/OSA/09cne/0/ibm-aspera-connect-3.11.0.5-linux-g2.12-64.tar.gz tar -zxvf ibm-aspera-connect-3.11.0.5-linux-g2.12-64.tar.gz ## sh文件上一步解压生成的 ./ibm-aspera-connect-3.11.0.5-linux-g2.12-64.sh # 把USERNAME 换成自己的linux 账户名 $ echo &#34;&#34;&#34;export PATH=\&#34;/home/xiaotiancai/.aspera/connect/bin:\$PATH\&#34; &#34;&#34;&#34; &gt;&gt; ~/.bashrc # 有输出帮助文档则安装成功 $ ascp -h 基本语法 借鉴 Aspera ascp Usage (2.7) Documentation - All Aspera Server 2.7 Platforms (asperasoft.com)
+    <p># 根据bed文件和gff提取bed区间里头含有什么基因 bedtools intersect -a a.bed -b /home2/pubdata/ref_data/Lchinesis_genome.Chr.gff3 -wa -wb &gt; a.bed_intersect_results.txt bedtools intersect -a j.bed -b /home2/pubdata/ref_data/Lchinesis_genome.Chr.gff3 -wa -wb &gt; j.bed_intersect_results.txt bedtools intersect -a w.bed -b /home2/pubdata/ref_data/Lchinesis_genome.Chr.gff3 -wa -wb &gt; w.bed_intersect_results.txt bedtools intersect用法 (intersectBed) - 简书 (jianshu.com)
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2026-02-03 22:20:24 +0800 CST'>2026-02-03</span>&nbsp;·&nbsp;<span>4 min</span></footer>
-  <a class="entry-link" aria-label="post link to Fq文件下载和校验" href="https://Tdxxxx-student.github.io/posts/fq%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%92%8C%E6%A0%A1%E9%AA%8C/"></a>
+  <footer class="entry-footer"><span title='2026-02-04 20:41:53 +0800 CST'>2026-02-04</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>你的名字</span></footer>
+  <a class="entry-link" aria-label="post link to 提取指定区间含有的基因" href="https://Tdxxxx-student.github.io/posts/%E6%8F%90%E5%8F%96%E6%8C%87%E5%AE%9A%E5%8C%BA%E9%97%B4%E5%90%AB%E6%9C%89%E7%9A%84%E5%9F%BA%E5%9B%A0/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">配制侧边目录
+    <h2 class="entry-hint-parent">Mafft序列比对
     </h2>
   </header>
   <div class="entry-content">
-    <p>以下是配置文件
-调整侧边目录位置 修改 CSS 文件 notepad assets/css/extended/custom.css 删除全部内容，粘贴以下代码： CSS /* ======================================== 隐藏原有顶部目录 ======================================== */ .post-single &gt; .toc { display: none !important; } /* ======================================== 右侧固定目录 - 移到最右边 ======================================== */ #TableOfContents { position: fixed !important; right: 10px !important; top: 80px !important; width: 220px !important; max-height: 75vh !important; overflow-y: auto !important; background: var(--entry) !important; padding: 15px !important; border-radius: 10px !important; box-shadow: 0 2px 15px rgba(0,0,0,0.1) !important; z-index: 999 !important; font-size: 13px !important; } #TableOfContents::before { content: &#34;📑 目录&#34;; display: block; font-size: 16px; font-weight: bold; color: var(--primary); padding-bottom: 10px; margin-bottom: 10px; border-bottom: 2px solid var(--primary); } #TableOfContents ul { list-style: none !important; padding: 0 !important; margin: 0 !important; } #TableOfContents ul ul { padding-left: 12px !important; border-left: 2px solid var(--border) !important; margin-left: 6px !important; } #TableOfContents li { margin: 5px 0 !important; } #TableOfContents a { display: block !important; padding: 6px 10px !important; color: var(--secondary) !important; text-decoration: none !important; border-radius: 5px !important; font-size: 13px !important; line-height: 1.4 !important; transition: all 0.3s !important; } #TableOfContents a:hover { background: var(--primary) !important; color: white !important; } /* ======================================== 文章内容区域 - 不受影响 ======================================== */ .post-content { max-width: 100% !important; margin-right: 0 !important; } .main { max-width: 800px !important; margin: 0 auto !important; } /* ======================================== 滚动条美化 ======================================== */ #TableOfContents::-webkit-scrollbar { width: 4px; } #TableOfContents::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; } /* ======================================== 小屏幕隐藏目录 ======================================== */ @media (max-width: 1400px) { #TableOfContents { display: none !important; } } /* ======================================== 暗色模式 ======================================== */ .dark #TableOfContents { background: #1e1e1e !important; box-shadow: 0 2px 15px rgba(0,0,0,0.4) !important; } 重启服务 Bash rm -rf public resources hugo server -D </p>
-  </div>
-  <footer class="entry-footer"><span title='2026-02-03 21:48:43 +0800 CST'>2026-02-03</span>&nbsp;·&nbsp;<span>1 min</span></footer>
-  <a class="entry-link" aria-label="post link to 配制侧边目录" href="https://Tdxxxx-student.github.io/posts/%E9%85%8D%E5%88%B6%E4%BE%A7%E8%BE%B9%E7%9B%AE%E5%BD%95/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">基因家族分析
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>基因家族分析流程与文章撰写思路 基因家族分析是一种常见的生物信息学分析套路，也是生物信息学数据挖掘发表小文章常用的分析方法，和GEO挖掘等类似。基因家族的分析鉴定可以用pfam上的hmm文件进行基因家族的检索鉴定，也可以用blast的方法进行比对鉴定，通常是适用拟南芥对应的基因家族进行比对鉴定。
+    <p>linux环境下安装MAFFT mamba activate snp mamba install -c bioconda mafft fa文件改名 ==#示例文件名LITCHI013387_fzsl1.cds.fa==
+# 根据fa文件名删除原表头替换目标表头 token=&#34;all.&#34; for file in *.fa; do # 提取文件名和标题 filename=&#34;${file%.*}&#34; title=&#34;&gt;${filename##*$token}&#34; # 打印调试信息 echo &#34;Processing file: $file&#34; echo &#34;Title: $title&#34; # 删除原标题 sed -i &#39;1d&#39; &#34;$file&#34; # 使用AWK方式插入新标题 awk -v new_title=&#34;$title&#34; &#39;BEGIN{FS=OFS=&#34;\n&#34;} NR==1{print new_title} {print}&#39; &#34;$file&#34; &gt; temp &amp;&amp; mv temp &#34;$file&#34; done 合并fa文件 #防止序列拼接在上一条序列尾部 for i in $(ls *.fa); do cat ${i} echo done &gt; LITCHI013387.total_sample.cds.fasta fasta文件比对 mafft --auto --quiet LITCHI013387.total_sample.cds.fasta &gt; LITCHI0013387.allsample.cds.aligment.fasta # 或者输出格式为clustal mafft --auto --thread 4 --clustalout MADS84.total_sample.cds.fasta &gt; MADS84.allsample.cds.aligment.clustal 将比对结果美化 ==Esprint3.0==
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2026-02-03 16:53:01 +0800 CST'>2026-02-03</span>&nbsp;·&nbsp;<span>6 min</span></footer>
-  <a class="entry-link" aria-label="post link to 基因家族分析" href="https://Tdxxxx-student.github.io/posts/%E5%9F%BA%E5%9B%A0%E5%AE%B6%E6%97%8F%E5%88%86%E6%9E%90/"></a>
+  <footer class="entry-footer"><span title='2026-02-04 20:33:57 +0800 CST'>2026-02-04</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>tdx</span></footer>
+  <a class="entry-link" aria-label="post link to Mafft序列比对" href="https://Tdxxxx-student.github.io/posts/mafft%E5%BA%8F%E5%88%97%E6%AF%94%E5%AF%B9/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">群体遗传学与重测序分析解释
+    <h2 class="entry-hint-parent">本地服务器Blast
     </h2>
   </header>
   <div class="entry-content">
-    <p>群体遗传学概述 分子层面对生物的研究，在个体水平上主要是看单个基因的变化以及全转录本的变化（RNA-seq）；在对个体的研究的基础上，开始了群体水平的研究。如果说常规的遗传学主要的研究对象是个体或者个体家系的话，那么群体遗传学则是主要研究由不同个体组成的群体的遗传规律。
+    <p>建库 makeblastdb -in db.fasta -dbtype prot -out dbname 主要参数说明： -in：待格式化的序列文件（即db.fasta文件） -dbtype：数据库类型，prot（蛋白质序列）或nucl（核酸序列） -out：数据库名 更多参数说明请执行：makeblastdb -help 比对 blastp -query seq.fasta -out seq.blast -db dbname -outfmt 6 -evalue 1e-5 -num_threads 20 -max_target_seqs 10 主要参数说明: -query：输入文件路径及文件名 -out：输出文件路径及文件名 -db：上一步建库的路径及数据库名 -outfmt：输出文件格式，总共有12种格式，6是tabular格式对应之前BLASTm8格式 -evalue：设置输出结果的e-value值 -max_target_seqs：最大对齐序列数 -num_alignments：显示对齐数据库序列的数目 -num_threads：线程数 更多参数说明 blastp –help 主要参数说明； blastp:使用的比对程序（此处为蛋白质序列和蛋白质序列的比对） -query:表示自己想要比对的FASTA格式的蛋白质序列（测序所得或从NCBI下载，此处为TP53B.fasta） -db:是3.1中所建立的比对数据库，需要注意这个数据库的路径一定要正确，这里面的swissprot表示的是建库产生的.pdb、.phr、.pin等文件的共有前缀名称 -evalue：期望阈值，一般选择0.001 -out：输出文件路径及文件名(此处为TP53B.out) </p>
+  </div>
+  <footer class="entry-footer"><span title='2026-02-04 20:26:34 +0800 CST'>2026-02-04</span>&nbsp;·&nbsp;<span>2 min</span>&nbsp;·&nbsp;<span>你的名字</span></footer>
+  <a class="entry-link" aria-label="post link to 本地服务器Blast" href="https://Tdxxxx-student.github.io/posts/%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8blast/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Annovar基因结构注释
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>下载软件 准备文件：物种gff和fasta文件
+https://www.openbioinformatics.org/annovar/annovar_download_form.php 填写教育类邮箱获取下载链接；
+下载、解压、添加环境变量
+sudo vi /etc/profile.d/env.sh # 追加 # export PATH=/pub/software/annovar:$PATH source /etc/profile.d/env.sh gff3ToGenePred安装 UCSC软件库查找
+http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/
+# 下载 cd /pub/software/annovar wget http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/gff3ToGenePred # 执行权限 chmod &#43;x ./gff3ToGenePred 构建注释数据库 # 文件准备 cp /fasta路径/ cp /gff3路径/ # gff文件加头 echo &#34;##gff-version 3&#34; | cat - lch.gff3 &gt; temp &amp;&amp; mv temp lch.gff3 gff3ToGenePred gff文件 lchgenome_refGene.txt retrieve_seq_from_fasta.pl --format refGene \ --seqfile Lchinesis_genome.Chr.fasta \ --out lchgenome_refGeneMrna.fa \ lchgenome_refGene.txt mv Lchinesis_genome.Chr.gff3 lch.gff3 gff3ToGenePred lch.gff3 lchgenome_refGene.txt retrieve_seq_from_fasta.pl --format refGene \ --seqfile Lchinesis_genome.Chr.fasta \ --out lchgenome_refGeneMrna.fa \ lchgenome_refGene.txt genome_refGene.txt 和 genome_refGeneMrna.fa两个文件的前缀都为genome，这里的命名很重要
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2026-02-03 12:17:02 +0800 CST'>2026-02-03</span>&nbsp;·&nbsp;<span>11 min</span></footer>
-  <a class="entry-link" aria-label="post link to 群体遗传学与重测序分析解释" href="https://Tdxxxx-student.github.io/posts/%E7%BE%A4%E4%BD%93%E9%81%97%E4%BC%A0%E5%AD%A6%E4%B8%8E%E9%87%8D%E6%B5%8B%E5%BA%8F%E5%88%86%E6%9E%90%E8%A7%A3%E9%87%8A/"></a>
+  <footer class="entry-footer"><span title='2026-02-04 20:19:11 +0800 CST'>2026-02-04</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>tdx</span></footer>
+  <a class="entry-link" aria-label="post link to Annovar基因结构注释" href="https://Tdxxxx-student.github.io/posts/annovar%E6%B3%A8%E9%87%8A/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
@@ -242,6 +250,41 @@ wget https://ak-delivery04-mul.dhe.ibm.com/sar/CMA/OSA/09cne/0/ibm-aspera-connec
         <path d="M12 6H0l6-6z" />
     </svg>
 </a>
+<a href="/search/" class="search-fab" title="搜索 (Ctrl+F)">🔍</a>
+
+<style>
+.search-fab {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.search-fab:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .search-fab {
+        bottom: 1rem;
+        right: 1rem;
+        width: 45px;
+        height: 45px;
+    }
+}
+</style>
 
 <script>
     let menu = document.getElementById('menu');

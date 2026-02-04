@@ -71,7 +71,7 @@
         document.querySelector("html").dataset.theme = 'light';
     }
 
-</script><meta property="og:url" content="https://Tdxxxx-student.github.io/categories/ena%E6%95%B0%E6%8D%AE%E5%BA%93/">
+</script><link rel="stylesheet" href="https://Tdxxxx-student.github.io/css/custom.css"><meta property="og:url" content="https://Tdxxxx-student.github.io/categories/ena%E6%95%B0%E6%8D%AE%E5%BA%93/">
   <meta property="og:site_name" content="我的空间">
   <meta property="og:title" content="ENA数据库">
   <meta property="og:locale" content="zh-cn">
@@ -111,13 +111,13 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="https://Tdxxxx-student.github.io/" title="首页">
+                <a href="https://Tdxxxx-student.github.io/posts/" title="首页">
                     <span>首页</span>
                 </a>
             </li>
             <li>
-                <a href="https://Tdxxxx-student.github.io/posts/" title="文章">
-                    <span>文章</span>
+                <a href="https://Tdxxxx-student.github.io/archives/" title="归档">
+                    <span>归档</span>
                 </a>
             </li>
             <li>
@@ -128,6 +128,11 @@
             <li>
                 <a href="https://Tdxxxx-student.github.io/tags/" title="标签">
                     <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Tdxxxx-student.github.io/search/" title="🔍  (Alt &#43; /)" accesskey=/>
+                    <span>🔍 </span>
                 </a>
             </li>
         </ul>
@@ -168,6 +173,41 @@
         <path d="M12 6H0l6-6z" />
     </svg>
 </a>
+<a href="/search/" class="search-fab" title="搜索 (Ctrl+F)">🔍</a>
+
+<style>
+.search-fab {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.search-fab:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .search-fab {
+        bottom: 1rem;
+        right: 1rem;
+        width: 45px;
+        height: 45px;
+    }
+}
+</style>
 
 <script>
     let menu = document.getElementById('menu');

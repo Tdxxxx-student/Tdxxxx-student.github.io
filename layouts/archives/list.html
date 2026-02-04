@@ -1,0 +1,29 @@
+{{- define "main" }}
+
+<header class="page-header">
+  <h1>{{ .Title }}</h1>
+</header>
+
+<div class="categories-page">
+  {{- $pages := where .Site.RegularPages "Type" "posts" }}
+  {{- range $pages.GroupByDate "2006" }}
+  <div class="category-item">
+    <details class="category-group" open>
+      <summary class="category-header">
+        <span class="category-name">{{ .Key }} 年</span>
+        <span class="category-count">📕 {{ len .Pages }}</span>
+      </summary>
+      <div class="category-posts">
+        {{- range .Pages }}
+        <a href="{{ .Permalink }}" class="category-post">
+          <span class="post-title">{{ .Title }}</span>
+          <span class="post-date">{{ .Date.Format "01-02" }}</span>
+        </a>
+        {{- end }}
+      </div>
+    </details>
+  </div>
+  {{- end }}
+</div>
+
+{{- end }}

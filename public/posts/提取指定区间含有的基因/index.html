@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>提取指定区间含有的基因 | 我的空间</title>
+<meta name="keywords" content="bed文件, gff文件">
+<meta name="description" content="# 根据bed文件和gff提取bed区间里头含有什么基因
+bedtools intersect -a a.bed -b /home2/pubdata/ref_data/Lchinesis_genome.Chr.gff3 -wa -wb &gt; a.bed_intersect_results.txt
+bedtools intersect -a j.bed -b /home2/pubdata/ref_data/Lchinesis_genome.Chr.gff3 -wa -wb &gt; j.bed_intersect_results.txt
+bedtools intersect -a w.bed -b /home2/pubdata/ref_data/Lchinesis_genome.Chr.gff3 -wa -wb &gt; w.bed_intersect_results.txt
+bedtools intersect用法 (intersectBed) - 简书 (jianshu.com)">
+<meta name="author" content="你的名字">
+<link rel="canonical" href="https://Tdxxxx-student.github.io/posts/%E6%8F%90%E5%8F%96%E6%8C%87%E5%AE%9A%E5%8C%BA%E9%97%B4%E5%90%AB%E6%9C%89%E7%9A%84%E5%9F%BA%E5%9B%A0/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.e72f5f222d52fefbb5364978daf95328cfae4a088f7054da95a277e655e96f14.css" integrity="sha256-5y9fIi1S/vu1Nkl42vlTKM&#43;uSgiPcFTalaJ35lXpbxQ=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://Tdxxxx-student.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Tdxxxx-student.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Tdxxxx-student.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://Tdxxxx-student.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://Tdxxxx-student.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://Tdxxxx-student.github.io/posts/%E6%8F%90%E5%8F%96%E6%8C%87%E5%AE%9A%E5%8C%BA%E9%97%B4%E5%90%AB%E6%9C%89%E7%9A%84%E5%9F%BA%E5%9B%A0/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><link rel="stylesheet" href="https://Tdxxxx-student.github.io/css/custom.css"><meta property="og:url" content="https://Tdxxxx-student.github.io/posts/%E6%8F%90%E5%8F%96%E6%8C%87%E5%AE%9A%E5%8C%BA%E9%97%B4%E5%90%AB%E6%9C%89%E7%9A%84%E5%9F%BA%E5%9B%A0/">
+  <meta property="og:site_name" content="我的空间">
+  <meta property="og:title" content="提取指定区间含有的基因">
+  <meta property="og:description" content="# 根据bed文件和gff提取bed区间里头含有什么基因 bedtools intersect -a a.bed -b /home2/pubdata/ref_data/Lchinesis_genome.Chr.gff3 -wa -wb &gt; a.bed_intersect_results.txt bedtools intersect -a j.bed -b /home2/pubdata/ref_data/Lchinesis_genome.Chr.gff3 -wa -wb &gt; j.bed_intersect_results.txt bedtools intersect -a w.bed -b /home2/pubdata/ref_data/Lchinesis_genome.Chr.gff3 -wa -wb &gt; w.bed_intersect_results.txt bedtools intersect用法 (intersectBed) - 简书 (jianshu.com)">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-02-04T20:41:53+08:00">
+    <meta property="article:modified_time" content="2026-02-04T20:41:53+08:00">
+    <meta property="article:tag" content="Bed文件">
+    <meta property="article:tag" content="Gff文件">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="提取指定区间含有的基因">
+<meta name="twitter:description" content="# 根据bed文件和gff提取bed区间里头含有什么基因
+bedtools intersect -a a.bed -b /home2/pubdata/ref_data/Lchinesis_genome.Chr.gff3 -wa -wb &gt; a.bed_intersect_results.txt
+bedtools intersect -a j.bed -b /home2/pubdata/ref_data/Lchinesis_genome.Chr.gff3 -wa -wb &gt; j.bed_intersect_results.txt
+bedtools intersect -a w.bed -b /home2/pubdata/ref_data/Lchinesis_genome.Chr.gff3 -wa -wb &gt; w.bed_intersect_results.txt
+bedtools intersect用法 (intersectBed) - 简书 (jianshu.com)">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://Tdxxxx-student.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "提取指定区间含有的基因",
+      "item": "https://Tdxxxx-student.github.io/posts/%E6%8F%90%E5%8F%96%E6%8C%87%E5%AE%9A%E5%8C%BA%E9%97%B4%E5%90%AB%E6%9C%89%E7%9A%84%E5%9F%BA%E5%9B%A0/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "提取指定区间含有的基因",
+  "name": "提取指定区间含有的基因",
+  "description": "# 根据bed文件和gff提取bed区间里头含有什么基因 bedtools intersect -a a.bed -b /home2/pubdata/ref_data/Lchinesis_genome.Chr.gff3 -wa -wb \u0026gt; a.bed_intersect_results.txt bedtools intersect -a j.bed -b /home2/pubdata/ref_data/Lchinesis_genome.Chr.gff3 -wa -wb \u0026gt; j.bed_intersect_results.txt bedtools intersect -a w.bed -b /home2/pubdata/ref_data/Lchinesis_genome.Chr.gff3 -wa -wb \u0026gt; w.bed_intersect_results.txt bedtools intersect用法 (intersectBed) - 简书 (jianshu.com)\n",
+  "keywords": [
+    "bed文件", "gff文件"
+  ],
+  "articleBody": "# 根据bed文件和gff提取bed区间里头含有什么基因 bedtools intersect -a a.bed -b /home2/pubdata/ref_data/Lchinesis_genome.Chr.gff3 -wa -wb \u003e a.bed_intersect_results.txt bedtools intersect -a j.bed -b /home2/pubdata/ref_data/Lchinesis_genome.Chr.gff3 -wa -wb \u003e j.bed_intersect_results.txt bedtools intersect -a w.bed -b /home2/pubdata/ref_data/Lchinesis_genome.Chr.gff3 -wa -wb \u003e w.bed_intersect_results.txt bedtools intersect用法 (intersectBed) - 简书 (jianshu.com)\n提取基因区间的含有的基因的ID less -S j.bed_intersect_results.txt | grep \"mRNA\" | cut -f12 | sort -u \u003e j.bed.gene.txt less -S a.bed_intersect_results.txt | grep \"mRNA\" | cut -f12 | sort -u \u003e a.bed.gene.txt less -S w.bed_intersect_results.txt | grep \"mRNA\" | cut -f12 | sort -u \u003e w.bed.gene.txt less -S w.bed.gene.txt | sed 's/\\;.*//' | cut -d '.' -f 1 | sort -u \u003e temp \u0026\u0026 mv temp w.bed.gene.txt less -S a.bed.gene.txt | sed 's/\\;.*//' | cut -d '.' -f 1 | sort -u \u003e temp \u0026\u0026 mv temp a.bed.gene.txt less -S j.bed.gene.txt | sed 's/\\;.*//' | cut -d '.' -f 1 | sort -u \u003e temp \u0026\u0026 mv temp j.bed.gene.txt ",
+  "wordCount" : "194",
+  "inLanguage": "en",
+  "datePublished": "2026-02-04T20:41:53+08:00",
+  "dateModified": "2026-02-04T20:41:53+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "你的名字"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Tdxxxx-student.github.io/posts/%E6%8F%90%E5%8F%96%E6%8C%87%E5%AE%9A%E5%8C%BA%E9%97%B4%E5%90%AB%E6%9C%89%E7%9A%84%E5%9F%BA%E5%9B%A0/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "我的空间",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Tdxxxx-student.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Tdxxxx-student.github.io/" accesskey="h" title="我的空间 (Alt + H)">我的空间</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Tdxxxx-student.github.io/posts/" title="首页">
+                    <span>首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Tdxxxx-student.github.io/archives/" title="归档">
+                    <span>归档</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Tdxxxx-student.github.io/categories/" title="分类">
+                    <span>分类</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Tdxxxx-student.github.io/tags/" title="标签">
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Tdxxxx-student.github.io/search/" title="🔍  (Alt &#43; /)" accesskey=/>
+                    <span>🔍 </span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header"><div class="breadcrumbs"><a href="https://Tdxxxx-student.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://Tdxxxx-student.github.io/posts/">Posts</a></div>
+    <h1 class="post-title entry-hint-parent">
+      提取指定区间含有的基因
+    </h1>
+    <div class="post-meta"><span title='2026-02-04 20:41:53 +0800 CST'>2026-02-04</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>你的名字</span></div>
+  </header><div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e6%8f%90%e5%8f%96%e5%9f%ba%e5%9b%a0%e5%8c%ba%e9%97%b4%e7%9a%84%e5%90%ab%e6%9c%89%e7%9a%84%e5%9f%ba%e5%9b%a0%e7%9a%84id" aria-label="提取基因区间的含有的基因的ID">提取基因区间的含有的基因的ID</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+
+  <div class="post-content"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 根据bed文件和gff提取bed区间里头含有什么基因</span>
+</span></span><span style="display:flex;"><span>bedtools intersect -a a.bed -b /home2/pubdata/ref_data/Lchinesis_genome.Chr.gff3 -wa -wb &gt; a.bed_intersect_results.txt
+</span></span><span style="display:flex;"><span>bedtools intersect -a j.bed -b /home2/pubdata/ref_data/Lchinesis_genome.Chr.gff3 -wa -wb &gt; j.bed_intersect_results.txt
+</span></span><span style="display:flex;"><span>bedtools intersect -a w.bed -b /home2/pubdata/ref_data/Lchinesis_genome.Chr.gff3 -wa -wb &gt; w.bed_intersect_results.txt
+</span></span></code></pre></div><p><a href="https://www.jianshu.com/p/a2cff67c38a9">bedtools intersect用法 (intersectBed) - 简书 (jianshu.com)</a></p>
+<h4 id="提取基因区间的含有的基因的id">提取基因区间的含有的基因的ID<a hidden class="anchor" aria-hidden="true" href="#提取基因区间的含有的基因的id">#</a></h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>less -S j.bed_intersect_results.txt | grep <span style="color:#e6db74">&#34;mRNA&#34;</span> | cut -f12 | sort -u &gt; j.bed.gene.txt
+</span></span><span style="display:flex;"><span>less -S a.bed_intersect_results.txt | grep <span style="color:#e6db74">&#34;mRNA&#34;</span> | cut -f12 | sort -u &gt; a.bed.gene.txt
+</span></span><span style="display:flex;"><span>less -S w.bed_intersect_results.txt | grep <span style="color:#e6db74">&#34;mRNA&#34;</span> | cut -f12 | sort -u &gt; w.bed.gene.txt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>less -S w.bed.gene.txt | sed <span style="color:#e6db74">&#39;s/\;.*//&#39;</span> | cut -d <span style="color:#e6db74">&#39;.&#39;</span> -f <span style="color:#ae81ff">1</span> | sort -u &gt; temp <span style="color:#f92672">&amp;&amp;</span> mv temp w.bed.gene.txt
+</span></span><span style="display:flex;"><span>less -S a.bed.gene.txt | sed <span style="color:#e6db74">&#39;s/\;.*//&#39;</span> | cut -d <span style="color:#e6db74">&#39;.&#39;</span> -f <span style="color:#ae81ff">1</span> | sort -u &gt; temp <span style="color:#f92672">&amp;&amp;</span> mv temp a.bed.gene.txt
+</span></span><span style="display:flex;"><span>less -S j.bed.gene.txt | sed <span style="color:#e6db74">&#39;s/\;.*//&#39;</span> | cut -d <span style="color:#e6db74">&#39;.&#39;</span> -f <span style="color:#ae81ff">1</span> | sort -u &gt; temp <span style="color:#f92672">&amp;&amp;</span> mv temp j.bed.gene.txt
+</span></span></code></pre></div>
+
+  </div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://Tdxxxx-student.github.io/tags/bed%E6%96%87%E4%BB%B6">bed文件</a></li>
+      <li><a href="https://Tdxxxx-student.github.io/tags/gff%E6%96%87%E4%BB%B6">gff文件</a></li>
+    </ul>
+  </footer>
+
+  
+
+  <nav class="post-nav-full">
+    
+    <div class="nav-category">
+      分类：<a href="https://Tdxxxx-student.github.io/categories/%E6%8F%90%E5%8F%96%E5%9F%BA%E5%9B%A0/">提取基因</a>
+    </div>
+    
+    
+    <div class="nav-info">
+      第 <strong>1</strong> / 1 篇 (提取基因)
+    </div>
+    
+    
+    <div class="nav-buttons">
+      
+      <span class="nav-btn first disabled">
+        <span class="btn-icon">«</span>
+        <span class="btn-text">首篇</span>
+      </span>
+
+      
+      <span class="nav-btn prev disabled">
+        <span class="btn-icon">‹</span>
+        <span class="btn-text">上一篇</span>
+      </span>
+
+      
+      <div class="nav-pages">
+
+        <span class="nav-num current">1</span>
+      </div>
+
+      
+      <span class="nav-btn next disabled">
+        <span class="btn-text">下一篇</span>
+        <span class="btn-icon">›</span>
+      </span>
+
+      
+      <span class="nav-btn last disabled">
+        <span class="btn-text">末篇</span>
+        <span class="btn-icon">»</span>
+      </span>
+    </div>
+  </nav></article>
+    </main>
+    
+<footer class="footer">
+        <span>tdx0307</span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+<a href="/search/" class="search-fab" title="搜索 (Ctrl+F)">🔍</a>
+
+<style>
+.search-fab {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.search-fab:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .search-fab {
+        bottom: 1rem;
+        right: 1rem;
+        width: 45px;
+        height: 45px;
+    }
+}
+</style>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

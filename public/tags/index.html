@@ -71,7 +71,7 @@
         document.querySelector("html").dataset.theme = 'light';
     }
 
-</script><meta property="og:url" content="https://Tdxxxx-student.github.io/tags/">
+</script><link rel="stylesheet" href="https://Tdxxxx-student.github.io/css/custom.css"><meta property="og:url" content="https://Tdxxxx-student.github.io/tags/">
   <meta property="og:site_name" content="我的空间">
   <meta property="og:title" content="Tags">
   <meta property="og:locale" content="zh-cn">
@@ -111,13 +111,13 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="https://Tdxxxx-student.github.io/" title="首页">
+                <a href="https://Tdxxxx-student.github.io/posts/" title="首页">
                     <span>首页</span>
                 </a>
             </li>
             <li>
-                <a href="https://Tdxxxx-student.github.io/posts/" title="文章">
-                    <span>文章</span>
+                <a href="https://Tdxxxx-student.github.io/archives/" title="归档">
+                    <span>归档</span>
                 </a>
             </li>
             <li>
@@ -130,6 +130,11 @@
                     <span class="active">标签</span>
                 </a>
             </li>
+            <li>
+                <a href="https://Tdxxxx-student.github.io/search/" title="🔍  (Alt &#43; /)" accesskey=/>
+                    <span>🔍 </span>
+                </a>
+            </li>
         </ul>
     </nav>
 </header>
@@ -140,10 +145,25 @@
 
 <ul class="terms-tags">
     <li>
+        <a href="https://Tdxxxx-student.github.io/tags/annovar/">annovar <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    <li>
+        <a href="https://Tdxxxx-student.github.io/tags/bam%E6%96%87%E4%BB%B6/">bam文件 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    <li>
+        <a href="https://Tdxxxx-student.github.io/tags/bed%E6%96%87%E4%BB%B6/">bed文件 <sup><strong><sup>2</sup></strong></sup> </a>
+    </li>
+    <li>
+        <a href="https://Tdxxxx-student.github.io/tags/blast/">Blast <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    <li>
         <a href="https://Tdxxxx-student.github.io/tags/ena/">ENA <sup><strong><sup>1</sup></strong></sup> </a>
     </li>
     <li>
         <a href="https://Tdxxxx-student.github.io/tags/fastq%E4%B8%8B%E8%BD%BD/">fastq下载 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    <li>
+        <a href="https://Tdxxxx-student.github.io/tags/gff%E6%96%87%E4%BB%B6/">gff文件 <sup><strong><sup>1</sup></strong></sup> </a>
     </li>
     <li>
         <a href="https://Tdxxxx-student.github.io/tags/gwas/">GWAS <sup><strong><sup>2</sup></strong></sup> </a>
@@ -155,6 +175,9 @@
         <a href="https://Tdxxxx-student.github.io/tags/hugo%E9%85%8D%E5%88%B6/">hugo配制 <sup><strong><sup>2</sup></strong></sup> </a>
     </li>
     <li>
+        <a href="https://Tdxxxx-student.github.io/tags/mafft/">mafft <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    <li>
         <a href="https://Tdxxxx-student.github.io/tags/md5%E6%A0%A1%E9%AA%8C/">md5校验 <sup><strong><sup>1</sup></strong></sup> </a>
     </li>
     <li>
@@ -162,6 +185,9 @@
     </li>
     <li>
         <a href="https://Tdxxxx-student.github.io/tags/qtl-seq/">QTL-seq <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    <li>
+        <a href="https://Tdxxxx-student.github.io/tags/r%E5%9F%BA%E5%9B%A0%E7%BB%93%E6%9E%84/">R基因结构 <sup><strong><sup>1</sup></strong></sup> </a>
     </li>
     <li>
         <a href="https://Tdxxxx-student.github.io/tags/snp/">SNP <sup><strong><sup>1</sup></strong></sup> </a>
@@ -177,6 +203,9 @@
     </li>
     <li>
         <a href="https://Tdxxxx-student.github.io/tags/%E5%A4%9A%E9%87%8D%E5%BA%8F%E5%88%97%E6%AF%94%E5%AF%B9/">多重序列比对 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    <li>
+        <a href="https://Tdxxxx-student.github.io/tags/%E6%9C%AC%E5%9C%B0/">本地 <sup><strong><sup>1</sup></strong></sup> </a>
     </li>
     <li>
         <a href="https://Tdxxxx-student.github.io/tags/%E7%90%86%E5%8C%96%E6%80%A7%E8%B4%A8%E5%88%86%E6%9E%90/">理化性质分析 <sup><strong><sup>1</sup></strong></sup> </a>
@@ -210,6 +239,41 @@
         <path d="M12 6H0l6-6z" />
     </svg>
 </a>
+<a href="/search/" class="search-fab" title="搜索 (Ctrl+F)">🔍</a>
+
+<style>
+.search-fab {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.search-fab:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .search-fab {
+        bottom: 1rem;
+        right: 1rem;
+        width: 45px;
+        height: 45px;
+    }
+}
+</style>
 
 <script>
     let menu = document.getElementById('menu');
