@@ -10,7 +10,7 @@ hasCJKLanguage = true
   tag = "tags"
 
 [pagination]
-  pagerSize = 5
+  pagerSize = 8
 
 [params]
   customCSS = ["css/custom.css"]
