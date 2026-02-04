@@ -2,7 +2,7 @@
 date = '2026-02-04T12:58:06+08:00'
 draft = false
 title = 'ENA校验脚本'
-tags = ["ENA"，"md5校验"]
+tags = ["ENA","md5校验"]
 categories = ["ENA数据库"]
 +++
 

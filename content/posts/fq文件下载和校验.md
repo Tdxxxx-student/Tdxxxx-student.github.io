@@ -1,9 +1,9 @@
 +++
 date = '2026-02-03T22:20:24+08:00'
 draft = false
-catergories = ["fastq文件下载"]
-tags = ["fastq下载"]
 title = 'Fq文件下载和校验'
+categories = ["fq文件下载"]
+tags = ["fastq下载"]
 +++
 # Aspera安装
 可以conda/mamba安装
