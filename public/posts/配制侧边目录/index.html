@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto" data-theme="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="index, follow">
 <title>配制侧边目录 | 我的空间</title>
 <meta name="keywords" content="hugo配制">
 <meta name="description" content="以下是配置文件
@@ -132,16 +132,16 @@ rm -rf public resources
 hugo server -D
 ">
 <meta name="author" content="">
-<link rel="canonical" href="http://localhost:1313/posts/%E9%85%8D%E5%88%B6%E4%BE%A7%E8%BE%B9%E7%9B%AE%E5%BD%95/">
+<link rel="canonical" href="https://Tdxxxx-student.github.io/posts/%E9%85%8D%E5%88%B6%E4%BE%A7%E8%BE%B9%E7%9B%AE%E5%BD%95/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.e72f5f222d52fefbb5364978daf95328cfae4a088f7054da95a277e655e96f14.css" integrity="sha256-5y9fIi1S/vu1Nkl42vlTKM&#43;uSgiPcFTalaJ35lXpbxQ=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/favicon-32x32.png">
-<link rel="apple-touch-icon" href="http://localhost:1313/apple-touch-icon.png">
-<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<link rel="icon" href="https://Tdxxxx-student.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Tdxxxx-student.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Tdxxxx-student.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://Tdxxxx-student.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://Tdxxxx-student.github.io/safari-pinned-tab.svg">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/posts/%E9%85%8D%E5%88%B6%E4%BE%A7%E8%BE%B9%E7%9B%AE%E5%BD%95/">
+<link rel="alternate" hreflang="en" href="https://Tdxxxx-student.github.io/posts/%E9%85%8D%E5%88%B6%E4%BE%A7%E8%BE%B9%E7%9B%AE%E5%BD%95/">
 <noscript>
     <style>
         #theme-toggle,
@@ -193,13 +193,200 @@ hugo server -D
         document.querySelector("html").dataset.theme = 'light';
     }
 
+</script><meta property="og:url" content="https://Tdxxxx-student.github.io/posts/%E9%85%8D%E5%88%B6%E4%BE%A7%E8%BE%B9%E7%9B%AE%E5%BD%95/">
+  <meta property="og:site_name" content="我的空间">
+  <meta property="og:title" content="配制侧边目录">
+  <meta property="og:description" content="以下是配置文件
+调整侧边目录位置 修改 CSS 文件 notepad assets/css/extended/custom.css 删除全部内容，粘贴以下代码： CSS /* ======================================== 隐藏原有顶部目录 ======================================== */ .post-single &gt; .toc { display: none !important; } /* ======================================== 右侧固定目录 - 移到最右边 ======================================== */ #TableOfContents { position: fixed !important; right: 10px !important; top: 80px !important; width: 220px !important; max-height: 75vh !important; overflow-y: auto !important; background: var(--entry) !important; padding: 15px !important; border-radius: 10px !important; box-shadow: 0 2px 15px rgba(0,0,0,0.1) !important; z-index: 999 !important; font-size: 13px !important; } #TableOfContents::before { content: &#34;📑 目录&#34;; display: block; font-size: 16px; font-weight: bold; color: var(--primary); padding-bottom: 10px; margin-bottom: 10px; border-bottom: 2px solid var(--primary); } #TableOfContents ul { list-style: none !important; padding: 0 !important; margin: 0 !important; } #TableOfContents ul ul { padding-left: 12px !important; border-left: 2px solid var(--border) !important; margin-left: 6px !important; } #TableOfContents li { margin: 5px 0 !important; } #TableOfContents a { display: block !important; padding: 6px 10px !important; color: var(--secondary) !important; text-decoration: none !important; border-radius: 5px !important; font-size: 13px !important; line-height: 1.4 !important; transition: all 0.3s !important; } #TableOfContents a:hover { background: var(--primary) !important; color: white !important; } /* ======================================== 文章内容区域 - 不受影响 ======================================== */ .post-content { max-width: 100% !important; margin-right: 0 !important; } .main { max-width: 800px !important; margin: 0 auto !important; } /* ======================================== 滚动条美化 ======================================== */ #TableOfContents::-webkit-scrollbar { width: 4px; } #TableOfContents::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; } /* ======================================== 小屏幕隐藏目录 ======================================== */ @media (max-width: 1400px) { #TableOfContents { display: none !important; } } /* ======================================== 暗色模式 ======================================== */ .dark #TableOfContents { background: #1e1e1e !important; box-shadow: 0 2px 15px rgba(0,0,0,0.4) !important; } 重启服务 Bash rm -rf public resources hugo server -D ">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-02-03T21:48:43+08:00">
+    <meta property="article:modified_time" content="2026-02-03T21:48:43+08:00">
+    <meta property="article:tag" content="Hugo配制">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="配制侧边目录">
+<meta name="twitter:description" content="以下是配置文件
+调整侧边目录位置
+修改 CSS 文件
+
+notepad assets/css/extended/custom.css
+删除全部内容，粘贴以下代码：
+
+CSS
+
+/* ========================================
+   隐藏原有顶部目录
+   ======================================== */
+.post-single &gt; .toc {
+    display: none !important;
+}
+
+/* ========================================
+   右侧固定目录 - 移到最右边
+   ======================================== */
+#TableOfContents {
+    position: fixed !important;
+    right: 10px !important;
+    top: 80px !important;
+    width: 220px !important;
+    max-height: 75vh !important;
+    overflow-y: auto !important;
+    background: var(--entry) !important;
+    padding: 15px !important;
+    border-radius: 10px !important;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1) !important;
+    z-index: 999 !important;
+    font-size: 13px !important;
+}
+
+#TableOfContents::before {
+    content: &#34;📑 目录&#34;;
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--primary);
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid var(--primary);
+}
+
+#TableOfContents ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+#TableOfContents ul ul {
+    padding-left: 12px !important;
+    border-left: 2px solid var(--border) !important;
+    margin-left: 6px !important;
+}
+
+#TableOfContents li {
+    margin: 5px 0 !important;
+}
+
+#TableOfContents a {
+    display: block !important;
+    padding: 6px 10px !important;
+    color: var(--secondary) !important;
+    text-decoration: none !important;
+    border-radius: 5px !important;
+    font-size: 13px !important;
+    line-height: 1.4 !important;
+    transition: all 0.3s !important;
+}
+
+#TableOfContents a:hover {
+    background: var(--primary) !important;
+    color: white !important;
+}
+
+/* ========================================
+   文章内容区域 - 不受影响
+   ======================================== */
+.post-content {
+    max-width: 100% !important;
+    margin-right: 0 !important;
+}
+
+.main {
+    max-width: 800px !important;
+    margin: 0 auto !important;
+}
+
+/* ========================================
+   滚动条美化
+   ======================================== */
+#TableOfContents::-webkit-scrollbar {
+    width: 4px;
+}
+
+#TableOfContents::-webkit-scrollbar-thumb {
+    background: var(--primary);
+    border-radius: 4px;
+}
+
+/* ========================================
+   小屏幕隐藏目录
+   ======================================== */
+@media (max-width: 1400px) {
+    #TableOfContents {
+        display: none !important;
+    }
+}
+
+/* ========================================
+   暗色模式
+   ======================================== */
+.dark #TableOfContents {
+    background: #1e1e1e !important;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.4) !important;
+}
+重启服务
+Bash
+
+rm -rf public resources
+hugo server -D
+">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://Tdxxxx-student.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "配制侧边目录",
+      "item": "https://Tdxxxx-student.github.io/posts/%E9%85%8D%E5%88%B6%E4%BE%A7%E8%BE%B9%E7%9B%AE%E5%BD%95/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "配制侧边目录",
+  "name": "配制侧边目录",
+  "description": "以下是配置文件\n调整侧边目录位置 修改 CSS 文件 notepad assets/css/extended/custom.css 删除全部内容，粘贴以下代码： CSS /* ======================================== 隐藏原有顶部目录 ======================================== */ .post-single \u0026gt; .toc { display: none !important; } /* ======================================== 右侧固定目录 - 移到最右边 ======================================== */ #TableOfContents { position: fixed !important; right: 10px !important; top: 80px !important; width: 220px !important; max-height: 75vh !important; overflow-y: auto !important; background: var(--entry) !important; padding: 15px !important; border-radius: 10px !important; box-shadow: 0 2px 15px rgba(0,0,0,0.1) !important; z-index: 999 !important; font-size: 13px !important; } #TableOfContents::before { content: \u0026#34;📑 目录\u0026#34;; display: block; font-size: 16px; font-weight: bold; color: var(--primary); padding-bottom: 10px; margin-bottom: 10px; border-bottom: 2px solid var(--primary); } #TableOfContents ul { list-style: none !important; padding: 0 !important; margin: 0 !important; } #TableOfContents ul ul { padding-left: 12px !important; border-left: 2px solid var(--border) !important; margin-left: 6px !important; } #TableOfContents li { margin: 5px 0 !important; } #TableOfContents a { display: block !important; padding: 6px 10px !important; color: var(--secondary) !important; text-decoration: none !important; border-radius: 5px !important; font-size: 13px !important; line-height: 1.4 !important; transition: all 0.3s !important; } #TableOfContents a:hover { background: var(--primary) !important; color: white !important; } /* ======================================== 文章内容区域 - 不受影响 ======================================== */ .post-content { max-width: 100% !important; margin-right: 0 !important; } .main { max-width: 800px !important; margin: 0 auto !important; } /* ======================================== 滚动条美化 ======================================== */ #TableOfContents::-webkit-scrollbar { width: 4px; } #TableOfContents::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; } /* ======================================== 小屏幕隐藏目录 ======================================== */ @media (max-width: 1400px) { #TableOfContents { display: none !important; } } /* ======================================== 暗色模式 ======================================== */ .dark #TableOfContents { background: #1e1e1e !important; box-shadow: 0 2px 15px rgba(0,0,0,0.4) !important; } 重启服务 Bash rm -rf public resources hugo server -D ",
+  "keywords": [
+    "hugo配制"
+  ],
+  "articleBody": "以下是配置文件\n调整侧边目录位置 修改 CSS 文件 notepad assets/css/extended/custom.css 删除全部内容，粘贴以下代码： CSS /* ======================================== 隐藏原有顶部目录 ======================================== */ .post-single \u003e .toc { display: none !important; } /* ======================================== 右侧固定目录 - 移到最右边 ======================================== */ #TableOfContents { position: fixed !important; right: 10px !important; top: 80px !important; width: 220px !important; max-height: 75vh !important; overflow-y: auto !important; background: var(--entry) !important; padding: 15px !important; border-radius: 10px !important; box-shadow: 0 2px 15px rgba(0,0,0,0.1) !important; z-index: 999 !important; font-size: 13px !important; } #TableOfContents::before { content: \"📑 目录\"; display: block; font-size: 16px; font-weight: bold; color: var(--primary); padding-bottom: 10px; margin-bottom: 10px; border-bottom: 2px solid var(--primary); } #TableOfContents ul { list-style: none !important; padding: 0 !important; margin: 0 !important; } #TableOfContents ul ul { padding-left: 12px !important; border-left: 2px solid var(--border) !important; margin-left: 6px !important; } #TableOfContents li { margin: 5px 0 !important; } #TableOfContents a { display: block !important; padding: 6px 10px !important; color: var(--secondary) !important; text-decoration: none !important; border-radius: 5px !important; font-size: 13px !important; line-height: 1.4 !important; transition: all 0.3s !important; } #TableOfContents a:hover { background: var(--primary) !important; color: white !important; } /* ======================================== 文章内容区域 - 不受影响 ======================================== */ .post-content { max-width: 100% !important; margin-right: 0 !important; } .main { max-width: 800px !important; margin: 0 auto !important; } /* ======================================== 滚动条美化 ======================================== */ #TableOfContents::-webkit-scrollbar { width: 4px; } #TableOfContents::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 4px; } /* ======================================== 小屏幕隐藏目录 ======================================== */ @media (max-width: 1400px) { #TableOfContents { display: none !important; } } /* ======================================== 暗色模式 ======================================== */ .dark #TableOfContents { background: #1e1e1e !important; box-shadow: 0 2px 15px rgba(0,0,0,0.4) !important; } 重启服务 Bash rm -rf public resources hugo server -D ",
+  "wordCount" : "336",
+  "inLanguage": "en",
+  "datePublished": "2026-02-03T21:48:43+08:00",
+  "dateModified": "2026-02-03T21:48:43+08:00",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Tdxxxx-student.github.io/posts/%E9%85%8D%E5%88%B6%E4%BE%A7%E8%BE%B9%E7%9B%AE%E5%BD%95/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "我的空间",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Tdxxxx-student.github.io/favicon.ico"
+    }
+  }
+}
 </script>
 </head>
 <body id="top">
     <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="我的空间 (Alt + H)">我的空间</a>
+            <a href="https://Tdxxxx-student.github.io/" accesskey="h" title="我的空间 (Alt + H)">我的空间</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
@@ -225,22 +412,22 @@ hugo server -D
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/" title="首页">
+                <a href="https://Tdxxxx-student.github.io/" title="首页">
                     <span>首页</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/posts/" title="文章">
+                <a href="https://Tdxxxx-student.github.io/posts/" title="文章">
                     <span>文章</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/categories/" title="分类">
+                <a href="https://Tdxxxx-student.github.io/categories/" title="分类">
                     <span>分类</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tags/" title="标签">
+                <a href="https://Tdxxxx-student.github.io/tags/" title="标签">
                     <span>标签</span>
                 </a>
             </li>
@@ -250,7 +437,7 @@ hugo server -D
 <main class="main">
 
 <article class="post-single">
-  <header class="post-header"><div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/posts/">Posts</a></div>
+  <header class="post-header"><div class="breadcrumbs"><a href="https://Tdxxxx-student.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://Tdxxxx-student.github.io/posts/">Posts</a></div>
     <h1 class="post-title entry-hint-parent">
       配制侧边目录
     </h1>
@@ -390,7 +577,7 @@ hugo server -D
       </div>
       <footer class="post-footer">
         <ul class="post-tags">
-          <li><a href="http://localhost:1313/tags/hugo%E9%85%8D%E5%88%B6">hugo配制</a></li>
+          <li><a href="https://Tdxxxx-student.github.io/tags/hugo%E9%85%8D%E5%88%B6">hugo配制</a></li>
         </ul>
       </footer>
     </div>
@@ -400,12 +587,12 @@ hugo server -D
   </div>
   
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/posts/fq%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%92%8C%E6%A0%A1%E9%AA%8C/">
+  <a class="prev" href="https://Tdxxxx-student.github.io/posts/fq%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%92%8C%E6%A0%A1%E9%AA%8C/">
     <span class="title">« Prev</span>
     <br>
     <span>Fq文件下载和校验</span>
   </a>
-  <a class="next" href="http://localhost:1313/posts/%E5%9F%BA%E5%9B%A0%E5%AE%B6%E6%97%8F%E5%88%86%E6%9E%90/">
+  <a class="next" href="https://Tdxxxx-student.github.io/posts/%E5%9F%BA%E5%9B%A0%E5%AE%B6%E6%97%8F%E5%88%86%E6%9E%90/">
     <span class="title">Next »</span>
     <br>
     <span>基因家族分析</span>
