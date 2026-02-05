@@ -272,3 +272,24 @@
         font-size: 0.85rem;
     }
 }
+
+/* ========================================
+   全局字体设置
+   ======================================== */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    
+    /* 可选：如果你喜欢更衬线的字体，可以用下面这行 */
+    /* font-family: "Merriweather", "Georgia", serif; */
+}
+
+/* 针对代码块的字体 (等宽字体) */
+code, kbd, pre, samp {
+    font-family: "JetBrains Mono", "Fira Code", Consolas, "Courier New", monospace;
+}
+
+/* 针对标题的字体 */
+h1, h2, h3, h4, h5, h6 {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 700; /* 加粗 */
+}
