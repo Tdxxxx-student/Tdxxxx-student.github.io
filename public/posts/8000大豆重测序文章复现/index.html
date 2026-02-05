@@ -10,7 +10,7 @@
 <meta name="description" content="借鉴别人的文章复现结果">
 <meta name="author" content="tdx">
 <link rel="canonical" href="https://Tdxxxx-student.github.io/posts/8000%E5%A4%A7%E8%B1%86%E9%87%8D%E6%B5%8B%E5%BA%8F%E6%96%87%E7%AB%A0%E5%A4%8D%E7%8E%B0/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.e72f5f222d52fefbb5364978daf95328cfae4a088f7054da95a277e655e96f14.css" integrity="sha256-5y9fIi1S/vu1Nkl42vlTKM&#43;uSgiPcFTalaJ35lXpbxQ=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.98d36a2d3d7531c43f287130884c533d0910af42ad8e9f3c473913b3aea5ead7.css" integrity="sha256-mNNqLT11McQ/KHEwiExTPQkQr0Ktjp88RzkTs66l6tc=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://Tdxxxx-student.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://Tdxxxx-student.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://Tdxxxx-student.github.io/favicon-32x32.png">
@@ -201,203 +201,23 @@
 <main class="main">
 
 <article class="post-single">
+  
   <header class="post-header"><div class="breadcrumbs"><a href="https://Tdxxxx-student.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://Tdxxxx-student.github.io/posts/">Posts</a></div>
-    <h1 class="post-title entry-hint-parent">
+    <h1 class="post-title">
       8000大豆重测序文章复现
     </h1>
-    <div class="post-description">
-      借鉴别人的文章复现结果
-    </div>
+    <div class="post-description">借鉴别人的文章复现结果</div>
     <div class="post-meta"><span title='2026-02-05 14:53:16 +0800 CST'>2026-02-05</span>&nbsp;·&nbsp;<span>21 min</span>&nbsp;·&nbsp;<span>tdx</span></div>
-  </header><div class="toc">
-    <details  open>
-        <summary accesskey="c" title="(Alt + C)">
-            <span class="details">Table of Contents</span>
-        </summary>
+  </header>
 
-        <div class="inner"><ul>
-                <li>
-                    <a href="#8000%e4%bb%bd%e5%a4%a7%e8%b1%86%e9%87%8d%e6%b5%8b%e5%ba%8f%e6%95%b0%e6%8d%ae%e5%88%86%e6%9e%90%e6%b5%81%e7%a8%8b" aria-label="8000份大豆重测序数据分析流程">8000份大豆重测序数据分析流程</a><ul>
-                        
-                <li>
-                    <a href="#%e7%9b%ae%e5%bd%95" aria-label="目录">目录</a></li>
-                <li>
-                    <a href="#%e5%88%86%e6%9e%90%e6%b5%81%e7%a8%8b%e6%80%bb%e8%a7%88" aria-label="分析流程总览">分析流程总览</a><ul>
-                        
-                <li>
-                    <a href="#%e6%95%b4%e4%bd%93%e6%b5%81%e7%a8%8b%e6%9e%b6%e6%9e%84" aria-label="整体流程架构">整体流程架构</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e6%95%b0%e6%8d%ae%e5%88%86%e6%9e%90%e5%85%b7%e4%bd%93%e6%b5%81%e7%a8%8b" aria-label="数据分析具体流程">数据分析具体流程</a><ul>
-                        
-                <li>
-                    <a href="#%e4%b8%80%e6%95%b0%e6%8d%ae%e8%b4%a8%e6%8e%a7" aria-label="一、数据质控">一、数据质控</a><ul>
-                        
-                <li>
-                    <a href="#1-fastqc---%e8%b4%a8%e9%87%8f%e8%af%84%e4%bc%b0" aria-label="1. FastQC - 质量评估">1. FastQC - 质量评估</a></li>
-                <li>
-                    <a href="#2-fastp---%e8%b4%a8%e6%8e%a7%e4%b8%8e%e8%bf%87%e6%bb%a4" aria-label="2. fastp - 质控与过滤">2. fastp - 质控与过滤</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e4%ba%8c%e5%ba%8f%e5%88%97%e6%af%94%e5%af%b9" aria-label="二、序列比对">二、序列比对</a><ul>
-                        
-                <li>
-                    <a href="#bwa-mem-%e6%af%94%e5%af%b9" aria-label="BWA-MEM 比对">BWA-MEM 比对</a><ul>
-                        
-                <li>
-                    <a href="#21-%e5%bb%ba%e7%ab%8b%e5%8f%82%e8%80%83%e5%9f%ba%e5%9b%a0%e7%bb%84%e7%b4%a2%e5%bc%95" aria-label="2.1 建立参考基因组索引">2.1 建立参考基因组索引</a></li>
-                <li>
-                    <a href="#22-%e5%ba%8f%e5%88%97%e6%af%94%e5%af%b9" aria-label="2.2 序列比对">2.2 序列比对</a></li>
-                <li>
-                    <a href="#23-sam%e8%bd%acbam%e5%b9%b6%e6%8e%92%e5%ba%8f" aria-label="2.3 SAM转BAM并排序">2.3 SAM转BAM并排序</a></li>
-                <li>
-                    <a href="#24-%e6%a0%87%e8%ae%b0pcr%e9%87%8d%e5%a4%8d" aria-label="2.4 标记PCR重复">2.4 标记PCR重复</a></li>
-                <li>
-                    <a href="#25-%e6%b7%bb%e5%8a%a0read-groups%e4%bf%a1%e6%81%af%e5%8f%af%e9%80%89%e4%bd%86%e6%8e%a8%e8%8d%90" aria-label="2.5 添加Read Groups信息（可选但推荐）">2.5 添加Read Groups信息（可选但推荐）</a></li></ul>
-                </li></ul>
-                </li>
-                <li>
-                    <a href="#%e4%b8%89%e5%8f%98%e5%bc%82%e6%a3%80%e6%b5%8b" aria-label="三、变异检测">三、变异检测</a><ul>
-                        
-                <li>
-                    <a href="#gatk-best-practices-%e6%b5%81%e7%a8%8b" aria-label="GATK Best Practices 流程">GATK Best Practices 流程</a><ul>
-                        
-                <li>
-                    <a href="#31-haplotypecaller---%e5%8d%95%e6%a0%b7%e6%9c%ac%e5%8f%98%e5%bc%82%e6%a3%80%e6%b5%8b" aria-label="3.1 HaplotypeCaller - 单样本变异检测">3.1 HaplotypeCaller - 单样本变异检测</a></li>
-                <li>
-                    <a href="#32-combinegvcfs---%e5%90%88%e5%b9%b6%e5%a4%9a%e4%b8%aagvcf" aria-label="3.2 CombineGVCFs - 合并多个gVCF">3.2 CombineGVCFs - 合并多个gVCF</a></li>
-                <li>
-                    <a href="#33-genotypegvcfs---%e8%81%94%e5%90%88%e5%9f%ba%e5%9b%a0%e5%88%86%e5%9e%8b" aria-label="3.3 GenotypeGVCFs - 联合基因分型">3.3 GenotypeGVCFs - 联合基因分型</a></li>
-                <li>
-                    <a href="#34-variantfiltration---%e5%8f%98%e5%bc%82%e8%bf%87%e6%bb%a4" aria-label="3.4 VariantFiltration - 变异过滤">3.4 VariantFiltration - 变异过滤</a></li>
-                <li>
-                    <a href="#35-selectvariants---%e6%8f%90%e5%8f%96%e9%ab%98%e8%b4%a8%e9%87%8f%e5%8f%98%e5%bc%82" aria-label="3.5 SelectVariants - 提取高质量变异">3.5 SelectVariants - 提取高质量变异</a></li>
-                <li>
-                    <a href="#36-%e5%88%86%e5%88%ab%e6%8f%90%e5%8f%96snp%e5%92%8cindel" aria-label="3.6 分别提取SNP和InDel">3.6 分别提取SNP和InDel</a></li></ul>
-                </li></ul>
-                </li>
-                <li>
-                    <a href="#%e5%9b%9b%e5%8f%98%e5%bc%82%e6%b3%a8%e9%87%8a" aria-label="四、变异注释">四、变异注释</a><ul>
-                        
-                <li>
-                    <a href="#annovar-%e6%b3%a8%e9%87%8a%e6%b5%81%e7%a8%8b" aria-label="ANNOVAR 注释流程">ANNOVAR 注释流程</a><ul>
-                        
-                <li>
-                    <a href="#41-%e5%87%86%e5%a4%87%e5%b7%a5%e4%bd%9c" aria-label="4.1 准备工作">4.1 准备工作</a></li>
-                <li>
-                    <a href="#42-%e8%bd%ac%e6%8d%a2vcf%e6%a0%bc%e5%bc%8f%e4%b8%baannovar%e8%be%93%e5%85%a5%e6%a0%bc%e5%bc%8f" aria-label="4.2 转换VCF格式为ANNOVAR输入格式">4.2 转换VCF格式为ANNOVAR输入格式</a></li>
-                <li>
-                    <a href="#43-%e6%89%a7%e8%a1%8c%e6%b3%a8%e9%87%8a" aria-label="4.3 执行注释">4.3 执行注释</a></li></ul>
-                </li></ul>
-                </li></ul>
-                </li>
-                <li>
-                    <a href="#%e5%9b%be%e8%a1%a8%e5%88%b6%e4%bd%9c" aria-label="图表制作">图表制作</a><ul>
-                        
-                <li>
-                    <a href="#%e4%b8%80%e7%be%a4%e4%bd%93%e9%81%97%e4%bc%a0%e5%ad%a6%e5%88%86%e6%9e%90" aria-label="一、群体遗传学分析">一、群体遗传学分析</a><ul>
-                        
-                <li>
-                    <a href="#11-pca%e5%88%86%e6%9e%90%e4%b8%bb%e6%88%90%e5%88%86%e5%88%86%e6%9e%90" aria-label="1.1 PCA分析（主成分分析）">1.1 PCA分析（主成分分析）</a></li>
-                <li>
-                    <a href="#12-%e7%b3%bb%e7%bb%9f%e5%8f%91%e8%82%b2%e6%a0%91%e6%9e%84%e5%bb%ba" aria-label="1.2 系统发育树构建">1.2 系统发育树构建</a></li>
-                <li>
-                    <a href="#13-%e7%be%a4%e4%bd%93%e7%bb%93%e6%9e%84%e5%88%86%e6%9e%90" aria-label="1.3 群体结构分析">1.3 群体结构分析</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e4%ba%8c%e8%bf%9e%e9%94%81%e4%b8%8d%e5%b9%b3%e8%a1%a1%e5%88%86%e6%9e%90" aria-label="二、连锁不平衡分析">二、连锁不平衡分析</a><ul>
-                        
-                <li>
-                    <a href="#21-ld%e8%a1%b0%e5%87%8f%e5%88%86%e6%9e%90" aria-label="2.1 LD衰减分析">2.1 LD衰减分析</a></li>
-                <li>
-                    <a href="#22-ld%e7%83%ad%e5%9b%be" aria-label="2.2 LD热图">2.2 LD热图</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e4%b8%89%e6%a0%b8%e8%8b%b7%e9%85%b8%e5%a4%9a%e6%a0%b7%e6%80%a7%e5%88%86%e6%9e%90" aria-label="三、核苷酸多样性分析">三、核苷酸多样性分析</a><ul>
-                        
-                <li>
-                    <a href="#31-%cf%80-pi-%e8%ae%a1%e7%ae%97" aria-label="3.1 π (Pi) 计算">3.1 π (Pi) 计算</a></li>
-                <li>
-                    <a href="#32-wattersons-%ce%b8-theta" aria-label="3.2 Watterson&rsquo;s θ (Theta)">3.2 Watterson&rsquo;s θ (Theta)</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e5%9b%9b%e5%9b%ba%e5%ae%9a%e6%8c%87%e6%95%b0-fst" aria-label="四、固定指数 (FST)">四、固定指数 (FST)</a><ul>
-                        
-                <li>
-                    <a href="#41-fst%e8%ae%a1%e7%ae%97" aria-label="4.1 FST计算">4.1 FST计算</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e4%ba%94%e9%80%89%e6%8b%a9%e6%b8%85%e9%99%a4%e5%88%86%e6%9e%90" aria-label="五、选择清除分析">五、选择清除分析</a><ul>
-                        
-                <li>
-                    <a href="#51-%e6%a0%b8%e8%8b%b7%e9%85%b8%e5%a4%9a%e6%a0%b7%e6%80%a7%e6%af%94%e5%80%bc-%cf%80-ratio" aria-label="5.1 核苷酸多样性比值 (π-ratio)">5.1 核苷酸多样性比值 (π-ratio)</a></li>
-                <li>
-                    <a href="#52-xp-clr-%e8%b7%a8%e7%be%a4%e4%bd%93%e5%a4%8d%e5%90%88%e4%bc%bc%e7%84%b6%e6%af%94%e6%a3%80%e9%aa%8c" aria-label="5.2 XP-CLR (跨群体复合似然比检验)">5.2 XP-CLR (跨群体复合似然比检验)</a></li>
-                <li>
-                    <a href="#53-xp-ehh-%e4%ba%a4%e5%8f%89%e7%be%a4%e4%bd%93%e6%89%a9%e5%b1%95%e5%8d%95%e4%bd%93%e5%9e%8b%e7%ba%af%e5%90%88%e6%80%a7" aria-label="5.3 XP-EHH (交叉群体扩展单体型纯合性)">5.3 XP-EHH (交叉群体扩展单体型纯合性)</a></li>
-                <li>
-                    <a href="#54-tajimas-d" aria-label="5.4 Tajima&rsquo;s D">5.4 Tajima&rsquo;s D</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e5%85%ad%e5%85%a8%e5%9f%ba%e5%9b%a0%e7%bb%84%e5%85%b3%e8%81%94%e5%88%86%e6%9e%90-gwas" aria-label="六、全基因组关联分析 (GWAS)">六、全基因组关联分析 (GWAS)</a><ul>
-                        
-                <li>
-                    <a href="#61-%e5%88%86%e6%9e%90%e6%b5%81%e7%a8%8b%e6%80%bb%e8%a7%88" aria-label="6.1 分析流程总览">6.1 分析流程总览</a></li>
-                <li>
-                    <a href="#62-%e6%95%b0%e6%8d%ae%e5%87%86%e5%a4%87" aria-label="6.2 数据准备">6.2 数据准备</a></li>
-                <li>
-                    <a href="#63-%e5%9f%ba%e5%9b%a0%e5%9e%8b%e6%95%b0%e6%8d%ae%e8%b4%a8%e6%8e%a7" aria-label="6.3 基因型数据质控">6.3 基因型数据质控</a></li>
-                <li>
-                    <a href="#64-%e5%85%b3%e8%81%94%e5%88%86%e6%9e%90" aria-label="6.4 关联分析">6.4 关联分析</a></li>
-                <li>
-                    <a href="#65-%e7%bb%93%e6%9e%9c%e8%a7%a3%e8%af%bb" aria-label="6.5 结果解读">6.5 结果解读</a></li>
-                <li>
-                    <a href="#66-%e7%bb%93%e6%9e%9c%e5%8f%af%e8%a7%86%e5%8c%96" aria-label="6.6 结果可视化">6.6 结果可视化</a></li>
-                <li>
-                    <a href="#67-%e5%80%99%e9%80%89%e5%9f%ba%e5%9b%a0%e9%89%b4%e5%ae%9a" aria-label="6.7 候选基因鉴定">6.7 候选基因鉴定</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e4%b8%83%e5%85%b6%e4%bb%96%e5%88%86%e6%9e%90" aria-label="七、其他分析">七、其他分析</a><ul>
-                        
-                <li>
-                    <a href="#71-%e5%9f%ba%e5%9b%a0%e5%ae%b6%e6%97%8f%e5%88%86%e6%9e%90" aria-label="7.1 基因家族分析">7.1 基因家族分析</a></li>
-                <li>
-                    <a href="#72-%e9%80%89%e6%8b%a9%e5%8e%8b%e5%8a%9b%e5%88%86%e6%9e%90" aria-label="7.2 选择压力分析">7.2 选择压力分析</a></li>
-                <li>
-                    <a href="#73-%e5%8d%95%e5%80%8d%e5%9e%8b%e5%88%86%e6%9e%90" aria-label="7.3 单倍型分析">7.3 单倍型分析</a></li>
-                <li>
-                    <a href="#74-%e5%8f%97%e9%80%89%e6%8b%a9%e5%9f%ba%e5%9b%a0%e5%8a%9f%e8%83%bd%e5%af%8c%e9%9b%86" aria-label="7.4 受选择基因功能富集">7.4 受选择基因功能富集</a></li></ul>
-                </li></ul>
-                </li>
-                <li>
-                    <a href="#%e6%80%bb%e7%bb%93" aria-label="总结">总结</a><ul>
-                        
-                <li>
-                    <a href="#%e6%a0%b8%e5%bf%83%e6%b5%81%e7%a8%8b" aria-label="核心流程">核心流程</a></li>
-                <li>
-                    <a href="#%e9%ab%98%e7%ba%a7%e5%88%86%e6%9e%90" aria-label="高级分析">高级分析</a><ul>
-                        
-                <li>
-                    <a href="#%e7%be%a4%e4%bd%93%e9%81%97%e4%bc%a0%e5%ad%a6%e5%88%86%e6%9e%90" aria-label="群体遗传学分析">群体遗传学分析</a></li>
-                <li>
-                    <a href="#%e9%80%89%e6%8b%a9%e4%bf%a1%e5%8f%b7%e5%88%86%e6%9e%90" aria-label="选择信号分析">选择信号分析</a></li>
-                <li>
-                    <a href="#%e5%85%a8%e5%9f%ba%e5%9b%a0%e7%bb%84%e5%85%b3%e8%81%94%e5%88%86%e6%9e%90gwas" aria-label="全基因组关联分析(GWAS)">全基因组关联分析(GWAS)</a></li></ul>
-                </li>
-                <li>
-                    <a href="#%e6%95%b0%e6%8d%ae%e5%8f%af%e8%a7%86%e5%8c%96" aria-label="数据可视化">数据可视化</a>
-                </li>
-            </ul>
-            </li>
-            </ul>
-            </li>
-            </ul>
-        </div>
-    </details>
-</div>
-
-
-  <div class="post-content"><h1 id="8000份大豆重测序数据分析流程">8000份大豆重测序数据分析流程<a hidden class="anchor" aria-hidden="true" href="#8000份大豆重测序数据分析流程">#</a></h1>
+  
+  <div class="page-layout">
+    
+    
+    <div class="post-card">
+      
+      
+      <div class="post-content"><h1 id="8000份大豆重测序数据分析流程">8000份大豆重测序数据分析流程<a hidden class="anchor" aria-hidden="true" href="#8000份大豆重测序数据分析流程">#</a></h1>
 <h2 id="目录">目录<a hidden class="anchor" aria-hidden="true" href="#目录">#</a></h2>
 <ul>
 <li><a href="#%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B%E6%80%BB%E8%A7%88">分析流程总览</a></li>
@@ -2479,62 +2299,87 @@ Sample003    9.8       24.7      1.1
 <p>所有分析方法均提供了详细的命令行示例、参数说明和R语言可视化代码，可直接应用于实际数据分析。该流程适用于大豆及其他作物的重测序数据分析，为遗传学研究和分子育种提供了完整的技术方案。</p>
 
 
-  </div>
-  <footer class="post-footer">
-    <ul class="post-tags">
-      <li><a href="https://Tdxxxx-student.github.io/tags/%E9%87%8D%E6%B5%8B%E5%BA%8F">重测序</a></li>
-      <li><a href="https://Tdxxxx-student.github.io/tags/gwas">GWAS</a></li>
-      <li><a href="https://Tdxxxx-student.github.io/tags/%E5%8F%98%E5%BC%82%E6%A3%80%E6%B5%8B">变异检测</a></li>
-    </ul>
-  </footer>
-
-  
-
-  <nav class="post-nav-full">
-    
-    <div class="nav-category">
-      分类：<a href="https://Tdxxxx-student.github.io/categories/%E9%87%8D%E6%B5%8B%E5%BA%8F%E5%88%86%E6%9E%90/">重测序分析</a>
-    </div>
-    
-    
-    <div class="nav-info">
-      第 <strong>1</strong> / 2 篇 (重测序分析)
-    </div>
-    
-    
-    <div class="nav-buttons">
-      
-      <span class="nav-btn first disabled">
-        <span class="btn-icon">«</span>
-        <span class="btn-text">首篇</span>
-      </span>
-
-      
-      <span class="nav-btn prev disabled">
-        <span class="btn-icon">‹</span>
-        <span class="btn-text">上一篇</span>
-      </span>
-
-      
-      <div class="nav-pages">
-
-        <span class="nav-num current">1</span>
-            <a class="nav-num" href="https://Tdxxxx-student.github.io/posts/%E4%BA%91%E5%8D%97%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A6%E9%87%8D%E6%B5%8B%E5%BA%8F%E9%A1%B9%E7%9B%AE%E6%95%99%E7%A8%8B/" title="云南农业大学重测序项目教程">2</a>
       </div>
+      <footer class="post-footer">
+        <ul class="post-tags">
+          <li><a href="https://Tdxxxx-student.github.io/tags/%E9%87%8D%E6%B5%8B%E5%BA%8F">重测序</a></li>
+          <li><a href="https://Tdxxxx-student.github.io/tags/gwas">GWAS</a></li>
+          <li><a href="https://Tdxxxx-student.github.io/tags/%E5%8F%98%E5%BC%82%E6%A3%80%E6%B5%8B">变异检测</a></li>
+        </ul>
+      </footer></div>
 
-      
-      <a class="nav-btn next" href="https://Tdxxxx-student.github.io/posts/%E4%BA%91%E5%8D%97%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A6%E9%87%8D%E6%B5%8B%E5%BA%8F%E9%A1%B9%E7%9B%AE%E6%95%99%E7%A8%8B/" title="云南农业大学重测序项目教程">
-        <span class="btn-text">下一篇</span>
-        <span class="btn-icon">›</span>
-      </a>
+    
+    <aside class="sidebar-right">
+      <div class="toc-card">
+        <div class="toc-title">
+          <span class="toc-icon">📖</span> 目录
+        </div>
+        <nav id="TableOfContents">
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#目录">目录</a></li>
+    <li><a href="#分析流程总览">分析流程总览</a>
+      <ul>
+        <li><a href="#整体流程架构">整体流程架构</a></li>
+      </ul>
+    </li>
+    <li><a href="#数据分析具体流程">数据分析具体流程</a>
+      <ul>
+        <li><a href="#一数据质控">一、数据质控</a></li>
+        <li><a href="#二序列比对">二、序列比对</a></li>
+        <li><a href="#三变异检测">三、变异检测</a></li>
+        <li><a href="#四变异注释">四、变异注释</a></li>
+      </ul>
+    </li>
+    <li><a href="#图表制作">图表制作</a>
+      <ul>
+        <li><a href="#一群体遗传学分析">一、群体遗传学分析</a></li>
+        <li><a href="#二连锁不平衡分析">二、连锁不平衡分析</a></li>
+        <li><a href="#三核苷酸多样性分析">三、核苷酸多样性分析</a></li>
+        <li><a href="#四固定指数-fst">四、固定指数 (FST)</a></li>
+        <li><a href="#五选择清除分析">五、选择清除分析</a></li>
+        <li><a href="#六全基因组关联分析-gwas">六、全基因组关联分析 (GWAS)</a></li>
+        <li><a href="#七其他分析">七、其他分析</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a>
+      <ul>
+        <li><a href="#核心流程">核心流程</a></li>
+        <li><a href="#高级分析">高级分析</a></li>
+        <li><a href="#数据可视化">数据可视化</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </nav>
+      </div>
+    </aside>
 
-      
-      <a class="nav-btn last" href="https://Tdxxxx-student.github.io/posts/%E4%BA%91%E5%8D%97%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A6%E9%87%8D%E6%B5%8B%E5%BA%8F%E9%A1%B9%E7%9B%AE%E6%95%99%E7%A8%8B/" title="最后一篇">
-        <span class="btn-text">末篇</span>
-        <span class="btn-icon">»</span>
-      </a>
-    </div>
-  </nav></article>
+  </div>
+</article>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const id = entry.target.getAttribute('id');
+        if (entry.intersectionRatio > 0) {
+          document.querySelectorAll('.toc-card li a').forEach(link => {
+            link.classList.remove('active');
+          });
+          const activeLink = document.querySelector(`.toc-card li a[href="#${id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+          }
+        }
+      });
+    });
+    document.querySelectorAll('h1[id], h2[id], h3[id], h4[id]').forEach((section) => {
+      observer.observe(section);
+    });
+  });
+</script>
     </main>
     
 <footer class="footer">

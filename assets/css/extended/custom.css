@@ -1,109 +1,171 @@
 /* ========================================
-   隐藏原有顶部目录
+   全局背景与布局 (图2风格)
    ======================================== */
-.post-single > .toc {
-    display: none !important;
+body {
+    background-color: #f4f5f7; /* 浅灰底色 */
+}
+
+/* 页面主布局容器 */
+.page-layout {
+    display: flex;
+    justify-content: center; /* 居中对齐 */
+    align-items: flex-start;
+    gap: 30px;
+    max-width: 1400px; /* 增加总宽度 */
+    margin: -60px auto 40px; /* 向上负边距，让卡片盖住部分Header */
+    padding: 0 20px;
+    position: relative;
+    z-index: 10;
 }
 
 /* ========================================
-   右侧固定目录 - 移到最右边
+   文章卡片样式 (中间白色部分)
    ======================================== */
-#TableOfContents {
-    position: fixed !important;
-    right: 10px !important;
-    top: 80px !important;
-    width: 220px !important;
-    max-height: 75vh !important;
-    overflow-y: auto !important;
-    background: var(--entry) !important;
-    padding: 15px !important;
-    border-radius: 10px !important;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.1) !important;
-    z-index: 999 !important;
-    font-size: 13px !important;
+.post-card {
+    background: #fff;
+    width: 2000px; /* 固定文章宽度 */
+    padding: 50px; /* 宽敞的内边距 */
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    min-height: 500px;
 }
 
-#TableOfContents::before {
-    content: "📑 目录";
-    display: block;
-    font-size: 16px;
-    font-weight: bold;
-    color: var(--primary);
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-    border-bottom: 2px solid var(--primary);
+/* 文章头部特殊处理 (PaperMod风格适配) */
+.post-header {
+    background-color: #333; /* 深色背景 */
+    background-image: url('/images/header-bg.jpg'); /* 可选：顶部大图 */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 100px 20px 100px; /* 增加高度 */
+    text-align: center;
+    margin-bottom: 0; /* 去除默认下边距 */
 }
 
-#TableOfContents ul {
-    list-style: none !important;
-    padding: 0 !important;
-    margin: 0 !important;
+.post-title {
+    color: #fff;
+    font-size: 36px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
-#TableOfContents ul ul {
-    padding-left: 12px !important;
-    border-left: 2px solid var(--border) !important;
-    margin-left: 6px !important;
+.post-meta {
+    color: rgba(255, 255, 255, 0.8);
 }
 
-#TableOfContents li {
-    margin: 5px 0 !important;
-}
-
-#TableOfContents a {
-    display: block !important;
-    padding: 6px 10px !important;
-    color: var(--secondary) !important;
-    text-decoration: none !important;
-    border-radius: 5px !important;
-    font-size: 13px !important;
-    line-height: 1.4 !important;
-    transition: all 0.3s !important;
-}
-
-#TableOfContents a:hover {
-    background: var(--primary) !important;
-    color: white !important;
+.breadcrumbs a {
+    color: rgba(255, 255, 255, 0.8);
 }
 
 /* ========================================
-   文章内容区域 - 不受影响
+   右侧悬浮目录 (独立侧边栏)
    ======================================== */
-.post-content {
-    max-width: 100% !important;
-    margin-right: 0 !important;
+.sidebar-right {
+    width: 300px; /* 目录宽度 */
+    flex-shrink: 0;
+    position: sticky;
+    top: 20px;
+    margin-top: 60px; /* 抵消负边距的影响 */
 }
 
-.main {
-    max-width: 800px !important;
-    margin: 0 auto !important;
+.toc-card {
+    background: #dad8d8; /* 改为白色背景，更干净 */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    font-size: 14px;
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
 }
 
-/* ========================================
-   滚动条美化
-   ======================================== */
-#TableOfContents::-webkit-scrollbar {
+/* 隐藏滚动条但保留功能 */
+.toc-card::-webkit-scrollbar {
     width: 4px;
 }
+.toc-card::-webkit-scrollbar-thumb {
+    background: #eee;
+    border-radius: 2px;
+}
 
-#TableOfContents::-webkit-scrollbar-thumb {
-    background: var(--primary);
-    border-radius: 4px;
+.toc-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 目录链接样式优化 */
+.toc-card nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.toc-card nav ul li {
+    margin-bottom: 4px;
+}
+
+.toc-card a {
+    display: block;
+    padding: 6px 12px;
+    color: #666;
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    transition: all 0.2s;
+    border-radius: 0 4px 4px 0;
+}
+
+/* 缩进层级 */
+.toc-card ul ul a {
+    padding-left: 24px;
+    font-size: 13px;
+}
+.toc-card ul ul ul a {
+    padding-left: 36px;
+}
+
+/* 悬停与激活状态 */
+.toc-card a:hover {
+    background-color: #f5f7fa;
+    color: #0066cc;
+}
+
+.toc-card a.active {
+    background-color: #e6f7ff; /* 浅蓝背景 */
+    color: #0066cc; /* 蓝色文字 */
+    border-left-color: #0066cc; /* 蓝色竖条 */
+    font-weight: 600;
 }
 
 /* ========================================
-   小屏幕隐藏目录
+   响应式 (手机端)
    ======================================== */
-@media (max-width: 1400px) {
-    #TableOfContents {
-        display: none !important;
+@media (max-width: 1300px) {
+    .sidebar-right {
+        display: none; /* 屏幕窄时隐藏右侧栏 */
+    }
+    
+    .post-card {
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+    }
+    
+    .page-layout {
+        margin: 0;
+        padding: 0;
+        display: block;
     }
 }
 
-/* ========================================
-   暗色模式
-   ======================================== */
-.dark #TableOfContents {
-    background: #1e1e1e !important;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.4) !important;
-}
+/* 深色模式 */
+.dark body { background-color: #121212; }
+.dark .post-card { background-color: #1e1e1e; }
+.dark .toc-card { background-color: #1e1e1e; box-shadow: none; border: 1px solid #333; }
+.dark .toc-title { color: #e0e0e0; border-bottom-color: #333; }
+.dark .toc-card a { color: #aaa; }
+.dark .toc-card a.active { background-color: #2a2a2a; color: #58a6ff; border-left-color: #58a6ff; }

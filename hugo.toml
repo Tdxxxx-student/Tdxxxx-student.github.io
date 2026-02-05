@@ -12,6 +12,12 @@ hasCJKLanguage = true
 [pagination]
   pagerSize = 8
 
+[markup]
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+    ordered = false
+
 [params]
   customCSS = ["css/custom.css"]
   defaultTheme = "auto"

@@ -133,7 +133,7 @@ hugo server -D
 ">
 <meta name="author" content="">
 <link rel="canonical" href="https://Tdxxxx-student.github.io/posts/%E9%85%8D%E5%88%B6%E4%BE%A7%E8%BE%B9%E7%9B%AE%E5%BD%95/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.e72f5f222d52fefbb5364978daf95328cfae4a088f7054da95a277e655e96f14.css" integrity="sha256-5y9fIi1S/vu1Nkl42vlTKM&#43;uSgiPcFTalaJ35lXpbxQ=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.98d36a2d3d7531c43f287130884c533d0910af42ad8e9f3c473913b3aea5ead7.css" integrity="sha256-mNNqLT11McQ/KHEwiExTPQkQr0Ktjp88RzkTs66l6tc=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://Tdxxxx-student.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://Tdxxxx-student.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://Tdxxxx-student.github.io/favicon-32x32.png">
@@ -442,15 +442,22 @@ hugo server -D
 <main class="main">
 
 <article class="post-single">
+  
   <header class="post-header"><div class="breadcrumbs"><a href="https://Tdxxxx-student.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://Tdxxxx-student.github.io/posts/">Posts</a></div>
-    <h1 class="post-title entry-hint-parent">
+    <h1 class="post-title">
       配制侧边目录
     </h1>
     <div class="post-meta"><span title='2026-02-03 21:48:43 +0800 CST'>2026-02-03</span>&nbsp;·&nbsp;<span>1 min</span></div>
   </header>
 
-
-  <div class="post-content"><p>以下是配置文件</p>
+  
+  <div class="page-layout">
+    
+    
+    <div class="post-card">
+      
+      
+      <div class="post-content"><p>以下是配置文件</p>
 <pre tabindex="0"><code>调整侧边目录位置
 修改 CSS 文件
 
@@ -575,60 +582,50 @@ rm -rf public resources
 hugo server -D
 </code></pre>
 
-  </div>
-  <footer class="post-footer">
-    <ul class="post-tags">
-      <li><a href="https://Tdxxxx-student.github.io/tags/hugo%E9%85%8D%E5%88%B6">hugo配制</a></li>
-    </ul>
-  </footer>
-
-  
-
-  <nav class="post-nav-full">
-    
-    <div class="nav-category">
-      分类：<a href="https://Tdxxxx-student.github.io/categories/hugo%E9%85%8D%E5%88%B6/">hugo配制</a>
-    </div>
-    
-    
-    <div class="nav-info">
-      第 <strong>1</strong> / 2 篇 (hugo配制)
-    </div>
-    
-    
-    <div class="nav-buttons">
-      
-      <span class="nav-btn first disabled">
-        <span class="btn-icon">«</span>
-        <span class="btn-text">首篇</span>
-      </span>
-
-      
-      <span class="nav-btn prev disabled">
-        <span class="btn-icon">‹</span>
-        <span class="btn-text">上一篇</span>
-      </span>
-
-      
-      <div class="nav-pages">
-
-        <span class="nav-num current">1</span>
-            <a class="nav-num" href="https://Tdxxxx-student.github.io/posts/hello-hugo/" title="部署文章">2</a>
       </div>
+      <footer class="post-footer">
+        <ul class="post-tags">
+          <li><a href="https://Tdxxxx-student.github.io/tags/hugo%E9%85%8D%E5%88%B6">hugo配制</a></li>
+        </ul>
+      </footer></div>
 
-      
-      <a class="nav-btn next" href="https://Tdxxxx-student.github.io/posts/hello-hugo/" title="部署文章">
-        <span class="btn-text">下一篇</span>
-        <span class="btn-icon">›</span>
-      </a>
+    
+    <aside class="sidebar-right">
+      <div class="toc-card">
+        <div class="toc-title">
+          <span class="toc-icon">📖</span> 目录
+        </div>
+        <nav id="TableOfContents">
+          <nav id="TableOfContents"></nav>
+        </nav>
+      </div>
+    </aside>
 
-      
-      <a class="nav-btn last" href="https://Tdxxxx-student.github.io/posts/hello-hugo/" title="最后一篇">
-        <span class="btn-text">末篇</span>
-        <span class="btn-icon">»</span>
-      </a>
-    </div>
-  </nav></article>
+  </div>
+</article>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const id = entry.target.getAttribute('id');
+        if (entry.intersectionRatio > 0) {
+          document.querySelectorAll('.toc-card li a').forEach(link => {
+            link.classList.remove('active');
+          });
+          const activeLink = document.querySelector(`.toc-card li a[href="#${id}"]`);
+          if (activeLink) {
+            activeLink.classList.add('active');
+          }
+        }
+      });
+    });
+    document.querySelectorAll('h1[id], h2[id], h3[id], h4[id]').forEach((section) => {
+      observer.observe(section);
+    });
+  });
+</script>
     </main>
     
 <footer class="footer">
