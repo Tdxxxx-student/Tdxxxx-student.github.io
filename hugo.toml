@@ -17,6 +17,8 @@ hasCJKLanguage = true
     startLevel = 2
     endLevel = 3
     ordered = false
+  [markup.highlight]
+    noClasses = false
 
 [params]
   customCSS = ["css/custom.css"]

@@ -34,3 +34,20 @@
     }
 }
 </style>
+
+<script>
+// 自动检测：如果是文章详情页，则强制修改主容器宽度
+document.addEventListener('DOMContentLoaded', function() {
+    if (document.getElementById('wide-post-layout')) {
+        var main = document.querySelector('main.main');
+        if (main) {
+            main.style.maxWidth = '100%';
+            main.style.width = '100%';
+            main.style.padding = '0';
+            main.style.margin = '0 auto';
+        }
+        // 给body添加一个类，方便CSS定位
+        document.body.classList.add('is-single-post');
+    }
+});
+</script>

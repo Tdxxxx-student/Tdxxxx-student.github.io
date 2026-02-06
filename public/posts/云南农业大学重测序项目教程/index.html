@@ -24,7 +24,7 @@ QTL-seq 分析
 ⚠️ 注意：该部分软件很难用 conda 直接安装，安装步骤比较特殊。">
 <meta name="author" content="">
 <link rel="canonical" href="https://Tdxxxx-student.github.io/posts/%E4%BA%91%E5%8D%97%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A6%E9%87%8D%E6%B5%8B%E5%BA%8F%E9%A1%B9%E7%9B%AE%E6%95%99%E7%A8%8B/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.e2698852c6e8116e7ca528885981ca226437cb47da1d503f2737f09678bdfc27.css" integrity="sha256-4mmIUsboEW58pSiIWYHKImQ3y0faHVA/Jzfwlni9/Cc=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.01d35acdbbaa1404939950eac1b15ada4d2a087b51757e85aec3659df639bc28.css" integrity="sha256-AdNazbuqFASTmVDqwbFa2k0qCHtRdX6FrsNlnfY5vCg=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://Tdxxxx-student.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://Tdxxxx-student.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://Tdxxxx-student.github.io/favicon-32x32.png">
@@ -228,26 +228,19 @@ QTL-seq 分析
 </header>
 <main class="main">
 
-<div class="main-container">
-  
+
+<div id="wide-post-layout" class="post-page-wrapper">
   
   <div class="top-banner-decoration"></div>
 
-  
   <div class="page-layout">
     
-    
     <article class="post-card">
-      
-      
       <header class="post-header"><div class="breadcrumbs"><a href="https://Tdxxxx-student.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://Tdxxxx-student.github.io/posts/">Posts</a></div>
-        <h1 class="post-title">
-          云南农业大学重测序项目教程
-        </h1>
+        <h1 class="post-title">云南农业大学重测序项目教程</h1>
         <div class="post-meta"><span title='2026-02-03 12:08:55 +0800 CST'>2026-02-03</span>&nbsp;·&nbsp;<span>7 min</span></div>
       </header>
 
-      
       <div class="post-content"><p>云南农业大学 云南生物资源保护与利用国家重点实验室</p>
 <p>李详 | 2019 年 12 月 31 日</p>
 <h2 id="目录">目录<a hidden class="anchor" aria-hidden="true" href="#目录">#</a></h2>
@@ -266,707 +259,705 @@ QTL-seq 分析
 </blockquote>
 <h3 id="1-lumpy-sv">1. lumpy-sv<a hidden class="anchor" aria-hidden="true" href="#1-lumpy-sv">#</a></h3>
 <p>💡 lumpy-sv 依赖 Python2.7，需切换到 py27 环境下进行安装。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>conda activate py27
-</span></span><span style="display:flex;"><span>git clone --recursive https://github.com/arq5x/lumpy-sv.git
-</span></span><span style="display:flex;"><span>cd lumpy-sv
-</span></span><span style="display:flex;"><span>make
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">conda activate py27
+</span></span><span class="line"><span class="cl">git clone --recursive https://github.com/arq5x/lumpy-sv.git
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> lumpy-sv
+</span></span><span class="line"><span class="cl">make
 </span></span></code></pre></div><h3 id="2-svtyper">2. svtyper<a hidden class="anchor" aria-hidden="true" href="#2-svtyper">#</a></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>conda install svtyper
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">conda install svtyper
 </span></span></code></pre></div><h3 id="3-cnvnator">3. cnvnator<a hidden class="anchor" aria-hidden="true" href="#3-cnvnator">#</a></h3>
 <p>💡 cnvnator 依赖于 root 软件包及 samtools 软件包（包含 HTSlib），因此先安装依赖。</p>
 <h4 id="31-安装-samtools">3.1 安装 samtools<a hidden class="anchor" aria-hidden="true" href="#31-安装-samtools">#</a></h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget https://github.com/samtools/samtools/releases/download/1.9/samtools-1.9.tar.bz2
-</span></span><span style="display:flex;"><span>tar -xvf samtools-1.9.tar.bz2
-</span></span><span style="display:flex;"><span>cd samtools-1.9/
-</span></span><span style="display:flex;"><span>./configure
-</span></span><span style="display:flex;"><span>make
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://github.com/samtools/samtools/releases/download/1.9/samtools-1.9.tar.bz2
+</span></span><span class="line"><span class="cl">tar -xvf samtools-1.9.tar.bz2
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> samtools-1.9/
+</span></span><span class="line"><span class="cl">./configure
+</span></span><span class="line"><span class="cl">make
 </span></span></code></pre></div><h4 id="32-安装-root-软件">3.2 安装 root 软件<a hidden class="anchor" aria-hidden="true" href="#32-安装-root-软件">#</a></h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 直接下载后解压即可</span>
-</span></span><span style="display:flex;"><span>wget https://root.cern/download/root_v6.18.04.Linux-ubuntu18-x86_64-gcc7.4.tar.gz
-</span></span><span style="display:flex;"><span>tar -zxvf root_v6.18.04.Linux-ubuntu18-x86_64-gcc7.4.tar.gz
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 直接下载后解压即可</span>
+</span></span><span class="line"><span class="cl">wget https://root.cern/download/root_v6.18.04.Linux-ubuntu18-x86_64-gcc7.4.tar.gz
+</span></span><span class="line"><span class="cl">tar -zxvf root_v6.18.04.Linux-ubuntu18-x86_64-gcc7.4.tar.gz
 </span></span></code></pre></div><h4 id="33-安装-cnvnator">3.3 安装 cnvnator<a hidden class="anchor" aria-hidden="true" href="#33-安装-cnvnator">#</a></h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/abyzovlab/CNVnator.git
-</span></span><span style="display:flex;"><span>cd CNVnator
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 链接samtools软件目录到cnvnator目录</span>
-</span></span><span style="display:flex;"><span>ln -s ../samtools-1.9 ./samtools
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 加载root软件到环境变量</span>
-</span></span><span style="display:flex;"><span>export ROOTSYS<span style="color:#f92672">=</span>/pub/software/root
-</span></span><span style="display:flex;"><span>export PATH<span style="color:#f92672">=</span>/pub/software/root/bin:$PATH
-</span></span><span style="display:flex;"><span>export LD_LIBRARY_PATH<span style="color:#f92672">=</span>$LD_LIBRARY_PATH:$ROOTSYS/lib
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 安装cnvnator</span>
-</span></span><span style="display:flex;"><span>make LIBS<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;-lcrypto&#34;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/abyzovlab/CNVnator.git
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> CNVnator
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 链接samtools软件目录到cnvnator目录</span>
+</span></span><span class="line"><span class="cl">ln -s ../samtools-1.9 ./samtools
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 加载root软件到环境变量</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">ROOTSYS</span><span class="o">=</span>/pub/software/root
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/pub/software/root/bin:<span class="nv">$PATH</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH</span>:<span class="nv">$ROOTSYS</span>/lib
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 安装cnvnator</span>
+</span></span><span class="line"><span class="cl">make <span class="nv">LIBS</span><span class="o">=</span><span class="s2">&#34;-lcrypto&#34;</span>
 </span></span></code></pre></div><h2 id="变异检测">变异检测<a hidden class="anchor" aria-hidden="true" href="#变异检测">#</a></h2>
 <h3 id="1-构建基因组-index">1. 构建基因组 index<a hidden class="anchor" aria-hidden="true" href="#1-构建基因组-index">#</a></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 创建软链接</span>
-</span></span><span style="display:flex;"><span>ln -s ../data/genome.fasta ./genome.fasta
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># for gatk</span>
-</span></span><span style="display:flex;"><span>samtools faidx genome.fasta
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># for bwa</span>
-</span></span><span style="display:flex;"><span>bwa index genome.fasta
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># for picard</span>
-</span></span><span style="display:flex;"><span>picard CreateSequenceDictionary R<span style="color:#f92672">=</span>genome.fasta
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 创建软链接</span>
+</span></span><span class="line"><span class="cl">ln -s ../data/genome.fasta ./genome.fasta
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># for gatk</span>
+</span></span><span class="line"><span class="cl">samtools faidx genome.fasta
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># for bwa</span>
+</span></span><span class="line"><span class="cl">bwa index genome.fasta
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># for picard</span>
+</span></span><span class="line"><span class="cl">picard CreateSequenceDictionary <span class="nv">R</span><span class="o">=</span>genome.fasta
 </span></span></code></pre></div><h3 id="2-比对排序去重">2. 比对排序去重<a hidden class="anchor" aria-hidden="true" href="#2-比对排序去重">#</a></h3>
 <h4 id="21-比对排序">2.1 比对排序<a hidden class="anchor" aria-hidden="true" href="#21-比对排序">#</a></h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bwa mem -t <span style="color:#ae81ff">2</span> -R <span style="color:#e6db74">&#39;@RG\tID:S1\tSM:S1\tPL:illumina&#39;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    ../01.ref/genome.fasta <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    ../data/S1_1.fq.gz ../data/S1_2.fq.gz | <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    /pub/software/samtools/samtools sort -@ <span style="color:#ae81ff">2</span> -m 1G -o S1.sort.bam -
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>bwa mem -t <span style="color:#ae81ff">2</span> -R <span style="color:#e6db74">&#39;@RG\tID:S2\tSM:S2\tPL:illumina&#39;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    ../01.ref/genome.fasta <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    ../data/S2_1.fq.gz ../data/S2_2.fq.gz | <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    /pub/software/samtools/samtools sort -@ <span style="color:#ae81ff">2</span> -m 1G -o S2.sort.bam -
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">bwa mem -t <span class="m">2</span> -R <span class="s1">&#39;@RG\tID:S1\tSM:S1\tPL:illumina&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    ../01.ref/genome.fasta <span class="se">\
+</span></span></span><span class="line"><span class="cl">    ../data/S1_1.fq.gz ../data/S1_2.fq.gz <span class="p">|</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    /pub/software/samtools/samtools sort -@ <span class="m">2</span> -m 1G -o S1.sort.bam -
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">bwa mem -t <span class="m">2</span> -R <span class="s1">&#39;@RG\tID:S2\tSM:S2\tPL:illumina&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    ../01.ref/genome.fasta <span class="se">\
+</span></span></span><span class="line"><span class="cl">    ../data/S2_1.fq.gz ../data/S2_2.fq.gz <span class="p">|</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    /pub/software/samtools/samtools sort -@ <span class="m">2</span> -m 1G -o S2.sort.bam -
 </span></span></code></pre></div><h4 id="22-去除重复">2.2 去除重复<a hidden class="anchor" aria-hidden="true" href="#22-去除重复">#</a></h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>picard -Xmx4g MarkDuplicates <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    I<span style="color:#f92672">=</span>S1.sort.bam <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    O<span style="color:#f92672">=</span>S1.sort.rmdup.bam <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    CREATE_INDEX<span style="color:#f92672">=</span>true <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    REMOVE_DUPLICATES<span style="color:#f92672">=</span>true <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    M<span style="color:#f92672">=</span>S1.marked_dup_metrics.txt
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>picard -Xmx4g MarkDuplicates <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    I<span style="color:#f92672">=</span>S2.sort.bam <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    O<span style="color:#f92672">=</span>S2.sort.rmdup.bam <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    CREATE_INDEX<span style="color:#f92672">=</span>true <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    REMOVE_DUPLICATES<span style="color:#f92672">=</span>true <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    M<span style="color:#f92672">=</span>S2.marked_dup_metrics.txt
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">picard -Xmx4g MarkDuplicates <span class="se">\
+</span></span></span><span class="line"><span class="cl">    <span class="nv">I</span><span class="o">=</span>S1.sort.bam <span class="se">\
+</span></span></span><span class="line"><span class="cl">    <span class="nv">O</span><span class="o">=</span>S1.sort.rmdup.bam <span class="se">\
+</span></span></span><span class="line"><span class="cl">    <span class="nv">CREATE_INDEX</span><span class="o">=</span><span class="nb">true</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    <span class="nv">REMOVE_DUPLICATES</span><span class="o">=</span><span class="nb">true</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    <span class="nv">M</span><span class="o">=</span>S1.marked_dup_metrics.txt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">picard -Xmx4g MarkDuplicates <span class="se">\
+</span></span></span><span class="line"><span class="cl">    <span class="nv">I</span><span class="o">=</span>S2.sort.bam <span class="se">\
+</span></span></span><span class="line"><span class="cl">    <span class="nv">O</span><span class="o">=</span>S2.sort.rmdup.bam <span class="se">\
+</span></span></span><span class="line"><span class="cl">    <span class="nv">CREATE_INDEX</span><span class="o">=</span><span class="nb">true</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    <span class="nv">REMOVE_DUPLICATES</span><span class="o">=</span><span class="nb">true</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    <span class="nv">M</span><span class="o">=</span>S2.marked_dup_metrics.txt
 </span></span></code></pre></div><h4 id="23-比对率统计">2.3 比对率统计<a hidden class="anchor" aria-hidden="true" href="#23-比对率统计">#</a></h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>/pub/software/samtools/samtools flagstat S1.sort.bam &gt; S1.sort.bam.flagstat
-</span></span><span style="display:flex;"><span>/pub/software/samtools/samtools flagstat S2.sort.bam &gt; S2.sort.bam.flagstat
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">/pub/software/samtools/samtools flagstat S1.sort.bam &gt; S1.sort.bam.flagstat
+</span></span><span class="line"><span class="cl">/pub/software/samtools/samtools flagstat S2.sort.bam &gt; S2.sort.bam.flagstat
 </span></span></code></pre></div><h4 id="24-批量比对脚本生成">2.4 批量比对脚本生成<a hidden class="anchor" aria-hidden="true" href="#24-批量比对脚本生成">#</a></h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>less ../data/sample.list | awk <span style="color:#e6db74">&#39;{ 
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    print &#34;bwa mem -t 2 -R &#39;</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">&#39;@RG\\tID:&#34;$1&#34;\\tSM:&#34;$1&#34;\\tPL:illumina&#39;</span><span style="color:#ae81ff">\&#39;</span><span style="color:#e6db74">&#39; \
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    ../01.ref/genome.fasta ../data/&#34;$1&#34;_1.fq.gz ../data/&#34;$1&#34;_2.fq.gz | \
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    /pub/software/samtools/samtools sort -@ 2 -m 1G -o &#34;$1&#34;.sort.bam -&#34; 
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">}&#39;</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">less ../data/sample.list <span class="p">|</span> awk <span class="s1">&#39;{ 
+</span></span></span><span class="line"><span class="cl"><span class="s1">    print &#34;bwa mem -t 2 -R &#39;</span><span class="se">\&#39;</span><span class="s1">&#39;@RG\\tID:&#34;$1&#34;\\tSM:&#34;$1&#34;\\tPL:illumina&#39;</span><span class="se">\&#39;</span><span class="s1">&#39; \
+</span></span></span><span class="line"><span class="cl"><span class="s1">    ../01.ref/genome.fasta ../data/&#34;$1&#34;_1.fq.gz ../data/&#34;$1&#34;_2.fq.gz | \
+</span></span></span><span class="line"><span class="cl"><span class="s1">    /pub/software/samtools/samtools sort -@ 2 -m 1G -o &#34;$1&#34;.sort.bam -&#34; 
+</span></span></span><span class="line"><span class="cl"><span class="s1">}&#39;</span>
 </span></span></code></pre></div><h3 id="3-snpindel-检测">3. SNP、Indel 检测<a hidden class="anchor" aria-hidden="true" href="#3-snpindel-检测">#</a></h3>
 <h4 id="31-haplotypecaller">3.1 HaplotypeCaller<a hidden class="anchor" aria-hidden="true" href="#31-haplotypecaller">#</a></h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gatk --java-options <span style="color:#e6db74">&#34;-Xmx10g -Djava.io.tmpdir=./tmp&#34;</span> HaplotypeCaller <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -R ../01.ref/genome.fasta <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -I ../02.mapping/S1.sort.rmdup.bam <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -ERC GVCF <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -O S1.g.vcf 1&gt;S1.HC.log 2&gt;&amp;<span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>gatk --java-options <span style="color:#e6db74">&#34;-Xmx10g -Djava.io.tmpdir=./tmp&#34;</span> HaplotypeCaller <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -R ../01.ref/genome.fasta <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -I ../02.mapping/S2.sort.rmdup.bam <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -ERC GVCF <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -O S2.g.vcf 1&gt;S2.HC.log 2&gt;&amp;<span style="color:#ae81ff">1</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">gatk --java-options <span class="s2">&#34;-Xmx10g -Djava.io.tmpdir=./tmp&#34;</span> HaplotypeCaller <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -R ../01.ref/genome.fasta <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -I ../02.mapping/S1.sort.rmdup.bam <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -ERC GVCF <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -O S1.g.vcf 1&gt;S1.HC.log 2&gt;<span class="p">&amp;</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">gatk --java-options <span class="s2">&#34;-Xmx10g -Djava.io.tmpdir=./tmp&#34;</span> HaplotypeCaller <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -R ../01.ref/genome.fasta <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -I ../02.mapping/S2.sort.rmdup.bam <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -ERC GVCF <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -O S2.g.vcf 1&gt;S2.HC.log 2&gt;<span class="p">&amp;</span><span class="m">1</span>
 </span></span></code></pre></div><h4 id="32-combinegvcfs">3.2 CombineGVCFs<a hidden class="anchor" aria-hidden="true" href="#32-combinegvcfs">#</a></h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ls ./S*.g.vcf &gt; gvcf.list
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>gatk --java-options <span style="color:#e6db74">&#34;-Xmx4g -Djava.io.tmpdir=./tmp&#34;</span> CombineGVCFs <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -R ../01.ref/genome.fasta <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -V gvcf.list <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -O all.merge.g.vcf
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ls ./S*.g.vcf &gt; gvcf.list
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">gatk --java-options <span class="s2">&#34;-Xmx4g -Djava.io.tmpdir=./tmp&#34;</span> CombineGVCFs <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -R ../01.ref/genome.fasta <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -V gvcf.list <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -O all.merge.g.vcf
 </span></span></code></pre></div><h4 id="33genotpegvcfs">3.3GenotpeGVCFs<a hidden class="anchor" aria-hidden="true" href="#33genotpegvcfs">#</a></h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gatk --java-options <span style="color:#e6db74">&#34;-Xmx4g -Djava.io.tmpdir=./tmp&#34;</span> GenotypeGVCFs <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -R ../01.ref/genome.fasta <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --variant all.merge.g.vcf <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -O all.merge_raw.vcf
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">gatk --java-options <span class="s2">&#34;-Xmx4g -Djava.io.tmpdir=./tmp&#34;</span> GenotypeGVCFs <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -R ../01.ref/genome.fasta <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --variant all.merge.g.vcf <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -O all.merge_raw.vcf
 </span></span></code></pre></div><h4 id="34-snp-过滤">3.4 SNP 过滤<a hidden class="anchor" aria-hidden="true" href="#34-snp-过滤">#</a></h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 提取SNP</span>
-</span></span><span style="display:flex;"><span>gatk --java-options <span style="color:#e6db74">&#34;-Xmx4g -Djava.io.tmpdir=./tmp&#34;</span> SelectVariants <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -R ../01.ref/genome.fasta <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -V all.merge_raw.vcf <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --select-type SNP <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -O all.raw.snp.vcf
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 标记过滤</span>
-</span></span><span style="display:flex;"><span>gatk --java-options <span style="color:#e6db74">&#34;-Xmx4g -Djava.io.tmpdir=./tmp&#34;</span> VariantFiltration <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -R ../01.ref/genome.fasta <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -V all.raw.snp.vcf <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --filter-expression <span style="color:#e6db74">&#34;QD &lt; 2.0 || MQ &lt; 40.0 || FS &gt; 60.0 || SOR &gt; 3.0 || MQRankSum &lt; -12.5 || ReadPosRankSum &lt; -8.0&#34;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --filter-name <span style="color:#e6db74">&#39;SNP_filter&#39;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -O all.filter.snp.vcf
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 提取过滤后的SNP</span>
-</span></span><span style="display:flex;"><span>gatk --java-options <span style="color:#e6db74">&#34;-Xmx4g -Djava.io.tmpdir=./tmp&#34;</span> SelectVariants <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -R ../01.ref/genome.fasta <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -V all.filter.snp.vcf <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --exclude-filtered <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -O all.filtered.snp.vcf
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 提取SNP</span>
+</span></span><span class="line"><span class="cl">gatk --java-options <span class="s2">&#34;-Xmx4g -Djava.io.tmpdir=./tmp&#34;</span> SelectVariants <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -R ../01.ref/genome.fasta <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -V all.merge_raw.vcf <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --select-type SNP <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -O all.raw.snp.vcf
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 标记过滤</span>
+</span></span><span class="line"><span class="cl">gatk --java-options <span class="s2">&#34;-Xmx4g -Djava.io.tmpdir=./tmp&#34;</span> VariantFiltration <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -R ../01.ref/genome.fasta <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -V all.raw.snp.vcf <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --filter-expression <span class="s2">&#34;QD &lt; 2.0 || MQ &lt; 40.0 || FS &gt; 60.0 || SOR &gt; 3.0 || MQRankSum &lt; -12.5 || ReadPosRankSum &lt; -8.0&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --filter-name <span class="s1">&#39;SNP_filter&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -O all.filter.snp.vcf
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 提取过滤后的SNP</span>
+</span></span><span class="line"><span class="cl">gatk --java-options <span class="s2">&#34;-Xmx4g -Djava.io.tmpdir=./tmp&#34;</span> SelectVariants <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -R ../01.ref/genome.fasta <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -V all.filter.snp.vcf <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --exclude-filtered <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -O all.filtered.snp.vcf
 </span></span></code></pre></div><h4 id="35-indel-过滤">3.5 InDel 过滤<a hidden class="anchor" aria-hidden="true" href="#35-indel-过滤">#</a></h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 提取InDel</span>
-</span></span><span style="display:flex;"><span>gatk --java-options <span style="color:#e6db74">&#34;-Xmx4g -Djava.io.tmpdir=./tmp&#34;</span> SelectVariants <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -R ../01.ref/genome.fasta <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -V all.merge_raw.vcf <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --select-type INDEL <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -O all.raw.indel.vcf
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 标记过滤</span>
-</span></span><span style="display:flex;"><span>gatk --java-options <span style="color:#e6db74">&#34;-Xmx4g -Djava.io.tmpdir=./tmp&#34;</span> VariantFiltration <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -R ../01.ref/genome.fasta <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -V all.raw.indel.vcf <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --filter-expression <span style="color:#e6db74">&#34;QD &lt; 2.0 || FS &gt; 200.0 || SOR &gt; 10.0 || MQRankSum &lt; -12.5 || ReadPosRankSum &lt; -8.0&#34;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --filter-name <span style="color:#e6db74">&#39;INDEL_filter&#39;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -O all.filter.indel.vcf
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 提取过滤后的InDel</span>
-</span></span><span style="display:flex;"><span>gatk --java-options <span style="color:#e6db74">&#34;-Xmx4g -Djava.io.tmpdir=./tmp&#34;</span> SelectVariants <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -R ../01.ref/genome.fasta <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -V all.filter.indel.vcf <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --exclude-filtered <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -O all.filtered.indel.vcf
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 提取InDel</span>
+</span></span><span class="line"><span class="cl">gatk --java-options <span class="s2">&#34;-Xmx4g -Djava.io.tmpdir=./tmp&#34;</span> SelectVariants <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -R ../01.ref/genome.fasta <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -V all.merge_raw.vcf <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --select-type INDEL <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -O all.raw.indel.vcf
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 标记过滤</span>
+</span></span><span class="line"><span class="cl">gatk --java-options <span class="s2">&#34;-Xmx4g -Djava.io.tmpdir=./tmp&#34;</span> VariantFiltration <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -R ../01.ref/genome.fasta <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -V all.raw.indel.vcf <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --filter-expression <span class="s2">&#34;QD &lt; 2.0 || FS &gt; 200.0 || SOR &gt; 10.0 || MQRankSum &lt; -12.5 || ReadPosRankSum &lt; -8.0&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --filter-name <span class="s1">&#39;INDEL_filter&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -O all.filter.indel.vcf
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 提取过滤后的InDel</span>
+</span></span><span class="line"><span class="cl">gatk --java-options <span class="s2">&#34;-Xmx4g -Djava.io.tmpdir=./tmp&#34;</span> SelectVariants <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -R ../01.ref/genome.fasta <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -V all.filter.indel.vcf <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --exclude-filtered <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -O all.filtered.indel.vcf
 </span></span></code></pre></div><h3 id="4-sv-检测">4. SV 检测<a hidden class="anchor" aria-hidden="true" href="#4-sv-检测">#</a></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Step 1: 提取 discordants reads</span>
-</span></span><span style="display:flex;"><span>/pub/software/samtools/samtools view -b -F <span style="color:#ae81ff">1294</span> -@ <span style="color:#ae81ff">12</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    ../02.mapping/S1.sort.rmdup.bam &gt; S1.discordants.bam
-</span></span><span style="display:flex;"><span>/pub/software/samtools/samtools view -b -F <span style="color:#ae81ff">1294</span> -@ <span style="color:#ae81ff">12</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    ../02.mapping/S2.sort.rmdup.bam &gt; S2.discordants.bam
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Step 2: 提取 split reads</span>
-</span></span><span style="display:flex;"><span>/pub/software/samtools/samtools view -h ../02.mapping/S1.sort.rmdup.bam | <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    /pub/software/lumpy-sv/scripts/extractSplitReads_BwaMem -i stdin | <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    /pub/software/samtools/samtools sort - &gt; S1.splitters.bam
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>/pub/software/samtools/samtools view -h ../02.mapping/S2.sort.rmdup.bam | <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    /pub/software/lumpy-sv/scripts/extractSplitReads_BwaMem -i stdin | <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    /pub/software/samtools/samtools sort - &gt; S2.splitters.bam
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Step 3: 运行 lumpy</span>
-</span></span><span style="display:flex;"><span>/pub/software/lumpy-sv/bin/lumpyexpress <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -B ../02.mapping/S1.sort.rmdup.bam,../02.mapping/S2.sort.rmdup.bam <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -S S1.splitters.bam,S2.splitters.bam <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -D S1.discordants.bam,S2.discordants.bam <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -o all.sv.lumpy.vcf
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Step 4: 个体基因型分型</span>
-</span></span><span style="display:flex;"><span>vcftools --vcf all.sv.lumpy.vcf --indv S1 --recode --recode-INFO-all --out S1 <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    svtyper -i S1.recode.vcf -B ../02.mapping/S1.sort.rmdup.bam -o S1.genotype.vcf
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>vcftools --vcf all.sv.lumpy.vcf --indv S2 --recode --recode-INFO-all --out S2 <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    svtyper -i S2.recode.vcf -B ../02.mapping/S2.sort.rmdup.bam -o S2.genotype.vcf
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Step 1: 提取 discordants reads</span>
+</span></span><span class="line"><span class="cl">/pub/software/samtools/samtools view -b -F <span class="m">1294</span> -@ <span class="m">12</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    ../02.mapping/S1.sort.rmdup.bam &gt; S1.discordants.bam
+</span></span><span class="line"><span class="cl">/pub/software/samtools/samtools view -b -F <span class="m">1294</span> -@ <span class="m">12</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    ../02.mapping/S2.sort.rmdup.bam &gt; S2.discordants.bam
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Step 2: 提取 split reads</span>
+</span></span><span class="line"><span class="cl">/pub/software/samtools/samtools view -h ../02.mapping/S1.sort.rmdup.bam <span class="p">|</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    /pub/software/lumpy-sv/scripts/extractSplitReads_BwaMem -i stdin <span class="p">|</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    /pub/software/samtools/samtools sort - &gt; S1.splitters.bam
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">/pub/software/samtools/samtools view -h ../02.mapping/S2.sort.rmdup.bam <span class="p">|</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    /pub/software/lumpy-sv/scripts/extractSplitReads_BwaMem -i stdin <span class="p">|</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    /pub/software/samtools/samtools sort - &gt; S2.splitters.bam
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Step 3: 运行 lumpy</span>
+</span></span><span class="line"><span class="cl">/pub/software/lumpy-sv/bin/lumpyexpress <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -B ../02.mapping/S1.sort.rmdup.bam,../02.mapping/S2.sort.rmdup.bam <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -S S1.splitters.bam,S2.splitters.bam <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -D S1.discordants.bam,S2.discordants.bam <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -o all.sv.lumpy.vcf
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Step 4: 个体基因型分型</span>
+</span></span><span class="line"><span class="cl">vcftools --vcf all.sv.lumpy.vcf --indv S1 --recode --recode-INFO-all --out S1 <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    svtyper -i S1.recode.vcf -B ../02.mapping/S1.sort.rmdup.bam -o S1.genotype.vcf
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">vcftools --vcf all.sv.lumpy.vcf --indv S2 --recode --recode-INFO-all --out S2 <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    svtyper -i S2.recode.vcf -B ../02.mapping/S2.sort.rmdup.bam -o S2.genotype.vcf
 </span></span></code></pre></div><h3 id="5-cnv-检测">5. CNV 检测<a hidden class="anchor" aria-hidden="true" href="#5-cnv-检测">#</a></h3>
 <h4 id="51-准备基因组">5.1 准备基因组<a hidden class="anchor" aria-hidden="true" href="#51-准备基因组">#</a></h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 将基因组拆分为单条染色体</span>
-</span></span><span style="display:flex;"><span>ln -s ../data/genome.fasta ./genome.fa
-</span></span><span style="display:flex;"><span>seqkit split -i ./genome.fa -O split
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 重命名文件</span>
-</span></span><span style="display:flex;"><span>ls ./split/genome.id_*.fa | sed <span style="color:#e6db74">&#39;s/./split/genome.id_//&#39;</span> | <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    awk <span style="color:#e6db74">&#39;{print &#34;mv ./split/genome.id_&#34;$aa&#34; ./split/&#34;$aa}&#39;</span> &gt; mv_name.sh
-</span></span><span style="display:flex;"><span>sh mv_name.sh
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 将基因组拆分为单条染色体</span>
+</span></span><span class="line"><span class="cl">ln -s ../data/genome.fasta ./genome.fa
+</span></span><span class="line"><span class="cl">seqkit split -i ./genome.fa -O split
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 重命名文件</span>
+</span></span><span class="line"><span class="cl">ls ./split/genome.id_*.fa <span class="p">|</span> sed <span class="s1">&#39;s/./split/genome.id_//&#39;</span> <span class="p">|</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    awk <span class="s1">&#39;{print &#34;mv ./split/genome.id_&#34;$aa&#34; ./split/&#34;$aa}&#39;</span> &gt; mv_name.sh
+</span></span><span class="line"><span class="cl">sh mv_name.sh
 </span></span></code></pre></div><h4 id="52-运行-cnvnator">5.2 运行 cnvnator<a hidden class="anchor" aria-hidden="true" href="#52-运行-cnvnator">#</a></h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 设置环境变量</span>
-</span></span><span style="display:flex;"><span>export ROOTSYS<span style="color:#f92672">=</span>/pub/software/root
-</span></span><span style="display:flex;"><span>export PATH<span style="color:#f92672">=</span>/pub/software/root/bin:$PATH
-</span></span><span style="display:flex;"><span>export LD_LIBRARY_PATH<span style="color:#f92672">=</span>$LD_LIBRARY_PATH:$ROOTSYS/lib
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 链接文件</span>
-</span></span><span style="display:flex;"><span>ln -s ../02.mapping/S1.sort.rmdup.bam
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 提取比对结果</span>
-</span></span><span style="display:flex;"><span>/pub/software/CNVnator/cnvnator -genome genome.fa -root S1.root -tree S1.sort.rmdup.bam
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 生成深度分布</span>
-</span></span><span style="display:flex;"><span>/pub/software/CNVnator/cnvnator -genome genome.fa -root S1.root -his <span style="color:#ae81ff">500</span> -d split
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 进行统计计算</span>
-</span></span><span style="display:flex;"><span>/pub/software/CNVnator/cnvnator -root S1.root -stat <span style="color:#ae81ff">500</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 检查bin size是否合适</span>
-</span></span><span style="display:flex;"><span>/pub/software/CNVnator/cnvnator -root S1.root -eval <span style="color:#ae81ff">500</span> &gt; S1.eval.ratio
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># RD信号分割</span>
-</span></span><span style="display:flex;"><span>/pub/software/CNVnator/cnvnator -root S1.root -partition <span style="color:#ae81ff">500</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 进行CNV检测</span>
-</span></span><span style="display:flex;"><span>/pub/software/CNVnator/cnvnator -root S1.root -call <span style="color:#ae81ff">500</span> &gt; S1.cnv
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 设置环境变量</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">ROOTSYS</span><span class="o">=</span>/pub/software/root
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>/pub/software/root/bin:<span class="nv">$PATH</span>
+</span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span><span class="nv">$LD_LIBRARY_PATH</span>:<span class="nv">$ROOTSYS</span>/lib
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 链接文件</span>
+</span></span><span class="line"><span class="cl">ln -s ../02.mapping/S1.sort.rmdup.bam
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 提取比对结果</span>
+</span></span><span class="line"><span class="cl">/pub/software/CNVnator/cnvnator -genome genome.fa -root S1.root -tree S1.sort.rmdup.bam
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 生成深度分布</span>
+</span></span><span class="line"><span class="cl">/pub/software/CNVnator/cnvnator -genome genome.fa -root S1.root -his <span class="m">500</span> -d split
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 进行统计计算</span>
+</span></span><span class="line"><span class="cl">/pub/software/CNVnator/cnvnator -root S1.root -stat <span class="m">500</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 检查bin size是否合适</span>
+</span></span><span class="line"><span class="cl">/pub/software/CNVnator/cnvnator -root S1.root -eval <span class="m">500</span> &gt; S1.eval.ratio
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># RD信号分割</span>
+</span></span><span class="line"><span class="cl">/pub/software/CNVnator/cnvnator -root S1.root -partition <span class="m">500</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 进行CNV检测</span>
+</span></span><span class="line"><span class="cl">/pub/software/CNVnator/cnvnator -root S1.root -call <span class="m">500</span> &gt; S1.cnv
 </span></span></code></pre></div><h3 id="6-snpindel-注释">6. SNP/InDel 注释<a hidden class="anchor" aria-hidden="true" href="#6-snpindel-注释">#</a></h3>
 <h4 id="61-准备注释数据库">6.1 准备注释数据库<a hidden class="anchor" aria-hidden="true" href="#61-准备注释数据库">#</a></h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ln -s ../data/genome.gtf
-</span></span><span style="display:flex;"><span>ln -s ../data/genome.fasta
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>gtfToGenePred -genePredExt genome.gtf genome_refGene.txt
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>/pub/software/annovar/retrieve_seq_from_fasta.pl <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --format refGene <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --seqfile genome.fasta <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    genome_refGene.txt <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --out genome_refGeneMrna.fa
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ln -s ../data/genome.gtf
+</span></span><span class="line"><span class="cl">ln -s ../data/genome.fasta
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">gtfToGenePred -genePredExt genome.gtf genome_refGene.txt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">/pub/software/annovar/retrieve_seq_from_fasta.pl <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --format refGene <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --seqfile genome.fasta <span class="se">\
+</span></span></span><span class="line"><span class="cl">    genome_refGene.txt <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --out genome_refGeneMrna.fa
 </span></span></code></pre></div><h4 id="62-注释-vcf-文件">6.2 注释 VCF 文件<a hidden class="anchor" aria-hidden="true" href="#62-注释-vcf-文件">#</a></h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ln -s ../03.SNP_indel/all.filtered.snp.vcf
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 格式转换</span>
-</span></span><span style="display:flex;"><span>/pub/software/annovar/convert2annovar.pl <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -format vcf4old <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    all.filtered.snp.vcf &gt; all.snp.vcf.annovar.input
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 进行注释</span>
-</span></span><span style="display:flex;"><span>/pub/software/annovar/annotate_variation.pl <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -geneanno <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --neargene <span style="color:#ae81ff">2000</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -buildver genome <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -dbtype refGene <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -outfile all.anno <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -exonsort <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    all.snp.vcf.annovar.input ./
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ln -s ../03.SNP_indel/all.filtered.snp.vcf
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 格式转换</span>
+</span></span><span class="line"><span class="cl">/pub/software/annovar/convert2annovar.pl <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -format vcf4old <span class="se">\
+</span></span></span><span class="line"><span class="cl">    all.filtered.snp.vcf &gt; all.snp.vcf.annovar.input
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 进行注释</span>
+</span></span><span class="line"><span class="cl">/pub/software/annovar/annotate_variation.pl <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -geneanno <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --neargene <span class="m">2000</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -buildver genome <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -dbtype refGene <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -outfile all.anno <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -exonsort <span class="se">\
+</span></span></span><span class="line"><span class="cl">    all.snp.vcf.annovar.input ./
 </span></span></code></pre></div><h3 id="7-cnv-和-sv-注释">7. CNV 和 SV 注释<a hidden class="anchor" aria-hidden="true" href="#7-cnv-和-sv-注释">#</a></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 处理SV文件</span>
-</span></span><span style="display:flex;"><span>less -S ../04.SV/all.sv.lumpy.vcf | <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    awk -F <span style="color:#e6db74">&#34;;&#34;</span> <span style="color:#e6db74">&#39;{ if($1!~/#/){print $1&#34;\t&#34;$2&#34;\t&#34;$3&#34;\t&#34;$4} }&#39;</span> | <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    awk <span style="color:#e6db74">&#39;{print $1&#34;\t&#34;$2&#34;\t&#34;$11&#34;\t&#34;$3&#34;\t&#34;$8}&#39;</span> | <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    sed <span style="color:#e6db74">&#39;s/END=//&#39;</span> | sed <span style="color:#e6db74">&#39;s/SVTYPE=//&#39;</span> &gt; SV.bed
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 过滤BND类型</span>
-</span></span><span style="display:flex;"><span>awk <span style="color:#e6db74">&#39;$5 !~ /BND/&#39;</span> SV.bed &gt; SV_filter.bed
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># SV注释</span>
-</span></span><span style="display:flex;"><span>bedtools intersect -wo -a SV_filter.bed -b gene.gtf &gt; SV_filter.Anno
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 处理CNV文件</span>
-</span></span><span style="display:flex;"><span>less -S ../05.CNV/S1.cnv | <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    awk <span style="color:#e6db74">&#39;{print $2 &#34;\t&#34; $1}&#39;</span> | <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    sed <span style="color:#e6db74">&#39;s/:/\t/&#39;</span> | sed <span style="color:#e6db74">&#39;s/-/\t/&#39;</span> &gt; CNV.bed
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># CNV注释</span>
-</span></span><span style="display:flex;"><span>bedtools intersect -wo -a CNV.bed -b gene.gtf &gt; CNV.Anno
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 处理SV文件</span>
+</span></span><span class="line"><span class="cl">less -S ../04.SV/all.sv.lumpy.vcf <span class="p">|</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    awk -F <span class="s2">&#34;;&#34;</span> <span class="s1">&#39;{ if($1!~/#/){print $1&#34;\t&#34;$2&#34;\t&#34;$3&#34;\t&#34;$4} }&#39;</span> <span class="p">|</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    awk <span class="s1">&#39;{print $1&#34;\t&#34;$2&#34;\t&#34;$11&#34;\t&#34;$3&#34;\t&#34;$8}&#39;</span> <span class="p">|</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    sed <span class="s1">&#39;s/END=//&#39;</span> <span class="p">|</span> sed <span class="s1">&#39;s/SVTYPE=//&#39;</span> &gt; SV.bed
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 过滤BND类型</span>
+</span></span><span class="line"><span class="cl">awk <span class="s1">&#39;$5 !~ /BND/&#39;</span> SV.bed &gt; SV_filter.bed
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># SV注释</span>
+</span></span><span class="line"><span class="cl">bedtools intersect -wo -a SV_filter.bed -b gene.gtf &gt; SV_filter.Anno
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 处理CNV文件</span>
+</span></span><span class="line"><span class="cl">less -S ../05.CNV/S1.cnv <span class="p">|</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    awk <span class="s1">&#39;{print $2 &#34;\t&#34; $1}&#39;</span> <span class="p">|</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    sed <span class="s1">&#39;s/:/\t/&#39;</span> <span class="p">|</span> sed <span class="s1">&#39;s/-/\t/&#39;</span> &gt; CNV.bed
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># CNV注释</span>
+</span></span><span class="line"><span class="cl">bedtools intersect -wo -a CNV.bed -b gene.gtf &gt; CNV.Anno
 </span></span></code></pre></div><h2 id="群体结构分析">群体结构分析<a hidden class="anchor" aria-hidden="true" href="#群体结构分析">#</a></h2>
 <h3 id="1-数据过滤">1. 数据过滤<a hidden class="anchor" aria-hidden="true" href="#1-数据过滤">#</a></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vcf<span style="color:#f92672">=</span>../data/all.vcf
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 过滤缺失率和最小等位基因频率</span>
-</span></span><span style="display:flex;"><span>plink --vcf $vcf <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --geno 0.1 <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --maf 0.01 <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --out all.missing_maf <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --recode vcf-iid <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --allow-extra-chr <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --set-missing-var-ids @:# <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --keep-allele-order
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 过滤连锁不平衡</span>
-</span></span><span style="display:flex;"><span>plink --vcf all.missing_maf.vcf <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --indep-pairwise <span style="color:#ae81ff">50</span> <span style="color:#ae81ff">10</span> 0.2 <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --out tmp.ld <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --allow-extra-chr <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --set-missing-var-ids @:#
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>plink --vcf all.missing_maf.vcf <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --make-bed <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --extract tmp.ld.prune.in <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --out all.LDfilter <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --recode vcf-iid <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --keep-allele-order <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --allow-extra-chr <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --set-missing-var-ids @:#
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">vcf</span><span class="o">=</span>../data/all.vcf
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 过滤缺失率和最小等位基因频率</span>
+</span></span><span class="line"><span class="cl">plink --vcf <span class="nv">$vcf</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --geno 0.1 <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --maf 0.01 <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --out all.missing_maf <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --recode vcf-iid <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --allow-extra-chr <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --set-missing-var-ids @:# <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --keep-allele-order
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 过滤连锁不平衡</span>
+</span></span><span class="line"><span class="cl">plink --vcf all.missing_maf.vcf <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --indep-pairwise <span class="m">50</span> <span class="m">10</span> 0.2 <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --out tmp.ld <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --allow-extra-chr <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --set-missing-var-ids @:#
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">plink --vcf all.missing_maf.vcf <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --make-bed <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --extract tmp.ld.prune.in <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --out all.LDfilter <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --recode vcf-iid <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --keep-allele-order <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --allow-extra-chr <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --set-missing-var-ids @:#
 </span></span></code></pre></div><h3 id="2-建树分析">2. 建树分析<a hidden class="anchor" aria-hidden="true" href="#2-建树分析">#</a></h3>
 <h4 id="21-nj-树">2.1 NJ 树<a hidden class="anchor" aria-hidden="true" href="#21-nj-树">#</a></h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 格式转换</span>
-</span></span><span style="display:flex;"><span>perl ../../script/vcf2phy.pl ../../00.filter/all.LDfilter.vcf &gt; sequences.dat
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 计算遗传距离</span>
-</span></span><span style="display:flex;"><span>echo -e <span style="color:#e6db74">&#34;sequences.dat\nY&#34;</span> &gt; dnadist.cfg
-</span></span><span style="display:flex;"><span>dnadist &lt; dnadist.cfg &gt; dnadist.log
-</span></span><span style="display:flex;"><span>mv outfile infile.dist
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 构建NJ树</span>
-</span></span><span style="display:flex;"><span>echo -e <span style="color:#e6db74">&#34;infile.dist\nY&#34;</span> &gt; neighbor.cfg
-</span></span><span style="display:flex;"><span>neighbor &lt; neighbor.cfg &gt; nj.log
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 格式整理</span>
-</span></span><span style="display:flex;"><span>less infile.dist | tr <span style="color:#e6db74">&#39;\n&#39;</span> <span style="color:#e6db74">&#39;|&#39;</span> | sed <span style="color:#e6db74">&#39;s/| / /g&#39;</span> | tr <span style="color:#e6db74">&#39;|&#39;</span> <span style="color:#e6db74">&#39;\n&#39;</span> &gt; infile.dist.table
-</span></span><span style="display:flex;"><span>less outtree | tr <span style="color:#e6db74">&#39;\n&#39;</span> <span style="color:#e6db74">&#39; &#39;</span> | sed <span style="color:#e6db74">&#39;s/ //g&#39;</span> &gt; outtree.nwk
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 格式转换</span>
+</span></span><span class="line"><span class="cl">perl ../../script/vcf2phy.pl ../../00.filter/all.LDfilter.vcf &gt; sequences.dat
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 计算遗传距离</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> -e <span class="s2">&#34;sequences.dat\nY&#34;</span> &gt; dnadist.cfg
+</span></span><span class="line"><span class="cl">dnadist &lt; dnadist.cfg &gt; dnadist.log
+</span></span><span class="line"><span class="cl">mv outfile infile.dist
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 构建NJ树</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> -e <span class="s2">&#34;infile.dist\nY&#34;</span> &gt; neighbor.cfg
+</span></span><span class="line"><span class="cl">neighbor &lt; neighbor.cfg &gt; nj.log
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 格式整理</span>
+</span></span><span class="line"><span class="cl">less infile.dist <span class="p">|</span> tr <span class="s1">&#39;\n&#39;</span> <span class="s1">&#39;|&#39;</span> <span class="p">|</span> sed <span class="s1">&#39;s/| / /g&#39;</span> <span class="p">|</span> tr <span class="s1">&#39;|&#39;</span> <span class="s1">&#39;\n&#39;</span> &gt; infile.dist.table
+</span></span><span class="line"><span class="cl">less outtree <span class="p">|</span> tr <span class="s1">&#39;\n&#39;</span> <span class="s1">&#39; &#39;</span> <span class="p">|</span> sed <span class="s1">&#39;s/ //g&#39;</span> &gt; outtree.nwk
 </span></span></code></pre></div><h4 id="22-snphylo-建树">2.2 SNPhylo 建树<a hidden class="anchor" aria-hidden="true" href="#22-snphylo-建树">#</a></h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>/pub/software/SNPhylo/snphylo.sh <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -v ../../00.filter/all.LDfilter.vcf <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -r <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -l <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -m 0.01 <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -o GA0001 <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -b <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -B <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -P tree_snphylo
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">/pub/software/SNPhylo/snphylo.sh <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -v ../../00.filter/all.LDfilter.vcf <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -r <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -l <span class="m">1</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -m 0.01 <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -o GA0001 <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -b <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -B <span class="m">2</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -P tree_snphylo
 </span></span></code></pre></div><h3 id="3-pca-分析">3. PCA 分析<a hidden class="anchor" aria-hidden="true" href="#3-pca-分析">#</a></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>plink --vcf ../00.filter/all.LDfilter.vcf <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --pca <span style="color:#ae81ff">10</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --out PCA_out <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --allow-extra-chr <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --set-missing-var-ids @:#
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Rscript ../script/draw_PCA.R PCA_out.eigenvec <span style="color:#ae81ff">1</span> <span style="color:#ae81ff">2</span> ../data/sample.pop PCA_out_figure
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">plink --vcf ../00.filter/all.LDfilter.vcf <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --pca <span class="m">10</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --out PCA_out <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --allow-extra-chr <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --set-missing-var-ids @:#
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Rscript ../script/draw_PCA.R PCA_out.eigenvec <span class="m">1</span> <span class="m">2</span> ../data/sample.pop PCA_out_figure
 </span></span></code></pre></div><h3 id="4-群体结构分析">4. 群体结构分析<a hidden class="anchor" aria-hidden="true" href="#4-群体结构分析">#</a></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Step 0: vcf转bed格式</span>
-</span></span><span style="display:flex;"><span>plink --vcf ../00.filter/all.LDfilter.vcf <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --make-bed <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --out all <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --allow-extra-chr <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --keep-allele-order <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --set-missing-var-ids @:#
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Step 1: 生成Admixture运行脚本</span>
-</span></span><span style="display:flex;"><span>seq <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">4</span> | awk <span style="color:#e6db74">&#39;{print &#34;admixture --cv -j2 all.bed &#34;$1&#34; 1&gt;admix.&#34;$1&#34;.log 2&gt;&amp;1&#34;}&#39;</span> &gt; admixture.sh
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Step 2: 运行Admixture</span>
-</span></span><span style="display:flex;"><span>sh admixture.sh
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 也可单独运行</span>
-</span></span><span style="display:flex;"><span>admixture --cv -j2 all.bed <span style="color:#ae81ff">2</span> 1&gt;admix.2.log 2&gt;&amp;<span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>admixture --cv -j2 all.bed <span style="color:#ae81ff">3</span> 1&gt;admix.3.log 2&gt;&amp;<span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>admixture --cv -j2 all.bed <span style="color:#ae81ff">4</span> 1&gt;admix.4.log 2&gt;&amp;<span style="color:#ae81ff">1</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Step 3: 绘制结构图</span>
-</span></span><span style="display:flex;"><span>mkdir result
-</span></span><span style="display:flex;"><span>cp ./*.Q result/
-</span></span><span style="display:flex;"><span>Rscript ../script/draw_admixture.R result all.nosex structure
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Step 0: vcf转bed格式</span>
+</span></span><span class="line"><span class="cl">plink --vcf ../00.filter/all.LDfilter.vcf <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --make-bed <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --out all <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --allow-extra-chr <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --keep-allele-order <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --set-missing-var-ids @:#
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Step 1: 生成Admixture运行脚本</span>
+</span></span><span class="line"><span class="cl">seq <span class="m">2</span> <span class="m">4</span> <span class="p">|</span> awk <span class="s1">&#39;{print &#34;admixture --cv -j2 all.bed &#34;$1&#34; 1&gt;admix.&#34;$1&#34;.log 2&gt;&amp;1&#34;}&#39;</span> &gt; admixture.sh
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Step 2: 运行Admixture</span>
+</span></span><span class="line"><span class="cl">sh admixture.sh
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 也可单独运行</span>
+</span></span><span class="line"><span class="cl">admixture --cv -j2 all.bed <span class="m">2</span> 1&gt;admix.2.log 2&gt;<span class="p">&amp;</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl">admixture --cv -j2 all.bed <span class="m">3</span> 1&gt;admix.3.log 2&gt;<span class="p">&amp;</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl">admixture --cv -j2 all.bed <span class="m">4</span> 1&gt;admix.4.log 2&gt;<span class="p">&amp;</span><span class="m">1</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Step 3: 绘制结构图</span>
+</span></span><span class="line"><span class="cl">mkdir result
+</span></span><span class="line"><span class="cl">cp ./*.Q result/
+</span></span><span class="line"><span class="cl">Rscript ../script/draw_admixture.R result all.nosex structure
 </span></span></code></pre></div><h3 id="5-ld-衰减分析">5. LD 衰减分析<a hidden class="anchor" aria-hidden="true" href="#5-ld-衰减分析">#</a></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Step 1: 计算LD</span>
-</span></span><span style="display:flex;"><span>/pub/software/PopLDdecay/bin/PopLDdecay <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -InVCF ../data/all.vcf <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -SubPop ../data/pop.SC.table <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -MaxDist <span style="color:#ae81ff">500</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -OutStat pop.SC.stat
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>/pub/software/PopLDdecay/bin/PopLDdecay <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -InVCF ../data/all.vcf <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -SubPop ../data/pop.YZR.table <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -MaxDist <span style="color:#ae81ff">500</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -OutStat pop.YZR.stat
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Step 2: 绘制单群体LD衰减图</span>
-</span></span><span style="display:flex;"><span>perl /pub/software/PopLDdecay/bin/Plot_OnePop.pl <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -inFile pop.SC.stat.gz <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -output pop.SC.ld
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>perl /pub/software/PopLDdecay/bin/Plot_OnePop.pl <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -inFile pop.YZR.stat.gz <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -output pop.YZR.ld
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Step 3: 绘制多群体LD衰减图</span>
-</span></span><span style="display:flex;"><span>perl /pub/software/PopLDdecay/bin/Plot_MultiPop.pl <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -inList ld_stat.list <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -output ld_stat.multi
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Step 1: 计算LD</span>
+</span></span><span class="line"><span class="cl">/pub/software/PopLDdecay/bin/PopLDdecay <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -InVCF ../data/all.vcf <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -SubPop ../data/pop.SC.table <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -MaxDist <span class="m">500</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -OutStat pop.SC.stat
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">/pub/software/PopLDdecay/bin/PopLDdecay <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -InVCF ../data/all.vcf <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -SubPop ../data/pop.YZR.table <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -MaxDist <span class="m">500</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -OutStat pop.YZR.stat
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Step 2: 绘制单群体LD衰减图</span>
+</span></span><span class="line"><span class="cl">perl /pub/software/PopLDdecay/bin/Plot_OnePop.pl <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -inFile pop.SC.stat.gz <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -output pop.SC.ld
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">perl /pub/software/PopLDdecay/bin/Plot_OnePop.pl <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -inFile pop.YZR.stat.gz <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -output pop.YZR.ld
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Step 3: 绘制多群体LD衰减图</span>
+</span></span><span class="line"><span class="cl">perl /pub/software/PopLDdecay/bin/Plot_MultiPop.pl <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -inList ld_stat.list <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -output ld_stat.multi
 </span></span></code></pre></div><h2 id="选择分析">选择分析<a hidden class="anchor" aria-hidden="true" href="#选择分析">#</a></h2>
 <h3 id="1-π-和-rod-分析">1. π 和 ROD 分析<a hidden class="anchor" aria-hidden="true" href="#1-π-和-rod-分析">#</a></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vcf<span style="color:#f92672">=</span>../../data/all.vcf
-</span></span><span style="display:flex;"><span>window<span style="color:#f92672">=</span><span style="color:#ae81ff">20000</span>
-</span></span><span style="display:flex;"><span>step<span style="color:#f92672">=</span><span style="color:#ae81ff">2000</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Step 1: 计算pi值</span>
-</span></span><span style="display:flex;"><span>vcftools --vcf $vcf <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --window-pi $window <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --window-pi-step $step <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --keep ../../data/pop.SC.table <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --out ./Pi.pop1
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>vcftools --vcf $vcf <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --window-pi $window <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --window-pi-step $step <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --keep ../../data/pop.YZR.table <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --out ./Pi.pop2
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Step 2: 计算ROD</span>
-</span></span><span style="display:flex;"><span>pi1<span style="color:#f92672">=</span>Pi.pop1.windowed.pi
-</span></span><span style="display:flex;"><span>pi2<span style="color:#f92672">=</span>Pi.pop2.windowed.pi
-</span></span><span style="display:flex;"><span>perl ../../script/merge2pi_ROD.pl $pi1 $pi2 &gt; Pi.ROD
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">vcf</span><span class="o">=</span>../../data/all.vcf
+</span></span><span class="line"><span class="cl"><span class="nv">window</span><span class="o">=</span><span class="m">20000</span>
+</span></span><span class="line"><span class="cl"><span class="nv">step</span><span class="o">=</span><span class="m">2000</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Step 1: 计算pi值</span>
+</span></span><span class="line"><span class="cl">vcftools --vcf <span class="nv">$vcf</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --window-pi <span class="nv">$window</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --window-pi-step <span class="nv">$step</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --keep ../../data/pop.SC.table <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --out ./Pi.pop1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">vcftools --vcf <span class="nv">$vcf</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --window-pi <span class="nv">$window</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --window-pi-step <span class="nv">$step</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --keep ../../data/pop.YZR.table <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --out ./Pi.pop2
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Step 2: 计算ROD</span>
+</span></span><span class="line"><span class="cl"><span class="nv">pi1</span><span class="o">=</span>Pi.pop1.windowed.pi
+</span></span><span class="line"><span class="cl"><span class="nv">pi2</span><span class="o">=</span>Pi.pop2.windowed.pi
+</span></span><span class="line"><span class="cl">perl ../../script/merge2pi_ROD.pl <span class="nv">$pi1</span> <span class="nv">$pi2</span> &gt; Pi.ROD
 </span></span></code></pre></div><h3 id="2-tajimas-d-分析">2. Tajima&rsquo;s D 分析<a hidden class="anchor" aria-hidden="true" href="#2-tajimas-d-分析">#</a></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vcf<span style="color:#f92672">=</span>../../data/all.vcf
-</span></span><span style="display:flex;"><span>window<span style="color:#f92672">=</span><span style="color:#ae81ff">20000</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>vcftools --vcf $vcf <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --TajimaD $window <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --keep ../../data/pop.SC.table <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --out TajimaD.pop1
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>vcftools --vcf $vcf <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --TajimaD $window <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --keep ../../data/pop.YZR.table <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --out TajimaD.pop2
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">vcf</span><span class="o">=</span>../../data/all.vcf
+</span></span><span class="line"><span class="cl"><span class="nv">window</span><span class="o">=</span><span class="m">20000</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">vcftools --vcf <span class="nv">$vcf</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --TajimaD <span class="nv">$window</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --keep ../../data/pop.SC.table <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --out TajimaD.pop1
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">vcftools --vcf <span class="nv">$vcf</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --TajimaD <span class="nv">$window</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --keep ../../data/pop.YZR.table <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --out TajimaD.pop2
 </span></span></code></pre></div><h3 id="3-fst-分析">3. Fst 分析<a hidden class="anchor" aria-hidden="true" href="#3-fst-分析">#</a></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>vcf<span style="color:#f92672">=</span>../../data/all.vcf
-</span></span><span style="display:flex;"><span>window<span style="color:#f92672">=</span><span style="color:#ae81ff">20000</span>
-</span></span><span style="display:flex;"><span>step<span style="color:#f92672">=</span><span style="color:#ae81ff">2000</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>vcftools --vcf $vcf <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --fst-window-size $window <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --fst-window-step $step <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --weir-fst-pop ../../data/pop.SC.table <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --weir-fst-pop ../../data/pop.YZR.table <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --out ./Fst.pop1.pop2
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">vcf</span><span class="o">=</span>../../data/all.vcf
+</span></span><span class="line"><span class="cl"><span class="nv">window</span><span class="o">=</span><span class="m">20000</span>
+</span></span><span class="line"><span class="cl"><span class="nv">step</span><span class="o">=</span><span class="m">2000</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">vcftools --vcf <span class="nv">$vcf</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --fst-window-size <span class="nv">$window</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --fst-window-step <span class="nv">$step</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --weir-fst-pop ../../data/pop.SC.table <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --weir-fst-pop ../../data/pop.YZR.table <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --out ./Fst.pop1.pop2
 </span></span></code></pre></div><h3 id="4-rod--fst-联合分析">4. ROD + Fst 联合分析<a hidden class="anchor" aria-hidden="true" href="#4-rod--fst-联合分析">#</a></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>fst<span style="color:#f92672">=</span>../03.Fst/Fst.pop1.pop2.windowed.weir.fst
-</span></span><span style="display:flex;"><span>ROD<span style="color:#f92672">=</span>../01.pi_ROD/Pi.ROD
-</span></span><span style="display:flex;"><span>gff<span style="color:#f92672">=</span>../../data/genome.gff
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 提取显著位点</span>
-</span></span><span style="display:flex;"><span>perl ../../script/top_Fst_ROD_S.pl $fst $ROD 0.05 0.05 Fst_ROD.table Fst_ROD.stat
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 筛选top位点</span>
-</span></span><span style="display:flex;"><span>awk <span style="color:#e6db74">&#39;$NF==&#34;top&#34;&#39;</span> Fst_ROD.table &gt; Fst_ROD.table.top
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 提取基因注释</span>
-</span></span><span style="display:flex;"><span>awk <span style="color:#e6db74">&#39;$3==&#34;gene&#34;&#39;</span> $gff &gt; gene.gff
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 注释候选基因</span>
-</span></span><span style="display:flex;"><span>bedtools intersect -wo -F 0.1 -a Fst_ROD.table.top -b gene.gff | <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    awk -F <span style="color:#e6db74">&#34;\t&#34;</span> <span style="color:#e6db74">&#39;{print $7&#34;\t&#34;$10&#34;\t&#34;$11&#34;\t&#34;$13&#34;\t&#34;$15}&#39;</span> | <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    sort -u &gt; Fst_ROD.table.top.gene
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">fst</span><span class="o">=</span>../03.Fst/Fst.pop1.pop2.windowed.weir.fst
+</span></span><span class="line"><span class="cl"><span class="nv">ROD</span><span class="o">=</span>../01.pi_ROD/Pi.ROD
+</span></span><span class="line"><span class="cl"><span class="nv">gff</span><span class="o">=</span>../../data/genome.gff
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 提取显著位点</span>
+</span></span><span class="line"><span class="cl">perl ../../script/top_Fst_ROD_S.pl <span class="nv">$fst</span> <span class="nv">$ROD</span> 0.05 0.05 Fst_ROD.table Fst_ROD.stat
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 筛选top位点</span>
+</span></span><span class="line"><span class="cl">awk <span class="s1">&#39;$NF==&#34;top&#34;&#39;</span> Fst_ROD.table &gt; Fst_ROD.table.top
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 提取基因注释</span>
+</span></span><span class="line"><span class="cl">awk <span class="s1">&#39;$3==&#34;gene&#34;&#39;</span> <span class="nv">$gff</span> &gt; gene.gff
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 注释候选基因</span>
+</span></span><span class="line"><span class="cl">bedtools intersect -wo -F 0.1 -a Fst_ROD.table.top -b gene.gff <span class="p">|</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    awk -F <span class="s2">&#34;\t&#34;</span> <span class="s1">&#39;{print $7&#34;\t&#34;$10&#34;\t&#34;$11&#34;\t&#34;$13&#34;\t&#34;$15}&#39;</span> <span class="p">|</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    sort -u &gt; Fst_ROD.table.top.gene
 </span></span></code></pre></div><h2 id="gwas-分析">GWAS 分析<a hidden class="anchor" aria-hidden="true" href="#gwas-分析">#</a></h2>
 <h3 id="1-基因型填充">1. 基因型填充<a hidden class="anchor" aria-hidden="true" href="#1-基因型填充">#</a></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>beagle -Xmx4g -Djava.io.tmpdir<span style="color:#f92672">=</span>./TMP <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    gt<span style="color:#f92672">=</span>../data/all.vcf <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    out<span style="color:#f92672">=</span>all.impute <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    impute<span style="color:#f92672">=</span>true <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    window<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    nthreads<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">beagle -Xmx4g -Djava.io.tmpdir<span class="o">=</span>./TMP <span class="se">\
+</span></span></span><span class="line"><span class="cl">    <span class="nv">gt</span><span class="o">=</span>../data/all.vcf <span class="se">\
+</span></span></span><span class="line"><span class="cl">    <span class="nv">out</span><span class="o">=</span>all.impute <span class="se">\
+</span></span></span><span class="line"><span class="cl">    <span class="nv">impute</span><span class="o">=</span><span class="nb">true</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    <span class="nv">window</span><span class="o">=</span><span class="m">10</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    <span class="nv">nthreads</span><span class="o">=</span><span class="m">2</span>
 </span></span></code></pre></div><h3 id="2-标准-gwas-分析">2. 标准 GWAS 分析<a hidden class="anchor" aria-hidden="true" href="#2-标准-gwas-分析">#</a></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Step 1: 准备VCF数据</span>
-</span></span><span style="display:flex;"><span>plink --vcf ../data/all.vcf <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --maf 0.05 <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --geno 0.1 <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --recode12 <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --output-missing-genotype <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --transpose <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --out snp_filter <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --set-missing-var-ids @:# <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --allow-extra-chr
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 准备表型数据</span>
-</span></span><span style="display:flex;"><span>perl ../script/sort_pheno.pl snp_filter.tfam ../data/trait.table &gt; trait.sort.txt
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Step 2: 计算亲缘关系矩阵</span>
-</span></span><span style="display:flex;"><span>/pub/software/emmax/emmax-kin-intel64 -v -d <span style="color:#ae81ff">10</span> -o ./pop.kinship snp_filter
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Step 3: 运行GWAS</span>
-</span></span><span style="display:flex;"><span>/pub/software/emmax/emmax-intel64 -v -d <span style="color:#ae81ff">10</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -t snp_filter <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -p trait.sort.txt <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -k pop.kinship <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -o emmax.out 1&gt; emmax.log 2&gt;emmax.err
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Step 4: 绘制曼哈顿图</span>
-</span></span><span style="display:flex;"><span>paste snp_filter.map emmax.out.ps | <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    awk <span style="color:#e6db74">&#39;BEGIN{print &#34;SNP\tCHR\tBP\tP&#34;}{if($2==$5){print $2&#34;\t&#34;$1&#34;\t&#34;$4&#34;\t&#34;$NF}}&#39;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    &gt; emmax.out.ps.manht_input
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Rscript ../script/manhattan.R emmax.out.ps.manht_input emmax.out.ps.manht_figure
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Step 1: 准备VCF数据</span>
+</span></span><span class="line"><span class="cl">plink --vcf ../data/all.vcf <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --maf 0.05 <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --geno 0.1 <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --recode12 <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --output-missing-genotype <span class="m">0</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --transpose <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --out snp_filter <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --set-missing-var-ids @:# <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --allow-extra-chr
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 准备表型数据</span>
+</span></span><span class="line"><span class="cl">perl ../script/sort_pheno.pl snp_filter.tfam ../data/trait.table &gt; trait.sort.txt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Step 2: 计算亲缘关系矩阵</span>
+</span></span><span class="line"><span class="cl">/pub/software/emmax/emmax-kin-intel64 -v -d <span class="m">10</span> -o ./pop.kinship snp_filter
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Step 3: 运行GWAS</span>
+</span></span><span class="line"><span class="cl">/pub/software/emmax/emmax-intel64 -v -d <span class="m">10</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -t snp_filter <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -p trait.sort.txt <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -k pop.kinship <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -o emmax.out 1&gt; emmax.log 2&gt;emmax.err
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Step 4: 绘制曼哈顿图</span>
+</span></span><span class="line"><span class="cl">paste snp_filter.map emmax.out.ps <span class="p">|</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    awk <span class="s1">&#39;BEGIN{print &#34;SNP\tCHR\tBP\tP&#34;}{if($2==$5){print $2&#34;\t&#34;$1&#34;\t&#34;$4&#34;\t&#34;$NF}}&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    &gt; emmax.out.ps.manht_input
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Rscript ../script/manhattan.R emmax.out.ps.manht_input emmax.out.ps.manht_figure
 </span></span></code></pre></div><h3 id="3-gwas-q-分析加入群体结构协变量">3. GWAS-Q 分析（加入群体结构协变量）<a hidden class="anchor" aria-hidden="true" href="#3-gwas-q-分析加入群体结构协变量">#</a></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 链接文件</span>
-</span></span><span style="display:flex;"><span>ln -s ../01.GWAS/snp_filter.tped
-</span></span><span style="display:flex;"><span>ln -s ../01.GWAS/snp_filter.tfam
-</span></span><span style="display:flex;"><span>ln -s ../01.GWAS/snp_filter.nosex
-</span></span><span style="display:flex;"><span>ln -s ../01.GWAS/snp_filter.map
-</span></span><span style="display:flex;"><span>ln -s ../01.GWAS/trait.sort.txt
-</span></span><span style="display:flex;"><span>ln -s ../../02.population_genetics/03.structure/all.3.Q
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 准备Q矩阵</span>
-</span></span><span style="display:flex;"><span>paste snp_filter.nosex all.3.Q | awk <span style="color:#e6db74">&#39;{print $1&#34; &#34;$1&#34; 1 &#34;$3&#34; &#34;$4}&#39;</span> &gt; pop.Qmatrix
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 运行GWAS</span>
-</span></span><span style="display:flex;"><span>/pub/software/emmax/emmax-intel64 -v -d <span style="color:#ae81ff">10</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -t snp_filter <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -p trait.sort.txt <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -k pop.kinship <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -c pop.Qmatrix <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -o emmax.out 1&gt; emmax.log 2&gt;emmax.err
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 绘制曼哈顿图</span>
-</span></span><span style="display:flex;"><span>paste snp_filter.map emmax.out.ps | <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    awk <span style="color:#e6db74">&#39;BEGIN{print &#34;SNP\tCHR\tBP\tP&#34;}{if($2==$5){print $2&#34;\t&#34;$1&#34;\t&#34;$4&#34;\t&#34;$NF}}&#39;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    &gt; emmax.out.ps.manht_input
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Rscript ../script/manhattan.R emmax.out.ps.manht_input emmax.out.ps.manht_figure_Q
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 链接文件</span>
+</span></span><span class="line"><span class="cl">ln -s ../01.GWAS/snp_filter.tped
+</span></span><span class="line"><span class="cl">ln -s ../01.GWAS/snp_filter.tfam
+</span></span><span class="line"><span class="cl">ln -s ../01.GWAS/snp_filter.nosex
+</span></span><span class="line"><span class="cl">ln -s ../01.GWAS/snp_filter.map
+</span></span><span class="line"><span class="cl">ln -s ../01.GWAS/trait.sort.txt
+</span></span><span class="line"><span class="cl">ln -s ../../02.population_genetics/03.structure/all.3.Q
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 准备Q矩阵</span>
+</span></span><span class="line"><span class="cl">paste snp_filter.nosex all.3.Q <span class="p">|</span> awk <span class="s1">&#39;{print $1&#34; &#34;$1&#34; 1 &#34;$3&#34; &#34;$4}&#39;</span> &gt; pop.Qmatrix
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 运行GWAS</span>
+</span></span><span class="line"><span class="cl">/pub/software/emmax/emmax-intel64 -v -d <span class="m">10</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -t snp_filter <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -p trait.sort.txt <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -k pop.kinship <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -c pop.Qmatrix <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -o emmax.out 1&gt; emmax.log 2&gt;emmax.err
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 绘制曼哈顿图</span>
+</span></span><span class="line"><span class="cl">paste snp_filter.map emmax.out.ps <span class="p">|</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    awk <span class="s1">&#39;BEGIN{print &#34;SNP\tCHR\tBP\tP&#34;}{if($2==$5){print $2&#34;\t&#34;$1&#34;\t&#34;$4&#34;\t&#34;$NF}}&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    &gt; emmax.out.ps.manht_input
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Rscript ../script/manhattan.R emmax.out.ps.manht_input emmax.out.ps.manht_figure_Q
 </span></span></code></pre></div><h3 id="4-真实数据-gwas">4. 真实数据 GWAS<a hidden class="anchor" aria-hidden="true" href="#4-真实数据-gwas">#</a></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Step 1: 准备数据</span>
-</span></span><span style="display:flex;"><span>plink --vcf ../data_real/Sample215.M5M8H3.2allel.vcf <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --maf 0.05 <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --geno 0.1 <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --recode12 <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --output-missing-genotype <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --transpose <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --out snp_filter <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --set-missing-var-ids @:# <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    --allow-extra-chr
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>perl ../script/sort_pheno.pl snp_filter.tfam ../data_real/trait.C16_0.table &gt; trait.sort.txt
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Step 2: 计算亲缘关系矩阵</span>
-</span></span><span style="display:flex;"><span>/pub/software/emmax/emmax-kin-intel64 -v -d <span style="color:#ae81ff">10</span> -o ./pop.kinship snp_filter
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Step 3: 运行GWAS</span>
-</span></span><span style="display:flex;"><span>/pub/software/emmax/emmax-intel64 -v -d <span style="color:#ae81ff">10</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -t snp_filter <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -p trait.sort.txt <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -k pop.kinship <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -o emmax.out 1&gt; emmax.log 2&gt;emmax.err
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Step 4: 绘制曼哈顿图</span>
-</span></span><span style="display:flex;"><span>paste snp_filter.map emmax.out.ps | <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    awk <span style="color:#e6db74">&#39;BEGIN{print &#34;SNP\tCHR\tBP\tP&#34;}{if($2==$5){print $2&#34;\t&#34;$1&#34;\t&#34;$4&#34;\t&#34;$NF}}&#39;</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    &gt; emmax.out.ps.manht_input
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Rscript ../script/manhattan.R emmax.out.ps.manht_input emmax.out.ps.manht_figure_readData
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Step 1: 准备数据</span>
+</span></span><span class="line"><span class="cl">plink --vcf ../data_real/Sample215.M5M8H3.2allel.vcf <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --maf 0.05 <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --geno 0.1 <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --recode12 <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --output-missing-genotype <span class="m">0</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --transpose <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --out snp_filter <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --set-missing-var-ids @:# <span class="se">\
+</span></span></span><span class="line"><span class="cl">    --allow-extra-chr
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">perl ../script/sort_pheno.pl snp_filter.tfam ../data_real/trait.C16_0.table &gt; trait.sort.txt
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Step 2: 计算亲缘关系矩阵</span>
+</span></span><span class="line"><span class="cl">/pub/software/emmax/emmax-kin-intel64 -v -d <span class="m">10</span> -o ./pop.kinship snp_filter
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Step 3: 运行GWAS</span>
+</span></span><span class="line"><span class="cl">/pub/software/emmax/emmax-intel64 -v -d <span class="m">10</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -t snp_filter <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -p trait.sort.txt <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -k pop.kinship <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -o emmax.out 1&gt; emmax.log 2&gt;emmax.err
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Step 4: 绘制曼哈顿图</span>
+</span></span><span class="line"><span class="cl">paste snp_filter.map emmax.out.ps <span class="p">|</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    awk <span class="s1">&#39;BEGIN{print &#34;SNP\tCHR\tBP\tP&#34;}{if($2==$5){print $2&#34;\t&#34;$1&#34;\t&#34;$4&#34;\t&#34;$NF}}&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    &gt; emmax.out.ps.manht_input
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">Rscript ../script/manhattan.R emmax.out.ps.manht_input emmax.out.ps.manht_figure_readData
 </span></span></code></pre></div><h2 id="qtl-seq-分析">QTL-seq 分析<a hidden class="anchor" aria-hidden="true" href="#qtl-seq-分析">#</a></h2>
 <h3 id="1-vcf-转换为-table-格式">1. VCF 转换为 Table 格式<a hidden class="anchor" aria-hidden="true" href="#1-vcf-转换为-table-格式">#</a></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ref<span style="color:#f92672">=</span>&lt;reference.fasta&gt;
-</span></span><span style="display:flex;"><span>vcf<span style="color:#f92672">=</span>&lt;input.vcf&gt;
-</span></span><span style="display:flex;"><span>outfile<span style="color:#f92672">=</span>&lt;output.table&gt;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>gatk VariantsToTable <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -R $ref <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -V $vcf <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -F CHROM -F POS -F REF -F ALT <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -GF AD -GF DP -GF GQ -GF PL <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span>    -O $outfile
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nv">ref</span><span class="o">=</span>&lt;reference.fasta&gt;
+</span></span><span class="line"><span class="cl"><span class="nv">vcf</span><span class="o">=</span>&lt;input.vcf&gt;
+</span></span><span class="line"><span class="cl"><span class="nv">outfile</span><span class="o">=</span>&lt;output.table&gt;
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">gatk VariantsToTable <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -R <span class="nv">$ref</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -V <span class="nv">$vcf</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -F CHROM -F POS -F REF -F ALT <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -GF AD -GF DP -GF GQ -GF PL <span class="se">\
+</span></span></span><span class="line"><span class="cl">    -O <span class="nv">$outfile</span>
 </span></span></code></pre></div><h3 id="2-qtl-seq-分析r-脚本">2. QTL-seq 分析（R 脚本）<a hidden class="anchor" aria-hidden="true" href="#2-qtl-seq-分析r-脚本">#</a></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-R" data-lang="R"><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(QTLseqr)
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">library</span>(ggplot2)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 设置参数</span>
-</span></span><span style="display:flex;"><span>HighBulk <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#34;SRR834931&#34;</span>  <span style="color:#75715e"># 高值混池名称</span>
-</span></span><span style="display:flex;"><span>LowBulk <span style="color:#f92672">&lt;-</span> <span style="color:#e6db74">&#34;SRR834927&#34;</span>   <span style="color:#75715e"># 低值混池名称</span>
-</span></span><span style="display:flex;"><span>Chroms <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">paste0</span>(<span style="color:#a6e22e">rep</span>(<span style="color:#e6db74">&#34;Chr&#34;</span>, <span style="color:#ae81ff">12</span>), <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#ae81ff">12</span>)  <span style="color:#75715e"># 染色体列表</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># ==================== 数据读取 ====================</span>
-</span></span><span style="display:flex;"><span>df <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">importFromGATK</span>(
-</span></span><span style="display:flex;"><span>    file <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;../data/Yang_et_al_2013.table&#34;</span>,
-</span></span><span style="display:flex;"><span>    highBulk <span style="color:#f92672">=</span> HighBulk,
-</span></span><span style="display:flex;"><span>    lowBulk <span style="color:#f92672">=</span> LowBulk,
-</span></span><span style="display:flex;"><span>    chromList <span style="color:#f92672">=</span> Chroms
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># ==================== 质量检查图 ====================</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 深度分布图</span>
-</span></span><span style="display:flex;"><span>p1 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> df) <span style="color:#f92672">+</span> 
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">geom_histogram</span>(<span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> DP.HIGH <span style="color:#f92672">+</span> DP.LOW)) <span style="color:#f92672">+</span> 
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">xlim</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">800</span>)
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">pdf</span>(file <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;SNP_depth.pdf&#34;</span>)
-</span></span><span style="display:flex;"><span>p1
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">dev.off</span>()
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># REF等位基因频率分布</span>
-</span></span><span style="display:flex;"><span>p2 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> df) <span style="color:#f92672">+</span> 
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">geom_histogram</span>(<span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> REF_FRQ))
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">pdf</span>(file <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;ref_allele_frequency.pdf&#34;</span>)
-</span></span><span style="display:flex;"><span>p2
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">dev.off</span>()
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 高值混池SNP-index分布</span>
-</span></span><span style="display:flex;"><span>p3 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> df) <span style="color:#f92672">+</span> 
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">geom_histogram</span>(<span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> SNPindex.HIGH))
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">pdf</span>(file <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;SNPindex.HIGH.dis.pdf&#34;</span>)
-</span></span><span style="display:flex;"><span>p3
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">dev.off</span>()
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 低值混池SNP-index分布</span>
-</span></span><span style="display:flex;"><span>p4 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">ggplot</span>(data <span style="color:#f92672">=</span> df) <span style="color:#f92672">+</span> 
-</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">geom_histogram</span>(<span style="color:#a6e22e">aes</span>(x <span style="color:#f92672">=</span> SNPindex.LOW))
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">pdf</span>(file <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;SNPindex.LOW.dis.pdf&#34;</span>)
-</span></span><span style="display:flex;"><span>p4
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">dev.off</span>()
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># ==================== SNP过滤 ====================</span>
-</span></span><span style="display:flex;"><span>df_filt <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">filterSNPs</span>(
-</span></span><span style="display:flex;"><span>    SNPset <span style="color:#f92672">=</span> df,
-</span></span><span style="display:flex;"><span>    refAlleleFreq <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.20</span>,    <span style="color:#75715e"># REF等位基因频率: 0.2~0.8</span>
-</span></span><span style="display:flex;"><span>    minTotalDepth <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>,     <span style="color:#75715e"># 最小总深度</span>
-</span></span><span style="display:flex;"><span>    maxTotalDepth <span style="color:#f92672">=</span> <span style="color:#ae81ff">400</span>,     <span style="color:#75715e"># 最大总深度</span>
-</span></span><span style="display:flex;"><span>    minSampleDepth <span style="color:#f92672">=</span> <span style="color:#ae81ff">40</span>,     <span style="color:#75715e"># 单样品最小深度</span>
-</span></span><span style="display:flex;"><span>    minGQ <span style="color:#f92672">=</span> <span style="color:#ae81ff">99</span>,              <span style="color:#75715e"># 基因型质量阈值</span>
-</span></span><span style="display:flex;"><span>    verbose <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># ==================== deltaSNPindex计算 ====================</span>
-</span></span><span style="display:flex;"><span>df_filt <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">runQTLseqAnalysis</span>(
-</span></span><span style="display:flex;"><span>    df_filt,
-</span></span><span style="display:flex;"><span>    windowSize <span style="color:#f92672">=</span> <span style="color:#ae81ff">1e6</span>,        <span style="color:#75715e"># 窗口大小</span>
-</span></span><span style="display:flex;"><span>    popStruc <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;F2&#34;</span>,         <span style="color:#75715e"># 群体类型</span>
-</span></span><span style="display:flex;"><span>    bulkSize <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">385</span>, <span style="color:#ae81ff">430</span>),  <span style="color:#75715e"># 混池个体数</span>
-</span></span><span style="display:flex;"><span>    replications <span style="color:#f92672">=</span> <span style="color:#ae81ff">10000</span>,    <span style="color:#75715e"># Bootstrap次数</span>
-</span></span><span style="display:flex;"><span>    intervals <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#ae81ff">95</span>, <span style="color:#ae81ff">99</span>)    <span style="color:#75715e"># 置信区间</span>
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># ==================== 结果可视化 ====================</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># SNP沿染色体分布</span>
-</span></span><span style="display:flex;"><span>p5 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">plotQTLStats</span>(SNPset <span style="color:#f92672">=</span> df_filt, var <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;nSNPs&#34;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">pdf</span>(file <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;SNP_filter.window.pdf&#34;</span>, width <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>, height <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>)
-</span></span><span style="display:flex;"><span>p5
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">dev.off</span>()
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># deltaSNPindex沿染色体分布</span>
-</span></span><span style="display:flex;"><span>p6 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">plotQTLStats</span>(
-</span></span><span style="display:flex;"><span>    SNPset <span style="color:#f92672">=</span> df_filt, 
-</span></span><span style="display:flex;"><span>    var <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;deltaSNP&#34;</span>, 
-</span></span><span style="display:flex;"><span>    plotIntervals <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">pdf</span>(file <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;deltaSNPindex.pdf&#34;</span>, width <span style="color:#f92672">=</span> <span style="color:#ae81ff">20</span>, height <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>)
-</span></span><span style="display:flex;"><span>p6
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">dev.off</span>()
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># ==================== 提取显著区域 ====================</span>
-</span></span><span style="display:flex;"><span>QTL <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">getSigRegions</span>(
-</span></span><span style="display:flex;"><span>    SNPset <span style="color:#f92672">=</span> df_filt, 
-</span></span><span style="display:flex;"><span>    method <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;QTLseq&#34;</span>, 
-</span></span><span style="display:flex;"><span>    interval <span style="color:#f92672">=</span> <span style="color:#ae81ff">95</span>
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">write.table</span>(QTL[[1]], <span style="color:#e6db74">&#34;QTLseq_result.SigRegions.table&#34;</span>, sep <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;\t&#34;</span>, quote <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># ==================== 导出完整结果 ====================</span>
-</span></span><span style="display:flex;"><span>results99 <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">getQTLTable</span>(
-</span></span><span style="display:flex;"><span>    SNPset <span style="color:#f92672">=</span> df_filt,
-</span></span><span style="display:flex;"><span>    method <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;QTLseq&#34;</span>,
-</span></span><span style="display:flex;"><span>    interval <span style="color:#f92672">=</span> <span style="color:#ae81ff">99</span>,
-</span></span><span style="display:flex;"><span>    export <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>
-</span></span><span style="display:flex;"><span>)
-</span></span><span style="display:flex;"><span><span style="color:#a6e22e">write.table</span>(
-</span></span><span style="display:flex;"><span>    results99, 
-</span></span><span style="display:flex;"><span>    file <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;QTLseq_result_deltaSNPindex_CI99.table&#34;</span>, 
-</span></span><span style="display:flex;"><span>    sep <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;\t&#34;</span>, 
-</span></span><span style="display:flex;"><span>    quote <span style="color:#f92672">=</span> <span style="color:#66d9ef">FALSE</span>
-</span></span><span style="display:flex;"><span>)
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">QTLseqr</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 设置参数</span>
+</span></span><span class="line"><span class="cl"><span class="n">HighBulk</span> <span class="o">&lt;-</span> <span class="s">&#34;SRR834931&#34;</span>  <span class="c1"># 高值混池名称</span>
+</span></span><span class="line"><span class="cl"><span class="n">LowBulk</span> <span class="o">&lt;-</span> <span class="s">&#34;SRR834927&#34;</span>   <span class="c1"># 低值混池名称</span>
+</span></span><span class="line"><span class="cl"><span class="n">Chroms</span> <span class="o">&lt;-</span> <span class="nf">paste0</span><span class="p">(</span><span class="nf">rep</span><span class="p">(</span><span class="s">&#34;Chr&#34;</span><span class="p">,</span> <span class="m">12</span><span class="p">),</span> <span class="m">1</span><span class="o">:</span><span class="m">12</span><span class="p">)</span>  <span class="c1"># 染色体列表</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ==================== 数据读取 ====================</span>
+</span></span><span class="line"><span class="cl"><span class="n">df</span> <span class="o">&lt;-</span> <span class="nf">importFromGATK</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">file</span> <span class="o">=</span> <span class="s">&#34;../data/Yang_et_al_2013.table&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">highBulk</span> <span class="o">=</span> <span class="n">HighBulk</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">lowBulk</span> <span class="o">=</span> <span class="n">LowBulk</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">chromList</span> <span class="o">=</span> <span class="n">Chroms</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ==================== 质量检查图 ====================</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 深度分布图</span>
+</span></span><span class="line"><span class="cl"><span class="n">p1</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">)</span> <span class="o">+</span> 
+</span></span><span class="line"><span class="cl">    <span class="nf">geom_histogram</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">DP.HIGH</span> <span class="o">+</span> <span class="n">DP.LOW</span><span class="p">))</span> <span class="o">+</span> 
+</span></span><span class="line"><span class="cl">    <span class="nf">xlim</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">800</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">pdf</span><span class="p">(</span><span class="n">file</span> <span class="o">=</span> <span class="s">&#34;SNP_depth.pdf&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">p1</span>
+</span></span><span class="line"><span class="cl"><span class="nf">dev.off</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># REF等位基因频率分布</span>
+</span></span><span class="line"><span class="cl"><span class="n">p2</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">)</span> <span class="o">+</span> 
+</span></span><span class="line"><span class="cl">    <span class="nf">geom_histogram</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">REF_FRQ</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nf">pdf</span><span class="p">(</span><span class="n">file</span> <span class="o">=</span> <span class="s">&#34;ref_allele_frequency.pdf&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">p2</span>
+</span></span><span class="line"><span class="cl"><span class="nf">dev.off</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 高值混池SNP-index分布</span>
+</span></span><span class="line"><span class="cl"><span class="n">p3</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">)</span> <span class="o">+</span> 
+</span></span><span class="line"><span class="cl">    <span class="nf">geom_histogram</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">SNPindex.HIGH</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nf">pdf</span><span class="p">(</span><span class="n">file</span> <span class="o">=</span> <span class="s">&#34;SNPindex.HIGH.dis.pdf&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">p3</span>
+</span></span><span class="line"><span class="cl"><span class="nf">dev.off</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 低值混池SNP-index分布</span>
+</span></span><span class="line"><span class="cl"><span class="n">p4</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span> <span class="n">df</span><span class="p">)</span> <span class="o">+</span> 
+</span></span><span class="line"><span class="cl">    <span class="nf">geom_histogram</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">SNPindex.LOW</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="nf">pdf</span><span class="p">(</span><span class="n">file</span> <span class="o">=</span> <span class="s">&#34;SNPindex.LOW.dis.pdf&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">p4</span>
+</span></span><span class="line"><span class="cl"><span class="nf">dev.off</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ==================== SNP过滤 ====================</span>
+</span></span><span class="line"><span class="cl"><span class="n">df_filt</span> <span class="o">&lt;-</span> <span class="nf">filterSNPs</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SNPset</span> <span class="o">=</span> <span class="n">df</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">refAlleleFreq</span> <span class="o">=</span> <span class="m">0.20</span><span class="p">,</span>    <span class="c1"># REF等位基因频率: 0.2~0.8</span>
+</span></span><span class="line"><span class="cl">    <span class="n">minTotalDepth</span> <span class="o">=</span> <span class="m">100</span><span class="p">,</span>     <span class="c1"># 最小总深度</span>
+</span></span><span class="line"><span class="cl">    <span class="n">maxTotalDepth</span> <span class="o">=</span> <span class="m">400</span><span class="p">,</span>     <span class="c1"># 最大总深度</span>
+</span></span><span class="line"><span class="cl">    <span class="n">minSampleDepth</span> <span class="o">=</span> <span class="m">40</span><span class="p">,</span>     <span class="c1"># 单样品最小深度</span>
+</span></span><span class="line"><span class="cl">    <span class="n">minGQ</span> <span class="o">=</span> <span class="m">99</span><span class="p">,</span>              <span class="c1"># 基因型质量阈值</span>
+</span></span><span class="line"><span class="cl">    <span class="n">verbose</span> <span class="o">=</span> <span class="kc">TRUE</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ==================== deltaSNPindex计算 ====================</span>
+</span></span><span class="line"><span class="cl"><span class="n">df_filt</span> <span class="o">&lt;-</span> <span class="nf">runQTLseqAnalysis</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">df_filt</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">windowSize</span> <span class="o">=</span> <span class="m">1e6</span><span class="p">,</span>        <span class="c1"># 窗口大小</span>
+</span></span><span class="line"><span class="cl">    <span class="n">popStruc</span> <span class="o">=</span> <span class="s">&#34;F2&#34;</span><span class="p">,</span>         <span class="c1"># 群体类型</span>
+</span></span><span class="line"><span class="cl">    <span class="n">bulkSize</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">385</span><span class="p">,</span> <span class="m">430</span><span class="p">),</span>  <span class="c1"># 混池个体数</span>
+</span></span><span class="line"><span class="cl">    <span class="n">replications</span> <span class="o">=</span> <span class="m">10000</span><span class="p">,</span>    <span class="c1"># Bootstrap次数</span>
+</span></span><span class="line"><span class="cl">    <span class="n">intervals</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">95</span><span class="p">,</span> <span class="m">99</span><span class="p">)</span>    <span class="c1"># 置信区间</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ==================== 结果可视化 ====================</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># SNP沿染色体分布</span>
+</span></span><span class="line"><span class="cl"><span class="n">p5</span> <span class="o">&lt;-</span> <span class="nf">plotQTLStats</span><span class="p">(</span><span class="n">SNPset</span> <span class="o">=</span> <span class="n">df_filt</span><span class="p">,</span> <span class="n">var</span> <span class="o">=</span> <span class="s">&#34;nSNPs&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">pdf</span><span class="p">(</span><span class="n">file</span> <span class="o">=</span> <span class="s">&#34;SNP_filter.window.pdf&#34;</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="m">20</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="m">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">p5</span>
+</span></span><span class="line"><span class="cl"><span class="nf">dev.off</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># deltaSNPindex沿染色体分布</span>
+</span></span><span class="line"><span class="cl"><span class="n">p6</span> <span class="o">&lt;-</span> <span class="nf">plotQTLStats</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SNPset</span> <span class="o">=</span> <span class="n">df_filt</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">var</span> <span class="o">=</span> <span class="s">&#34;deltaSNP&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">plotIntervals</span> <span class="o">=</span> <span class="kc">TRUE</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">pdf</span><span class="p">(</span><span class="n">file</span> <span class="o">=</span> <span class="s">&#34;deltaSNPindex.pdf&#34;</span><span class="p">,</span> <span class="n">width</span> <span class="o">=</span> <span class="m">20</span><span class="p">,</span> <span class="n">height</span> <span class="o">=</span> <span class="m">4</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">p6</span>
+</span></span><span class="line"><span class="cl"><span class="nf">dev.off</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ==================== 提取显著区域 ====================</span>
+</span></span><span class="line"><span class="cl"><span class="n">QTL</span> <span class="o">&lt;-</span> <span class="nf">getSigRegions</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SNPset</span> <span class="o">=</span> <span class="n">df_filt</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">method</span> <span class="o">=</span> <span class="s">&#34;QTLseq&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">interval</span> <span class="o">=</span> <span class="m">95</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">write.table</span><span class="p">(</span><span class="n">QTL[[1]]</span><span class="p">,</span> <span class="s">&#34;QTLseq_result.SigRegions.table&#34;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s">&#34;\t&#34;</span><span class="p">,</span> <span class="n">quote</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ==================== 导出完整结果 ====================</span>
+</span></span><span class="line"><span class="cl"><span class="n">results99</span> <span class="o">&lt;-</span> <span class="nf">getQTLTable</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">SNPset</span> <span class="o">=</span> <span class="n">df_filt</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">method</span> <span class="o">=</span> <span class="s">&#34;QTLseq&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">interval</span> <span class="o">=</span> <span class="m">99</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="n">export</span> <span class="o">=</span> <span class="kc">FALSE</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nf">write.table</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="n">results99</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">file</span> <span class="o">=</span> <span class="s">&#34;QTLseq_result_deltaSNPindex_CI99.table&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">sep</span> <span class="o">=</span> <span class="s">&#34;\t&#34;</span><span class="p">,</span> 
+</span></span><span class="line"><span class="cl">    <span class="n">quote</span> <span class="o">=</span> <span class="kc">FALSE</span>
+</span></span><span class="line"><span class="cl"><span class="p">)</span>
 </span></span></code></pre></div><h2 id="附录分析流程图">附录：分析流程图<a hidden class="anchor" aria-hidden="true" href="#附录分析流程图">#</a></h2>
 <p>plaintext</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-R" data-lang="R"><span style="display:flex;"><span>原始数据 (FASTQ)
-</span></span><span style="display:flex;"><span>      │
-</span></span><span style="display:flex;"><span>      ▼
-</span></span><span style="display:flex;"><span>┌─────────────────┐
-</span></span><span style="display:flex;"><span>│   质量控制 QC   │
-</span></span><span style="display:flex;"><span>└─────────────────┘
-</span></span><span style="display:flex;"><span>      │
-</span></span><span style="display:flex;"><span>      ▼
-</span></span><span style="display:flex;"><span>┌─────────────────┐
-</span></span><span style="display:flex;"><span>│  比对 Mapping   │ ──► BWA MEM
-</span></span><span style="display:flex;"><span>└─────────────────┘
-</span></span><span style="display:flex;"><span>      │
-</span></span><span style="display:flex;"><span>      ▼
-</span></span><span style="display:flex;"><span>┌─────────────────┐
-</span></span><span style="display:flex;"><span>│ 去重 MarkDup    │ ──► Picard
-</span></span><span style="display:flex;"><span>└─────────────────┘
-</span></span><span style="display:flex;"><span>      │
-</span></span><span style="display:flex;"><span>      ├──────────────────────┬──────────────────────┐
-</span></span><span style="display:flex;"><span>      ▼                      ▼                      ▼
-</span></span><span style="display:flex;"><span>┌───────────┐          ┌───────────┐          ┌───────────┐
-</span></span><span style="display:flex;"><span>│ SNP<span style="color:#f92672">/</span>InDel │          │    SV     │          │    CNV    │
-</span></span><span style="display:flex;"><span>│   GATK    │          │  lumpy<span style="color:#f92672">-</span>sv │          │  CNVnator │
-</span></span><span style="display:flex;"><span>└───────────┘          └───────────┘          └───────────┘
-</span></span><span style="display:flex;"><span>      │                      │                      │
-</span></span><span style="display:flex;"><span>      └──────────────────────┴──────────────────────┘
-</span></span><span style="display:flex;"><span>                             │
-</span></span><span style="display:flex;"><span>                             ▼
-</span></span><span style="display:flex;"><span>                    ┌─────────────────┐
-</span></span><span style="display:flex;"><span>                    │      注释       │
-</span></span><span style="display:flex;"><span>                    │ ANNOVAR<span style="color:#f92672">/</span>bedtools│
-</span></span><span style="display:flex;"><span>                    └─────────────────┘
-</span></span><span style="display:flex;"><span>                             │
-</span></span><span style="display:flex;"><span>         ┌───────────────────┼───────────────────┐
-</span></span><span style="display:flex;"><span>         ▼                   ▼                   ▼
-</span></span><span style="display:flex;"><span>   ┌───────────┐       ┌───────────┐       ┌───────────┐
-</span></span><span style="display:flex;"><span>   │ 群体结构  │       │ 选择分析  │       │   GWAS    │
-</span></span><span style="display:flex;"><span>   │ PCA<span style="color:#f92672">/</span>Tree  │       │ Fst<span style="color:#f92672">/</span>π<span style="color:#f92672">/</span>D   │       │   EMMAX   │
-</span></span><span style="display:flex;"><span>   │ Structure │       │           │       │           │
-</span></span><span style="display:flex;"><span>   └───────────┘       └───────────┘       └───────────┘
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="line"><span class="cl">原始数据 <span class="p">(</span><span class="n">FASTQ</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      │
+</span></span><span class="line"><span class="cl">      ▼
+</span></span><span class="line"><span class="cl">┌─────────────────┐
+</span></span><span class="line"><span class="cl">│   质量控制 <span class="n">QC</span>   │
+</span></span><span class="line"><span class="cl">└─────────────────┘
+</span></span><span class="line"><span class="cl">      │
+</span></span><span class="line"><span class="cl">      ▼
+</span></span><span class="line"><span class="cl">┌─────────────────┐
+</span></span><span class="line"><span class="cl">│  比对 <span class="n">Mapping</span>   │ ──► <span class="n">BWA</span> <span class="n">MEM</span>
+</span></span><span class="line"><span class="cl">└─────────────────┘
+</span></span><span class="line"><span class="cl">      │
+</span></span><span class="line"><span class="cl">      ▼
+</span></span><span class="line"><span class="cl">┌─────────────────┐
+</span></span><span class="line"><span class="cl">│ 去重 <span class="n">MarkDup</span>    │ ──► <span class="n">Picard</span>
+</span></span><span class="line"><span class="cl">└─────────────────┘
+</span></span><span class="line"><span class="cl">      │
+</span></span><span class="line"><span class="cl">      ├──────────────────────┬──────────────────────┐
+</span></span><span class="line"><span class="cl">      ▼                      ▼                      ▼
+</span></span><span class="line"><span class="cl">┌───────────┐          ┌───────────┐          ┌───────────┐
+</span></span><span class="line"><span class="cl">│ <span class="n">SNP</span><span class="o">/</span><span class="n">InDel</span> │          │    <span class="n">SV</span>     │          │    <span class="n">CNV</span>    │
+</span></span><span class="line"><span class="cl">│   <span class="n">GATK</span>    │          │  <span class="n">lumpy</span><span class="o">-</span><span class="n">sv</span> │          │  <span class="n">CNVnator</span> │
+</span></span><span class="line"><span class="cl">└───────────┘          └───────────┘          └───────────┘
+</span></span><span class="line"><span class="cl">      │                      │                      │
+</span></span><span class="line"><span class="cl">      └──────────────────────┴──────────────────────┘
+</span></span><span class="line"><span class="cl">                             │
+</span></span><span class="line"><span class="cl">                             ▼
+</span></span><span class="line"><span class="cl">                    ┌─────────────────┐
+</span></span><span class="line"><span class="cl">                    │      注释       │
+</span></span><span class="line"><span class="cl">                    │ <span class="n">ANNOVAR</span><span class="o">/</span><span class="n">bedtools</span>│
+</span></span><span class="line"><span class="cl">                    └─────────────────┘
+</span></span><span class="line"><span class="cl">                             │
+</span></span><span class="line"><span class="cl">         ┌───────────────────┼───────────────────┐
+</span></span><span class="line"><span class="cl">         ▼                   ▼                   ▼
+</span></span><span class="line"><span class="cl">   ┌───────────┐       ┌───────────┐       ┌───────────┐
+</span></span><span class="line"><span class="cl">   │ 群体结构  │       │ 选择分析  │       │   <span class="n">GWAS</span>    │
+</span></span><span class="line"><span class="cl">   │ <span class="n">PCA</span><span class="o">/</span><span class="n">Tree</span>  │       │ <span class="n">Fst</span><span class="o">/</span>π<span class="o">/</span><span class="n">D</span>   │       │   <span class="n">EMMAX</span>   │
+</span></span><span class="line"><span class="cl">   │ <span class="n">Structure</span> │       │           │       │           │
+</span></span><span class="line"><span class="cl">   └───────────┘       └───────────┘       └───────────┘
 </span></span></code></pre></div>
 
       </div>
-      
-      
       <footer class="post-footer">
         <ul class="post-tags">
           <li><a href="https://Tdxxxx-student.github.io/tags/%E7%BE%A4%E4%BD%93%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90">群体结构分析</a></li>
@@ -975,7 +966,27 @@ QTL-seq 分析
           <li><a href="https://Tdxxxx-student.github.io/tags/gwas">GWAS</a></li>
           <li><a href="https://Tdxxxx-student.github.io/tags/qtl-seq">QTL-seq</a></li>
         </ul>
-      </footer></article>
+      </footer>
+
+      
+      <nav class="post-nav-full">
+        <div class="nav-info">
+            第 <strong>3</strong> / 3 篇 
+            <span style="opacity: 0.6; font-size: 0.9em; margin-left: 5px;">(分类: 重测序分析)</span>
+        </div>
+        
+        <div class="nav-buttons">
+          <a class="nav-btn first" href="https://Tdxxxx-student.github.io/posts/8000%E5%A4%A7%E8%B1%86%E9%87%8D%E6%B5%8B%E5%BA%8F%E6%96%87%E7%AB%A0%E5%A4%8D%E7%8E%B0/" title="第一篇">«</a>
+          <a class="nav-btn prev" href="https://Tdxxxx-student.github.io/posts/%E7%BE%A4%E4%BD%93%E9%81%97%E4%BC%A0%E5%AD%A6%E4%B8%8E%E9%87%8D%E6%B5%8B%E5%BA%8F%E5%88%86%E6%9E%90%E8%A7%A3%E9%87%8A/" title="群体遗传学与重测序分析解释">‹</a><div class="nav-pages-group">
+                <a class="nav-num" href="https://Tdxxxx-student.github.io/posts/8000%E5%A4%A7%E8%B1%86%E9%87%8D%E6%B5%8B%E5%BA%8F%E6%96%87%E7%AB%A0%E5%A4%8D%E7%8E%B0/" title="8000大豆重测序文章复现">1</a>
+                <a class="nav-num" href="https://Tdxxxx-student.github.io/posts/%E7%BE%A4%E4%BD%93%E9%81%97%E4%BC%A0%E5%AD%A6%E4%B8%8E%E9%87%8D%E6%B5%8B%E5%BA%8F%E5%88%86%E6%9E%90%E8%A7%A3%E9%87%8A/" title="群体遗传学与重测序分析解释">2</a>
+
+            <span class="nav-num current">3</span>
+          </div>
+          <span class="nav-btn next disabled">›</span>
+          <span class="nav-btn last disabled">»</span>
+        </div>
+      </nav></article>
 
     
     <aside class="sidebar-right">
@@ -1045,29 +1056,6 @@ QTL-seq 分析
 
   </div>
 </div>
-
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        const id = entry.target.getAttribute('id');
-        if (entry.intersectionRatio > 0) {
-          document.querySelectorAll('.toc-card li a').forEach(link => {
-            link.classList.remove('active');
-          });
-          const activeLink = document.querySelector(`.toc-card li a[href="#${id}"]`);
-          if (activeLink) {
-            activeLink.classList.add('active');
-          }
-        }
-      });
-    });
-    document.querySelectorAll('h1[id], h2[id], h3[id], h4[id]').forEach((section) => {
-      observer.observe(section);
-    });
-  });
-</script>
     </main>
     
 <footer class="footer">
@@ -1119,6 +1107,23 @@ QTL-seq 分析
     }
 }
 </style>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    if (document.getElementById('wide-post-layout')) {
+        var main = document.querySelector('main.main');
+        if (main) {
+            main.style.maxWidth = '100%';
+            main.style.width = '100%';
+            main.style.padding = '0';
+            main.style.margin = '0 auto';
+        }
+        
+        document.body.classList.add('is-single-post');
+    }
+});
+</script>
 
 <script>
     let menu = document.getElementById('menu');

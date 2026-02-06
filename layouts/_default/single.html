@@ -1,22 +1,61 @@
 {{- define "main" }}
 
-<div class="main-container">
+{{- /* =========================================================
+     0. 初始化变量 (修复作用域和类型问题)
+     ========================================================= */ -}}
+{{- $currentPage := . }}
+{{- $categoryPages := slice }}
+{{- $categoryName := "" }}
+
+{{- /* 1. 获取当前文章分类下的所有文章 */ -}}
+{{- if .Params.categories }}
+  {{- $categoryName = index .Params.categories 0 }}
+  {{- $taxonomy := index .Site.Taxonomies.categories $categoryName }}
+  {{- if $taxonomy }}
+      {{- $categoryPages = $taxonomy.Pages.ByDate.Reverse }}
+  {{- end }}
+{{- end }}
+
+{{- /* 2. 如果无分类，回退到全站文章 */ -}}
+{{- if eq (len $categoryPages) 0 }}
+  {{- $categoryPages = where .Site.RegularPages "Type" "posts" }}
+  {{- $categoryPages = $categoryPages.ByDate.Reverse }}
+  {{- $categoryName = "全部文章" }}
+{{- end }}
+
+{{- /* 3. 计算当前位置 */ -}}
+{{- $total := len $categoryPages }}
+{{- $current := 0 }}
+{{- $prevPage := "" }}  {{- /* 初始化为空字符串 */ -}}
+{{- $nextPage := "" }}  {{- /* 初始化为空字符串 */ -}}
+
+{{- range $index, $page := $categoryPages }}
+  {{- if eq $page.Permalink $currentPage.Permalink }}
+    {{- $current = add $index 1 }}
+    
+    {{- /* 上一篇 */ -}}
+    {{- if gt $index 0 }}
+      {{- $prevPage = index $categoryPages (sub $index 1) }}
+    {{- end }}
+    
+    {{- /* 下一篇 */ -}}
+    {{- if lt (add $index 1) $total }}
+      {{- $nextPage = index $categoryPages (add $index 1) }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+
+<!-- ⚠️ 唯一识别 ID -->
+<div id="wide-post-layout" class="post-page-wrapper">
   
-  <!-- 顶部装饰背景条 (纯装饰，不放内容) -->
   <div class="top-banner-decoration"></div>
 
-  <!-- 页面布局容器 -->
   <div class="page-layout">
     
-    <!-- 左侧：文章卡片 (包含标题、信息、正文) -->
     <article class="post-card">
-      
-      <!-- 1. 标题区域移到卡片内部 -->
       <header class="post-header">
         {{- partial "breadcrumbs.html" . }}
-        <h1 class="post-title">
-          {{ .Title }}
-        </h1>
+        <h1 class="post-title">{{ .Title }}</h1>
         {{- if .Description }}
         <div class="post-description">{{ .Description }}</div>
         {{- end }}
@@ -27,14 +66,12 @@
         {{- end }}
       </header>
 
-      <!-- 2. 正文区域 -->
       <div class="post-content">
         {{- if not (.Param "disableAnchoredHeadings") }}
         {{- partial "anchored_headings.html" .Content -}}
         {{- else }}{{ .Content }}{{ end }}
       </div>
       
-      <!-- 3. 底部标签和评论 -->
       {{- if .Params.tags }}
       <footer class="post-footer">
         <ul class="post-tags">
@@ -44,11 +81,80 @@
         </ul>
       </footer>
       {{- end }}
+
+      <!-- =========================================================
+           4. 渲染数字页码导航
+           ========================================================= -->
+      <nav class="post-nav-full">
+        <div class="nav-info">
+            第 <strong>{{ $current }}</strong> / {{ $total }} 篇 
+            <span style="opacity: 0.6; font-size: 0.9em; margin-left: 5px;">(分类: {{ $categoryName }})</span>
+        </div>
+        
+        <div class="nav-buttons">
+          {{- /* 首页 */ -}}
+          {{- if gt $current 1 }}
+          <a class="nav-btn first" href="{{ (index $categoryPages 0).Permalink }}" title="第一篇">«</a>
+          {{- else }}
+          <span class="nav-btn first disabled">«</span>
+          {{- end }}
+          
+          {{- /* 上一篇 (检查是否为空) */ -}}
+          {{- if ne $prevPage "" }}
+          <a class="nav-btn prev" href="{{ $prevPage.Permalink }}" title="{{ $prevPage.Title }}">‹</a>
+          {{- else }}
+          <span class="nav-btn prev disabled">‹</span>
+          {{- end }}
+
+          {{- /* 数字页码组 */ -}}
+          <div class="nav-pages-group">
+            {{- if gt $current 3 }}
+            <span class="nav-dots">...</span>
+            {{- end }}
+
+            {{- range $i := seq (sub $current 2) (sub $current 1) }}
+              {{- if gt $i 0 }}
+                {{- $idx := sub $i 1 }}
+                {{- $p := index $categoryPages $idx }}
+                <a class="nav-num" href="{{ $p.Permalink }}" title="{{ $p.Title }}">{{ $i }}</a>
+              {{- end }}
+            {{- end }}
+
+            <span class="nav-num current">{{ $current }}</span>
+
+            {{- range $i := seq (add $current 1) (add $current 2) }}
+              {{- if le $i $total }}
+                {{- $idx := sub $i 1 }}
+                {{- $p := index $categoryPages $idx }}
+                <a class="nav-num" href="{{ $p.Permalink }}" title="{{ $p.Title }}">{{ $i }}</a>
+              {{- end }}
+            {{- end }}
+
+            {{- if lt $current (sub $total 2) }}
+            <span class="nav-dots">...</span>
+            {{- end }}
+          </div>
+
+          {{- /* 下一篇 (检查是否为空) */ -}}
+          {{- if ne $nextPage "" }}
+          <a class="nav-btn next" href="{{ $nextPage.Permalink }}" title="{{ $nextPage.Title }}">›</a>
+          {{- else }}
+          <span class="nav-btn next disabled">›</span>
+          {{- end }}
+          
+          {{- /* 末页 */ -}}
+          {{- if lt $current $total }}
+          <a class="nav-btn last" href="{{ (index $categoryPages (sub $total 1)).Permalink }}" title="最后一篇">»</a>
+          {{- else }}
+          <span class="nav-btn last disabled">»</span>
+          {{- end }}
+        </div>
+      </nav>
       
       {{- partial "comments.html" . -}}
     </article>
 
-    <!-- 右侧：悬浮目录 (完全独立) -->
+    <!-- 右侧：悬浮目录 -->
     {{- if (.Param "ShowToc") }}
     <aside class="sidebar-right">
       <div class="toc-card">
@@ -64,28 +170,5 @@
 
   </div>
 </div>
-
-<!-- 滚动监听脚本 -->
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        const id = entry.target.getAttribute('id');
-        if (entry.intersectionRatio > 0) {
-          document.querySelectorAll('.toc-card li a').forEach(link => {
-            link.classList.remove('active');
-          });
-          const activeLink = document.querySelector(`.toc-card li a[href="#${id}"]`);
-          if (activeLink) {
-            activeLink.classList.add('active');
-          }
-        }
-      });
-    });
-    document.querySelectorAll('h1[id], h2[id], h3[id], h4[id]').forEach((section) => {
-      observer.observe(section);
-    });
-  });
-</script>
 
 {{- end }}

@@ -10,7 +10,7 @@
 <meta name="description" content="本地使用生信工具">
 <meta name="author" content="tdx">
 <link rel="canonical" href="https://Tdxxxx-student.github.io/posts/mafft%E5%BA%8F%E5%88%97%E6%AF%94%E5%AF%B9/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.e2698852c6e8116e7ca528885981ca226437cb47da1d503f2737f09678bdfc27.css" integrity="sha256-4mmIUsboEW58pSiIWYHKImQ3y0faHVA/Jzfwlni9/Cc=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.01d35acdbbaa1404939950eac1b15ada4d2a087b51757e85aec3659df639bc28.css" integrity="sha256-AdNazbuqFASTmVDqwbFa2k0qCHtRdX6FrsNlnfY5vCg=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://Tdxxxx-student.github.io/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://Tdxxxx-student.github.io/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://Tdxxxx-student.github.io/favicon-32x32.png">
@@ -198,77 +198,87 @@
 </header>
 <main class="main">
 
-<div class="main-container">
-  
+
+<div id="wide-post-layout" class="post-page-wrapper">
   
   <div class="top-banner-decoration"></div>
 
-  
   <div class="page-layout">
     
-    
     <article class="post-card">
-      
-      
       <header class="post-header"><div class="breadcrumbs"><a href="https://Tdxxxx-student.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://Tdxxxx-student.github.io/posts/">Posts</a></div>
-        <h1 class="post-title">
-          Mafft序列比对
-        </h1>
+        <h1 class="post-title">Mafft序列比对</h1>
         <div class="post-description">本地使用生信工具</div>
         <div class="post-meta"><span title='2026-02-04 20:33:57 +0800 CST'>2026-02-04</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>tdx</span></div>
       </header>
 
-      
       <div class="post-content"><h2 id="linux环境下安装mafft">linux环境下安装MAFFT<a hidden class="anchor" aria-hidden="true" href="#linux环境下安装mafft">#</a></h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mamba activate snp
-</span></span><span style="display:flex;"><span>mamba install -c bioconda mafft
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mamba activate snp
+</span></span><span class="line"><span class="cl">mamba install -c bioconda mafft
 </span></span></code></pre></div><h3 id="fa文件改名">fa文件改名<a hidden class="anchor" aria-hidden="true" href="#fa文件改名">#</a></h3>
 <p>==#示例文件名LITCHI013387_fzsl1.cds.fa==</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 根据fa文件名删除原表头替换目标表头</span>
-</span></span><span style="display:flex;"><span>token<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;all.&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> file in *.fa; <span style="color:#66d9ef">do</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># 提取文件名和标题</span>
-</span></span><span style="display:flex;"><span>  filename<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>file%.*<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span> 
-</span></span><span style="display:flex;"><span>  title<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&gt;</span><span style="color:#e6db74">${</span>filename##*$token<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># 打印调试信息</span>
-</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;Processing file: </span>$file<span style="color:#e6db74">&#34;</span>
-</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;Title: </span>$title<span style="color:#e6db74">&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># 删除原标题</span>
-</span></span><span style="display:flex;"><span>  sed -i <span style="color:#e6db74">&#39;1d&#39;</span> <span style="color:#e6db74">&#34;</span>$file<span style="color:#e6db74">&#34;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># 使用AWK方式插入新标题</span>
-</span></span><span style="display:flex;"><span>  awk -v new_title<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$title<span style="color:#e6db74">&#34;</span> <span style="color:#e6db74">&#39;BEGIN{FS=OFS=&#34;\n&#34;} NR==1{print new_title} {print}&#39;</span> <span style="color:#e6db74">&#34;</span>$file<span style="color:#e6db74">&#34;</span> &gt; temp <span style="color:#f92672">&amp;&amp;</span> mv temp <span style="color:#e6db74">&#34;</span>$file<span style="color:#e6db74">&#34;</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 根据fa文件名删除原表头替换目标表头</span>
+</span></span><span class="line"><span class="cl"><span class="nv">token</span><span class="o">=</span><span class="s2">&#34;all.&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> file in *.fa<span class="p">;</span> <span class="k">do</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># 提取文件名和标题</span>
+</span></span><span class="line"><span class="cl">  <span class="nv">filename</span><span class="o">=</span><span class="s2">&#34;</span><span class="si">${</span><span class="nv">file</span><span class="p">%.*</span><span class="si">}</span><span class="s2">&#34;</span> 
+</span></span><span class="line"><span class="cl">  <span class="nv">title</span><span class="o">=</span><span class="s2">&#34;&gt;</span><span class="si">${</span><span class="nv">filename</span><span class="p">##*</span><span class="nv">$token</span><span class="si">}</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># 打印调试信息</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;Processing file: </span><span class="nv">$file</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">echo</span> <span class="s2">&#34;Title: </span><span class="nv">$title</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># 删除原标题</span>
+</span></span><span class="line"><span class="cl">  sed -i <span class="s1">&#39;1d&#39;</span> <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="c1"># 使用AWK方式插入新标题</span>
+</span></span><span class="line"><span class="cl">  awk -v <span class="nv">new_title</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$title</span><span class="s2">&#34;</span> <span class="s1">&#39;BEGIN{FS=OFS=&#34;\n&#34;} NR==1{print new_title} {print}&#39;</span> <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span> &gt; temp <span class="o">&amp;&amp;</span> mv temp <span class="s2">&#34;</span><span class="nv">$file</span><span class="s2">&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="k">done</span>
 </span></span></code></pre></div><h3 id="合并fa文件">合并fa文件<a hidden class="anchor" aria-hidden="true" href="#合并fa文件">#</a></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#防止序列拼接在上一条序列尾部</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i in <span style="color:#66d9ef">$(</span>ls *.fa<span style="color:#66d9ef">)</span>;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
-</span></span><span style="display:flex;"><span>  cat <span style="color:#e6db74">${</span>i<span style="color:#e6db74">}</span>
-</span></span><span style="display:flex;"><span>   echo
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span> &gt; LITCHI013387.total_sample.cds.fasta
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1">#防止序列拼接在上一条序列尾部</span>
+</span></span><span class="line"><span class="cl"><span class="k">for</span> i in <span class="k">$(</span>ls *.fa<span class="k">)</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">do</span>
+</span></span><span class="line"><span class="cl">  cat <span class="si">${</span><span class="nv">i</span><span class="si">}</span>
+</span></span><span class="line"><span class="cl">   <span class="nb">echo</span>
+</span></span><span class="line"><span class="cl"><span class="k">done</span> &gt; LITCHI013387.total_sample.cds.fasta
 </span></span></code></pre></div><h3 id="fasta文件比对">fasta文件比对<a hidden class="anchor" aria-hidden="true" href="#fasta文件比对">#</a></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mafft --auto --quiet LITCHI013387.total_sample.cds.fasta &gt; LITCHI0013387.allsample.cds.aligment.fasta
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 或者输出格式为clustal </span>
-</span></span><span style="display:flex;"><span>mafft --auto --thread <span style="color:#ae81ff">4</span> --clustalout MADS84.total_sample.cds.fasta &gt; MADS84.allsample.cds.aligment.clustal
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mafft --auto --quiet LITCHI013387.total_sample.cds.fasta &gt; LITCHI0013387.allsample.cds.aligment.fasta
+</span></span><span class="line"><span class="cl"><span class="c1"># 或者输出格式为clustal </span>
+</span></span><span class="line"><span class="cl">mafft --auto --thread <span class="m">4</span> --clustalout MADS84.total_sample.cds.fasta &gt; MADS84.allsample.cds.aligment.clustal
 </span></span></code></pre></div><h3 id="将比对结果美化">将比对结果美化<a hidden class="anchor" aria-hidden="true" href="#将比对结果美化">#</a></h3>
 <p>==Esprint3.0==</p>
 <p>~/workpace/5_flower.gene_fasta  5个基因cds所有样品合并序列</p>
 <p>~/workpace/5_flower.gene_fasta/merge_work/LITCHI013387_snp.indel.cds/013387.cds.sample</p>
 <h2 id="翻译核苷酸序列">翻译核苷酸序列<a hidden class="anchor" aria-hidden="true" href="#翻译核苷酸序列">#</a></h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>transeq -sequence MADS46.total_sample.cds.fasta -outseq MADS46.total_sample.cds.translated.fasta
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">transeq -sequence MADS46.total_sample.cds.fasta -outseq MADS46.total_sample.cds.translated.fasta
 </span></span></code></pre></div><h3 id="比对氨基酸序列最大相似度考虑">比对氨基酸序列(最大相似度考虑)<a hidden class="anchor" aria-hidden="true" href="#比对氨基酸序列最大相似度考虑">#</a></h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mafft --auto --reorder --thread <span style="color:#ae81ff">4</span> --quiet --clustalout LITCHI013387.total_sample.cds.fasta.protein.fasta &gt; LITCHI013387.total_sample.cds.protein.clustal
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mafft --auto --reorder --thread <span class="m">4</span> --quiet --clustalout LITCHI013387.total_sample.cds.fasta.protein.fasta &gt; LITCHI013387.total_sample.cds.protein.clustal
 </span></span></code></pre></div><p>比对结果聚类,构建系统发育树
 或者使用tbtools</p>
 
 
       </div>
-      
-      
       <footer class="post-footer">
         <ul class="post-tags">
           <li><a href="https://Tdxxxx-student.github.io/tags/mafft">mafft</a></li>
         </ul>
-      </footer></article>
+      </footer>
+
+      
+      <nav class="post-nav-full">
+        <div class="nav-info">
+            第 <strong>1</strong> / 2 篇 
+            <span style="opacity: 0.6; font-size: 0.9em; margin-left: 5px;">(分类: 本地使用生信工具)</span>
+        </div>
+        
+        <div class="nav-buttons">
+          <span class="nav-btn first disabled">«</span>
+          <span class="nav-btn prev disabled">‹</span><div class="nav-pages-group">
+
+            <span class="nav-num current">1</span>
+                <a class="nav-num" href="https://Tdxxxx-student.github.io/posts/%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8blast/" title="本地服务器Blast">2</a>
+          </div>
+          <a class="nav-btn next" href="https://Tdxxxx-student.github.io/posts/%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8blast/" title="本地服务器Blast">›</a>
+          <a class="nav-btn last" href="https://Tdxxxx-student.github.io/posts/%E6%9C%AC%E5%9C%B0%E6%9C%8D%E5%8A%A1%E5%99%A8blast/" title="最后一篇">»</a>
+        </div>
+      </nav></article>
 
     
     <aside class="sidebar-right">
@@ -300,29 +310,6 @@
 
   </div>
 </div>
-
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        const id = entry.target.getAttribute('id');
-        if (entry.intersectionRatio > 0) {
-          document.querySelectorAll('.toc-card li a').forEach(link => {
-            link.classList.remove('active');
-          });
-          const activeLink = document.querySelector(`.toc-card li a[href="#${id}"]`);
-          if (activeLink) {
-            activeLink.classList.add('active');
-          }
-        }
-      });
-    });
-    document.querySelectorAll('h1[id], h2[id], h3[id], h4[id]').forEach((section) => {
-      observer.observe(section);
-    });
-  });
-</script>
     </main>
     
 <footer class="footer">
@@ -374,6 +361,23 @@
     }
 }
 </style>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    if (document.getElementById('wide-post-layout')) {
+        var main = document.querySelector('main.main');
+        if (main) {
+            main.style.maxWidth = '100%';
+            main.style.width = '100%';
+            main.style.padding = '0';
+            main.style.margin = '0 auto';
+        }
+        
+        document.body.classList.add('is-single-post');
+    }
+});
+</script>
 
 <script>
     let menu = document.getElementById('menu');

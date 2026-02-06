@@ -1,35 +1,50 @@
 {{- define "main" }}
 
-<header class="page-header">
-  <h1>{{ .Title }}</h1>
-</header>
+<div class="main-container">
+  <div class="top-banner-decoration"></div>
 
-<div class="custom-categories-page">
-  {{- /* 循环获取分类 */ -}}
-  {{- range $key, $value := .Data.Terms.Alphabetical }}
-  <div class="category-wrapper">
-    <details class="category-accordion">
-      <summary class="category-header">
-        <div class="category-title">
-          <span class="icon">▸</span>
-          <span class="name">{{ .Name }}</span>
+  <div class="page-layout category-page-layout">
+    
+    <!-- 宽屏大卡片 -->
+    <div class="post-card category-card">
+      <header class="post-header">
+        <h1 class="post-title" style="margin-bottom: 40px; text-align: center;">{{ .Title }}</h1>
+      </header>
+
+      <!-- 分类列表容器 -->
+      <div class="category-list-container">
+        {{- range $key, $value := .Data.Terms.Alphabetical }}
+        <div class="category-item-wrapper">
+          <details class="category-details">
+            
+            <!-- 分类标题行 -->
+            <summary class="category-summary">
+              <div class="cat-left">
+                <span class="cat-icon">📂</span> 
+                <span class="cat-name">{{ .Name }}</span>
+              </div>
+              
+              <!-- 右侧只显示纯数字 -->
+              <span class="cat-count">{{ .Count }}</span>
+            </summary>
+            
+            <!-- 展开的文章列表 -->
+            <div class="cat-posts-list">
+              {{- range .Pages.ByDate.Reverse }}
+              <a href="{{ .Permalink }}" class="cat-post-row">
+                <span class="cp-title">{{ .Title }}</span>
+                <span class="cp-date">{{ .Date.Format "2006-01-02" }}</span>
+              </a>
+              {{- end }}
+            </div>
+            
+          </details>
         </div>
-        {{- /* 修改：右侧显示 📕 + 数字 */ -}}
-        <span class="category-count">📕 {{ .Count }}</span>
-      </summary>
-      
-      {{- /* 下拉文章列表 */ -}}
-      <div class="category-posts-list">
-        {{- range .Pages.ByDate.Reverse }}
-        <a href="{{ .Permalink }}" class="post-entry-card">
-          <span class="post-title">{{ .Title }}</span>
-          <span class="post-date">{{ .Date.Format "2006-01-02" }}</span>
-        </a>
         {{- end }}
       </div>
-    </details>
+    </div>
+
   </div>
-  {{- end }}
 </div>
 
 {{- end }}
