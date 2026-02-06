@@ -1,35 +1,40 @@
 {{- define "main" }}
 
-<article class="post-single">
-  <!-- 头部区域 (背景图 + 标题) -->
-  <header class="post-header">
-    {{- partial "breadcrumbs.html" . }}
-    <h1 class="post-title">
-      {{ .Title }}
-    </h1>
-    {{- if .Description }}
-    <div class="post-description">{{ .Description }}</div>
-    {{- end }}
-    {{- if not (.Param "hideMeta") }}
-    <div class="post-meta">
-      {{- partial "post_meta.html" . -}}
-    </div>
-    {{- end }}
-  </header>
+<div class="main-container">
+  
+  <!-- 顶部装饰背景条 (纯装饰，不放内容) -->
+  <div class="top-banner-decoration"></div>
 
   <!-- 页面布局容器 -->
   <div class="page-layout">
     
-    <!-- 中间：文章卡片 -->
-    <div class="post-card">
-      <!-- 移除文章内部的默认目录 -->
+    <!-- 左侧：文章卡片 (包含标题、信息、正文) -->
+    <article class="post-card">
       
+      <!-- 1. 标题区域移到卡片内部 -->
+      <header class="post-header">
+        {{- partial "breadcrumbs.html" . }}
+        <h1 class="post-title">
+          {{ .Title }}
+        </h1>
+        {{- if .Description }}
+        <div class="post-description">{{ .Description }}</div>
+        {{- end }}
+        {{- if not (.Param "hideMeta") }}
+        <div class="post-meta">
+          {{- partial "post_meta.html" . -}}
+        </div>
+        {{- end }}
+      </header>
+
+      <!-- 2. 正文区域 -->
       <div class="post-content">
         {{- if not (.Param "disableAnchoredHeadings") }}
         {{- partial "anchored_headings.html" .Content -}}
         {{- else }}{{ .Content }}{{ end }}
       </div>
       
+      <!-- 3. 底部标签和评论 -->
       {{- if .Params.tags }}
       <footer class="post-footer">
         <ul class="post-tags">
@@ -41,7 +46,7 @@
       {{- end }}
       
       {{- partial "comments.html" . -}}
-    </div>
+    </article>
 
     <!-- 右侧：悬浮目录 (完全独立) -->
     {{- if (.Param "ShowToc") }}
@@ -58,9 +63,9 @@
     {{- end }}
 
   </div>
-</article>
+</div>
 
-<!-- 滚动监听脚本 (保持不变) -->
+<!-- 滚动监听脚本 -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver(entries => {

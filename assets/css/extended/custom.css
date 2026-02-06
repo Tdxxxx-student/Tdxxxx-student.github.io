@@ -1,94 +1,101 @@
 /* ========================================
-   全局背景与布局 (图2风格)
+   1. 全局背景与装饰
    ======================================== */
 body {
     background-color: #f4f5f7; /* 浅灰底色 */
 }
 
-/* 页面主布局容器 */
-.page-layout {
-    display: flex;
-    justify-content: center; /* 居中对齐 */
-    align-items: flex-start;
-    gap: 30px;
-    max-width: 1400px; /* 增加总宽度 */
-    margin: -60px auto 40px; /* 向上负边距，让卡片盖住部分Header */
-    padding: 0 20px;
-    position: relative;
-    z-index: 10;
+/* 顶部深色装饰条 */
+.top-banner-decoration {
+    background-color: #2c3e50; /* 深色背景 */
+    height: 250px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
 }
 
 /* ========================================
-   文章卡片样式 (中间白色部分)
+   2. 页面主布局 (宽屏适配)
+   ======================================== */
+.page-layout {
+    position: relative;
+    z-index: 10;
+    
+    /* 宽度控制：占据屏幕 95%，最大 1800px */
+    width: 95%;
+    max-width: 1800px;
+    margin: 60px auto 40px; /* 顶部留白，让内容压一部分在装饰条上 */
+    
+    display: flex;
+    justify-content: center; /* 整体居中 */
+    align-items: flex-start;
+    gap: 30px; /* 文章和目录的间距 */
+}
+
+/* ========================================
+   3. 左侧文章卡片 (白色背景)
    ======================================== */
 .post-card {
     background: #fff;
-    width: 2000px; /* 固定文章宽度 */
-    padding: 50px; /* 宽敞的内边距 */
+    flex: 1; /* 自动撑开宽度 */
+    min-width: 0; /* 防止内容溢出 */
+    
+    /* 圆角与阴影 */
     border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    min-height: 500px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    
+    /* 内边距 */
+    padding: 60px;
 }
 
-/* 文章头部特殊处理 (PaperMod风格适配) */
-.post-header {
-    background-color: #333; /* 深色背景 */
-    background-image: url('/images/header-bg.jpg'); /* 可选：顶部大图 */
-    background-size: cover;
-    background-position: center;
-    color: #fff;
-    padding: 100px 20px 100px; /* 增加高度 */
-    text-align: center;
-    margin-bottom: 0; /* 去除默认下边距 */
-}
-
+/* 标题样式优化 */
 .post-title {
-    color: #fff;
-    font-size: 36px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 10px;
+    line-height: 1.3;
 }
 
 .post-meta {
-    color: rgba(255, 255, 255, 0.8);
+    color: #666;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
 }
 
-.breadcrumbs a {
-    color: rgba(255, 255, 255, 0.8);
+/* 正文内容字体大小控制 */
+.post-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #2c3e50;
 }
 
 /* ========================================
-   右侧悬浮目录 (独立侧边栏)
+   4. 右侧悬浮目录
    ======================================== */
 .sidebar-right {
-    width: 300px; /* 目录宽度 */
-    flex-shrink: 0;
+    width: 300px; /* 固定目录宽度 */
+    flex-shrink: 0; /* 禁止被压缩 */
     position: sticky;
-    top: 20px;
-    margin-top: 60px; /* 抵消负边距的影响 */
+    top: 20px; /* 距离浏览器顶部 */
 }
 
 .toc-card {
-    background: #dad8d8; /* 改为白色背景，更干净 */
+    background: #fff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
     font-size: 14px;
-    max-height: calc(100vh - 40px);
+    max-height: 85vh; /* 防止目录太长超出屏幕 */
     overflow-y: auto;
 }
 
-/* 隐藏滚动条但保留功能 */
-.toc-card::-webkit-scrollbar {
-    width: 4px;
-}
-.toc-card::-webkit-scrollbar-thumb {
-    background: #eee;
-    border-radius: 2px;
-}
-
+/* 目录标题 */
 .toc-title {
     font-size: 16px;
-    font-weight: 700;
+    font-weight: bold;
     color: #333;
     margin-bottom: 15px;
     padding-bottom: 10px;
@@ -98,74 +105,69 @@ body {
     gap: 8px;
 }
 
-/* 目录链接样式优化 */
-.toc-card nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.toc-card nav ul li {
-    margin-bottom: 4px;
-}
-
+/* 目录链接 */
 .toc-card a {
     display: block;
-    padding: 6px 12px;
+    padding: 6px 10px;
     color: #666;
     text-decoration: none;
-    border-left: 2px solid transparent;
+    border-left: 3px solid transparent;
     transition: all 0.2s;
-    border-radius: 0 4px 4px 0;
+    line-height: 1.5;
 }
 
-/* 缩进层级 */
-.toc-card ul ul a {
-    padding-left: 24px;
-    font-size: 13px;
-}
-.toc-card ul ul ul a {
-    padding-left: 36px;
-}
-
-/* 悬停与激活状态 */
-.toc-card a:hover {
-    background-color: #f5f7fa;
-    color: #0066cc;
-}
-
+/* 选中高亮 */
 .toc-card a.active {
-    background-color: #e6f7ff; /* 浅蓝背景 */
-    color: #0066cc; /* 蓝色文字 */
-    border-left-color: #0066cc; /* 蓝色竖条 */
+    background-color: #f0f7ff;
+    color: #0066cc;
+    border-left-color: #0066cc;
     font-weight: 600;
 }
 
+.toc-card a:hover {
+    color: #0066cc;
+    background-color: #fafafa;
+}
+
+/* 缩进 */
+.toc-card ul { padding: 0; margin: 0; list-style: none; }
+.toc-card ul ul a { padding-left: 20px; font-size: 13px; }
+.toc-card ul ul ul a { padding-left: 35px; }
+
 /* ========================================
-   响应式 (手机端)
+   5. 响应式适配 (重要)
    ======================================== */
-@media (max-width: 1300px) {
+
+/* 屏幕较窄时 (小于 1200px) */
+@media (max-width: 1200px) {
     .sidebar-right {
-        display: none; /* 屏幕窄时隐藏右侧栏 */
-    }
-    
-    .post-card {
-        width: 100%;
-        margin: 0;
-        border-radius: 0;
+        display: none; /* 隐藏右侧目录 */
     }
     
     .page-layout {
-        margin: 0;
-        padding: 0;
+        width: 100%;
+        margin-top: 0; /* 手机端去掉负边距 */
         display: block;
+    }
+    
+    .post-card {
+        border-radius: 0;
+        box-shadow: none;
+        padding: 30px 20px; /* 减小内边距 */
+    }
+    
+    .top-banner-decoration {
+        display: none; /* 手机端隐藏装饰条 */
     }
 }
 
-/* 深色模式 */
+/* 深色模式适配 */
 .dark body { background-color: #121212; }
-.dark .post-card { background-color: #1e1e1e; }
-.dark .toc-card { background-color: #1e1e1e; box-shadow: none; border: 1px solid #333; }
-.dark .toc-title { color: #e0e0e0; border-bottom-color: #333; }
+.dark .top-banner-decoration { background-color: #1a1a1a; }
+.dark .post-card { background-color: #1e1e1e; color: #e0e0e0; }
+.dark .post-title { color: #fff; }
+.dark .post-content { color: #ccc; }
+.dark .toc-card { background-color: #1e1e1e; border: 1px solid #333; }
+.dark .toc-title { color: #fff; border-bottom-color: #333; }
 .dark .toc-card a { color: #aaa; }
 .dark .toc-card a.active { background-color: #2a2a2a; color: #58a6ff; border-left-color: #58a6ff; }

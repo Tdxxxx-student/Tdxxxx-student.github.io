@@ -1,5 +1,13 @@
 [
   {
+    "title": "Fq文件改名脚本",
+    "url": "https://Tdxxxx-student.github.io/posts/fq%E6%96%87%E4%BB%B6%E6%94%B9%E5%90%8D%E8%84%9A%E6%9C%AC/",
+    "date": "2026-02-06",
+    "categories": ["fq文件下载"],
+    "tags": ["fastq","文件改名"],
+    "content": "Linux 数据处理：批量提取文件名并重命名 在生物信息分析中，我们经常需要处理包含样本信息的文本文件，并根据这些信息批量重命名测序数据（FASTQ 文件）。\n本文介绍如何使用 awk 提取文件名中的特定字段，并批量重命名对应的测序文件。\n场景描述 假设我们有一个样本信息文件 sample.txt，内容如下：\ntext\nSRR064551 BGI_CUHK_Soybean_C08 …"
+  },
+  {
     "title": "8000大豆重测序文章复现",
     "url": "https://Tdxxxx-student.github.io/posts/8000%E5%A4%A7%E8%B1%86%E9%87%8D%E6%B5%8B%E5%BA%8F%E6%96%87%E7%AB%A0%E5%A4%8D%E7%8E%B0/",
     "date": "2026-02-05",

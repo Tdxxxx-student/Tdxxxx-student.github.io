@@ -7,14 +7,22 @@
     <generator>Hugo -- 0.155.1</generator>
     <language>zh-cn</language>
     <copyright>tdx0307</copyright>
-    <lastBuildDate>Tue, 03 Feb 2026 22:20:24 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 06 Feb 2026 12:41:28 +0800</lastBuildDate>
     <atom:link href="https://Tdxxxx-student.github.io/categories/fq%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fq文件改名脚本</title>
+      <link>https://Tdxxxx-student.github.io/posts/fq%E6%96%87%E4%BB%B6%E6%94%B9%E5%90%8D%E8%84%9A%E6%9C%AC/</link>
+      <pubDate>Fri, 06 Feb 2026 12:41:28 +0800</pubDate>
+      <guid>https://Tdxxxx-student.github.io/posts/fq%E6%96%87%E4%BB%B6%E6%94%B9%E5%90%8D%E8%84%9A%E6%9C%AC/</guid>
+      <description>&lt;h1 id=&#34;linux-数据处理批量提取文件名并重命名&#34;&gt;Linux 数据处理：批量提取文件名并重命名&lt;/h1&gt;
+&lt;p&gt;在生物信息分析中，我们经常需要处理包含样本信息的文本文件，并根据这些信息批量重命名测序数据（FASTQ 文件）。&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Fq文件下载和校验</title>
       <link>https://Tdxxxx-student.github.io/posts/fq%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%92%8C%E6%A0%A1%E9%AA%8C/</link>
       <pubDate>Tue, 03 Feb 2026 22:20:24 +0800</pubDate>
       <guid>https://Tdxxxx-student.github.io/posts/fq%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%92%8C%E6%A0%A1%E9%AA%8C/</guid>
-      <description>&lt;h1 id=&#34;aspera安装&#34;&gt;Aspera安装&lt;/h1&gt;
+      <description>&lt;h2 id=&#34;aspera安装&#34;&gt;Aspera安装&lt;/h2&gt;
 &lt;p&gt;可以conda/mamba安装
 &lt;a href=&#34;https://zhuanlan.zhihu.com/p/640962215&#34;&gt;Linux系统上安装aspera并用其批量高速下载转录组数据 - 知乎 (zhihu.com)&lt;/a&gt;
 手动安装&lt;/p&gt;
@@ -26,7 +34,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ echo &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;export PATH=\&amp;#34;/home/xiaotiancai/.aspera/connect/bin:\$PATH\&amp;#34; &amp;#34;&amp;#34;&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; ~/.bashrc
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 有输出帮助文档则安装成功&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ ascp -h
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;基本语法&#34;&gt;基本语法&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;基本语法&#34;&gt;基本语法&lt;/h3&gt;
 &lt;p&gt;借鉴
 &lt;a href=&#34;https://download.asperasoft.com/download/docs/ascp/2.7/html/index.html&#34;&gt;Aspera ascp Usage (2.7) Documentation - All Aspera Server 2.7 Platforms (asperasoft.com)&lt;/a&gt;&lt;/p&gt;</description>
     </item>

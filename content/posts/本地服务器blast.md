@@ -7,7 +7,7 @@ categories = ["本地使用生信工具"]
 tags = ["Blast","本地"]
 description = ""
 +++
-# 建库
+## 建库
 
 ```bash
 makeblastdb -in db.fasta -dbtype prot -out dbname
@@ -21,7 +21,7 @@ makeblastdb -in db.fasta -dbtype prot -out dbname
 更多参数说明请执行：makeblastdb -help
 ```
 
-# 比对
+## 比对
 
 ```bash
 blastp -query seq.fasta -out seq.blast -db dbname -outfmt 6 -evalue 1e-5 -num_threads 20 -max_target_seqs 10

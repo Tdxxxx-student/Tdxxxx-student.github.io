@@ -14,7 +14,7 @@
       <link>https://Tdxxxx-student.github.io/posts/annovar%E6%B3%A8%E9%87%8A/</link>
       <pubDate>Wed, 04 Feb 2026 20:19:11 +0800</pubDate>
       <guid>https://Tdxxxx-student.github.io/posts/annovar%E6%B3%A8%E9%87%8A/</guid>
-      <description>&lt;h1 id=&#34;下载软件&#34;&gt;下载软件&lt;/h1&gt;
+      <description>&lt;h2 id=&#34;下载软件&#34;&gt;下载软件&lt;/h2&gt;
 &lt;p&gt;准备文件：物种gff和fasta文件&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.openbioinformatics.org/annovar/annovar_download_form.php&#34;&gt;https://www.openbioinformatics.org/annovar/annovar_download_form.php&lt;/a&gt;
 填写教育类邮箱获取下载链接；&lt;/p&gt;
@@ -23,7 +23,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 追加&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# export PATH=/pub/software/annovar:$PATH&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;source  /etc/profile.d/env.sh
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;gff3togenepred安装&#34;&gt;gff3ToGenePred安装&lt;/h1&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;gff3togenepred安装&#34;&gt;gff3ToGenePred安装&lt;/h2&gt;
 &lt;p&gt;UCSC软件库查找&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/&#34;&gt;http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/&lt;/a&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 下载&lt;/span&gt;
@@ -31,7 +31,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;wget http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/gff3ToGenePred
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 执行权限&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;chmod +x ./gff3ToGenePred
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;构建注释数据库&#34;&gt;构建注释数据库&lt;/h1&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;构建注释数据库&#34;&gt;构建注释数据库&lt;/h2&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 文件准备&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cp /fasta路径/
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cp /gff3路径/

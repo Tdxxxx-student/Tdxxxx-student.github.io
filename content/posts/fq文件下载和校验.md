@@ -5,7 +5,7 @@ title = 'Fq文件下载和校验'
 categories = ["fq文件下载"]
 tags = ["fastq下载"]
 +++
-# Aspera安装
+## Aspera安装
 可以conda/mamba安装
 [Linux系统上安装aspera并用其批量高速下载转录组数据 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/640962215)
 手动安装
@@ -23,7 +23,7 @@ $ echo """export PATH=\"/home/xiaotiancai/.aspera/connect/bin:\$PATH\" """ >> ~/
 $ ascp -h
 ```
 
-## 基本语法
+### 基本语法
 借鉴
 [Aspera ascp Usage (2.7) Documentation - All Aspera Server 2.7 Platforms (asperasoft.com)](https://download.asperasoft.com/download/docs/ascp/2.7/html/index.html)
 
@@ -57,7 +57,7 @@ DEST ./test.fq.gz， 保存地址
 ascp  -l 100M -P 33001 -QT -k 2 -i ~/.aspera/connect/etc/asperaweb_id_dsa.openssh era-fasp@fasp.sra.ebi.ac.uk:/vol1/fastq/SRR576/004/SRR5760814/SRR5760814.fastq.gz ./test.fq.gz
 ```
 
-## 下载
+### 下载
 ```bash
 $ ascp -l 100M -P 33001 -QT -k 2 -i ~/.aspera/connect/etc/asperaweb_id_dsa.openssh era-fasp@fasp.sra.ebi.ac.uk:/vol1/fastq/SRR576/002/SRR5760812/SRR5760812.fastq.gz ./test.fq.gz
 ```
@@ -85,11 +85,11 @@ nohub command &
 # 正常退出，否则可能会失败
 exit
 ```
-# ENA自动下载校验脚本
+## ENA自动下载校验脚本
 直接在 [ENA](https://www.ebi.ac.uk/ena/browser/view/) 上检索想要下载的数据
 有两个信息很重要，MD5值和Aspera链接，第一列为run accession。
 选择TSV下载格式将信息下载下来，然后使用R进行处理，获得最终要的数据格式。R代码如下：
-## R 处理成最后想要的格式
+### R 处理成最后想要的格式
 ```r
 rm(list = ls())
 setwd("tsv文件所在路径")  
@@ -187,7 +187,7 @@ done < "$FILE_LIST"
 nohup bash aspera_1.sh > dl.log 2>&1 & 
 echo $! > dl.id    # $! 是上一个后台进程的ID
 ```
-## 注意
+### 注意
 上面脚本需要自行修改下载速度和密钥！
 
 ```shell

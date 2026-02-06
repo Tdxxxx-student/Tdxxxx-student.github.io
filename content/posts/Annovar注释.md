@@ -8,7 +8,7 @@ tags = ["R基因结构","annovar"]
 description = ""
 +++
 
-# 下载软件
+## 下载软件
 准备文件：物种gff和fasta文件
 
 <https://www.openbioinformatics.org/annovar/annovar_download_form.php>
@@ -23,7 +23,7 @@ sudo vi /etc/profile.d/env.sh
 source  /etc/profile.d/env.sh
 ```
 
-# gff3ToGenePred安装
+## gff3ToGenePred安装
 
 UCSC软件库查找
 
@@ -37,7 +37,7 @@ wget http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/gff3ToGenePred
 chmod +x ./gff3ToGenePred
 ```
 
-# 构建注释数据库
+## 构建注释数据库
 
 ```bash
 # 文件准备
