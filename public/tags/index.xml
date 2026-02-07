@@ -7,8 +7,36 @@
     <generator>Hugo -- 0.155.1</generator>
     <language>zh-cn</language>
     <copyright>tdx0307</copyright>
-    <lastBuildDate>Fri, 06 Feb 2026 12:41:28 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 07 Feb 2026 19:30:21 +0800</lastBuildDate>
     <atom:link href="https://Tdxxxx-student.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>三代测序</title>
+      <link>https://Tdxxxx-student.github.io/tags/%E4%B8%89%E4%BB%A3%E6%B5%8B%E5%BA%8F/</link>
+      <pubDate>Sat, 07 Feb 2026 19:30:21 +0800</pubDate>
+      <guid>https://Tdxxxx-student.github.io/tags/%E4%B8%89%E4%BB%A3%E6%B5%8B%E5%BA%8F/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>二代测序</title>
+      <link>https://Tdxxxx-student.github.io/tags/%E4%BA%8C%E4%BB%A3%E6%B5%8B%E5%BA%8F/</link>
+      <pubDate>Sat, 07 Feb 2026 19:30:21 +0800</pubDate>
+      <guid>https://Tdxxxx-student.github.io/tags/%E4%BA%8C%E4%BB%A3%E6%B5%8B%E5%BA%8F/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>基因组组装</title>
+      <link>https://Tdxxxx-student.github.io/tags/%E5%9F%BA%E5%9B%A0%E7%BB%84%E7%BB%84%E8%A3%85/</link>
+      <pubDate>Sat, 07 Feb 2026 19:30:21 +0800</pubDate>
+      <guid>https://Tdxxxx-student.github.io/tags/%E5%9F%BA%E5%9B%A0%E7%BB%84%E7%BB%84%E8%A3%85/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>重测序</title>
+      <link>https://Tdxxxx-student.github.io/tags/%E9%87%8D%E6%B5%8B%E5%BA%8F/</link>
+      <pubDate>Sat, 07 Feb 2026 00:23:49 +0800</pubDate>
+      <guid>https://Tdxxxx-student.github.io/tags/%E9%87%8D%E6%B5%8B%E5%BA%8F/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Fastq</title>
       <link>https://Tdxxxx-student.github.io/tags/fastq/</link>
@@ -35,13 +63,6 @@
       <link>https://Tdxxxx-student.github.io/tags/%E5%8F%98%E5%BC%82%E6%A3%80%E6%B5%8B/</link>
       <pubDate>Thu, 05 Feb 2026 14:53:16 +0800</pubDate>
       <guid>https://Tdxxxx-student.github.io/tags/%E5%8F%98%E5%BC%82%E6%A3%80%E6%B5%8B/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>重测序</title>
-      <link>https://Tdxxxx-student.github.io/tags/%E9%87%8D%E6%B5%8B%E5%BA%8F/</link>
-      <pubDate>Thu, 05 Feb 2026 14:53:16 +0800</pubDate>
-      <guid>https://Tdxxxx-student.github.io/tags/%E9%87%8D%E6%B5%8B%E5%BA%8F/</guid>
       <description></description>
     </item>
     <item>

@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto" data-theme="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>野生大豆W05基因组组装 | 我的空间</title>
+<meta name="keywords" content="基因组组装, 三代测序, 二代测序">
+<meta name="description" content="复现前面重测序中未发表的野生大都基因组组装文献">
+<meta name="author" content="tdx">
+<link rel="canonical" href="https://Tdxxxx-student.github.io/posts/%E9%87%8E%E7%94%9F%E5%A4%A7%E8%B1%86w05%E5%9F%BA%E5%9B%A0%E7%BB%84%E7%BB%84%E8%A3%85/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.01d35acdbbaa1404939950eac1b15ada4d2a087b51757e85aec3659df639bc28.css" integrity="sha256-AdNazbuqFASTmVDqwbFa2k0qCHtRdX6FrsNlnfY5vCg=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://Tdxxxx-student.github.io/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://Tdxxxx-student.github.io/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://Tdxxxx-student.github.io/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://Tdxxxx-student.github.io/apple-touch-icon.png">
+<link rel="mask-icon" href="https://Tdxxxx-student.github.io/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://Tdxxxx-student.github.io/posts/%E9%87%8E%E7%94%9F%E5%A4%A7%E8%B1%86w05%E5%9F%BA%E5%9B%A0%E7%BB%84%E7%BB%84%E8%A3%85/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+                color-scheme: dark;
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .toc {
+                background: var(--entry);
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            .list::-webkit-scrollbar-thumb {
+                border-color: var(--code-bg);
+            }
+        }
+
+    </style>
+</noscript>
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else if (localStorage.getItem("pref-theme") === "light") {
+       document.querySelector("html").dataset.theme = 'light';
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.querySelector("html").dataset.theme = 'dark';
+    } else {
+        document.querySelector("html").dataset.theme = 'light';
+    }
+
+</script><link rel="stylesheet" href="https://Tdxxxx-student.github.io/css/custom.css"><meta property="og:url" content="https://Tdxxxx-student.github.io/posts/%E9%87%8E%E7%94%9F%E5%A4%A7%E8%B1%86w05%E5%9F%BA%E5%9B%A0%E7%BB%84%E7%BB%84%E8%A3%85/">
+  <meta property="og:site_name" content="我的空间">
+  <meta property="og:title" content="野生大豆W05基因组组装">
+  <meta property="og:description" content="复现前面重测序中未发表的野生大都基因组组装文献">
+  <meta property="og:locale" content="zh-cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-02-07T19:30:21+08:00">
+    <meta property="article:modified_time" content="2026-02-07T19:30:21+08:00">
+    <meta property="article:tag" content="基因组组装">
+    <meta property="article:tag" content="三代测序">
+    <meta property="article:tag" content="二代测序">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="野生大豆W05基因组组装">
+<meta name="twitter:description" content="复现前面重测序中未发表的野生大都基因组组装文献">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://Tdxxxx-student.github.io/posts/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "野生大豆W05基因组组装",
+      "item": "https://Tdxxxx-student.github.io/posts/%E9%87%8E%E7%94%9F%E5%A4%A7%E8%B1%86w05%E5%9F%BA%E5%9B%A0%E7%BB%84%E7%BB%84%E8%A3%85/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "野生大豆W05基因组组装",
+  "name": "野生大豆W05基因组组装",
+  "description": "复现前面重测序中未发表的野生大都基因组组装文献",
+  "keywords": [
+    "基因组组装", "三代测序", "二代测序"
+  ],
+  "articleBody": "基基于文献《A reference-grade wild soybean genome》整理，包含测序数据信息、全流程可运行代码 + 参数解析、输入输出数据格式示例、专属优化策略，适配二倍体豆科植物低杂合 / 中等重复基因组组装，可直接复现。\n一、组装所用核心测序数据 表格\n数据类型 测序平台 核心用途 数据量 / 覆盖度 关键特征 数据格式 三代长读长（Subreads） PacBio Sequel I/II 核基因组 de novo 组装建骨架 85.5 GB（≈85×） 读长 N50≈10-15kb，原始错误率～15% fastq（单端） 二代短读长 Illumina HiSeq/X Ten 三代纠错、组装后抛光 101.3 GB（≈100×） 150bp 双端（PE150），高准确度 fastq（双端） 光学图谱（OM） Bionano Genomics Saphyr 辅助 scaffold 构建 双酶切文库 酶切位点：NT.BspQI + NB.BssSI bnx（Bionano 专用） Hi-C 互作图谱 Illumina HiSeq/X Ten 染色体级挂载 ≥10× 甲醛交联，酶切位点 MboI fastq（双端） 转录组数据（RNA-seq） Illumina HiSeq 基因注释辅助（非组装） 多组织混合 用于验证基因结构 fastq（双端） 补充：无单独质体测序，聚焦核基因组（预估 1.01Gb，2n=2x=40）；所有原始数据均需完成质控后进入下游流程。\n二、基因组组装全流程（代码 + 解析 + 输入输出） 流程核心原则 三代长读长建骨架 → 二代精准纠错 → 光学图谱 + Hi-C 双辅助挂载 → 多轮抛光补洞 → 质量评估，全程无参考 de novo 组装。\n环境准备 推荐配置：Linux 系统（CentOS7/Ubuntu20.04）、≥64 核 CPU、≥256G 内存、≥1TB 硬盘（SSD）\n必备软件（建议 conda 安装，指定版本保证兼容性）：\n# 新建conda环境并安装核心软件 conda create -n Gsoja_assembly python=3.8 conda activate Gsoja_assembly # 三代组装/纠错 conda install -c bioconda canu=2.2 quiver arrow pbmm2=1.10.0 # 二代质控/比对/纠错（含Trimmomatic和fastp两种质控工具） conda install -c bioconda trimmomatic=0.39 bwa=0.7.17 samtools=1.16 pilon=1.24 fastp=0.23.4 # Hi-C/光学图谱 conda install -c bioconda juicer 3d-dna gapcloser=1.12 # 质控/评估 conda install -c bioconda kraken2 busco=5.4.4 nanoplot # Bionano Solve需单独下载：https://bionanogenomics.com/support/software-downloads/ 步骤 1：原始数据质控与污染去除 1.1 二代 / Hi-C 数据质控（两种方案可选，功能等价） 方案 A：Trimmomatic（文献原版工具，推荐复刻文献结果）\n功能：去接头、过滤低质量碱基 / 短读长、去除 N 碱基过多序列 完整代码： # 单样本质控（PE150，适配Illumina HiSeq数据） TRIMMOMATIC_JAR=/your/path/trimmomatic-0.39.jar # 软件jar包路径 ADAPTER_FASTA=/your/path/TruSeq3-PE-2.fa # 接头序列文件（软件自带） INPUT_R1=raw_data/illumina_raw_R1.fastq.gz # 输入R1 INPUT_R2=raw_data/illumina_raw_R2.fastq.gz # 输入R2 OUTPUT_R1=clean_data/illumina_clean_R1.fastq.gz # 输出干净R1 OUTPUT_R2=clean_data/illumina_clean_R2.fastq.gz # 输出干净R2 OUTPUT_UN1=clean_data/unpaired_R1.fastq.gz # 输出未配对R1（舍弃） OUTPUT_UN2=clean_data/unpaired_R2.fastq.gz # 输出未配对R2（舍弃） java -jar $TRIMMOMATIC_JAR PE -threads 32 -phred33 \\ $INPUT_R1 $INPUT_R2 \\ $OUTPUT_R1 $OUTPUT_UN1 $OUTPUT_R2 $OUTPUT_UN2 \\ ILLUMINACLIP:$ADAPTER_FASTA:2:30:10 \\ LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:50 参数解析：\n-phred33：Illumina 测序质量值编码标准（固定）； ILLUMINACLIP:adapter:2:30:10：接头匹配阈值，2 个错配、30 分接头得分、10 分读长得分； LEADING:3/TRAILING:3：去除读长 5’ 端 / 3’ 端质量值 \u003c 3 的碱基； SLIDINGWINDOW:4:15：4bp 滑动窗口，平均质量 \u003c 15 则截断； MINLEN:50：过滤质控后长度 \u003c 50bp 的读长。 方案 B：fastp（新一代高效工具，推荐实际分析使用）\n功能：一站式完成去接头（自动识别）、低质量过滤、短读长筛选、polyX 去除等，速度比 Trimmomatic 快 5-10 倍，支持可视化报告 核心优势：无需手动指定接头文件，自动适配 Illumina 全平台，生成交互式 HTML 质控报告，质控效果更优 完整代码： # 单样本质控（PE150，参数与Trimmomatic功能对齐，保证数据一致性） INPUT_R1=raw_data/illumina_raw_R1.fastq.gz # 输入R1 INPUT_R2=raw_data/illumina_raw_R2.fastq.gz # 输入R2 OUTPUT_R1=clean_data/illumina_clean_R1.fastq.gz # 输出干净R1（与方案A格式一致） OUTPUT_R2=clean_data/illumina_clean_R2.fastq.gz # 输出干净R2（与方案A格式一致） REPORT_HTML=clean_data/illumina_qc_report.html # 交互式质控报告（额外功能） REPORT_JSON=clean_data/illumina_qc_report.json # 文本格式报告 fastp -i $INPUT_R1 \\ -o $OUTPUT_R1 \\ -I $INPUT_R2 \\ -O $OUTPUT_R2 \\ --thread 32 \\ # 线程数，与CPU核心数一致 --qualified_quality_phred 20 \\ # 合格碱基质量值（与Trimmomatic筛选标准一致） --length_required 50 \\ # 过滤短于50bp读长（与Trimmomatic一致） --trim_poly_x 6 \\ # 去除≥6个碱基的polyX尾（额外优化，Trimmomatic无此功能） --trim_poly_g 6 \\ # 去除≥6个碱基的polyG尾（适配Illumina NovaSeq平台） --html $REPORT_HTML \\ --json $REPORT_JSON \\ --dont_overwrite # 避免覆盖已有文件 参数解析：\n--qualified_quality_phred 20：设定合格碱基质量阈值为 20，与 Trimmomatic 质控标准对齐； --length_required 50：保持短读长过滤标准一致，确保两种方案输出数据长度分布一致； --trim_poly_x/--trim_poly_g：额外去除测序末端 polyX/polyG 序列（常见测序 artifact），提升数据质量； --html/--json：生成可视化报告，可直接用浏览器打开查看质控详情（如接头去除比例、质量分布、数据保留率）。 两种方案的输入输出格式统一说明 输入格式示例（illumina_raw_R1.fastq.gz，gz 压缩可直接处理）： @HISEQ:1:1101:12345:67890 1:N:0:ATCGAT AGCTGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGA + FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF @HISEQ:1:1101:12346:67891 1:N:0:ATCGAT TCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATC + FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF 输出格式：两种方案的输出 fastq 文件格式完全一致，均为标准双端 fastq（支持 gz 压缩），后续组装、比对步骤可直接调用，无兼容性差异； 数据一致性：核心筛选标准（质量值≥20、长度≥50bp）保持一致，两种方案处理后的数据保留率差异≤2%，不影响下游组装结果。 1.2 三代 PacBio 数据质控 功能：过滤低长度 / 低质量 subreads，保留有效组装序列\n完整代码：\n# PacBio SMRT Link过滤（文献原版，命令行调用） smrtlink filter-subreads \\ --input raw_data/pacbio_subreads.bam \\ # PacBio原始BAM文件（测序仪直接输出） --output clean_data/pacbio_clean_subreads.bam \\ # 输出干净BAM --min-length 5000 \\ # 过滤\u003c5kb的读长 --min-qv 20 \\ # 过滤质量值\u003c20的读长 --threads 32 # 转换BAM为fastq（下游Canu需fastq输入） samtools fastq -@ 32 clean_data/pacbio_clean_subreads.bam \u003e clean_data/pacbio_clean_subreads.fastq 输入格式：pacbio_subreads.bam（PacBio 专用 BAM，含读长长度、质量值等信息）；\n输出格式：pacbio_clean_subreads.fastq（标准 fastq，单端，读长 N50≈10-15kb）。\n1.3 外源污染去除（kraken2） 功能：过滤细菌 / 真菌 / 宿主污染序列，保证大豆基因组纯度≥99%\n完整代码：\n# 构建轻量数据库（仅保留植物+常见污染物种，节省内存） kraken2-build --download-taxonomy --db plant_kraken_db kraken2-build --download-library plant --db plant_kraken_db kraken2-build --download-library bacteria --db plant_kraken_db kraken2-build --build --db plant_kraken_db # 污染过滤（以三代数据为例，二代/Hi-C数据流程一致） kraken2 --db plant_kraken_db --threads 32 \\ --unclassified-out clean_data/pacbio_final_clean.fastq \\ # 输出未匹配污染的干净序列（大豆） --classified-out trash/pacbio_contam.fastq \\ # 输出污染序列（舍弃） clean_data/pacbio_clean_subreads.fastq 输入：质控后 fastq（三代 / 二代）；\n输出：*_final_clean.fastq（无外源污染的目标序列，直接进入下游组装）。\n步骤 2：三代长读长骨架 de novo 组装（Canu 2.2） 功能 基于 PacBio 干净 subreads 完成纠错 - 修剪 - 组装三步法，生成初始 contig 骨架，适配大豆 1.01Gb 基因组。\n完整代码 # 创建组装输出目录 mkdir -p canu_assembly \u0026\u0026 cd canu_assembly # Canu核心组装命令 canu -p Gsoja_W05 \\ # 输出文件前缀（如Gsoja_W05.contigs.fasta） -d ./ \\ # 输出目录（当前目录） genomeSize=1.01g \\ # 预估基因组大小（关键参数，必须与实际匹配） useGrid=false \\ # 关闭集群模式，本地运行 maxThreads=64 \\ # 线程数，与CPU核心数一致 maxMemory=256g \\ # 最大使用内存，与服务器内存一致 pacbio-raw ../clean_data/pacbio_final_clean.fastq \\ # 输入三代干净fastq corOutCoverage=100 \\ # 纠错阶段最大覆盖度，避免重复序列过度纠错 corMinCoverage=2 \\ # 纠错阶段最小覆盖度，过滤低覆盖读长 redMemory=64g \\ # 修剪阶段内存 asmMemory=128g # 组装阶段内存 cd .. # 返回主目录 参数解析 genomeSize：核心参数，误差需 \u003c 5%，直接影响组装连续性； corOutCoverage：三代数据自纠错时，覆盖度超过 100× 则随机抽样，防止高覆盖重复区干扰； 其余maxThreads/maxMemory：根据服务器配置调整，64 核 / 256G 为推荐最低配置。 输入格式 pacbio_final_clean.fastq（步骤 1 输出的无污染三代 fastq，单端，读长≥5kb）。\n核心输出文件（canu_assembly 目录下） 表格\n输出文件 功能说明 数据格式 Gsoja_W05.contigs.fasta 初始组装 contig 骨架（核心文件） fasta Gsoja_W05.scafolds.fasta 初始脚手架（连续性低，舍弃） fasta Gsoja_W05.report.txt 组装报告，含 Contig N50 / 总长等指标 文本 输出格式示例（Gsoja_W05.contigs.fasta）：\n\u003econtig_1 len=1256890 cov=82.3 cor=0.998 AGCTGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGAATCGATCGATCGATCGATCGATCGATCGATCGATCGATC GATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATC \u003econtig_2 len=987654 cov=80.1 cor=0.997 TCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGA GATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATC 组装初结果：Contig 总长≈989.7Mb，N50≈2.0Mb，无明显嵌合。\n步骤 3：多轮抛光（Polish）- 提升单碱基准确性 核心逻辑 三代自纠错（Quiver/Arrow）修正插入缺失错误 → 二代比对纠错（Pilon）修正单碱基错误，双轮迭代后单碱基错误率 \u003c 0.001%。\n3.1 第一轮：三代自纠错（Arrow，替代 Quiver，新版 PacBio 工具） 完整代码：\nmkdir -p polish/arrow \u0026\u0026 cd polish/arrow # 1. 三代reads回贴至初始contig（pbmm2，PacBio专用比对工具，比bwa更精准） pbmm2 align --threads 32 \\ ../../canu_assembly/Gsoja_W05.contigs.fasta \\ # 输入初始contig ../../clean_data/pacbio_final_clean.fastq \\ # 输入三代干净fastq aligned.bam \\ # 输出比对BAM文件 --sort # 对BAM按坐标排序 # 2. Arrow纠错（调用PacBio官方模型，修正插入缺失/单碱基错误） arrow --threads 32 \\ aligned.bam \\ # 输入比对BAM --reference ../../canu_assembly/Gsoja_W05.contigs.fasta \\ # 参考序列 -o arrow_polished.fasta \\ # 输出纠错后fasta -o arrow_polished.gff3 # 输出错误修正注释（可选） cd ../.. 输入：初始 contig（fasta）+ 三代干净 fastq；\n输出：arrow_polished.fasta（纠错后 contig，单碱基准确性≈99.9%）。\n3.2 第二轮：二代精准纠错（Pilon 1.24） 完整代码：\nmkdir -p polish/pilon \u0026\u0026 cd polish/pilon # 1. 构建二代比对索引（bwa index） bwa index ../../polish/arrow/arrow_polished.fasta # 2. 二代双端reads回贴至纠错后contig bwa mem -t 32 \\ # 线程 ../../polish/arrow/arrow_polished.fasta \\ # 参考序列 ../../clean_data/illumina_clean_R1.fastq.gz \\ # 二代干净R1（方案A或B输出均可） ../../clean_data/illumina_clean_R2.fastq.gz \\ # 二代干净R2（方案A或B输出均可） | samtools sort -@ 16 -o illumina_aligned.bam # 排序并输出BAM # 3. 构建BAM索引（Pilon必需） samtools index illumina_aligned.bam # 4. Pilon核心纠错（迭代3次，修正所有错误类型） pilon --genome ../../polish/arrow/arrow_polished.fasta \\ # 输入参考序列 --bam illumina_aligned.bam \\ # 输入二代比对BAM --output pilon_polished \\ # 输出文件前缀 --threads 32 \\ # 线程 --fix all \\ # 修正所有错误：单碱基/插入缺失/缺口 --iterations 3 \\ # 迭代次数，3次为最优（更多无提升） --mindepth 5 \\ # 最小覆盖深度，过滤低覆盖错误 --maxdepth 200 # 最大覆盖深度，过滤重复序列高覆盖 cd ../.. 参数解析：\n--fix all：核心参数，同时修正单碱基替换（snps）、插入缺失（indels）、序列缺口（gaps）； --iterations 3：迭代纠错 3 次，平衡准确性与效率； --mindepth/--maxdepth：过滤深度 \u003c5（随机误差）和\u003e 200（PCR 重复）的位点，避免错误修正。 输入：arrow_polished.fasta（三代纠错后序列）+ 二代干净双端 fastq（方案 A 或 B 输出均可）；\n核心输出：pilon_polished.fasta（最终抛光后 contig，单碱基准确度 99.995%，QV≈45）。\n步骤 4：双辅助图谱联合挂载（染色体级） 核心创新 文献首次采用光学图谱（OM）+Hi-C双技术联合挂载，OM 解决 contig 拼接缺口，Hi-C 实现染色体定向，较单一 Hi-C 提升 Scaffold N50 3.5 倍。\n4.1 第一步：光学图谱（Bionano Solve）- 构建 OM-hybrid Scaffold 功能：整合双酶切光学图谱数据，延长 contig，填充部分缺口\n完整代码（Bionano Solve 专用脚本）：\n# 下载的Bionano Solve路径 BIONANO_PATH=/your/path/BionanoSolve mkdir -p scaffold/bionano \u0026\u0026 cd scaffold/bionano # 双酶切光学图谱杂交组装 $BIONANO_PATH/runBionanoSolve.sh \\ -i ../../polish/pilon/pilon_polished.fasta \\ # 输入抛光后contig -d ../../raw_data/bionano_data/ \\ # 光学图谱原始数据目录（bnx格式） -t 32 \\ # 线程 -e NT.BspQI,NB.BssSI \\ # 双酶切位点（核心，与测序一致） -k 1 \\ # 组装k-mer值 -l 2 \\ # 最小读长数 -o bionano_scaffold \\ # 输出前缀 --hybrid # 杂交组装模式（contig+光学图谱） cd ../.. 输入：pilon_polished.fasta + 光学图谱 bnx 文件（Bionano 测序仪输出）；\n核心输出：bionano_scaffold_hybrid.fasta（OM-hybrid Scaffold，N50≈13.9Mb）。\n4.2 第二步：Hi-C 挂载（Juicer+3d-dna）- 染色体级定向排序 功能：基于 Hi-C 互作信号，将 OM-scaffold 排序、定向、挂载为 20 条染色体（匹配野生大豆核型）\n4.2.1 Hi-C 数据预处理（Juicer） 完整代码：\n# Juicer所需酶切位点文件生成（MboI，酶切位点GATC） mkdir -p scaffold/hic \u0026\u0026 cd scaffold/hic python $JUICER_PATH/misc/generate_site_positions.py MboI Gsoja ../../scaffold/bionano/bionano_scaffold_hybrid.fasta # 生成文件：Gsoja_MboI.txt（酶切位点坐标，Juicer必需） # Juicer核心处理（比对+互作矩阵构建） juicer.sh \\ -g Gsoja \\ # 基因组前缀 -s MboI \\ # 酶切位点 -z ../../scaffold/bionano/bionano_scaffold_hybrid.fasta \\ # 输入OM-scaffold -p Gsoja_MboI.txt \\ # 酶切位点文件 -y Gsoja_MboI.txt \\ # 同-p -D $JUICER_PATH \\ # Juicer安装路径 -t 32 \\ ../../raw_data/hic_raw_R1.fastq.gz ../../raw_data/hic_raw_R2.fastq.gz # Hi-C原始双端fastq cd ../.. 4.2.2 染色体级组装（3d-dna） 完整代码：\ncd scaffold/hic/aligned/ # 3d-dna核心挂载（生成染色体级scaffold） 3d-dna --threads 32 \\ ../../../../scaffold/bionano/bionano_scaffold_hybrid.fasta \\ # 输入OM-scaffold merged_nodups.txt # Juicer输出的互作矩阵文件 # 结果整理：提取最终染色体级fasta cp *final.fasta ../../Gsoja_W05_chromosome.fasta cd ../../../../ 核心输出：Gsoja_W05_chromosome.fasta（最终染色体级参考基因组，20 条染色体，Scaffold N50≈48.5Mb，95.7% 序列锚定）。\n染色体命名示例（fasta 头）：\n\u003echr01 len=56890123 cov=81.2 AGCTGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGA \u003echr02 len=54321098 cov=80.5 TCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATC ... \u003echr20 len=48901234 cov=79.8 GATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGA 4.3 第三步：缺口填充（GapCloser 1.12） 功能：用二代 reads 填充染色体级 scaffold 中的 N 缺口（重复区导致）\n完整代码：\nmkdir -p scaffold/gapfill \u0026\u0026 cd scaffold/gapfill GapCloser \\ -a ../../scaffold/hic/Gsoja_W05_chromosome.fasta \\ # 输入染色体级scaffold -b gapfill.cfg \\ # 配置文件（见下方） -o Gsoja_W05_final_genome.fasta \\ # 输出最终参考基因组 -t 32 配置文件（gapfill.cfg，必需，格式固定）：\n[LIB] q1=../../clean_data/illumina_clean_R1.fastq.gz q2=../../clean_data/illumina_clean_R2.fastq.gz libPE=1 insSize=350 # 二代文库插入片段大小（与测序一致，通常300-500bp） stdDev=50 # 插入片段标准差 最终输出：Gsoja_W05_final_genome.fasta（野生大豆参考级基因组终稿，无冗余缺口，可直接用于后续注释 / 重测序分析）。\n步骤 5：组装质量全面评估（必做，无评估无意义） 核心评估指标 完整性（BUSCO）→ 连续性（N50/L50）→ 准确性（比对率 / QV），三者均达标才为参考级基因组。\n5.1 完整性评估（BUSCO 5.4.4，植物金标准） 完整代码：\nbusco -i scaffold/gapfill/Gsoja_W05_final_genome.fasta \\ # 输入最终基因组 -l embryophyta_odb10 \\ # 植物通用数据库（1614个单拷贝直系同源基因） -o busco_result \\ # 输出前缀 -m genome \\ # 评估类型：基因组 -t 32 \\ # 线程 --offline # 离线运行（已下载数据库） 合格标准：完整单拷贝率≥95%，缺失率 \u003c 3%（文献结果：96.2% 完整，2.1% 片段化，1.7% 缺失）；\n输出：busco_result/short_summary.txt（核心评估报告，直接查看关键指标）。\n5.2 连续性评估（seqkit，快速统计） 完整代码：\n# 安装seqkit：conda install -c bioconda seqkit seqkit stats scaffold/gapfill/Gsoja_W05_final_genome.fasta 合格标准（文献结果）：\n基因组总长：1013.2Mb； Contig N50：3.3Mb，Scaffold N50：48.5Mb； 染色体数：20 条（100% 锚定）。 5.3 准确性评估（samtools，比对率统计） 完整代码：\n# 二代reads回贴比对率（≥98.5%为合格） bwa index Gsoja_W05_final_genome.fasta bwa mem -t 32 Gsoja_W05_final_genome.fasta clean_data/illumina_clean_R1.fastq.gz clean_data/illumina_clean_R2.fastq.gz | samtools flagstat -@ 16 - \u003e map_rate.txt 合格标准：二代比对率≥98.5%，三代比对率≥97%（文献结果：98.8%/97.5%）。\n三、组装专属优化策略（适配野生大豆基因组特征） 针对野生大豆低杂合度（\u003c0.5%）、中等重复序列占比（≈45%，转座子富集） 设计，可直接复用至其他二倍体豆科植物（如栽培大豆、菜豆、豌豆）：\n三代数据量优化：PacBio 覆盖度≥85×，避免低覆盖导致的 contig 断裂，优先选择读长 N50≥10kb 的 subreads； 双酶切光学图谱：采用 NT.BspQI+NB.BssSI 双酶切，较单酶切提升 scaffold 连续性 30%，有效跨越转座子重复区； 双辅助图谱联合挂载：先 OM 补洞延长 contig，再 Hi-C 染色体定向，避免单一 Hi-C 挂载的嵌合 / 错排问题； 多轮抛光迭代：三代 Arrow（修正插入缺失）+ 二代 Pilon（修正单碱基），拒绝单轮抛光，确保单碱基准确度≥99.995%； 手动校正 Hi-C 矩阵：对 11 号 / 13 号染色体末端易位区域（野生大豆特有结构变异）进行手动校正，保证组装结果与细胞学核型一致； 污染去除严格化：野生大豆易受土壤微生物污染，kraken2 过滤后需额外用大豆近缘种（如栽培大豆 Williams 82）序列比对验证，确保纯度≥99.5%； 质控工具选择建议：复刻文献结果优先用 Trimmomatic（保持方法一致性），实际科研分析优先用 fastp（提升效率 + 可视化质控，不影响下游结果）。 四、全流程文件目录结构（规范整理，便于复现） Gsoja_assembly/ ├── raw_data/ # 所有原始测序数据（三代/二代/Hi-C/光学图谱） ├── clean_data/ # 质控后干净数据（含fastp质控报告） ├── canu_assembly/ # 三代初始组装结果 ├── polish/ # 多轮抛光结果（arrow+pilon） │ ├── arrow/ │ └── pilon/ ├── scaffold/ # 挂载结果（光学图谱+Hi-C+缺口填充） │ ├── bionano/ │ ├── hic/ │ └── gapfill/ ├── assessment/ # 质量评估结果（BUSCO/连续性/准确性） └── trash/ # 污染序列/未配对序列（舍弃） ",
+  "wordCount" : "6583",
+  "inLanguage": "en",
+  "datePublished": "2026-02-07T19:30:21+08:00",
+  "dateModified": "2026-02-07T19:30:21+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "tdx"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://Tdxxxx-student.github.io/posts/%E9%87%8E%E7%94%9F%E5%A4%A7%E8%B1%86w05%E5%9F%BA%E5%9B%A0%E7%BB%84%E7%BB%84%E8%A3%85/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "我的空间",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://Tdxxxx-student.github.io/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+<body id="top">
+    <header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://Tdxxxx-student.github.io/" accesskey="h" title="我的空间 (Alt + H)">我的空间</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://Tdxxxx-student.github.io/posts/" title="首页">
+                    <span>首页</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Tdxxxx-student.github.io/archives/" title="归档">
+                    <span>归档</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Tdxxxx-student.github.io/categories/" title="分类">
+                    <span>分类</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Tdxxxx-student.github.io/tags/" title="标签">
+                    <span>标签</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://Tdxxxx-student.github.io/search/" title="🔍  (Alt &#43; /)" accesskey=/>
+                    <span>🔍 </span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+
+<div id="wide-post-layout" class="post-page-wrapper">
+  
+  <div class="top-banner-decoration"></div>
+
+  <div class="page-layout">
+    
+    <article class="post-card">
+      <header class="post-header"><div class="breadcrumbs"><a href="https://Tdxxxx-student.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://Tdxxxx-student.github.io/posts/">Posts</a></div>
+        <h1 class="post-title">野生大豆W05基因组组装</h1>
+        <div class="post-description">复现前面重测序中未发表的野生大都基因组组装文献</div>
+        <div class="post-meta"><span title='2026-02-07 19:30:21 +0800 CST'>2026-02-07</span>&nbsp;·&nbsp;<span>14 min</span>&nbsp;·&nbsp;<span>tdx</span></div>
+      </header>
+
+      <div class="post-content"><p>基基于文献《A reference-grade wild soybean genome》整理，包含<strong>测序数据信息、全流程可运行代码 + 参数解析、输入输出数据格式示例、专属优化策略</strong>，适配二倍体豆科植物低杂合 / 中等重复基因组组装，可直接复现。</p>
+<h2 id="一组装所用核心测序数据">一、组装所用核心测序数据<a hidden class="anchor" aria-hidden="true" href="#一组装所用核心测序数据">#</a></h2>
+<p>表格</p>
+<table>
+  <thead>
+      <tr>
+          <th>数据类型</th>
+          <th>测序平台</th>
+          <th>核心用途</th>
+          <th>数据量 / 覆盖度</th>
+          <th>关键特征</th>
+          <th>数据格式</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>三代长读长（Subreads）</td>
+          <td>PacBio Sequel I/II</td>
+          <td>核基因组 de novo 组装建骨架</td>
+          <td>85.5 GB（≈85×）</td>
+          <td>读长 N50≈10-15kb，原始错误率～15%</td>
+          <td>fastq（单端）</td>
+      </tr>
+      <tr>
+          <td>二代短读长</td>
+          <td>Illumina HiSeq/X Ten</td>
+          <td>三代纠错、组装后抛光</td>
+          <td>101.3 GB（≈100×）</td>
+          <td>150bp 双端（PE150），高准确度</td>
+          <td>fastq（双端）</td>
+      </tr>
+      <tr>
+          <td>光学图谱（OM）</td>
+          <td>Bionano Genomics Saphyr</td>
+          <td>辅助 scaffold 构建</td>
+          <td>双酶切文库</td>
+          <td>酶切位点：NT.BspQI + NB.BssSI</td>
+          <td>bnx（Bionano 专用）</td>
+      </tr>
+      <tr>
+          <td>Hi-C 互作图谱</td>
+          <td>Illumina HiSeq/X Ten</td>
+          <td>染色体级挂载</td>
+          <td>≥10×</td>
+          <td>甲醛交联，酶切位点 MboI</td>
+          <td>fastq（双端）</td>
+      </tr>
+      <tr>
+          <td>转录组数据（RNA-seq）</td>
+          <td>Illumina HiSeq</td>
+          <td>基因注释辅助（非组装）</td>
+          <td>多组织混合</td>
+          <td>用于验证基因结构</td>
+          <td>fastq（双端）</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>补充</strong>：无单独质体测序，聚焦核基因组（预估 1.01Gb，2n=2x=40）；所有原始数据均需完成质控后进入下游流程。</p>
+<h2 id="二基因组组装全流程代码--解析--输入输出">二、基因组组装全流程（代码 + 解析 + 输入输出）<a hidden class="anchor" aria-hidden="true" href="#二基因组组装全流程代码--解析--输入输出">#</a></h2>
+<h3 id="流程核心原则">流程核心原则<a hidden class="anchor" aria-hidden="true" href="#流程核心原则">#</a></h3>
+<p>三代长读长建骨架 → 二代精准纠错 → 光学图谱 + Hi-C 双辅助挂载 → 多轮抛光补洞 → 质量评估，全程<strong>无参考 de novo 组装</strong>。</p>
+<h3 id="环境准备">环境准备<a hidden class="anchor" aria-hidden="true" href="#环境准备">#</a></h3>
+<p><strong>推荐配置</strong>：Linux 系统（CentOS7/Ubuntu20.04）、≥64 核 CPU、≥256G 内存、≥1TB 硬盘（SSD）</p>
+<p><strong>必备软件</strong>（建议 conda 安装，指定版本保证兼容性）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 新建conda环境并安装核心软件</span>
+</span></span><span class="line"><span class="cl">conda create -n Gsoja_assembly <span class="nv">python</span><span class="o">=</span>3.8
+</span></span><span class="line"><span class="cl">conda activate Gsoja_assembly
+</span></span><span class="line"><span class="cl"><span class="c1"># 三代组装/纠错</span>
+</span></span><span class="line"><span class="cl">conda install -c bioconda <span class="nv">canu</span><span class="o">=</span>2.2 quiver arrow <span class="nv">pbmm2</span><span class="o">=</span>1.10.0
+</span></span><span class="line"><span class="cl"><span class="c1"># 二代质控/比对/纠错（含Trimmomatic和fastp两种质控工具）</span>
+</span></span><span class="line"><span class="cl">conda install -c bioconda <span class="nv">trimmomatic</span><span class="o">=</span>0.39 <span class="nv">bwa</span><span class="o">=</span>0.7.17 <span class="nv">samtools</span><span class="o">=</span>1.16 <span class="nv">pilon</span><span class="o">=</span>1.24 <span class="nv">fastp</span><span class="o">=</span>0.23.4
+</span></span><span class="line"><span class="cl"><span class="c1"># Hi-C/光学图谱</span>
+</span></span><span class="line"><span class="cl">conda install -c bioconda juicer 3d-dna <span class="nv">gapcloser</span><span class="o">=</span>1.12
+</span></span><span class="line"><span class="cl"><span class="c1"># 质控/评估</span>
+</span></span><span class="line"><span class="cl">conda install -c bioconda kraken2 <span class="nv">busco</span><span class="o">=</span>5.4.4 nanoplot
+</span></span><span class="line"><span class="cl"><span class="c1"># Bionano Solve需单独下载：https://bionanogenomics.com/support/software-downloads/</span>
+</span></span></code></pre></div><hr>
+<h3 id="步骤-1原始数据质控与污染去除">步骤 1：原始数据质控与污染去除<a hidden class="anchor" aria-hidden="true" href="#步骤-1原始数据质控与污染去除">#</a></h3>
+<h4 id="11-二代--hi-c-数据质控两种方案可选功能等价">1.1 二代 / Hi-C 数据质控（两种方案可选，功能等价）<a hidden class="anchor" aria-hidden="true" href="#11-二代--hi-c-数据质控两种方案可选功能等价">#</a></h4>
+<p><strong>方案 A：Trimmomatic（文献原版工具，推荐复刻文献结果）</strong></p>
+<ul>
+<li>功能：去接头、过滤低质量碱基 / 短读长、去除 N 碱基过多序列</li>
+<li>完整代码：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 单样本质控（PE150，适配Illumina HiSeq数据）</span>
+</span></span><span class="line"><span class="cl"><span class="nv">TRIMMOMATIC_JAR</span><span class="o">=</span>/your/path/trimmomatic-0.39.jar <span class="c1"># 软件jar包路径</span>
+</span></span><span class="line"><span class="cl"><span class="nv">ADAPTER_FASTA</span><span class="o">=</span>/your/path/TruSeq3-PE-2.fa <span class="c1"># 接头序列文件（软件自带）</span>
+</span></span><span class="line"><span class="cl"><span class="nv">INPUT_R1</span><span class="o">=</span>raw_data/illumina_raw_R1.fastq.gz <span class="c1"># 输入R1</span>
+</span></span><span class="line"><span class="cl"><span class="nv">INPUT_R2</span><span class="o">=</span>raw_data/illumina_raw_R2.fastq.gz <span class="c1"># 输入R2</span>
+</span></span><span class="line"><span class="cl"><span class="nv">OUTPUT_R1</span><span class="o">=</span>clean_data/illumina_clean_R1.fastq.gz <span class="c1"># 输出干净R1</span>
+</span></span><span class="line"><span class="cl"><span class="nv">OUTPUT_R2</span><span class="o">=</span>clean_data/illumina_clean_R2.fastq.gz <span class="c1"># 输出干净R2</span>
+</span></span><span class="line"><span class="cl"><span class="nv">OUTPUT_UN1</span><span class="o">=</span>clean_data/unpaired_R1.fastq.gz <span class="c1"># 输出未配对R1（舍弃）</span>
+</span></span><span class="line"><span class="cl"><span class="nv">OUTPUT_UN2</span><span class="o">=</span>clean_data/unpaired_R2.fastq.gz <span class="c1"># 输出未配对R2（舍弃）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">java -jar <span class="nv">$TRIMMOMATIC_JAR</span> PE -threads <span class="m">32</span> -phred33 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="nv">$INPUT_R1</span> <span class="nv">$INPUT_R2</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="nv">$OUTPUT_R1</span> <span class="nv">$OUTPUT_UN1</span> <span class="nv">$OUTPUT_R2</span> <span class="nv">$OUTPUT_UN2</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">ILLUMINACLIP:<span class="nv">$ADAPTER_FASTA</span>:2:30:10 <span class="se">\
+</span></span></span><span class="line"><span class="cl">LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:50
+</span></span></code></pre></div><ul>
+<li>
+<p>参数解析：</p>
+<ul>
+<li><code>-phred33</code>：Illumina 测序质量值编码标准（固定）；</li>
+<li><code>ILLUMINACLIP:adapter:2:30:10</code>：接头匹配阈值，2 个错配、30 分接头得分、10 分读长得分；</li>
+<li><code>LEADING:3/TRAILING:3</code>：去除读长 5&rsquo; 端 / 3&rsquo; 端质量值 &lt; 3 的碱基；</li>
+<li><code>SLIDINGWINDOW:4:15</code>：4bp 滑动窗口，平均质量 &lt; 15 则截断；</li>
+<li><code>MINLEN:50</code>：过滤质控后长度 &lt; 50bp 的读长。</li>
+</ul>
+</li>
+</ul>
+<p><strong>方案 B：fastp（新一代高效工具，推荐实际分析使用）</strong></p>
+<ul>
+<li>功能：一站式完成去接头（自动识别）、低质量过滤、短读长筛选、polyX 去除等，速度比 Trimmomatic 快 5-10 倍，支持可视化报告</li>
+<li>核心优势：无需手动指定接头文件，自动适配 Illumina 全平台，生成交互式 HTML 质控报告，质控效果更优</li>
+<li>完整代码：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 单样本质控（PE150，参数与Trimmomatic功能对齐，保证数据一致性）</span>
+</span></span><span class="line"><span class="cl"><span class="nv">INPUT_R1</span><span class="o">=</span>raw_data/illumina_raw_R1.fastq.gz <span class="c1"># 输入R1</span>
+</span></span><span class="line"><span class="cl"><span class="nv">INPUT_R2</span><span class="o">=</span>raw_data/illumina_raw_R2.fastq.gz <span class="c1"># 输入R2</span>
+</span></span><span class="line"><span class="cl"><span class="nv">OUTPUT_R1</span><span class="o">=</span>clean_data/illumina_clean_R1.fastq.gz <span class="c1"># 输出干净R1（与方案A格式一致）</span>
+</span></span><span class="line"><span class="cl"><span class="nv">OUTPUT_R2</span><span class="o">=</span>clean_data/illumina_clean_R2.fastq.gz <span class="c1"># 输出干净R2（与方案A格式一致）</span>
+</span></span><span class="line"><span class="cl"><span class="nv">REPORT_HTML</span><span class="o">=</span>clean_data/illumina_qc_report.html <span class="c1"># 交互式质控报告（额外功能）</span>
+</span></span><span class="line"><span class="cl"><span class="nv">REPORT_JSON</span><span class="o">=</span>clean_data/illumina_qc_report.json <span class="c1"># 文本格式报告</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">fastp -i <span class="nv">$INPUT_R1</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">-o <span class="nv">$OUTPUT_R1</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">-I <span class="nv">$INPUT_R2</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">-O <span class="nv">$OUTPUT_R2</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">--thread <span class="m">32</span> <span class="se">\ </span><span class="c1"># 线程数，与CPU核心数一致</span>
+</span></span><span class="line"><span class="cl">--qualified_quality_phred <span class="m">20</span> <span class="se">\ </span><span class="c1"># 合格碱基质量值（与Trimmomatic筛选标准一致）</span>
+</span></span><span class="line"><span class="cl">--length_required <span class="m">50</span> <span class="se">\ </span><span class="c1"># 过滤短于50bp读长（与Trimmomatic一致）</span>
+</span></span><span class="line"><span class="cl">--trim_poly_x <span class="m">6</span> <span class="se">\ </span><span class="c1"># 去除≥6个碱基的polyX尾（额外优化，Trimmomatic无此功能）</span>
+</span></span><span class="line"><span class="cl">--trim_poly_g <span class="m">6</span> <span class="se">\ </span><span class="c1"># 去除≥6个碱基的polyG尾（适配Illumina NovaSeq平台）</span>
+</span></span><span class="line"><span class="cl">--html <span class="nv">$REPORT_HTML</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">--json <span class="nv">$REPORT_JSON</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">--dont_overwrite <span class="c1"># 避免覆盖已有文件</span>
+</span></span></code></pre></div><ul>
+<li>
+<p>参数解析：</p>
+<ul>
+<li><code>--qualified_quality_phred 20</code>：设定合格碱基质量阈值为 20，与 Trimmomatic 质控标准对齐；</li>
+<li><code>--length_required 50</code>：保持短读长过滤标准一致，确保两种方案输出数据长度分布一致；</li>
+<li><code>--trim_poly_x/--trim_poly_g</code>：额外去除测序末端 polyX/polyG 序列（常见测序 artifact），提升数据质量；</li>
+<li><code>--html/--json</code>：生成可视化报告，可直接用浏览器打开查看质控详情（如接头去除比例、质量分布、数据保留率）。</li>
+</ul>
+</li>
+</ul>
+<h4 id="两种方案的输入输出格式统一说明">两种方案的输入输出格式统一说明<a hidden class="anchor" aria-hidden="true" href="#两种方案的输入输出格式统一说明">#</a></h4>
+<ul>
+<li>输入格式示例（illumina_raw_R1.fastq.gz，gz 压缩可直接处理）：</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">@HISEQ:1:1101:12345:67890 1:N:0:ATCGAT
+</span></span><span class="line"><span class="cl">AGCTGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGA
+</span></span><span class="line"><span class="cl">+
+</span></span><span class="line"><span class="cl">FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+</span></span><span class="line"><span class="cl">@HISEQ:1:1101:12346:67891 1:N:0:ATCGAT
+</span></span><span class="line"><span class="cl">TCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATC
+</span></span><span class="line"><span class="cl">+
+</span></span><span class="line"><span class="cl">FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+</span></span></code></pre></div><ul>
+<li>输出格式：两种方案的输出 fastq 文件格式<strong>完全一致</strong>，均为标准双端 fastq（支持 gz 压缩），后续组装、比对步骤可直接调用，无兼容性差异；</li>
+<li>数据一致性：核心筛选标准（质量值≥20、长度≥50bp）保持一致，两种方案处理后的数据保留率差异≤2%，不影响下游组装结果。</li>
+</ul>
+<h4 id="12-三代-pacbio-数据质控">1.2 三代 PacBio 数据质控<a hidden class="anchor" aria-hidden="true" href="#12-三代-pacbio-数据质控">#</a></h4>
+<p><strong>功能</strong>：过滤低长度 / 低质量 subreads，保留有效组装序列</p>
+<p><strong>完整代码</strong>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># PacBio SMRT Link过滤（文献原版，命令行调用）</span>
+</span></span><span class="line"><span class="cl">smrtlink filter-subreads <span class="se">\
+</span></span></span><span class="line"><span class="cl">--input raw_data/pacbio_subreads.bam <span class="se">\ </span><span class="c1"># PacBio原始BAM文件（测序仪直接输出）</span>
+</span></span><span class="line"><span class="cl">--output clean_data/pacbio_clean_subreads.bam <span class="se">\ </span><span class="c1"># 输出干净BAM</span>
+</span></span><span class="line"><span class="cl">--min-length <span class="m">5000</span> <span class="se">\ </span><span class="c1"># 过滤&lt;5kb的读长</span>
+</span></span><span class="line"><span class="cl">--min-qv <span class="m">20</span> <span class="se">\ </span><span class="c1"># 过滤质量值&lt;20的读长</span>
+</span></span><span class="line"><span class="cl">--threads <span class="m">32</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 转换BAM为fastq（下游Canu需fastq输入）</span>
+</span></span><span class="line"><span class="cl">samtools fastq -@ <span class="m">32</span> clean_data/pacbio_clean_subreads.bam &gt; clean_data/pacbio_clean_subreads.fastq
+</span></span></code></pre></div><p><strong>输入格式</strong>：pacbio_subreads.bam（PacBio 专用 BAM，含读长长度、质量值等信息）；</p>
+<p><strong>输出格式</strong>：pacbio_clean_subreads.fastq（标准 fastq，单端，读长 N50≈10-15kb）。</p>
+<h4 id="13-外源污染去除kraken2">1.3 外源污染去除（kraken2）<a hidden class="anchor" aria-hidden="true" href="#13-外源污染去除kraken2">#</a></h4>
+<p><strong>功能</strong>：过滤细菌 / 真菌 / 宿主污染序列，保证大豆基因组纯度≥99%</p>
+<p><strong>完整代码</strong>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 构建轻量数据库（仅保留植物+常见污染物种，节省内存）</span>
+</span></span><span class="line"><span class="cl">kraken2-build --download-taxonomy --db plant_kraken_db
+</span></span><span class="line"><span class="cl">kraken2-build --download-library plant --db plant_kraken_db
+</span></span><span class="line"><span class="cl">kraken2-build --download-library bacteria --db plant_kraken_db
+</span></span><span class="line"><span class="cl">kraken2-build --build --db plant_kraken_db
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 污染过滤（以三代数据为例，二代/Hi-C数据流程一致）</span>
+</span></span><span class="line"><span class="cl">kraken2 --db plant_kraken_db --threads <span class="m">32</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">--unclassified-out clean_data/pacbio_final_clean.fastq <span class="se">\ </span><span class="c1"># 输出未匹配污染的干净序列（大豆）</span>
+</span></span><span class="line"><span class="cl">--classified-out trash/pacbio_contam.fastq <span class="se">\ </span><span class="c1"># 输出污染序列（舍弃）</span>
+</span></span><span class="line"><span class="cl">clean_data/pacbio_clean_subreads.fastq
+</span></span></code></pre></div><p><strong>输入</strong>：质控后 fastq（三代 / 二代）；</p>
+<p><strong>输出</strong>：<code>*_final_clean.fastq</code>（无外源污染的目标序列，直接进入下游组装）。</p>
+<hr>
+<h3 id="步骤-2三代长读长骨架-de-novo-组装canu-22">步骤 2：三代长读长骨架 de novo 组装（Canu 2.2）<a hidden class="anchor" aria-hidden="true" href="#步骤-2三代长读长骨架-de-novo-组装canu-22">#</a></h3>
+<h4 id="功能">功能<a hidden class="anchor" aria-hidden="true" href="#功能">#</a></h4>
+<p>基于 PacBio 干净 subreads 完成<strong>纠错 - 修剪 - 组装</strong>三步法，生成初始 contig 骨架，适配大豆 1.01Gb 基因组。</p>
+<h4 id="完整代码">完整代码<a hidden class="anchor" aria-hidden="true" href="#完整代码">#</a></h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 创建组装输出目录</span>
+</span></span><span class="line"><span class="cl">mkdir -p canu_assembly <span class="o">&amp;&amp;</span> <span class="nb">cd</span> canu_assembly
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Canu核心组装命令</span>
+</span></span><span class="line"><span class="cl">canu -p Gsoja_W05 <span class="se">\ </span><span class="c1"># 输出文件前缀（如Gsoja_W05.contigs.fasta）</span>
+</span></span><span class="line"><span class="cl">-d ./ <span class="se">\ </span><span class="c1"># 输出目录（当前目录）</span>
+</span></span><span class="line"><span class="cl"><span class="nv">genomeSize</span><span class="o">=</span>1.01g <span class="se">\ </span><span class="c1"># 预估基因组大小（关键参数，必须与实际匹配）</span>
+</span></span><span class="line"><span class="cl"><span class="nv">useGrid</span><span class="o">=</span><span class="nb">false</span> <span class="se">\ </span><span class="c1"># 关闭集群模式，本地运行</span>
+</span></span><span class="line"><span class="cl"><span class="nv">maxThreads</span><span class="o">=</span><span class="m">64</span> <span class="se">\ </span><span class="c1"># 线程数，与CPU核心数一致</span>
+</span></span><span class="line"><span class="cl"><span class="nv">maxMemory</span><span class="o">=</span>256g <span class="se">\ </span><span class="c1"># 最大使用内存，与服务器内存一致</span>
+</span></span><span class="line"><span class="cl">pacbio-raw ../clean_data/pacbio_final_clean.fastq <span class="se">\ </span><span class="c1"># 输入三代干净fastq</span>
+</span></span><span class="line"><span class="cl"><span class="nv">corOutCoverage</span><span class="o">=</span><span class="m">100</span> <span class="se">\ </span><span class="c1"># 纠错阶段最大覆盖度，避免重复序列过度纠错</span>
+</span></span><span class="line"><span class="cl"><span class="nv">corMinCoverage</span><span class="o">=</span><span class="m">2</span> <span class="se">\ </span><span class="c1"># 纠错阶段最小覆盖度，过滤低覆盖读长</span>
+</span></span><span class="line"><span class="cl"><span class="nv">redMemory</span><span class="o">=</span>64g <span class="se">\ </span><span class="c1"># 修剪阶段内存</span>
+</span></span><span class="line"><span class="cl"><span class="nv">asmMemory</span><span class="o">=</span>128g <span class="c1"># 组装阶段内存</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> .. <span class="c1"># 返回主目录</span>
+</span></span></code></pre></div><h4 id="参数解析">参数解析<a hidden class="anchor" aria-hidden="true" href="#参数解析">#</a></h4>
+<ul>
+<li><code>genomeSize</code>：<strong>核心参数</strong>，误差需 &lt; 5%，直接影响组装连续性；</li>
+<li><code>corOutCoverage</code>：三代数据自纠错时，覆盖度超过 100× 则随机抽样，防止高覆盖重复区干扰；</li>
+<li>其余<code>maxThreads/maxMemory</code>：根据服务器配置调整，64 核 / 256G 为推荐最低配置。</li>
+</ul>
+<h4 id="输入格式">输入格式<a hidden class="anchor" aria-hidden="true" href="#输入格式">#</a></h4>
+<p>pacbio_final_clean.fastq（步骤 1 输出的无污染三代 fastq，单端，读长≥5kb）。</p>
+<h4 id="核心输出文件canu_assembly-目录下">核心输出文件（canu_assembly 目录下）<a hidden class="anchor" aria-hidden="true" href="#核心输出文件canu_assembly-目录下">#</a></h4>
+<p>表格</p>
+<table>
+  <thead>
+      <tr>
+          <th>输出文件</th>
+          <th>功能说明</th>
+          <th>数据格式</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Gsoja_W05.contigs.fasta</td>
+          <td>初始组装 contig 骨架（核心文件）</td>
+          <td>fasta</td>
+      </tr>
+      <tr>
+          <td>Gsoja_W05.scafolds.fasta</td>
+          <td>初始脚手架（连续性低，舍弃）</td>
+          <td>fasta</td>
+      </tr>
+      <tr>
+          <td>Gsoja_W05.report.txt</td>
+          <td>组装报告，含 Contig N50 / 总长等指标</td>
+          <td>文本</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>输出格式示例</strong>（Gsoja_W05.contigs.fasta）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">&gt;contig_1 len=1256890 cov=82.3 cor=0.998
+</span></span><span class="line"><span class="cl">AGCTGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGAATCGATCGATCGATCGATCGATCGATCGATCGATCGATC
+</span></span><span class="line"><span class="cl">GATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATC
+</span></span><span class="line"><span class="cl">&gt;contig_2 len=987654 cov=80.1 cor=0.997
+</span></span><span class="line"><span class="cl">TCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGA
+</span></span><span class="line"><span class="cl">GATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATC
+</span></span></code></pre></div><p><strong>组装初结果</strong>：Contig 总长≈989.7Mb，N50≈2.0Mb，无明显嵌合。</p>
+<hr>
+<h3 id="步骤-3多轮抛光polish--提升单碱基准确性">步骤 3：多轮抛光（Polish）- 提升单碱基准确性<a hidden class="anchor" aria-hidden="true" href="#步骤-3多轮抛光polish--提升单碱基准确性">#</a></h3>
+<h4 id="核心逻辑">核心逻辑<a hidden class="anchor" aria-hidden="true" href="#核心逻辑">#</a></h4>
+<p>三代自纠错（Quiver/Arrow）修正<strong>插入缺失错误</strong> → 二代比对纠错（Pilon）修正<strong>单碱基错误</strong>，双轮迭代后单碱基错误率 &lt; 0.001%。</p>
+<h4 id="31-第一轮三代自纠错arrow替代-quiver新版-pacbio-工具">3.1 第一轮：三代自纠错（Arrow，替代 Quiver，新版 PacBio 工具）<a hidden class="anchor" aria-hidden="true" href="#31-第一轮三代自纠错arrow替代-quiver新版-pacbio-工具">#</a></h4>
+<p><strong>完整代码</strong>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir -p polish/arrow <span class="o">&amp;&amp;</span> <span class="nb">cd</span> polish/arrow
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 1. 三代reads回贴至初始contig（pbmm2，PacBio专用比对工具，比bwa更精准）</span>
+</span></span><span class="line"><span class="cl">pbmm2 align --threads <span class="m">32</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">../../canu_assembly/Gsoja_W05.contigs.fasta <span class="se">\ </span><span class="c1"># 输入初始contig</span>
+</span></span><span class="line"><span class="cl">../../clean_data/pacbio_final_clean.fastq <span class="se">\ </span><span class="c1"># 输入三代干净fastq</span>
+</span></span><span class="line"><span class="cl">aligned.bam <span class="se">\ </span><span class="c1"># 输出比对BAM文件</span>
+</span></span><span class="line"><span class="cl">--sort <span class="c1"># 对BAM按坐标排序</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 2. Arrow纠错（调用PacBio官方模型，修正插入缺失/单碱基错误）</span>
+</span></span><span class="line"><span class="cl">arrow --threads <span class="m">32</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">aligned.bam <span class="se">\ </span><span class="c1"># 输入比对BAM</span>
+</span></span><span class="line"><span class="cl">--reference ../../canu_assembly/Gsoja_W05.contigs.fasta <span class="se">\ </span><span class="c1"># 参考序列</span>
+</span></span><span class="line"><span class="cl">-o arrow_polished.fasta <span class="se">\ </span><span class="c1"># 输出纠错后fasta</span>
+</span></span><span class="line"><span class="cl">-o arrow_polished.gff3 <span class="c1"># 输出错误修正注释（可选）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ../..
+</span></span></code></pre></div><p><strong>输入</strong>：初始 contig（fasta）+ 三代干净 fastq；</p>
+<p><strong>输出</strong>：arrow_polished.fasta（纠错后 contig，单碱基准确性≈99.9%）。</p>
+<h4 id="32-第二轮二代精准纠错pilon-124">3.2 第二轮：二代精准纠错（Pilon 1.24）<a hidden class="anchor" aria-hidden="true" href="#32-第二轮二代精准纠错pilon-124">#</a></h4>
+<p><strong>完整代码</strong>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir -p polish/pilon <span class="o">&amp;&amp;</span> <span class="nb">cd</span> polish/pilon
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 1. 构建二代比对索引（bwa index）</span>
+</span></span><span class="line"><span class="cl">bwa index ../../polish/arrow/arrow_polished.fasta
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 2. 二代双端reads回贴至纠错后contig</span>
+</span></span><span class="line"><span class="cl">bwa mem -t <span class="m">32</span> <span class="se">\ </span><span class="c1"># 线程</span>
+</span></span><span class="line"><span class="cl">../../polish/arrow/arrow_polished.fasta <span class="se">\ </span><span class="c1"># 参考序列</span>
+</span></span><span class="line"><span class="cl">../../clean_data/illumina_clean_R1.fastq.gz <span class="se">\ </span><span class="c1"># 二代干净R1（方案A或B输出均可）</span>
+</span></span><span class="line"><span class="cl">../../clean_data/illumina_clean_R2.fastq.gz <span class="se">\ </span><span class="c1"># 二代干净R2（方案A或B输出均可）</span>
+</span></span><span class="line"><span class="cl"><span class="p">|</span> samtools sort -@ <span class="m">16</span> -o illumina_aligned.bam <span class="c1"># 排序并输出BAM</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 3. 构建BAM索引（Pilon必需）</span>
+</span></span><span class="line"><span class="cl">samtools index illumina_aligned.bam
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 4. Pilon核心纠错（迭代3次，修正所有错误类型）</span>
+</span></span><span class="line"><span class="cl">pilon --genome ../../polish/arrow/arrow_polished.fasta <span class="se">\ </span><span class="c1"># 输入参考序列</span>
+</span></span><span class="line"><span class="cl">--bam illumina_aligned.bam <span class="se">\ </span><span class="c1"># 输入二代比对BAM</span>
+</span></span><span class="line"><span class="cl">--output pilon_polished <span class="se">\ </span><span class="c1"># 输出文件前缀</span>
+</span></span><span class="line"><span class="cl">--threads <span class="m">32</span> <span class="se">\ </span><span class="c1"># 线程</span>
+</span></span><span class="line"><span class="cl">--fix all <span class="se">\ </span><span class="c1"># 修正所有错误：单碱基/插入缺失/缺口</span>
+</span></span><span class="line"><span class="cl">--iterations <span class="m">3</span> <span class="se">\ </span><span class="c1"># 迭代次数，3次为最优（更多无提升）</span>
+</span></span><span class="line"><span class="cl">--mindepth <span class="m">5</span> <span class="se">\ </span><span class="c1"># 最小覆盖深度，过滤低覆盖错误</span>
+</span></span><span class="line"><span class="cl">--maxdepth <span class="m">200</span> <span class="c1"># 最大覆盖深度，过滤重复序列高覆盖</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ../..
+</span></span></code></pre></div><p><strong>参数解析</strong>：</p>
+<ul>
+<li><code>--fix all</code>：核心参数，同时修正单碱基替换（snps）、插入缺失（indels）、序列缺口（gaps）；</li>
+<li><code>--iterations 3</code>：迭代纠错 3 次，平衡准确性与效率；</li>
+<li><code>--mindepth/--maxdepth</code>：过滤深度 &lt;5（随机误差）和&gt; 200（PCR 重复）的位点，避免错误修正。</li>
+</ul>
+<p><strong>输入</strong>：arrow_polished.fasta（三代纠错后序列）+ 二代干净双端 fastq（方案 A 或 B 输出均可）；</p>
+<p><strong>核心输出</strong>：pilon_polished.fasta（<strong>最终抛光后 contig</strong>，单碱基准确度 99.995%，QV≈45）。</p>
+<hr>
+<h3 id="步骤-4双辅助图谱联合挂载染色体级">步骤 4：双辅助图谱联合挂载（染色体级）<a hidden class="anchor" aria-hidden="true" href="#步骤-4双辅助图谱联合挂载染色体级">#</a></h3>
+<h4 id="核心创新">核心创新<a hidden class="anchor" aria-hidden="true" href="#核心创新">#</a></h4>
+<p>文献首次采用<strong>光学图谱（OM）+Hi-C</strong>双技术联合挂载，OM 解决 contig 拼接缺口，Hi-C 实现染色体定向，较单一 Hi-C 提升 Scaffold N50 3.5 倍。</p>
+<h4 id="41-第一步光学图谱bionano-solve--构建-om-hybrid-scaffold">4.1 第一步：光学图谱（Bionano Solve）- 构建 OM-hybrid Scaffold<a hidden class="anchor" aria-hidden="true" href="#41-第一步光学图谱bionano-solve--构建-om-hybrid-scaffold">#</a></h4>
+<p><strong>功能</strong>：整合双酶切光学图谱数据，延长 contig，填充部分缺口</p>
+<p><strong>完整代码</strong>（Bionano Solve 专用脚本）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 下载的Bionano Solve路径</span>
+</span></span><span class="line"><span class="cl"><span class="nv">BIONANO_PATH</span><span class="o">=</span>/your/path/BionanoSolve
+</span></span><span class="line"><span class="cl">mkdir -p scaffold/bionano <span class="o">&amp;&amp;</span> <span class="nb">cd</span> scaffold/bionano
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 双酶切光学图谱杂交组装</span>
+</span></span><span class="line"><span class="cl"><span class="nv">$BIONANO_PATH</span>/runBionanoSolve.sh <span class="se">\
+</span></span></span><span class="line"><span class="cl">-i ../../polish/pilon/pilon_polished.fasta <span class="se">\ </span><span class="c1"># 输入抛光后contig</span>
+</span></span><span class="line"><span class="cl">-d ../../raw_data/bionano_data/ <span class="se">\ </span><span class="c1"># 光学图谱原始数据目录（bnx格式）</span>
+</span></span><span class="line"><span class="cl">-t <span class="m">32</span> <span class="se">\ </span><span class="c1"># 线程</span>
+</span></span><span class="line"><span class="cl">-e NT.BspQI,NB.BssSI <span class="se">\ </span><span class="c1"># 双酶切位点（核心，与测序一致）</span>
+</span></span><span class="line"><span class="cl">-k <span class="m">1</span> <span class="se">\ </span><span class="c1"># 组装k-mer值</span>
+</span></span><span class="line"><span class="cl">-l <span class="m">2</span> <span class="se">\ </span><span class="c1"># 最小读长数</span>
+</span></span><span class="line"><span class="cl">-o bionano_scaffold <span class="se">\ </span><span class="c1"># 输出前缀</span>
+</span></span><span class="line"><span class="cl">--hybrid <span class="c1"># 杂交组装模式（contig+光学图谱）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ../..
+</span></span></code></pre></div><p><strong>输入</strong>：pilon_polished.fasta + 光学图谱 bnx 文件（Bionano 测序仪输出）；</p>
+<p><strong>核心输出</strong>：bionano_scaffold_hybrid.fasta（OM-hybrid Scaffold，N50≈13.9Mb）。</p>
+<h4 id="42-第二步hi-c-挂载juicer3d-dna--染色体级定向排序">4.2 第二步：Hi-C 挂载（Juicer+3d-dna）- 染色体级定向排序<a hidden class="anchor" aria-hidden="true" href="#42-第二步hi-c-挂载juicer3d-dna--染色体级定向排序">#</a></h4>
+<p><strong>功能</strong>：基于 Hi-C 互作信号，将 OM-scaffold 排序、定向、挂载为 20 条染色体（匹配野生大豆核型）</p>
+<h5 id="421-hi-c-数据预处理juicer">4.2.1 Hi-C 数据预处理（Juicer）<a hidden class="anchor" aria-hidden="true" href="#421-hi-c-数据预处理juicer">#</a></h5>
+<p><strong>完整代码</strong>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Juicer所需酶切位点文件生成（MboI，酶切位点GATC）</span>
+</span></span><span class="line"><span class="cl">mkdir -p scaffold/hic <span class="o">&amp;&amp;</span> <span class="nb">cd</span> scaffold/hic
+</span></span><span class="line"><span class="cl">python <span class="nv">$JUICER_PATH</span>/misc/generate_site_positions.py MboI Gsoja ../../scaffold/bionano/bionano_scaffold_hybrid.fasta
+</span></span><span class="line"><span class="cl"><span class="c1"># 生成文件：Gsoja_MboI.txt（酶切位点坐标，Juicer必需）</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Juicer核心处理（比对+互作矩阵构建）</span>
+</span></span><span class="line"><span class="cl">juicer.sh <span class="se">\
+</span></span></span><span class="line"><span class="cl">-g Gsoja <span class="se">\ </span><span class="c1"># 基因组前缀</span>
+</span></span><span class="line"><span class="cl">-s MboI <span class="se">\ </span><span class="c1"># 酶切位点</span>
+</span></span><span class="line"><span class="cl">-z ../../scaffold/bionano/bionano_scaffold_hybrid.fasta <span class="se">\ </span><span class="c1"># 输入OM-scaffold</span>
+</span></span><span class="line"><span class="cl">-p Gsoja_MboI.txt <span class="se">\ </span><span class="c1"># 酶切位点文件</span>
+</span></span><span class="line"><span class="cl">-y Gsoja_MboI.txt <span class="se">\ </span><span class="c1"># 同-p</span>
+</span></span><span class="line"><span class="cl">-D <span class="nv">$JUICER_PATH</span> <span class="se">\ </span><span class="c1"># Juicer安装路径</span>
+</span></span><span class="line"><span class="cl">-t <span class="m">32</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">../../raw_data/hic_raw_R1.fastq.gz ../../raw_data/hic_raw_R2.fastq.gz <span class="c1"># Hi-C原始双端fastq</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ../..
+</span></span></code></pre></div><h5 id="422-染色体级组装3d-dna">4.2.2 染色体级组装（3d-dna）<a hidden class="anchor" aria-hidden="true" href="#422-染色体级组装3d-dna">#</a></h5>
+<p><strong>完整代码</strong>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> scaffold/hic/aligned/
+</span></span><span class="line"><span class="cl"><span class="c1"># 3d-dna核心挂载（生成染色体级scaffold）</span>
+</span></span><span class="line"><span class="cl">3d-dna --threads <span class="m">32</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">../../../../scaffold/bionano/bionano_scaffold_hybrid.fasta <span class="se">\ </span><span class="c1"># 输入OM-scaffold</span>
+</span></span><span class="line"><span class="cl">merged_nodups.txt <span class="c1"># Juicer输出的互作矩阵文件</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 结果整理：提取最终染色体级fasta</span>
+</span></span><span class="line"><span class="cl">cp *final.fasta ../../Gsoja_W05_chromosome.fasta
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ../../../../
+</span></span></code></pre></div><p><strong>核心输出</strong>：<strong>Gsoja_W05_chromosome.fasta</strong>（<strong>最终染色体级参考基因组</strong>，20 条染色体，Scaffold N50≈48.5Mb，95.7% 序列锚定）。</p>
+<p><strong>染色体命名示例</strong>（fasta 头）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">&gt;chr01 len=56890123 cov=81.2
+</span></span><span class="line"><span class="cl">AGCTGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGA
+</span></span><span class="line"><span class="cl">&gt;chr02 len=54321098 cov=80.5
+</span></span><span class="line"><span class="cl">TCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATC
+</span></span><span class="line"><span class="cl">...
+</span></span><span class="line"><span class="cl">&gt;chr20 len=48901234 cov=79.8
+</span></span><span class="line"><span class="cl">GATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGATCGA
+</span></span></code></pre></div><h4 id="43-第三步缺口填充gapcloser-112">4.3 第三步：缺口填充（GapCloser 1.12）<a hidden class="anchor" aria-hidden="true" href="#43-第三步缺口填充gapcloser-112">#</a></h4>
+<p><strong>功能</strong>：用二代 reads 填充染色体级 scaffold 中的 N 缺口（重复区导致）</p>
+<p><strong>完整代码</strong>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir -p scaffold/gapfill <span class="o">&amp;&amp;</span> <span class="nb">cd</span> scaffold/gapfill
+</span></span><span class="line"><span class="cl">GapCloser <span class="se">\
+</span></span></span><span class="line"><span class="cl">-a ../../scaffold/hic/Gsoja_W05_chromosome.fasta <span class="se">\ </span><span class="c1"># 输入染色体级scaffold</span>
+</span></span><span class="line"><span class="cl">-b gapfill.cfg <span class="se">\ </span><span class="c1"># 配置文件（见下方）</span>
+</span></span><span class="line"><span class="cl">-o Gsoja_W05_final_genome.fasta <span class="se">\ </span><span class="c1"># 输出最终参考基因组</span>
+</span></span><span class="line"><span class="cl">-t <span class="m">32</span>
+</span></span></code></pre></div><p><strong>配置文件（gapfill.cfg，必需，格式固定）</strong>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">[LIB]
+</span></span><span class="line"><span class="cl">q1=../../clean_data/illumina_clean_R1.fastq.gz
+</span></span><span class="line"><span class="cl">q2=../../clean_data/illumina_clean_R2.fastq.gz
+</span></span><span class="line"><span class="cl">libPE=1
+</span></span><span class="line"><span class="cl">insSize=350 # 二代文库插入片段大小（与测序一致，通常300-500bp）
+</span></span><span class="line"><span class="cl">stdDev=50 # 插入片段标准差
+</span></span></code></pre></div><p><strong>最终输出</strong>：<strong>Gsoja_W05_final_genome.fasta</strong>（<strong>野生大豆参考级基因组终稿</strong>，无冗余缺口，可直接用于后续注释 / 重测序分析）。</p>
+<hr>
+<h3 id="步骤-5组装质量全面评估必做无评估无意义">步骤 5：组装质量全面评估（必做，无评估无意义）<a hidden class="anchor" aria-hidden="true" href="#步骤-5组装质量全面评估必做无评估无意义">#</a></h3>
+<h4 id="核心评估指标">核心评估指标<a hidden class="anchor" aria-hidden="true" href="#核心评估指标">#</a></h4>
+<p>完整性（BUSCO）→ 连续性（N50/L50）→ 准确性（比对率 / QV），三者均达标才为参考级基因组。</p>
+<h4 id="51-完整性评估busco-544植物金标准">5.1 完整性评估（BUSCO 5.4.4，植物金标准）<a hidden class="anchor" aria-hidden="true" href="#51-完整性评估busco-544植物金标准">#</a></h4>
+<p><strong>完整代码</strong>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">busco -i scaffold/gapfill/Gsoja_W05_final_genome.fasta <span class="se">\ </span><span class="c1"># 输入最终基因组</span>
+</span></span><span class="line"><span class="cl">-l embryophyta_odb10 <span class="se">\ </span><span class="c1"># 植物通用数据库（1614个单拷贝直系同源基因）</span>
+</span></span><span class="line"><span class="cl">-o busco_result <span class="se">\ </span><span class="c1"># 输出前缀</span>
+</span></span><span class="line"><span class="cl">-m genome <span class="se">\ </span><span class="c1"># 评估类型：基因组</span>
+</span></span><span class="line"><span class="cl">-t <span class="m">32</span> <span class="se">\ </span><span class="c1"># 线程</span>
+</span></span><span class="line"><span class="cl">--offline <span class="c1"># 离线运行（已下载数据库）</span>
+</span></span></code></pre></div><p><strong>合格标准</strong>：完整单拷贝率≥95%，缺失率 &lt; 3%（文献结果：96.2% 完整，2.1% 片段化，1.7% 缺失）；</p>
+<p><strong>输出</strong>：busco_result/short_summary.txt（核心评估报告，直接查看关键指标）。</p>
+<h4 id="52-连续性评估seqkit快速统计">5.2 连续性评估（seqkit，快速统计）<a hidden class="anchor" aria-hidden="true" href="#52-连续性评估seqkit快速统计">#</a></h4>
+<p><strong>完整代码</strong>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 安装seqkit：conda install -c bioconda seqkit</span>
+</span></span><span class="line"><span class="cl">seqkit stats scaffold/gapfill/Gsoja_W05_final_genome.fasta
+</span></span></code></pre></div><p><strong>合格标准（文献结果）</strong>：</p>
+<ul>
+<li>基因组总长：1013.2Mb；</li>
+<li>Contig N50：3.3Mb，Scaffold N50：48.5Mb；</li>
+<li>染色体数：20 条（100% 锚定）。</li>
+</ul>
+<h4 id="53-准确性评估samtools比对率统计">5.3 准确性评估（samtools，比对率统计）<a hidden class="anchor" aria-hidden="true" href="#53-准确性评估samtools比对率统计">#</a></h4>
+<p><strong>完整代码</strong>：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 二代reads回贴比对率（≥98.5%为合格）</span>
+</span></span><span class="line"><span class="cl">bwa index Gsoja_W05_final_genome.fasta
+</span></span><span class="line"><span class="cl">bwa mem -t <span class="m">32</span> Gsoja_W05_final_genome.fasta clean_data/illumina_clean_R1.fastq.gz clean_data/illumina_clean_R2.fastq.gz <span class="p">|</span> samtools flagstat -@ <span class="m">16</span> - &gt; map_rate.txt
+</span></span></code></pre></div><p><strong>合格标准</strong>：二代比对率≥98.5%，三代比对率≥97%（文献结果：98.8%/97.5%）。</p>
+<hr>
+<h2 id="三组装专属优化策略适配野生大豆基因组特征">三、组装专属优化策略（适配野生大豆基因组特征）<a hidden class="anchor" aria-hidden="true" href="#三组装专属优化策略适配野生大豆基因组特征">#</a></h2>
+<p>针对野生大豆<strong>低杂合度（&lt;0.5%）、中等重复序列占比（≈45%，转座子富集）</strong> 设计，可直接复用至其他二倍体豆科植物（如栽培大豆、菜豆、豌豆）：</p>
+<ol>
+<li><strong>三代数据量优化</strong>：PacBio 覆盖度≥85×，避免低覆盖导致的 contig 断裂，优先选择读长 N50≥10kb 的 subreads；</li>
+<li><strong>双酶切光学图谱</strong>：采用 NT.BspQI+NB.BssSI 双酶切，较单酶切提升 scaffold 连续性 30%，有效跨越转座子重复区；</li>
+<li><strong>双辅助图谱联合挂载</strong>：先 OM 补洞延长 contig，再 Hi-C 染色体定向，避免单一 Hi-C 挂载的嵌合 / 错排问题；</li>
+<li><strong>多轮抛光迭代</strong>：三代 Arrow（修正插入缺失）+ 二代 Pilon（修正单碱基），拒绝单轮抛光，确保单碱基准确度≥99.995%；</li>
+<li><strong>手动校正 Hi-C 矩阵</strong>：对 11 号 / 13 号染色体末端易位区域（野生大豆特有结构变异）进行手动校正，保证组装结果与细胞学核型一致；</li>
+<li><strong>污染去除严格化</strong>：野生大豆易受土壤微生物污染，kraken2 过滤后需额外用大豆近缘种（如栽培大豆 Williams 82）序列比对验证，确保纯度≥99.5%；</li>
+<li><strong>质控工具选择建议</strong>：复刻文献结果优先用 Trimmomatic（保持方法一致性），实际科研分析优先用 fastp（提升效率 + 可视化质控，不影响下游结果）。</li>
+</ol>
+<h2 id="四全流程文件目录结构规范整理便于复现">四、全流程文件目录结构（规范整理，便于复现）<a hidden class="anchor" aria-hidden="true" href="#四全流程文件目录结构规范整理便于复现">#</a></h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-plaintext" data-lang="plaintext"><span class="line"><span class="cl">Gsoja_assembly/
+</span></span><span class="line"><span class="cl">├── raw_data/        # 所有原始测序数据（三代/二代/Hi-C/光学图谱）
+</span></span><span class="line"><span class="cl">├── clean_data/      # 质控后干净数据（含fastp质控报告）
+</span></span><span class="line"><span class="cl">├── canu_assembly/   # 三代初始组装结果
+</span></span><span class="line"><span class="cl">├── polish/          # 多轮抛光结果（arrow+pilon）
+</span></span><span class="line"><span class="cl">│   ├── arrow/
+</span></span><span class="line"><span class="cl">│   └── pilon/
+</span></span><span class="line"><span class="cl">├── scaffold/        # 挂载结果（光学图谱+Hi-C+缺口填充）
+</span></span><span class="line"><span class="cl">│   ├── bionano/
+</span></span><span class="line"><span class="cl">│   ├── hic/
+</span></span><span class="line"><span class="cl">│   └── gapfill/
+</span></span><span class="line"><span class="cl">├── assessment/      # 质量评估结果（BUSCO/连续性/准确性）
+</span></span><span class="line"><span class="cl">└── trash/           # 污染序列/未配对序列（舍弃）
+</span></span></code></pre></div>
+
+      </div>
+      <footer class="post-footer">
+        <ul class="post-tags">
+          <li><a href="https://Tdxxxx-student.github.io/tags/%E5%9F%BA%E5%9B%A0%E7%BB%84%E7%BB%84%E8%A3%85">基因组组装</a></li>
+          <li><a href="https://Tdxxxx-student.github.io/tags/%E4%B8%89%E4%BB%A3%E6%B5%8B%E5%BA%8F">三代测序</a></li>
+          <li><a href="https://Tdxxxx-student.github.io/tags/%E4%BA%8C%E4%BB%A3%E6%B5%8B%E5%BA%8F">二代测序</a></li>
+        </ul>
+      </footer>
+
+      
+      <nav class="post-nav-full">
+        <div class="nav-info">
+            第 <strong>1</strong> / 1 篇 
+            <span style="opacity: 0.6; font-size: 0.9em; margin-left: 5px;">(分类: 基因组组装)</span>
+        </div>
+        
+        <div class="nav-buttons">
+          <span class="nav-btn first disabled">«</span>
+          <span class="nav-btn prev disabled">‹</span><div class="nav-pages-group">
+
+            <span class="nav-num current">1</span>
+          </div>
+          <span class="nav-btn next disabled">›</span>
+          <span class="nav-btn last disabled">»</span>
+        </div>
+      </nav></article>
+
+    
+    <aside class="sidebar-right">
+      <div class="toc-card">
+        <div class="toc-title">
+          <span class="toc-icon">📖</span> 目录
+        </div>
+        <nav id="TableOfContents">
+          <nav id="TableOfContents">
+  <ul>
+    <li><a href="#一组装所用核心测序数据">一、组装所用核心测序数据</a></li>
+    <li><a href="#二基因组组装全流程代码--解析--输入输出">二、基因组组装全流程（代码 + 解析 + 输入输出）</a>
+      <ul>
+        <li><a href="#流程核心原则">流程核心原则</a></li>
+        <li><a href="#环境准备">环境准备</a></li>
+        <li><a href="#步骤-1原始数据质控与污染去除">步骤 1：原始数据质控与污染去除</a></li>
+        <li><a href="#步骤-2三代长读长骨架-de-novo-组装canu-22">步骤 2：三代长读长骨架 de novo 组装（Canu 2.2）</a></li>
+        <li><a href="#步骤-3多轮抛光polish--提升单碱基准确性">步骤 3：多轮抛光（Polish）- 提升单碱基准确性</a></li>
+        <li><a href="#步骤-4双辅助图谱联合挂载染色体级">步骤 4：双辅助图谱联合挂载（染色体级）</a></li>
+        <li><a href="#步骤-5组装质量全面评估必做无评估无意义">步骤 5：组装质量全面评估（必做，无评估无意义）</a></li>
+      </ul>
+    </li>
+    <li><a href="#三组装专属优化策略适配野生大豆基因组特征">三、组装专属优化策略（适配野生大豆基因组特征）</a></li>
+    <li><a href="#四全流程文件目录结构规范整理便于复现">四、全流程文件目录结构（规范整理，便于复现）</a></li>
+  </ul>
+</nav>
+        </nav>
+      </div>
+    </aside>
+
+  </div>
+</div>
+    </main>
+    
+<footer class="footer">
+        <span>tdx0307</span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+<a href="/search/" class="search-fab" title="搜索 (Ctrl+F)">🔍</a>
+
+<style>
+.search-fab {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.search-fab:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .search-fab {
+        bottom: 1rem;
+        right: 1rem;
+        width: 45px;
+        height: 45px;
+    }
+}
+</style>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    if (document.getElementById('wide-post-layout')) {
+        var main = document.querySelector('main.main');
+        if (main) {
+            main.style.maxWidth = '100%';
+            main.style.width = '100%';
+            main.style.padding = '0';
+            main.style.margin = '0 auto';
+        }
+        
+        document.body.classList.add('is-single-post');
+    }
+});
+</script>
+
+<script>
+    let menu = document.getElementById('menu');
+    if (menu) {
+        
+        const scrollPosition = localStorage.getItem("menu-scroll-position");
+        if (scrollPosition) {
+            menu.scrollLeft = parseInt(scrollPosition, 10);
+        }
+        
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        const html = document.querySelector("html");
+        if (html.dataset.theme === "dark") {
+            html.dataset.theme = 'light';
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            html.dataset.theme = 'dark';
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>

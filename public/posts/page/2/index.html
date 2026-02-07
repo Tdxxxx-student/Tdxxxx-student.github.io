@@ -162,6 +162,37 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Annovar基因结构注释
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>下载软件 准备文件：物种gff和fasta文件
+https://www.openbioinformatics.org/annovar/annovar_download_form.php 填写教育类邮箱获取下载链接；
+下载、解压、添加环境变量
+sudo vi /etc/profile.d/env.sh # 追加 # export PATH=/pub/software/annovar:$PATH source /etc/profile.d/env.sh gff3ToGenePred安装 UCSC软件库查找
+http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/
+# 下载 cd /pub/software/annovar wget http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/gff3ToGenePred # 执行权限 chmod &#43;x ./gff3ToGenePred 构建注释数据库 # 文件准备 cp /fasta路径/ cp /gff3路径/ # gff文件加头 echo &#34;##gff-version 3&#34; | cat - lch.gff3 &gt; temp &amp;&amp; mv temp lch.gff3 gff3ToGenePred gff文件 lchgenome_refGene.txt retrieve_seq_from_fasta.pl --format refGene \ --seqfile Lchinesis_genome.Chr.fasta \ --out lchgenome_refGeneMrna.fa \ lchgenome_refGene.txt mv Lchinesis_genome.Chr.gff3 lch.gff3 gff3ToGenePred lch.gff3 lchgenome_refGene.txt retrieve_seq_from_fasta.pl --format refGene \ --seqfile Lchinesis_genome.Chr.fasta \ --out lchgenome_refGeneMrna.fa \ lchgenome_refGene.txt genome_refGene.txt 和 genome_refGeneMrna.fa两个文件的前缀都为genome，这里的命名很重要
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-02-04 20:19:11 +0800 CST'>2026-02-04</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>tdx</span></footer>
+  <a class="entry-link" aria-label="post link to Annovar基因结构注释" href="https://Tdxxxx-student.github.io/posts/annovar%E6%B3%A8%E9%87%8A/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">ENA校验脚本
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>ENA下载的md5校验文件（tsv）格式转化和一键校验脚本 以下为脚本
+#!/bin/bash #=============================================================================== # 脚本名称: ena_md5_check.sh # 功能描述: 自动转换ENA TSV文件并校验FASTQ文件完整性 # 作者: Claude Assistant # 版本: 1.3 #=============================================================================== set -e # 颜色定义 RED=&#39;\033[0;31m&#39; GREEN=&#39;\033[0;32m&#39; YELLOW=&#39;\033[0;33m&#39; BLUE=&#39;\033[0;34m&#39; NC=&#39;\033[0m&#39; info() { echo -e &#34;${BLUE}[INFO]${NC} $1&#34;; } success() { echo -e &#34;${GREEN}[SUCCESS]${NC} $1&#34;; } warn() { echo -e &#34;${YELLOW}[WARNING]${NC} $1&#34;; } error() { echo -e &#34;${RED}[ERROR]${NC} $1&#34;; exit 1; } # 显示帮助信息 show_help() { cat &lt;&lt; EOF ================================================================================ ENA FASTQ MD5 校验工具 v1.3 ================================================================================ 用法: $0 &lt;tsv文件&gt; [fastq目录] [选项] 参数: &lt;tsv文件&gt; ENA下载的filereport TSV文件 (必需) [fastq目录] FASTQ文件所在目录 (默认: 当前目录) 选项: -s, --suffix 文件后缀 (默认: .fastq.gz) -o, --output 输出的MD5文件名 (默认: md5sums.txt) -r, --report 问题报告文件名 (默认: md5_failed_report.tsv) -h, --help 显示此帮助信息 支持: - 双端测序 (paired-end): SRR*_1.fastq.gz, SRR*_2.fastq.gz - 单端测序 (single-end): SRR*.fastq.gz 输出文件: md5sums.txt 生成的MD5校验文件 md5_failed_report.tsv 仅当有问题时生成 (TSV格式) 示例: $0 filereport_read_run_PRJNA175477.tsv $0 filereport_read_run_PRJNA175477.tsv ./rawdata -s .fq.gz ================================================================================ EOF exit 0 } # 默认参数 TSV_FILE=&#34;&#34; FASTQ_DIR=&#34;.&#34; SUFFIX=&#34;.fastq.gz&#34; OUTPUT=&#34;md5sums.txt&#34; REPORT=&#34;md5_failed_report.tsv&#34; # 参数解析 while [[ $# -gt 0 ]]; do case $1 in -s|--suffix) SUFFIX=&#34;$2&#34;; shift 2 ;; -o|--output) OUTPUT=&#34;$2&#34;; shift 2 ;; -r|--report) REPORT=&#34;$2&#34;; shift 2 ;; -h|--help) show_help ;; -*) error &#34;未知选项: $1&#34; ;; *) if [[ -z &#34;$TSV_FILE&#34; ]]; then TSV_FILE=&#34;$1&#34; else FASTQ_DIR=&#34;$1&#34; fi shift ;; esac done # 参数检查 [[ -z &#34;$TSV_FILE&#34; ]] &amp;&amp; error &#34;请指定TSV文件，使用 -h 查看帮助&#34; [[ ! -f &#34;$TSV_FILE&#34; ]] &amp;&amp; error &#34;TSV文件不存在: $TSV_FILE&#34; [[ ! -d &#34;$FASTQ_DIR&#34; ]] &amp;&amp; error &#34;FASTQ目录不存在: $FASTQ_DIR&#34; FASTQ_DIR=$(cd &#34;$FASTQ_DIR&#34; &amp;&amp; pwd) info &#34;==========================================&#34; info &#34;ENA FASTQ MD5 校验工具 v1.3&#34; info &#34;==========================================&#34; info &#34;TSV文件: $TSV_FILE&#34; info &#34;FASTQ目录: $FASTQ_DIR&#34; info &#34;文件后缀: $SUFFIX&#34; info &#34;==========================================&#34; #=============================================================================== # 步骤1: 转换TSV为MD5格式（支持单端和双端） #=============================================================================== info &#34;正在转换TSV文件...&#34; awk -F&#39;\t&#39; -v suffix=&#34;$SUFFIX&#34; -v dir=&#34;$FASTQ_DIR&#34; &#39; { gsub(/\r/, &#34;&#34;) if ($1 ~ /^[SE]RR[0-9]&#43;$/ &amp;&amp; $2 != &#34;&#34;) { srr = $1 md5_str = $2 n = split(md5_str, md5s, &#34;;&#34;) if (n == 2) { # 双端测序 printf &#34;%s %s/%s_1%s\n&#34;, md5s[1], dir, srr, suffix printf &#34;%s %s/%s_2%s\n&#34;, md5s[2], dir, srr, suffix } else if (n == 1 &amp;&amp; md5s[1] != &#34;&#34;) { # 单端测序 printf &#34;%s %s/%s%s\n&#34;, md5s[1], dir, srr, suffix } } }&#39; &#34;$TSV_FILE&#34; &gt; &#34;$OUTPUT&#34; count=$(wc -l &lt; &#34;$OUTPUT&#34;) [[ $count -eq 0 ]] &amp;&amp; error &#34;未能提取任何MD5记录，请检查TSV文件格式&#34; success &#34;生成MD5文件: $OUTPUT ($count 条记录)&#34; info &#34;预览前5行:&#34; head -5 &#34;$OUTPUT&#34; | sed &#39;s/^/ /&#39; #=============================================================================== # 步骤2: 校验文件完整性 #=============================================================================== echo &#34;&#34; info &#34;开始校验文件完整性...&#34; info &#34;(大文件需要较长时间，请耐心等待)&#34; echo &#34;&#34; total=$count current=0 passed=0 failed=0 missing=0 # 临时存储问题文件（TSV格式：文件名\t原因） FAILED_TMP=$(mktemp) while read -r line; do current=$((current &#43; 1)) expected_md5=$(echo &#34;$line&#34; | awk &#39;{print $1}&#39;) filepath=$(echo &#34;$line&#34; | sed &#39;s/^[^ ]* //&#39;) filename=$(basename &#34;$filepath&#34;) printf &#34;[%d/%d] %s ... &#34; &#34;$current&#34; &#34;$total&#34; &#34;$filename&#34; # 检查文件是否存在 if [[ ! -f &#34;$filepath&#34; ]]; then echo -e &#34;${YELLOW}缺失${NC}&#34; missing=$((missing &#43; 1)) printf &#34;%s\t%s\n&#34; &#34;$filename&#34; &#34;文件不存在&#34; &gt;&gt; &#34;$FAILED_TMP&#34; continue fi # 计算MD5 actual_md5=$(md5sum &#34;$filepath&#34; | awk &#39;{print $1}&#39;) if [[ &#34;$expected_md5&#34; == &#34;$actual_md5&#34; ]]; then echo -e &#34;${GREEN}OK${NC}&#34; passed=$((passed &#43; 1)) else echo -e &#34;${RED}FAILED${NC}&#34; failed=$((failed &#43; 1)) printf &#34;%s\t%s\n&#34; &#34;$filename&#34; &#34;MD5不匹配(期望:${expected_md5},实际:${actual_md5})&#34; &gt;&gt; &#34;$FAILED_TMP&#34; fi done &lt; &#34;$OUTPUT&#34; #=============================================================================== # 步骤3: 输出统计结果 #=============================================================================== echo &#34;&#34; info &#34;==========================================&#34; info &#34;校验完成！统计结果:&#34; info &#34;==========================================&#34; echo &#34; 总计: $total&#34; echo -e &#34; ${GREEN}通过: $passed${NC}&#34; echo -e &#34; ${RED}失败: $failed${NC}&#34; echo -e &#34; ${YELLOW}缺失: $missing${NC}&#34; info &#34;==========================================&#34; #=============================================================================== # 步骤4: 仅当有问题时生成报告（TSV格式） #=============================================================================== if [[ $failed -gt 0 || $missing -gt 0 ]]; then # 生成TSV报告：表头 &#43; 内容 echo -e &#34;filename\treason&#34; &gt; &#34;$REPORT&#34; cat &#34;$FAILED_TMP&#34; &gt;&gt; &#34;$REPORT&#34; echo &#34;&#34; warn &#34;问题文件列表:&#34; echo -e &#34;${YELLOW}filename\treason${NC}&#34; cat &#34;$FAILED_TMP&#34; echo &#34;&#34; warn &#34;✗ 存在问题文件！&#34; success &#34;问题报告已保存至: $REPORT&#34; else rm -f &#34;$REPORT&#34; echo &#34;&#34; success &#34;✓ 所有文件校验通过！无问题报告生成。&#34; fi # 清理 rm -f &#34;$FAILED_TMP&#34; [[ $failed -gt 0 || $missing -gt 0 ]] &amp;&amp; exit 1 || exit 0 更新说明 1. 支持单端测序 测序类型 MD5格式 生成文件 双端 md5_1;md5_2 SRR*_1.fastq.gz, SRR*_2.fastq.gz 单端 md5 SRR*.fastq.gz 2. 错误报告格式（TSV） filename	reason SRR576084_1.fastq.gz	MD5不匹配(期望:ee9c08fd...,实际:a1b2c3d4...) SRR576089_1.fastq.gz	文件不存在 使用方法 chmod &#43;x ena_md5_check.sh # 基本用法 ./ena_md5_check.sh filereport_read_run_PRJNA175477.tsv . # 指定目录和后缀 ./ena_md5_check.sh filereport.tsv ./rawdata -s .fq.gz # 查看错误报告 cat md5_failed_report.tsv # 用Excel或其他工具打开TSV报告 输出示例 终端输出 [INFO] ========================================== [INFO] ENA FASTQ MD5 校验工具 v1.3 [INFO] ========================================== [1/10] SRR064552_1.fastq.gz ... OK [2/10] SRR064552_2.fastq.gz ... OK [3/10] SRR064553.fastq.gz ... OK # 单端测序 [4/10] SRR064554_1.fastq.gz ... FAILED [5/10] SRR064554_2.fastq.gz ... 缺失 ... [INFO] ========================================== [INFO] 校验完成！统计结果: [INFO] ========================================== 总计: 10 通过: 8 失败: 1 缺失: 1 [INFO] ========================================== [WARNING] 问题文件列表: filename	reason SRR064554_1.fastq.gz	MD5不匹配(期望:ee9c08fd...,实际:a1b2c3d4...) SRR064554_2.fastq.gz	文件不存在 [SUCCESS] 问题报告已保存至: md5_failed_report.tsv 错误报告文件 (md5_failed_report.tsv) filename reason SRR064554_1.fastq.gz MD5不匹配(期望:ee9c08fd…,实际:a1b2c3d4…) SRR064554_2.fastq.gz 文件不存在 </p>
+  </div>
+  <footer class="entry-footer"><span title='2026-02-04 12:58:06 +0800 CST'>2026-02-04</span>&nbsp;·&nbsp;<span>4 min</span></footer>
+  <a class="entry-link" aria-label="post link to ENA校验脚本" href="https://Tdxxxx-student.github.io/posts/ena%E6%A0%A1%E9%AA%8C%E8%84%9A%E6%9C%AC/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Fq文件下载和校验
     </h2>
   </header>
@@ -241,24 +272,12 @@ wget https://ak-delivery04-mul.dhe.ibm.com/sar/CMA/OSA/09cne/0/ibm-aspera-connec
   <footer class="entry-footer"><span title='2026-02-01 11:58:07 +0800 CST'>2026-02-01</span>&nbsp;·&nbsp;<span>3 min</span></footer>
   <a class="entry-link" aria-label="post link to AI辅助教程" href="https://Tdxxxx-student.github.io/posts/ai%E8%BE%85%E5%8A%A9%E6%95%99%E7%A8%8B/"></a>
 </article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">部署文章
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>使用Hugo 搭建博客并部署到 GitHub Pages April 4, 2025 本教程将从 0 开始，手把手教你在 Windows 系统中使用 Hugo 创建一个静态博客，并通过 GitHub Actions 自动部署到 GitHub Pages.
-🧰 一、准备工作 ✅ 1. 安装 Git 下载并安装：https://git-scm.com 安装完成后，右键菜单应该出现 “Git Bash Here” 验证安装：
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2026-02-01 00:00:00 +0000 UTC'>2026-02-01</span>&nbsp;·&nbsp;<span>5 min</span></footer>
-  <a class="entry-link" aria-label="post link to 部署文章" href="https://Tdxxxx-student.github.io/posts/hello-hugo/"></a>
-</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="https://Tdxxxx-student.github.io/posts/">
       «&nbsp;Prev&nbsp;
+    </a>
+    <a class="next" href="https://Tdxxxx-student.github.io/posts/page/3/">Next&nbsp;&nbsp;»
     </a>
   </nav>
 </footer>
