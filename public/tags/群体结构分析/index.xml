@@ -26,9 +26,7 @@
 &lt;li&gt;&lt;a href=&#34;#qtl-seq%E5%88%86%E6%9E%90&#34;&gt;QTL-seq 分析&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#%E9%99%84%E5%BD%95%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B%E5%9B%BE&#34;&gt;附录：分析流程图&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;软件安装&#34;&gt;软件安装&lt;/h2&gt;
-&lt;blockquote&gt;
-&lt;p&gt;⚠️ 注意：该部分软件很难用 conda 直接安装，安装步骤比较特殊。&lt;/p&gt;</description>
+&lt;p&gt;（其中包含了一些我复用时可能遇到的问题和解决办法，比较混乱，甄别使用）&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
