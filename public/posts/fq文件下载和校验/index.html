@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en" dir="auto" data-theme="auto">
-
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="robots" content="index, follow">
-<title>Fq文件下载和校验 | 我的空间</title>
-<meta name="keywords" content="fastq下载">
-<meta name="description" content="Aspera安装
+<!doctype html><html lang=en dir=auto data-theme=auto><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Fq文件下载和校验 | 我的空间</title><meta name=keywords content="fastq下载"><meta name=description content='Aspera安装
 可以conda/mamba安装
 Linux系统上安装aspera并用其批量高速下载转录组数据 - 知乎 (zhihu.com)
 手动安装
@@ -16,88 +7,13 @@ tar -zxvf ibm-aspera-connect-3.11.0.5-linux-g2.12-64.tar.gz
 ## sh文件上一步解压生成的
 ./ibm-aspera-connect-3.11.0.5-linux-g2.12-64.sh
 # 把USERNAME 换成自己的linux 账户名
-$ echo &#34;&#34;&#34;export PATH=\&#34;/home/xiaotiancai/.aspera/connect/bin:\$PATH\&#34; &#34;&#34;&#34; &gt;&gt; ~/.bashrc
+$ echo """export PATH=\"/home/xiaotiancai/.aspera/connect/bin:\$PATH\" """ >> ~/.bashrc
 # 有输出帮助文档则安装成功
 $ ascp -h
 基本语法
 借鉴
-Aspera ascp Usage (2.7) Documentation - All Aspera Server 2.7 Platforms (asperasoft.com)">
-<meta name="author" content="">
-<link rel="canonical" href="https://Tdxxxx-student.github.io/posts/fq%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%92%8C%E6%A0%A1%E9%AA%8C/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.01d35acdbbaa1404939950eac1b15ada4d2a087b51757e85aec3659df639bc28.css" integrity="sha256-AdNazbuqFASTmVDqwbFa2k0qCHtRdX6FrsNlnfY5vCg=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://Tdxxxx-student.github.io/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://Tdxxxx-student.github.io/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://Tdxxxx-student.github.io/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://Tdxxxx-student.github.io/apple-touch-icon.png">
-<link rel="mask-icon" href="https://Tdxxxx-student.github.io/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://Tdxxxx-student.github.io/posts/fq%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%92%8C%E6%A0%A1%E9%AA%8C/">
-<noscript>
-    <style>
-        #theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-    <style>
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --theme: rgb(29, 30, 32);
-                --entry: rgb(46, 46, 51);
-                --primary: rgb(218, 218, 219);
-                --secondary: rgb(155, 156, 157);
-                --tertiary: rgb(65, 66, 68);
-                --content: rgb(196, 196, 197);
-                --code-block-bg: rgb(46, 46, 51);
-                --code-bg: rgb(55, 56, 62);
-                --border: rgb(51, 51, 51);
-                color-scheme: dark;
-            }
-
-            .list {
-                background: var(--theme);
-            }
-
-            .toc {
-                background: var(--entry);
-            }
-        }
-
-        @media (prefers-color-scheme: light) {
-            .list::-webkit-scrollbar-thumb {
-                border-color: var(--code-bg);
-            }
-        }
-
-    </style>
-</noscript>
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else if (localStorage.getItem("pref-theme") === "light") {
-       document.querySelector("html").dataset.theme = 'light';
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.querySelector("html").dataset.theme = 'dark';
-    } else {
-        document.querySelector("html").dataset.theme = 'light';
-    }
-
-</script><link rel="stylesheet" href="https://Tdxxxx-student.github.io/css/custom.css"><meta property="og:url" content="https://Tdxxxx-student.github.io/posts/fq%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%92%8C%E6%A0%A1%E9%AA%8C/">
-  <meta property="og:site_name" content="我的空间">
-  <meta property="og:title" content="Fq文件下载和校验">
-  <meta property="og:description" content="Aspera安装 可以conda/mamba安装 Linux系统上安装aspera并用其批量高速下载转录组数据 - 知乎 (zhihu.com) 手动安装
-wget https://ak-delivery04-mul.dhe.ibm.com/sar/CMA/OSA/09cne/0/ibm-aspera-connect-3.11.0.5-linux-g2.12-64.tar.gz tar -zxvf ibm-aspera-connect-3.11.0.5-linux-g2.12-64.tar.gz ## sh文件上一步解压生成的 ./ibm-aspera-connect-3.11.0.5-linux-g2.12-64.sh # 把USERNAME 换成自己的linux 账户名 $ echo &#34;&#34;&#34;export PATH=\&#34;/home/xiaotiancai/.aspera/connect/bin:\$PATH\&#34; &#34;&#34;&#34; &gt;&gt; ~/.bashrc # 有输出帮助文档则安装成功 $ ascp -h 基本语法 借鉴 Aspera ascp Usage (2.7) Documentation - All Aspera Server 2.7 Platforms (asperasoft.com)">
-  <meta property="og:locale" content="zh-cn">
-  <meta property="og:type" content="article">
-    <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2026-02-03T22:20:24+08:00">
-    <meta property="article:modified_time" content="2026-02-03T22:20:24+08:00">
-    <meta property="article:tag" content="Fastq下载">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Fq文件下载和校验">
-<meta name="twitter:description" content="Aspera安装
+Aspera ascp Usage (2.7) Documentation - All Aspera Server 2.7 Platforms (asperasoft.com)'><meta name=author content="map[email: name:tdx]"><link rel=canonical href=https://Tdxxxx-student.github.io/posts/fq%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%92%8C%E6%A0%A1%E9%AA%8C/><link crossorigin=anonymous href=/assets/css/stylesheet.01d35acdbbaa1404939950eac1b15ada4d2a087b51757e85aec3659df639bc28.css integrity="sha256-AdNazbuqFASTmVDqwbFa2k0qCHtRdX6FrsNlnfY5vCg=" rel="preload stylesheet" as=style><link rel=icon href=https://Tdxxxx-student.github.io/favicon.ico><link rel=icon type=image/png sizes=16x16 href=https://Tdxxxx-student.github.io/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://Tdxxxx-student.github.io/favicon-32x32.png><link rel=apple-touch-icon href=https://Tdxxxx-student.github.io/apple-touch-icon.png><link rel=mask-icon href=https://Tdxxxx-student.github.io/safari-pinned-tab.svg><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><link rel=alternate hreflang=en href=https://Tdxxxx-student.github.io/posts/fq%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%92%8C%E6%A0%A1%E9%AA%8C/><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--code-block-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51);color-scheme:dark}.list{background:var(--theme)}.toc{background:var(--entry)}}@media(prefers-color-scheme:light){.list::-webkit-scrollbar-thumb{border-color:var(--code-bg)}}</style></noscript><script>localStorage.getItem("pref-theme")==="dark"?document.querySelector("html").dataset.theme="dark":localStorage.getItem("pref-theme")==="light"?document.querySelector("html").dataset.theme="light":window.matchMedia("(prefers-color-scheme: dark)").matches?document.querySelector("html").dataset.theme="dark":document.querySelector("html").dataset.theme="light"</script><link rel=stylesheet href=https://Tdxxxx-student.github.io/css/custom.css><meta property="og:url" content="https://Tdxxxx-student.github.io/posts/fq%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%92%8C%E6%A0%A1%E9%AA%8C/"><meta property="og:site_name" content="我的空间"><meta property="og:title" content="Fq文件下载和校验"><meta property="og:description" content='Aspera安装 可以conda/mamba安装 Linux系统上安装aspera并用其批量高速下载转录组数据 - 知乎 (zhihu.com) 手动安装
+wget https://ak-delivery04-mul.dhe.ibm.com/sar/CMA/OSA/09cne/0/ibm-aspera-connect-3.11.0.5-linux-g2.12-64.tar.gz tar -zxvf ibm-aspera-connect-3.11.0.5-linux-g2.12-64.tar.gz ## sh文件上一步解压生成的 ./ibm-aspera-connect-3.11.0.5-linux-g2.12-64.sh # 把USERNAME 换成自己的linux 账户名 $ echo """export PATH=\"/home/xiaotiancai/.aspera/connect/bin:\$PATH\" """ >> ~/.bashrc # 有输出帮助文档则安装成功 $ ascp -h 基本语法 借鉴 Aspera ascp Usage (2.7) Documentation - All Aspera Server 2.7 Platforms (asperasoft.com)'><meta property="og:locale" content="zh-cn"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2026-02-03T22:20:24+08:00"><meta property="article:modified_time" content="2026-02-03T22:20:24+08:00"><meta property="article:tag" content="Fastq下载"><meta name=twitter:card content="summary"><meta name=twitter:title content="Fq文件下载和校验"><meta name=twitter:description content='Aspera安装
 可以conda/mamba安装
 Linux系统上安装aspera并用其批量高速下载转录组数据 - 知乎 (zhihu.com)
 手动安装
@@ -106,155 +22,26 @@ tar -zxvf ibm-aspera-connect-3.11.0.5-linux-g2.12-64.tar.gz
 ## sh文件上一步解压生成的
 ./ibm-aspera-connect-3.11.0.5-linux-g2.12-64.sh
 # 把USERNAME 换成自己的linux 账户名
-$ echo &#34;&#34;&#34;export PATH=\&#34;/home/xiaotiancai/.aspera/connect/bin:\$PATH\&#34; &#34;&#34;&#34; &gt;&gt; ~/.bashrc
+$ echo """export PATH=\"/home/xiaotiancai/.aspera/connect/bin:\$PATH\" """ >> ~/.bashrc
 # 有输出帮助文档则安装成功
 $ ascp -h
 基本语法
 借鉴
-Aspera ascp Usage (2.7) Documentation - All Aspera Server 2.7 Platforms (asperasoft.com)">
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Posts",
-      "item": "https://Tdxxxx-student.github.io/posts/"
-    }, 
-    {
-      "@type": "ListItem",
-      "position":  2 ,
-      "name": "Fq文件下载和校验",
-      "item": "https://Tdxxxx-student.github.io/posts/fq%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%92%8C%E6%A0%A1%E9%AA%8C/"
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Fq文件下载和校验",
-  "name": "Fq文件下载和校验",
-  "description": "Aspera安装 可以conda/mamba安装 Linux系统上安装aspera并用其批量高速下载转录组数据 - 知乎 (zhihu.com) 手动安装\nwget https://ak-delivery04-mul.dhe.ibm.com/sar/CMA/OSA/09cne/0/ibm-aspera-connect-3.11.0.5-linux-g2.12-64.tar.gz tar -zxvf ibm-aspera-connect-3.11.0.5-linux-g2.12-64.tar.gz ## sh文件上一步解压生成的 ./ibm-aspera-connect-3.11.0.5-linux-g2.12-64.sh # 把USERNAME 换成自己的linux 账户名 $ echo \u0026#34;\u0026#34;\u0026#34;export PATH=\\\u0026#34;/home/xiaotiancai/.aspera/connect/bin:\\$PATH\\\u0026#34; \u0026#34;\u0026#34;\u0026#34; \u0026gt;\u0026gt; ~/.bashrc # 有输出帮助文档则安装成功 $ ascp -h 基本语法 借鉴 Aspera ascp Usage (2.7) Documentation - All Aspera Server 2.7 Platforms (asperasoft.com)\n",
-  "keywords": [
-    "fastq下载"
-  ],
-  "articleBody": "Aspera安装 可以conda/mamba安装 Linux系统上安装aspera并用其批量高速下载转录组数据 - 知乎 (zhihu.com) 手动安装\nwget https://ak-delivery04-mul.dhe.ibm.com/sar/CMA/OSA/09cne/0/ibm-aspera-connect-3.11.0.5-linux-g2.12-64.tar.gz tar -zxvf ibm-aspera-connect-3.11.0.5-linux-g2.12-64.tar.gz ## sh文件上一步解压生成的 ./ibm-aspera-connect-3.11.0.5-linux-g2.12-64.sh # 把USERNAME 换成自己的linux 账户名 $ echo \"\"\"export PATH=\\\"/home/xiaotiancai/.aspera/connect/bin:\\$PATH\\\" \"\"\" \u003e\u003e ~/.bashrc # 有输出帮助文档则安装成功 $ ascp -h 基本语法 借鉴 Aspera ascp Usage (2.7) Documentation - All Aspera Server 2.7 Platforms (asperasoft.com)\n基本语法如下，[OPTION] 是参数设置，SRC 是远程资源路径，DEST是文件保存路径。若SRC为多个文件，则保存在DEST目录下。\nascp [OPTION] SRC... DEST 参数 说明\n-l 最大传输速率 ==-i 密钥地址，自己安装都是：~/.aspera/connect/etc/asperaweb_id_dsa.openssh== ，conda安装参照上面内容 -P -P33001，分开合起作用都是一样。设成其他可能会要输密码。Set the TCP port used for fasp session initiation. (Default: 22) -Q Enable fair transfer policy -k -k2, 分开合起作用都是一样,异常中断可以重启。Enables fatal transfer restarts. -T 禁止加密。Disable encryption for maximum throughput. SRC 位置参数，源文件地址，类似[era-fasp@fasp.sra.ebi.ac.uk](https://links.jianshu.com/go?to=mailto%3Aera-fasp%40fasp.sra.ebi.ac.uk):/vol1/fastq/SRR576/004/SRR5760814/SRR5760814.fastq.gz DEST ./test.fq.gz， 保存地址 # 以一个例子作为说明 ascp -l 100M -P 33001 -QT -k 2 -i ~/.aspera/connect/etc/asperaweb_id_dsa.openssh era-fasp@fasp.sra.ebi.ac.uk:/vol1/fastq/SRR576/004/SRR5760814/SRR5760814.fastq.gz ./test.fq.gz 下载 $ ascp -l 100M -P 33001 -QT -k 2 -i ~/.aspera/connect/etc/asperaweb_id_dsa.openssh era-fasp@fasp.sra.ebi.ac.uk:/vol1/fastq/SRR576/002/SRR5760812/SRR5760812.fastq.gz ./test.fq.gz 师姐解说\nWH: mamba activate ascp WH: which aspera WH: #密钥地址一般是bin换成etc后边 在SRA可以直接获取格式\nxtc424密钥：/pub/software/miniforge3/envs/ascp/etc/asperaweb_id_dsa.openssh ==nohup挂载后台运行脚本==\nnohub command \u0026 # 按任意键如回车键 # 正常退出，否则可能会失败 exit ENA自动下载校验脚本 直接在 ENA 上检索想要下载的数据 有两个信息很重要，MD5值和Aspera链接，第一列为run accession。 选择TSV下载格式将信息下载下来，然后使用R进行处理，获得最终要的数据格式。R代码如下：\nR 处理成最后想要的格式 rm(list = ls()) setwd(\"tsv文件所在路径\") library(tidyverse) # 获取当前目录的文件列表 dir() %\u003e% as.data.frame() %\u003e% magrittr::set_names(\"file\") %\u003e% dplyr::filter(grepl(\"\\\\.tsv$|\\\\.txt$\", file)) -\u003e df.file # 筛选特定后缀文件 all.ena \u003c- tibble() for (i in unique(df.file$file)) { readr::read_delim(i, show_col_types = FALSE) %\u003e% # 直接用文件名 magrittr::set_names(c(\"Run\", \"md5\", \"link\")) %\u003e% dplyr::mutate( md5 = stringr::str_split(md5, \";\"), link = stringr::str_split(link, \";\") ) %\u003e% tidyr::unnest(cols = c(md5, link)) %\u003e% # 指定 cols 参数 dplyr::mutate( file = stringr::str_split(link, \"/\") %\u003e% sapply(`[`, 7) ) %\u003e% dplyr::select(Run, file, md5, link) %\u003e% dplyr::bind_rows(all.ena) -\u003e all.ena } # 输出到当前目录 all.ena %\u003e% dplyr::select(file, md5, link) %\u003e% readr::write_delim(\"ena.info.txt\", delim = \"\\t\", col_names = FALSE) 得到的文件长这样： 第一列是 fq 文件名，第二列是 MD 5 校验码，第三列是 aspera 下载地址 把这个文件上传到服务器，就可以开始下载了。批量下载代码脚本\n#!/bin/bash # 定义文件列表的文本文件路径 FILE_LIST=\"ena.info.txt\" # 定义最大重试次数 MAX_RETRIES=10 # 检查文件列表文件是否存在 if [ ! -f \"$FILE_LIST\" ]; then echo \"文件列表文件 $FILE_LIST 不存在。\" exit 1 fi # 读取文件列表文件 while read -r filename md5sum download_url; do echo \"处理文件: $filename\" # 定义下载的文件路径 download_path=\"$filename\" # 初始化重试次数 retries=0 # 循环直到文件校验成功或达到最大重试次数 while [ $retries -lt $MAX_RETRIES ]; do echo \"尝试下载文件 (尝试次数: $((retries + 1)) / $MAX_RETRIES)...\" # 使用curl下载文件 #curl -o \"$download_path\" -L \"$download_url\" # 使用 ascp 下载文件 # 换成自己的asperaweb_id_dsa.openssh路径 ascp -QT -l 100m -P33001 -k 1 -i ~/mambaforge/envs/tools4bioinf/etc/asperaweb_id_dsa.openssh era-fasp@$download_url . # 计算下载文件的MD5校验和 actual_md5=$(md5sum \"$download_path\" | awk '{print $1}') # 校验文件 if [ \"$actual_md5\" = \"$md5sum\" ]; then echo \"文件 $filename 下载成功，并且MD5校验和正确。\" break else echo \"文件校验失败，正在重试...\" rm \"$download_path\" retries=$((retries + 1)) fi done # 检查是否达到最大重试次数 if [ $retries -eq $MAX_RETRIES ]; then echo \"文件 $filename 下载和校验失败，已达到最大重试次数。\" # exit 1 fi done \u003c \"$FILE_LIST\" nohup bash aspera_1.sh \u003e dl.log 2\u003e\u00261 \u0026 echo $! \u003e dl.id # $! 是上一个后台进程的ID 注意 上面脚本需要自行修改下载速度和密钥！\n# 输出日志 处理文件: SRR12976775_1.fastq.gz 尝试下载文件 (尝试次数: 1 / 10)... SRR12976775_1.fastq.gz 100% 1420MB 10.7Mb/s 10:12 Completed: 1454518K bytes transferred in 612 seconds (19438K bits/sec), in 1 file. 文件 SRR12976775_1.fastq.gz 下载成功，并且MD5校验和正确。 ",
-  "wordCount" : "1610",
-  "inLanguage": "en",
-  "datePublished": "2026-02-03T22:20:24+08:00",
-  "dateModified": "2026-02-03T22:20:24+08:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://Tdxxxx-student.github.io/posts/fq%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%92%8C%E6%A0%A1%E9%AA%8C/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "我的空间",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://Tdxxxx-student.github.io/favicon.ico"
-    }
-  }
-}
-</script>
-</head>
-<body id="top">
-    <header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="https://Tdxxxx-student.github.io/" accesskey="h" title="我的空间 (Alt + H)">我的空间</a>
-            <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
-                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-            </div>
-        </div>
-        <ul id="menu">
-            <li>
-                <a href="https://Tdxxxx-student.github.io/posts/" title="首页">
-                    <span>首页</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://Tdxxxx-student.github.io/archives/" title="归档">
-                    <span>归档</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://Tdxxxx-student.github.io/categories/" title="分类">
-                    <span>分类</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://Tdxxxx-student.github.io/tags/" title="标签">
-                    <span>标签</span>
-                </a>
-            </li>
-            <li>
-                <a href="https://Tdxxxx-student.github.io/search/" title="🔍  (Alt &#43; /)" accesskey=/>
-                    <span>🔍 </span>
-                </a>
-            </li>
-        </ul>
-    </nav>
-</header>
-<main class="main">
-
-
-<div id="wide-post-layout" class="post-page-wrapper">
-  
-  <div class="top-banner-decoration"></div>
-
-  <div class="page-layout">
-    
-    <article class="post-card">
-      <header class="post-header"><div class="breadcrumbs"><a href="https://Tdxxxx-student.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://Tdxxxx-student.github.io/posts/">Posts</a></div>
-        <h1 class="post-title">Fq文件下载和校验</h1>
-        <div class="post-meta"><span title='2026-02-03 22:20:24 +0800 CST'>2026-02-03</span>&nbsp;·&nbsp;<span>4 min</span></div>
-      </header>
-
-      <div class="post-content"><h2 id="aspera安装">Aspera安装<a hidden class="anchor" aria-hidden="true" href="#aspera安装">#</a></h2>
-<p>可以conda/mamba安装
-<a href="https://zhuanlan.zhihu.com/p/640962215">Linux系统上安装aspera并用其批量高速下载转录组数据 - 知乎 (zhihu.com)</a>
-手动安装</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">wget https://ak-delivery04-mul.dhe.ibm.com/sar/CMA/OSA/09cne/0/ibm-aspera-connect-3.11.0.5-linux-g2.12-64.tar.gz
-</span></span><span class="line"><span class="cl">tar -zxvf ibm-aspera-connect-3.11.0.5-linux-g2.12-64.tar.gz
-</span></span><span class="line"><span class="cl"><span class="c1">## sh文件上一步解压生成的</span>
-</span></span><span class="line"><span class="cl">./ibm-aspera-connect-3.11.0.5-linux-g2.12-64.sh
-</span></span><span class="line"><span class="cl"><span class="c1"># 把USERNAME 换成自己的linux 账户名</span>
-</span></span><span class="line"><span class="cl">$ <span class="nb">echo</span> <span class="s2">&#34;&#34;&#34;export PATH=\&#34;/home/xiaotiancai/.aspera/connect/bin:\$PATH\&#34; &#34;&#34;&#34;</span> &gt;&gt; ~/.bashrc
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 有输出帮助文档则安装成功</span>
-</span></span><span class="line"><span class="cl">$ ascp -h
-</span></span></code></pre></div><h3 id="基本语法">基本语法<a hidden class="anchor" aria-hidden="true" href="#基本语法">#</a></h3>
-<p>借鉴
-<a href="https://download.asperasoft.com/download/docs/ascp/2.7/html/index.html">Aspera ascp Usage (2.7) Documentation - All Aspera Server 2.7 Platforms (asperasoft.com)</a></p>
-<p>基本语法如下，<code>[OPTION]</code> 是参数设置，<code>SRC</code> 是远程资源路径，<code>DEST</code>是文件保存路径。若<code>SRC</code>为多个文件，则保存在<code>DEST</code>目录下。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ascp <span class="o">[</span>OPTION<span class="o">]</span> SRC... DEST
-</span></span></code></pre></div><p>参数 说明</p>
-<pre tabindex="0"><code>-l 最大传输速率  
+Aspera ascp Usage (2.7) Documentation - All Aspera Server 2.7 Platforms (asperasoft.com)'><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://Tdxxxx-student.github.io/posts/"},{"@type":"ListItem","position":2,"name":"Fq文件下载和校验","item":"https://Tdxxxx-student.github.io/posts/fq%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%92%8C%E6%A0%A1%E9%AA%8C/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Fq文件下载和校验","name":"Fq文件下载和校验","description":"Aspera安装 可以conda/mamba安装 Linux系统上安装aspera并用其批量高速下载转录组数据 - 知乎 (zhihu.com) 手动安装\nwget https://ak-delivery04-mul.dhe.ibm.com/sar/CMA/OSA/09cne/0/ibm-aspera-connect-3.11.0.5-linux-g2.12-64.tar.gz tar -zxvf ibm-aspera-connect-3.11.0.5-linux-g2.12-64.tar.gz ## sh文件上一步解压生成的 ./ibm-aspera-connect-3.11.0.5-linux-g2.12-64.sh # 把USERNAME 换成自己的linux 账户名 $ echo \u0026#34;\u0026#34;\u0026#34;export PATH=\\\u0026#34;/home/xiaotiancai/.aspera/connect/bin:\\$PATH\\\u0026#34; \u0026#34;\u0026#34;\u0026#34; \u0026gt;\u0026gt; ~/.bashrc # 有输出帮助文档则安装成功 $ ascp -h 基本语法 借鉴 Aspera ascp Usage (2.7) Documentation - All Aspera Server 2.7 Platforms (asperasoft.com)\n","keywords":["fastq下载"],"articleBody":"Aspera安装 可以conda/mamba安装 Linux系统上安装aspera并用其批量高速下载转录组数据 - 知乎 (zhihu.com) 手动安装\nwget https://ak-delivery04-mul.dhe.ibm.com/sar/CMA/OSA/09cne/0/ibm-aspera-connect-3.11.0.5-linux-g2.12-64.tar.gz tar -zxvf ibm-aspera-connect-3.11.0.5-linux-g2.12-64.tar.gz ## sh文件上一步解压生成的 ./ibm-aspera-connect-3.11.0.5-linux-g2.12-64.sh # 把USERNAME 换成自己的linux 账户名 $ echo \"\"\"export PATH=\\\"/home/xiaotiancai/.aspera/connect/bin:\\$PATH\\\" \"\"\" \u003e\u003e ~/.bashrc # 有输出帮助文档则安装成功 $ ascp -h 基本语法 借鉴 Aspera ascp Usage (2.7) Documentation - All Aspera Server 2.7 Platforms (asperasoft.com)\n基本语法如下，[OPTION] 是参数设置，SRC 是远程资源路径，DEST是文件保存路径。若SRC为多个文件，则保存在DEST目录下。\nascp [OPTION] SRC... DEST 参数 说明\n-l 最大传输速率 ==-i 密钥地址，自己安装都是：~/.aspera/connect/etc/asperaweb_id_dsa.openssh== ，conda安装参照上面内容 -P -P33001，分开合起作用都是一样。设成其他可能会要输密码。Set the TCP port used for fasp session initiation. (Default: 22) -Q Enable fair transfer policy -k -k2, 分开合起作用都是一样,异常中断可以重启。Enables fatal transfer restarts. -T 禁止加密。Disable encryption for maximum throughput. SRC 位置参数，源文件地址，类似[era-fasp@fasp.sra.ebi.ac.uk](https://links.jianshu.com/go?to=mailto%3Aera-fasp%40fasp.sra.ebi.ac.uk):/vol1/fastq/SRR576/004/SRR5760814/SRR5760814.fastq.gz DEST ./test.fq.gz， 保存地址 # 以一个例子作为说明 ascp -l 100M -P 33001 -QT -k 2 -i ~/.aspera/connect/etc/asperaweb_id_dsa.openssh era-fasp@fasp.sra.ebi.ac.uk:/vol1/fastq/SRR576/004/SRR5760814/SRR5760814.fastq.gz ./test.fq.gz 下载 $ ascp -l 100M -P 33001 -QT -k 2 -i ~/.aspera/connect/etc/asperaweb_id_dsa.openssh era-fasp@fasp.sra.ebi.ac.uk:/vol1/fastq/SRR576/002/SRR5760812/SRR5760812.fastq.gz ./test.fq.gz 师姐解说\nWH: mamba activate ascp WH: which aspera WH: #密钥地址一般是bin换成etc后边 在SRA可以直接获取格式\nxtc424密钥：/pub/software/miniforge3/envs/ascp/etc/asperaweb_id_dsa.openssh ==nohup挂载后台运行脚本==\nnohub command \u0026 # 按任意键如回车键 # 正常退出，否则可能会失败 exit ENA自动下载校验脚本 直接在 ENA 上检索想要下载的数据 有两个信息很重要，MD5值和Aspera链接，第一列为run accession。 选择TSV下载格式将信息下载下来，然后使用R进行处理，获得最终要的数据格式。R代码如下：\nR 处理成最后想要的格式 rm(list = ls()) setwd(\"tsv文件所在路径\") library(tidyverse) # 获取当前目录的文件列表 dir() %\u003e% as.data.frame() %\u003e% magrittr::set_names(\"file\") %\u003e% dplyr::filter(grepl(\"\\\\.tsv$|\\\\.txt$\", file)) -\u003e df.file # 筛选特定后缀文件 all.ena \u003c- tibble() for (i in unique(df.file$file)) { readr::read_delim(i, show_col_types = FALSE) %\u003e% # 直接用文件名 magrittr::set_names(c(\"Run\", \"md5\", \"link\")) %\u003e% dplyr::mutate( md5 = stringr::str_split(md5, \";\"), link = stringr::str_split(link, \";\") ) %\u003e% tidyr::unnest(cols = c(md5, link)) %\u003e% # 指定 cols 参数 dplyr::mutate( file = stringr::str_split(link, \"/\") %\u003e% sapply(`[`, 7) ) %\u003e% dplyr::select(Run, file, md5, link) %\u003e% dplyr::bind_rows(all.ena) -\u003e all.ena } # 输出到当前目录 all.ena %\u003e% dplyr::select(file, md5, link) %\u003e% readr::write_delim(\"ena.info.txt\", delim = \"\\t\", col_names = FALSE) 得到的文件长这样： 第一列是 fq 文件名，第二列是 MD 5 校验码，第三列是 aspera 下载地址 把这个文件上传到服务器，就可以开始下载了。批量下载代码脚本\n#!/bin/bash # 定义文件列表的文本文件路径 FILE_LIST=\"ena.info.txt\" # 定义最大重试次数 MAX_RETRIES=10 # 检查文件列表文件是否存在 if [ ! -f \"$FILE_LIST\" ]; then echo \"文件列表文件 $FILE_LIST 不存在。\" exit 1 fi # 读取文件列表文件 while read -r filename md5sum download_url; do echo \"处理文件: $filename\" # 定义下载的文件路径 download_path=\"$filename\" # 初始化重试次数 retries=0 # 循环直到文件校验成功或达到最大重试次数 while [ $retries -lt $MAX_RETRIES ]; do echo \"尝试下载文件 (尝试次数: $((retries + 1)) / $MAX_RETRIES)...\" # 使用curl下载文件 #curl -o \"$download_path\" -L \"$download_url\" # 使用 ascp 下载文件 # 换成自己的asperaweb_id_dsa.openssh路径 ascp -QT -l 100m -P33001 -k 1 -i ~/mambaforge/envs/tools4bioinf/etc/asperaweb_id_dsa.openssh era-fasp@$download_url . # 计算下载文件的MD5校验和 actual_md5=$(md5sum \"$download_path\" | awk '{print $1}') # 校验文件 if [ \"$actual_md5\" = \"$md5sum\" ]; then echo \"文件 $filename 下载成功，并且MD5校验和正确。\" break else echo \"文件校验失败，正在重试...\" rm \"$download_path\" retries=$((retries + 1)) fi done # 检查是否达到最大重试次数 if [ $retries -eq $MAX_RETRIES ]; then echo \"文件 $filename 下载和校验失败，已达到最大重试次数。\" # exit 1 fi done \u003c \"$FILE_LIST\" nohup bash aspera_1.sh \u003e dl.log 2\u003e\u00261 \u0026 echo $! \u003e dl.id # $! 是上一个后台进程的ID 注意 上面脚本需要自行修改下载速度和密钥！\n# 输出日志 处理文件: SRR12976775_1.fastq.gz 尝试下载文件 (尝试次数: 1 / 10)... SRR12976775_1.fastq.gz 100% 1420MB 10.7Mb/s 10:12 Completed: 1454518K bytes transferred in 612 seconds (19438K bits/sec), in 1 file. 文件 SRR12976775_1.fastq.gz 下载成功，并且MD5校验和正确。 ","wordCount":"1610","inLanguage":"en","datePublished":"2026-02-03T22:20:24+08:00","dateModified":"2026-02-03T22:20:24+08:00","author":{"@type":"Person","name":{"email":"","name":"tdx"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://Tdxxxx-student.github.io/posts/fq%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%92%8C%E6%A0%A1%E9%AA%8C/"},"publisher":{"@type":"Organization","name":"我的空间","logo":{"@type":"ImageObject","url":"https://Tdxxxx-student.github.io/favicon.ico"}}}</script></head><body id=top><header class=header><nav class=nav><div class=logo><a href=https://Tdxxxx-student.github.io/ accesskey=h title="我的空间 (Alt + H)">我的空间</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)" aria-label="Toggle theme">
+<svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+<svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://Tdxxxx-student.github.io/posts/ title=首页><span>首页</span></a></li><li><a href=https://Tdxxxx-student.github.io/archives/ title=归档><span>归档</span></a></li><li><a href=https://Tdxxxx-student.github.io/categories/ title=分类><span>分类</span></a></li><li><a href=https://Tdxxxx-student.github.io/tags/ title=标签><span>标签</span></a></li><li><a href=https://Tdxxxx-student.github.io/search/ title="🔍  (Alt + /)" accesskey=/><span>🔍</span></a></li></ul></nav></header><main class=main><div id=wide-post-layout class=post-page-wrapper><div class=top-banner-decoration></div><div class=page-layout><article class=post-card><header class=post-header><div class=breadcrumbs><a href=https://Tdxxxx-student.github.io/>Home</a>&nbsp;»&nbsp;<a href=https://Tdxxxx-student.github.io/posts/>Posts</a></div><h1 class=post-title>Fq文件下载和校验</h1><div class=post-meta><span title='2026-02-03 22:20:24 +0800 CST'>2026-02-03</span>&nbsp;·&nbsp;<span>4 min</span>&nbsp;·&nbsp;<span>map[email: name:tdx]</span></div></header><div class=post-content><h2 id=aspera安装>Aspera安装<a hidden class=anchor aria-hidden=true href=#aspera安装>#</a></h2><p>可以conda/mamba安装
+<a href=https://zhuanlan.zhihu.com/p/640962215>Linux系统上安装aspera并用其批量高速下载转录组数据 - 知乎 (zhihu.com)</a>
+手动安装</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>wget https://ak-delivery04-mul.dhe.ibm.com/sar/CMA/OSA/09cne/0/ibm-aspera-connect-3.11.0.5-linux-g2.12-64.tar.gz
+</span></span><span class=line><span class=cl>tar -zxvf ibm-aspera-connect-3.11.0.5-linux-g2.12-64.tar.gz
+</span></span><span class=line><span class=cl><span class=c1>## sh文件上一步解压生成的</span>
+</span></span><span class=line><span class=cl>./ibm-aspera-connect-3.11.0.5-linux-g2.12-64.sh
+</span></span><span class=line><span class=cl><span class=c1># 把USERNAME 换成自己的linux 账户名</span>
+</span></span><span class=line><span class=cl>$ <span class=nb>echo</span> <span class=s2>&#34;&#34;&#34;export PATH=\&#34;/home/xiaotiancai/.aspera/connect/bin:\$PATH\&#34; &#34;&#34;&#34;</span> &gt;&gt; ~/.bashrc
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl><span class=c1># 有输出帮助文档则安装成功</span>
+</span></span><span class=line><span class=cl>$ ascp -h
+</span></span></code></pre></div><h3 id=基本语法>基本语法<a hidden class=anchor aria-hidden=true href=#基本语法>#</a></h3><p>借鉴
+<a href=https://download.asperasoft.com/download/docs/ascp/2.7/html/index.html>Aspera ascp Usage (2.7) Documentation - All Aspera Server 2.7 Platforms (asperasoft.com)</a></p><p>基本语法如下，<code>[OPTION]</code> 是参数设置，<code>SRC</code> 是远程资源路径，<code>DEST</code>是文件保存路径。若<code>SRC</code>为多个文件，则保存在<code>DEST</code>目录下。</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>ascp <span class=o>[</span>OPTION<span class=o>]</span> SRC... DEST
+</span></span></code></pre></div><p>参数 说明</p><pre tabindex=0><code>-l 最大传输速率  
 
  ==-i 密钥地址，自己安装都是：~/.aspera/connect/etc/asperaweb_id_dsa.openssh== ，conda安装参照上面内容   
 
@@ -269,314 +56,124 @@ Aspera ascp Usage (2.7) Documentation - All Aspera Server 2.7 Platforms (asperas
 SRC 位置参数，源文件地址，类似[era-fasp@fasp.sra.ebi.ac.uk](https://links.jianshu.com/go?to=mailto%3Aera-fasp%40fasp.sra.ebi.ac.uk):/vol1/fastq/SRR576/004/SRR5760814/SRR5760814.fastq.gz  
 
 DEST ./test.fq.gz， 保存地址
-</code></pre><pre tabindex="0"><code># 以一个例子作为说明
+</code></pre><pre tabindex=0><code># 以一个例子作为说明
 ascp  -l 100M -P 33001 -QT -k 2 -i ~/.aspera/connect/etc/asperaweb_id_dsa.openssh era-fasp@fasp.sra.ebi.ac.uk:/vol1/fastq/SRR576/004/SRR5760814/SRR5760814.fastq.gz ./test.fq.gz
-</code></pre><h3 id="下载">下载<a hidden class="anchor" aria-hidden="true" href="#下载">#</a></h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ ascp -l 100M -P <span class="m">33001</span> -QT -k <span class="m">2</span> -i ~/.aspera/connect/etc/asperaweb_id_dsa.openssh era-fasp@fasp.sra.ebi.ac.uk:/vol1/fastq/SRR576/002/SRR5760812/SRR5760812.fastq.gz ./test.fq.gz
-</span></span></code></pre></div><p>师姐解说</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">WH:
-</span></span><span class="line"><span class="cl"> mamba activate ascp
-</span></span><span class="line"><span class="cl">WH:
-</span></span><span class="line"><span class="cl">which aspera
-</span></span><span class="line"><span class="cl">WH:
-</span></span><span class="line"><span class="cl"><span class="c1">#密钥地址一般是bin换成etc后边</span>
-</span></span></code></pre></div><p>在SRA可以直接获取格式</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">xtc424密钥：/pub/software/miniforge3/envs/ascp/etc/asperaweb_id_dsa.openssh
-</span></span></code></pre></div><p>==nohup挂载后台运行脚本==</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">nohub <span class="nb">command</span> <span class="p">&amp;</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># 按任意键如回车键</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># 正常退出，否则可能会失败</span>
-</span></span><span class="line"><span class="cl"><span class="nb">exit</span>
-</span></span></code></pre></div><h2 id="ena自动下载校验脚本">ENA自动下载校验脚本<a hidden class="anchor" aria-hidden="true" href="#ena自动下载校验脚本">#</a></h2>
-<p>直接在 <a href="https://www.ebi.ac.uk/ena/browser/view/">ENA</a> 上检索想要下载的数据
+</code></pre><h3 id=下载>下载<a hidden class=anchor aria-hidden=true href=#下载>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ ascp -l 100M -P <span class=m>33001</span> -QT -k <span class=m>2</span> -i ~/.aspera/connect/etc/asperaweb_id_dsa.openssh era-fasp@fasp.sra.ebi.ac.uk:/vol1/fastq/SRR576/002/SRR5760812/SRR5760812.fastq.gz ./test.fq.gz
+</span></span></code></pre></div><p>师姐解说</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>WH:
+</span></span><span class=line><span class=cl> mamba activate ascp
+</span></span><span class=line><span class=cl>WH:
+</span></span><span class=line><span class=cl>which aspera
+</span></span><span class=line><span class=cl>WH:
+</span></span><span class=line><span class=cl><span class=c1>#密钥地址一般是bin换成etc后边</span>
+</span></span></code></pre></div><p>在SRA可以直接获取格式</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>xtc424密钥：/pub/software/miniforge3/envs/ascp/etc/asperaweb_id_dsa.openssh
+</span></span></code></pre></div><p>==nohup挂载后台运行脚本==</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>nohub <span class=nb>command</span> <span class=p>&amp;</span>
+</span></span><span class=line><span class=cl><span class=c1># 按任意键如回车键</span>
+</span></span><span class=line><span class=cl><span class=c1># 正常退出，否则可能会失败</span>
+</span></span><span class=line><span class=cl><span class=nb>exit</span>
+</span></span></code></pre></div><h2 id=ena自动下载校验脚本>ENA自动下载校验脚本<a hidden class=anchor aria-hidden=true href=#ena自动下载校验脚本>#</a></h2><p>直接在 <a href=https://www.ebi.ac.uk/ena/browser/view/>ENA</a> 上检索想要下载的数据
 有两个信息很重要，MD5值和Aspera链接，第一列为run accession。
-选择TSV下载格式将信息下载下来，然后使用R进行处理，获得最终要的数据格式。R代码如下：</p>
-<h3 id="r-处理成最后想要的格式">R 处理成最后想要的格式<a hidden class="anchor" aria-hidden="true" href="#r-处理成最后想要的格式">#</a></h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-r" data-lang="r"><span class="line"><span class="cl"><span class="nf">rm</span><span class="p">(</span><span class="n">list</span> <span class="o">=</span> <span class="nf">ls</span><span class="p">())</span>
-</span></span><span class="line"><span class="cl"><span class="nf">setwd</span><span class="p">(</span><span class="s">&#34;tsv文件所在路径&#34;</span><span class="p">)</span>  
-</span></span><span class="line"><span class="cl"><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 获取当前目录的文件列表</span>
-</span></span><span class="line"><span class="cl"><span class="nf">dir</span><span class="p">()</span> <span class="o">%&gt;%</span> 
-</span></span><span class="line"><span class="cl">  <span class="nf">as.data.frame</span><span class="p">()</span> <span class="o">%&gt;%</span> 
-</span></span><span class="line"><span class="cl">  <span class="n">magrittr</span><span class="o">::</span><span class="nf">set_names</span><span class="p">(</span><span class="s">&#34;file&#34;</span><span class="p">)</span> <span class="o">%&gt;%</span>
-</span></span><span class="line"><span class="cl">  <span class="n">dplyr</span><span class="o">::</span><span class="nf">filter</span><span class="p">(</span><span class="nf">grepl</span><span class="p">(</span><span class="s">&#34;\\.tsv$|\\.txt$&#34;</span><span class="p">,</span> <span class="n">file</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="n">df.file</span>  <span class="c1"># 筛选特定后缀文件</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">all.ena</span> <span class="o">&lt;-</span> <span class="nf">tibble</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kr">for</span> <span class="p">(</span><span class="n">i</span> <span class="kr">in</span> <span class="nf">unique</span><span class="p">(</span><span class="n">df.file</span><span class="o">$</span><span class="n">file</span><span class="p">))</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="n">readr</span><span class="o">::</span><span class="nf">read_delim</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">show_col_types</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span> <span class="o">%&gt;%</span>   <span class="c1"># 直接用文件名</span>
-</span></span><span class="line"><span class="cl">    <span class="n">magrittr</span><span class="o">::</span><span class="nf">set_names</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="s">&#34;Run&#34;</span><span class="p">,</span> <span class="s">&#34;md5&#34;</span><span class="p">,</span> <span class="s">&#34;link&#34;</span><span class="p">))</span> <span class="o">%&gt;%</span> 
-</span></span><span class="line"><span class="cl">    <span class="n">dplyr</span><span class="o">::</span><span class="nf">mutate</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">      <span class="n">md5</span> <span class="o">=</span> <span class="n">stringr</span><span class="o">::</span><span class="nf">str_split</span><span class="p">(</span><span class="n">md5</span><span class="p">,</span> <span class="s">&#34;;&#34;</span><span class="p">),</span>
-</span></span><span class="line"><span class="cl">      <span class="n">link</span> <span class="o">=</span> <span class="n">stringr</span><span class="o">::</span><span class="nf">str_split</span><span class="p">(</span><span class="n">link</span><span class="p">,</span> <span class="s">&#34;;&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">)</span> <span class="o">%&gt;%</span> 
-</span></span><span class="line"><span class="cl">    <span class="n">tidyr</span><span class="o">::</span><span class="nf">unnest</span><span class="p">(</span><span class="n">cols</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="n">md5</span><span class="p">,</span> <span class="n">link</span><span class="p">))</span> <span class="o">%&gt;%</span>   <span class="c1"># 指定 cols 参数</span>
-</span></span><span class="line"><span class="cl">    <span class="n">dplyr</span><span class="o">::</span><span class="nf">mutate</span><span class="p">(</span>
-</span></span><span class="line"><span class="cl">      <span class="n">file</span> <span class="o">=</span> <span class="n">stringr</span><span class="o">::</span><span class="nf">str_split</span><span class="p">(</span><span class="n">link</span><span class="p">,</span> <span class="s">&#34;/&#34;</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">sapply</span><span class="p">(</span><span class="n">`[`</span><span class="p">,</span> <span class="m">7</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="p">)</span> <span class="o">%&gt;%</span> 
-</span></span><span class="line"><span class="cl">    <span class="n">dplyr</span><span class="o">::</span><span class="nf">select</span><span class="p">(</span><span class="n">Run</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">md5</span><span class="p">,</span> <span class="n">link</span><span class="p">)</span> <span class="o">%&gt;%</span> 
-</span></span><span class="line"><span class="cl">    <span class="n">dplyr</span><span class="o">::</span><span class="nf">bind_rows</span><span class="p">(</span><span class="n">all.ena</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">all.ena</span> 
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 输出到当前目录</span>
-</span></span><span class="line"><span class="cl"><span class="n">all.ena</span> <span class="o">%&gt;%</span> 
-</span></span><span class="line"><span class="cl">  <span class="n">dplyr</span><span class="o">::</span><span class="nf">select</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">md5</span><span class="p">,</span> <span class="n">link</span><span class="p">)</span> <span class="o">%&gt;%</span> 
-</span></span><span class="line"><span class="cl">  <span class="n">readr</span><span class="o">::</span><span class="nf">write_delim</span><span class="p">(</span><span class="s">&#34;ena.info.txt&#34;</span><span class="p">,</span> <span class="n">delim</span> <span class="o">=</span> <span class="s">&#34;\t&#34;</span><span class="p">,</span> <span class="n">col_names</span> <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
+选择TSV下载格式将信息下载下来，然后使用R进行处理，获得最终要的数据格式。R代码如下：</p><h3 id=r-处理成最后想要的格式>R 处理成最后想要的格式<a hidden class=anchor aria-hidden=true href=#r-处理成最后想要的格式>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-r data-lang=r><span class=line><span class=cl><span class=nf>rm</span><span class=p>(</span><span class=n>list</span> <span class=o>=</span> <span class=nf>ls</span><span class=p>())</span>
+</span></span><span class=line><span class=cl><span class=nf>setwd</span><span class=p>(</span><span class=s>&#34;tsv文件所在路径&#34;</span><span class=p>)</span>  
+</span></span><span class=line><span class=cl><span class=nf>library</span><span class=p>(</span><span class=n>tidyverse</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 获取当前目录的文件列表</span>
+</span></span><span class=line><span class=cl><span class=nf>dir</span><span class=p>()</span> <span class=o>%&gt;%</span> 
+</span></span><span class=line><span class=cl>  <span class=nf>as.data.frame</span><span class=p>()</span> <span class=o>%&gt;%</span> 
+</span></span><span class=line><span class=cl>  <span class=n>magrittr</span><span class=o>::</span><span class=nf>set_names</span><span class=p>(</span><span class=s>&#34;file&#34;</span><span class=p>)</span> <span class=o>%&gt;%</span>
+</span></span><span class=line><span class=cl>  <span class=n>dplyr</span><span class=o>::</span><span class=nf>filter</span><span class=p>(</span><span class=nf>grepl</span><span class=p>(</span><span class=s>&#34;\\.tsv$|\\.txt$&#34;</span><span class=p>,</span> <span class=n>file</span><span class=p>))</span> <span class=o>-&gt;</span> <span class=n>df.file</span>  <span class=c1># 筛选特定后缀文件</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=n>all.ena</span> <span class=o>&lt;-</span> <span class=nf>tibble</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kr>for</span> <span class=p>(</span><span class=n>i</span> <span class=kr>in</span> <span class=nf>unique</span><span class=p>(</span><span class=n>df.file</span><span class=o>$</span><span class=n>file</span><span class=p>))</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=n>readr</span><span class=o>::</span><span class=nf>read_delim</span><span class=p>(</span><span class=n>i</span><span class=p>,</span> <span class=n>show_col_types</span> <span class=o>=</span> <span class=kc>FALSE</span><span class=p>)</span> <span class=o>%&gt;%</span>   <span class=c1># 直接用文件名</span>
+</span></span><span class=line><span class=cl>    <span class=n>magrittr</span><span class=o>::</span><span class=nf>set_names</span><span class=p>(</span><span class=nf>c</span><span class=p>(</span><span class=s>&#34;Run&#34;</span><span class=p>,</span> <span class=s>&#34;md5&#34;</span><span class=p>,</span> <span class=s>&#34;link&#34;</span><span class=p>))</span> <span class=o>%&gt;%</span> 
+</span></span><span class=line><span class=cl>    <span class=n>dplyr</span><span class=o>::</span><span class=nf>mutate</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>      <span class=n>md5</span> <span class=o>=</span> <span class=n>stringr</span><span class=o>::</span><span class=nf>str_split</span><span class=p>(</span><span class=n>md5</span><span class=p>,</span> <span class=s>&#34;;&#34;</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>      <span class=n>link</span> <span class=o>=</span> <span class=n>stringr</span><span class=o>::</span><span class=nf>str_split</span><span class=p>(</span><span class=n>link</span><span class=p>,</span> <span class=s>&#34;;&#34;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>)</span> <span class=o>%&gt;%</span> 
+</span></span><span class=line><span class=cl>    <span class=n>tidyr</span><span class=o>::</span><span class=nf>unnest</span><span class=p>(</span><span class=n>cols</span> <span class=o>=</span> <span class=nf>c</span><span class=p>(</span><span class=n>md5</span><span class=p>,</span> <span class=n>link</span><span class=p>))</span> <span class=o>%&gt;%</span>   <span class=c1># 指定 cols 参数</span>
+</span></span><span class=line><span class=cl>    <span class=n>dplyr</span><span class=o>::</span><span class=nf>mutate</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>      <span class=n>file</span> <span class=o>=</span> <span class=n>stringr</span><span class=o>::</span><span class=nf>str_split</span><span class=p>(</span><span class=n>link</span><span class=p>,</span> <span class=s>&#34;/&#34;</span><span class=p>)</span> <span class=o>%&gt;%</span> <span class=nf>sapply</span><span class=p>(</span><span class=n>`[`</span><span class=p>,</span> <span class=m>7</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>    <span class=p>)</span> <span class=o>%&gt;%</span> 
+</span></span><span class=line><span class=cl>    <span class=n>dplyr</span><span class=o>::</span><span class=nf>select</span><span class=p>(</span><span class=n>Run</span><span class=p>,</span> <span class=n>file</span><span class=p>,</span> <span class=n>md5</span><span class=p>,</span> <span class=n>link</span><span class=p>)</span> <span class=o>%&gt;%</span> 
+</span></span><span class=line><span class=cl>    <span class=n>dplyr</span><span class=o>::</span><span class=nf>bind_rows</span><span class=p>(</span><span class=n>all.ena</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=n>all.ena</span> 
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=c1># 输出到当前目录</span>
+</span></span><span class=line><span class=cl><span class=n>all.ena</span> <span class=o>%&gt;%</span> 
+</span></span><span class=line><span class=cl>  <span class=n>dplyr</span><span class=o>::</span><span class=nf>select</span><span class=p>(</span><span class=n>file</span><span class=p>,</span> <span class=n>md5</span><span class=p>,</span> <span class=n>link</span><span class=p>)</span> <span class=o>%&gt;%</span> 
+</span></span><span class=line><span class=cl>  <span class=n>readr</span><span class=o>::</span><span class=nf>write_delim</span><span class=p>(</span><span class=s>&#34;ena.info.txt&#34;</span><span class=p>,</span> <span class=n>delim</span> <span class=o>=</span> <span class=s>&#34;\t&#34;</span><span class=p>,</span> <span class=n>col_names</span> <span class=o>=</span> <span class=kc>FALSE</span><span class=p>)</span>
 </span></span></code></pre></div><p>得到的文件长这样：
 第一列是 fq 文件名，第二列是 MD 5 校验码，第三列是 aspera 下载地址
-把这个文件上传到服务器，就可以开始下载了。批量下载代码脚本</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="cp">#!/bin/bash  
-</span></span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl"><span class="c1"># 定义文件列表的文本文件路径  </span>
-</span></span><span class="line"><span class="cl"><span class="nv">FILE_LIST</span><span class="o">=</span><span class="s2">&#34;ena.info.txt&#34;</span>  
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl"><span class="c1"># 定义最大重试次数  </span>
-</span></span><span class="line"><span class="cl"><span class="nv">MAX_RETRIES</span><span class="o">=</span><span class="m">10</span>  
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl"><span class="c1"># 检查文件列表文件是否存在  </span>
-</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> ! -f <span class="s2">&#34;</span><span class="nv">$FILE_LIST</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>  
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;文件列表文件 </span><span class="nv">$FILE_LIST</span><span class="s2"> 不存在。&#34;</span>  
-</span></span><span class="line"><span class="cl"><span class="nb">exit</span> <span class="m">1</span>  
-</span></span><span class="line"><span class="cl"><span class="k">fi</span>  
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl"><span class="c1"># 读取文件列表文件  </span>
-</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="nb">read</span> -r filename md5sum download_url<span class="p">;</span> <span class="k">do</span>  
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;处理文件: </span><span class="nv">$filename</span><span class="s2">&#34;</span>  
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl"><span class="c1"># 定义下载的文件路径  </span>
-</span></span><span class="line"><span class="cl"><span class="nv">download_path</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$filename</span><span class="s2">&#34;</span>  
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl"><span class="c1"># 初始化重试次数  </span>
-</span></span><span class="line"><span class="cl"><span class="nv">retries</span><span class="o">=</span><span class="m">0</span>  
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl"><span class="c1"># 循环直到文件校验成功或达到最大重试次数  </span>
-</span></span><span class="line"><span class="cl"><span class="k">while</span> <span class="o">[</span> <span class="nv">$retries</span> -lt <span class="nv">$MAX_RETRIES</span> <span class="o">]</span><span class="p">;</span> <span class="k">do</span>  
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;尝试下载文件 (尝试次数: </span><span class="k">$((</span>retries <span class="o">+</span> <span class="m">1</span><span class="k">))</span><span class="s2"> / </span><span class="nv">$MAX_RETRIES</span><span class="s2">)...&#34;</span>  
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl"><span class="c1"># 使用curl下载文件  </span>
-</span></span><span class="line"><span class="cl"><span class="c1">#curl -o &#34;$download_path&#34; -L &#34;$download_url&#34;  </span>
-</span></span><span class="line"><span class="cl"><span class="c1"># 使用 ascp 下载文件  </span>
-</span></span><span class="line"><span class="cl"><span class="c1"># 换成自己的asperaweb_id_dsa.openssh路径  </span>
-</span></span><span class="line"><span class="cl">ascp -QT -l 100m -P33001 -k <span class="m">1</span> -i ~/mambaforge/envs/tools4bioinf/etc/asperaweb_id_dsa.openssh era-fasp@<span class="nv">$download_url</span> .  
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl"><span class="c1"># 计算下载文件的MD5校验和  </span>
-</span></span><span class="line"><span class="cl"><span class="nv">actual_md5</span><span class="o">=</span><span class="k">$(</span>md5sum <span class="s2">&#34;</span><span class="nv">$download_path</span><span class="s2">&#34;</span> <span class="p">|</span> awk <span class="s1">&#39;{print $1}&#39;</span><span class="k">)</span>  
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl"><span class="c1"># 校验文件  </span>
-</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="s2">&#34;</span><span class="nv">$actual_md5</span><span class="s2">&#34;</span> <span class="o">=</span> <span class="s2">&#34;</span><span class="nv">$md5sum</span><span class="s2">&#34;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>  
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;文件 </span><span class="nv">$filename</span><span class="s2"> 下载成功，并且MD5校验和正确。&#34;</span>  
-</span></span><span class="line"><span class="cl"><span class="nb">break</span>  
-</span></span><span class="line"><span class="cl"><span class="k">else</span>  
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;文件校验失败，正在重试...&#34;</span>  
-</span></span><span class="line"><span class="cl">rm <span class="s2">&#34;</span><span class="nv">$download_path</span><span class="s2">&#34;</span>  
-</span></span><span class="line"><span class="cl"><span class="nv">retries</span><span class="o">=</span><span class="k">$((</span>retries <span class="o">+</span> <span class="m">1</span><span class="k">))</span>  
-</span></span><span class="line"><span class="cl"><span class="k">fi</span>  
-</span></span><span class="line"><span class="cl"><span class="k">done</span>  
-</span></span><span class="line"><span class="cl">  
-</span></span><span class="line"><span class="cl"><span class="c1"># 检查是否达到最大重试次数  </span>
-</span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[</span> <span class="nv">$retries</span> -eq <span class="nv">$MAX_RETRIES</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>  
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;文件 </span><span class="nv">$filename</span><span class="s2"> 下载和校验失败，已达到最大重试次数。&#34;</span>  
-</span></span><span class="line"><span class="cl"><span class="c1"># exit 1  </span>
-</span></span><span class="line"><span class="cl"><span class="k">fi</span>  
-</span></span><span class="line"><span class="cl"><span class="k">done</span> &lt; <span class="s2">&#34;</span><span class="nv">$FILE_LIST</span><span class="s2">&#34;</span>
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">nohup bash aspera_1.sh &gt; dl.log 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">&amp;</span> 
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="nv">$!</span> &gt; dl.id    <span class="c1"># $! 是上一个后台进程的ID</span>
-</span></span></code></pre></div><h3 id="注意">注意<a hidden class="anchor" aria-hidden="true" href="#注意">#</a></h3>
-<p>上面脚本需要自行修改下载速度和密钥！</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="c1"># 输出日志</span>
-</span></span><span class="line"><span class="cl">处理文件: SRR12976775_1.fastq.gz  
-</span></span><span class="line"><span class="cl">尝试下载文件 <span class="o">(</span>尝试次数: <span class="m">1</span> / 10<span class="o">)</span>...  
-</span></span><span class="line"><span class="cl">SRR12976775_1.fastq.gz 100% 1420MB 10.7Mb/s 10:12  
-</span></span><span class="line"><span class="cl">Completed: 1454518K bytes transferred in <span class="m">612</span> seconds  
-</span></span><span class="line"><span class="cl"><span class="o">(</span>19438K bits/sec<span class="o">)</span>, in <span class="m">1</span> file.  
-</span></span><span class="line"><span class="cl">文件 SRR12976775_1.fastq.gz 下载成功，并且MD5校验和正确。
-</span></span></code></pre></div>
-
-      </div>
-      <footer class="post-footer">
-        <ul class="post-tags">
-          <li><a href="https://Tdxxxx-student.github.io/tags/fastq%E4%B8%8B%E8%BD%BD">fastq下载</a></li>
-        </ul>
-      </footer>
-
-      
-      <nav class="post-nav-full">
-        <div class="nav-info">
-            第 <strong>2</strong> / 2 篇 
-            <span style="opacity: 0.6; font-size: 0.9em; margin-left: 5px;">(分类: fq文件下载)</span>
-        </div>
-        
-        <div class="nav-buttons">
-          <a class="nav-btn first" href="https://Tdxxxx-student.github.io/posts/fq%E6%96%87%E4%BB%B6%E6%94%B9%E5%90%8D%E8%84%9A%E6%9C%AC/" title="第一篇">«</a>
-          <a class="nav-btn prev" href="https://Tdxxxx-student.github.io/posts/fq%E6%96%87%E4%BB%B6%E6%94%B9%E5%90%8D%E8%84%9A%E6%9C%AC/" title="Fq文件改名脚本">‹</a><div class="nav-pages-group">
-                <a class="nav-num" href="https://Tdxxxx-student.github.io/posts/fq%E6%96%87%E4%BB%B6%E6%94%B9%E5%90%8D%E8%84%9A%E6%9C%AC/" title="Fq文件改名脚本">1</a>
-
-            <span class="nav-num current">2</span>
-          </div>
-          <span class="nav-btn next disabled">›</span>
-          <span class="nav-btn last disabled">»</span>
-        </div>
-      </nav></article>
-
-    
-    <aside class="sidebar-right">
-      <div class="toc-card">
-        <div class="toc-title">
-          <span class="toc-icon">📖</span> 目录
-        </div>
-        <nav id="TableOfContents">
-          <nav id="TableOfContents">
-  <ul>
-    <li><a href="#aspera安装">Aspera安装</a>
-      <ul>
-        <li><a href="#基本语法">基本语法</a></li>
-        <li><a href="#下载">下载</a></li>
-      </ul>
-    </li>
-    <li><a href="#ena自动下载校验脚本">ENA自动下载校验脚本</a>
-      <ul>
-        <li><a href="#r-处理成最后想要的格式">R 处理成最后想要的格式</a></li>
-        <li><a href="#注意">注意</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-        </nav>
-      </div>
-    </aside>
-
-  </div>
-</div>
-    </main>
-    
-<footer class="footer">
-        <span>tdx0307</span> · 
-
-    <span>
-        Powered by
-        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
-        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
-    </span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
-        <path d="M12 6H0l6-6z" />
-    </svg>
-</a>
-<a href="/search/" class="search-fab" title="搜索 (Ctrl+F)">🔍</a>
-
-<style>
-.search-fab {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    width: 50px;
-    height: 50px;
-    background: var(--primary);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.3rem;
-    text-decoration: none;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
-    z-index: 100;
-}
-
-.search-fab:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-}
-
-@media (max-width: 768px) {
-    .search-fab {
-        bottom: 1rem;
-        right: 1rem;
-        width: 45px;
-        height: 45px;
-    }
-}
-</style>
-
-<script>
-
-document.addEventListener('DOMContentLoaded', function() {
-    if (document.getElementById('wide-post-layout')) {
-        var main = document.querySelector('main.main');
-        if (main) {
-            main.style.maxWidth = '100%';
-            main.style.width = '100%';
-            main.style.padding = '0';
-            main.style.margin = '0 auto';
-        }
-        
-        document.body.classList.add('is-single-post');
-    }
-});
-</script>
-
-<script>
-    let menu = document.getElementById('menu');
-    if (menu) {
-        
-        const scrollPosition = localStorage.getItem("menu-scroll-position");
-        if (scrollPosition) {
-            menu.scrollLeft = parseInt(scrollPosition, 10);
-        }
-        
-        menu.onscroll = function () {
-            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-        }
-    }
-
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                    behavior: "smooth"
-                });
-            } else {
-                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-            }
-            if (id === "top") {
-                history.replaceState(null, null, " ");
-            } else {
-                history.pushState(null, null, `#${id}`);
-            }
-        });
-    });
-
-</script>
-<script>
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        const html = document.querySelector("html");
-        if (html.dataset.theme === "dark") {
-            html.dataset.theme = 'light';
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            html.dataset.theme = 'dark';
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-</body>
-
-</html>
+把这个文件上传到服务器，就可以开始下载了。批量下载代码脚本</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=cp>#!/bin/bash  
+</span></span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl><span class=c1># 定义文件列表的文本文件路径  </span>
+</span></span><span class=line><span class=cl><span class=nv>FILE_LIST</span><span class=o>=</span><span class=s2>&#34;ena.info.txt&#34;</span>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl><span class=c1># 定义最大重试次数  </span>
+</span></span><span class=line><span class=cl><span class=nv>MAX_RETRIES</span><span class=o>=</span><span class=m>10</span>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl><span class=c1># 检查文件列表文件是否存在  </span>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=o>[</span> ! -f <span class=s2>&#34;</span><span class=nv>$FILE_LIST</span><span class=s2>&#34;</span> <span class=o>]</span><span class=p>;</span> <span class=k>then</span>  
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;文件列表文件 </span><span class=nv>$FILE_LIST</span><span class=s2> 不存在。&#34;</span>  
+</span></span><span class=line><span class=cl><span class=nb>exit</span> <span class=m>1</span>  
+</span></span><span class=line><span class=cl><span class=k>fi</span>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl><span class=c1># 读取文件列表文件  </span>
+</span></span><span class=line><span class=cl><span class=k>while</span> <span class=nb>read</span> -r filename md5sum download_url<span class=p>;</span> <span class=k>do</span>  
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;处理文件: </span><span class=nv>$filename</span><span class=s2>&#34;</span>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl><span class=c1># 定义下载的文件路径  </span>
+</span></span><span class=line><span class=cl><span class=nv>download_path</span><span class=o>=</span><span class=s2>&#34;</span><span class=nv>$filename</span><span class=s2>&#34;</span>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl><span class=c1># 初始化重试次数  </span>
+</span></span><span class=line><span class=cl><span class=nv>retries</span><span class=o>=</span><span class=m>0</span>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl><span class=c1># 循环直到文件校验成功或达到最大重试次数  </span>
+</span></span><span class=line><span class=cl><span class=k>while</span> <span class=o>[</span> <span class=nv>$retries</span> -lt <span class=nv>$MAX_RETRIES</span> <span class=o>]</span><span class=p>;</span> <span class=k>do</span>  
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;尝试下载文件 (尝试次数: </span><span class=k>$((</span>retries <span class=o>+</span> <span class=m>1</span><span class=k>))</span><span class=s2> / </span><span class=nv>$MAX_RETRIES</span><span class=s2>)...&#34;</span>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl><span class=c1># 使用curl下载文件  </span>
+</span></span><span class=line><span class=cl><span class=c1>#curl -o &#34;$download_path&#34; -L &#34;$download_url&#34;  </span>
+</span></span><span class=line><span class=cl><span class=c1># 使用 ascp 下载文件  </span>
+</span></span><span class=line><span class=cl><span class=c1># 换成自己的asperaweb_id_dsa.openssh路径  </span>
+</span></span><span class=line><span class=cl>ascp -QT -l 100m -P33001 -k <span class=m>1</span> -i ~/mambaforge/envs/tools4bioinf/etc/asperaweb_id_dsa.openssh era-fasp@<span class=nv>$download_url</span> .  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl><span class=c1># 计算下载文件的MD5校验和  </span>
+</span></span><span class=line><span class=cl><span class=nv>actual_md5</span><span class=o>=</span><span class=k>$(</span>md5sum <span class=s2>&#34;</span><span class=nv>$download_path</span><span class=s2>&#34;</span> <span class=p>|</span> awk <span class=s1>&#39;{print $1}&#39;</span><span class=k>)</span>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl><span class=c1># 校验文件  </span>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=o>[</span> <span class=s2>&#34;</span><span class=nv>$actual_md5</span><span class=s2>&#34;</span> <span class=o>=</span> <span class=s2>&#34;</span><span class=nv>$md5sum</span><span class=s2>&#34;</span> <span class=o>]</span><span class=p>;</span> <span class=k>then</span>  
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;文件 </span><span class=nv>$filename</span><span class=s2> 下载成功，并且MD5校验和正确。&#34;</span>  
+</span></span><span class=line><span class=cl><span class=nb>break</span>  
+</span></span><span class=line><span class=cl><span class=k>else</span>  
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;文件校验失败，正在重试...&#34;</span>  
+</span></span><span class=line><span class=cl>rm <span class=s2>&#34;</span><span class=nv>$download_path</span><span class=s2>&#34;</span>  
+</span></span><span class=line><span class=cl><span class=nv>retries</span><span class=o>=</span><span class=k>$((</span>retries <span class=o>+</span> <span class=m>1</span><span class=k>))</span>  
+</span></span><span class=line><span class=cl><span class=k>fi</span>  
+</span></span><span class=line><span class=cl><span class=k>done</span>  
+</span></span><span class=line><span class=cl>  
+</span></span><span class=line><span class=cl><span class=c1># 检查是否达到最大重试次数  </span>
+</span></span><span class=line><span class=cl><span class=k>if</span> <span class=o>[</span> <span class=nv>$retries</span> -eq <span class=nv>$MAX_RETRIES</span> <span class=o>]</span><span class=p>;</span> <span class=k>then</span>  
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=s2>&#34;文件 </span><span class=nv>$filename</span><span class=s2> 下载和校验失败，已达到最大重试次数。&#34;</span>  
+</span></span><span class=line><span class=cl><span class=c1># exit 1  </span>
+</span></span><span class=line><span class=cl><span class=k>fi</span>  
+</span></span><span class=line><span class=cl><span class=k>done</span> &lt; <span class=s2>&#34;</span><span class=nv>$FILE_LIST</span><span class=s2>&#34;</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>nohup bash aspera_1.sh &gt; dl.log 2&gt;<span class=p>&amp;</span><span class=m>1</span> <span class=p>&amp;</span> 
+</span></span><span class=line><span class=cl><span class=nb>echo</span> <span class=nv>$!</span> &gt; dl.id    <span class=c1># $! 是上一个后台进程的ID</span>
+</span></span></code></pre></div><h3 id=注意>注意<a hidden class=anchor aria-hidden=true href=#注意>#</a></h3><p>上面脚本需要自行修改下载速度和密钥！</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl><span class=c1># 输出日志</span>
+</span></span><span class=line><span class=cl>处理文件: SRR12976775_1.fastq.gz  
+</span></span><span class=line><span class=cl>尝试下载文件 <span class=o>(</span>尝试次数: <span class=m>1</span> / 10<span class=o>)</span>...  
+</span></span><span class=line><span class=cl>SRR12976775_1.fastq.gz 100% 1420MB 10.7Mb/s 10:12  
+</span></span><span class=line><span class=cl>Completed: 1454518K bytes transferred in <span class=m>612</span> seconds  
+</span></span><span class=line><span class=cl><span class=o>(</span>19438K bits/sec<span class=o>)</span>, in <span class=m>1</span> file.  
+</span></span><span class=line><span class=cl>文件 SRR12976775_1.fastq.gz 下载成功，并且MD5校验和正确。
+</span></span></code></pre></div></div><footer class=post-footer><ul class=post-tags><li><a href=https://Tdxxxx-student.github.io/tags/fastq%E4%B8%8B%E8%BD%BD>fastq下载</a></li></ul></footer><nav class=post-nav-full><div class=nav-info>第 <strong>2</strong> / 2 篇
+<span style=opacity:.6;font-size:.9em;margin-left:5px>(分类: fq文件下载)</span></div><div class=nav-buttons><a class="nav-btn first" href=https://Tdxxxx-student.github.io/posts/fq%E6%96%87%E4%BB%B6%E6%94%B9%E5%90%8D%E8%84%9A%E6%9C%AC/ title=第一篇>«</a>
+<a class="nav-btn prev" href=https://Tdxxxx-student.github.io/posts/fq%E6%96%87%E4%BB%B6%E6%94%B9%E5%90%8D%E8%84%9A%E6%9C%AC/ title=Fq文件改名脚本>‹</a><div class=nav-pages-group><a class=nav-num href=https://Tdxxxx-student.github.io/posts/fq%E6%96%87%E4%BB%B6%E6%94%B9%E5%90%8D%E8%84%9A%E6%9C%AC/ title=Fq文件改名脚本>1</a>
+<span class="nav-num current">2</span></div><span class="nav-btn next disabled">›</span>
+<span class="nav-btn last disabled">»</span></div></nav></article><aside class=sidebar-right><div class=toc-card><div class=toc-title><span class=toc-icon>📖</span> 目录</div><nav id=TableOfContents><nav id=TableOfContents><ul><li><a href=#aspera安装>Aspera安装</a><ul><li><a href=#基本语法>基本语法</a></li><li><a href=#下载>下载</a></li></ul></li><li><a href=#ena自动下载校验脚本>ENA自动下载校验脚本</a><ul><li><a href=#r-处理成最后想要的格式>R 处理成最后想要的格式</a></li><li><a href=#注意>注意</a></li></ul></li></ul></nav></nav></div></aside></div></div></main><footer class=footer><span>tdx0307</span> ·
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+<a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>
+</a><a href=/search/ class=search-fab title="搜索 (Ctrl+F)">🔍</a><style>.search-fab{position:fixed;bottom:2rem;right:2rem;width:50px;height:50px;background:var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;text-decoration:none;box-shadow:0 4px 15px rgba(0,0,0,.2);transition:all .3s ease;z-index:100}.search-fab:hover{transform:scale(1.1);box-shadow:0 6px 20px rgba(0,0,0,.3)}@media(max-width:768px){.search-fab{bottom:1rem;right:1rem;width:45px;height:45px}}</style><script>document.addEventListener("DOMContentLoaded",function(){if(document.getElementById("wide-post-layout")){var e=document.querySelector("main.main");e&&(e.style.maxWidth="100%",e.style.width="100%",e.style.padding="0",e.style.margin="0 auto"),document.body.classList.add("is-single-post")}})</script><script>let menu=document.getElementById("menu");if(menu){const e=localStorage.getItem("menu-scroll-position");e&&(menu.scrollLeft=parseInt(e,10)),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}}document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{const e=document.querySelector("html");e.dataset.theme==="dark"?(e.dataset.theme="light",localStorage.setItem("pref-theme","light")):(e.dataset.theme="dark",localStorage.setItem("pref-theme","dark"))})</script></body></html>
