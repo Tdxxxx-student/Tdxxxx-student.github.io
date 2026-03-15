@@ -157,24 +157,6 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Annovar基因结构注释
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>下载软件 准备文件：物种gff和fasta文件
-https://www.openbioinformatics.org/annovar/annovar_download_form.php 填写教育类邮箱获取下载链接；
-下载、解压、添加环境变量
-sudo vi /etc/profile.d/env.sh # 追加 # export PATH=/pub/software/annovar:$PATH source /etc/profile.d/env.sh gff3ToGenePred安装 UCSC软件库查找
-http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/
-# 下载 cd /pub/software/annovar wget http://hgdownload.soe.ucsc.edu/admin/exe/linux.x86_64/gff3ToGenePred # 执行权限 chmod &#43;x ./gff3ToGenePred 构建注释数据库 # 文件准备 cp /fasta路径/ cp /gff3路径/ # gff文件加头 echo &#34;##gff-version 3&#34; | cat - lch.gff3 &gt; temp &amp;&amp; mv temp lch.gff3 gff3ToGenePred gff文件 lchgenome_refGene.txt retrieve_seq_from_fasta.pl --format refGene \ --seqfile Lchinesis_genome.Chr.fasta \ --out lchgenome_refGeneMrna.fa \ lchgenome_refGene.txt mv Lchinesis_genome.Chr.gff3 lch.gff3 gff3ToGenePred lch.gff3 lchgenome_refGene.txt retrieve_seq_from_fasta.pl --format refGene \ --seqfile Lchinesis_genome.Chr.fasta \ --out lchgenome_refGeneMrna.fa \ lchgenome_refGene.txt genome_refGene.txt 和 genome_refGeneMrna.fa两个文件的前缀都为genome，这里的命名很重要
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2026-02-04 20:19:11 +0800 CST'>2026-02-04</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>tdx</span></footer>
-  <a class="entry-link" aria-label="post link to Annovar基因结构注释" href="https://Tdxxxx-student.github.io/posts/annovar%E6%B3%A8%E9%87%8A/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
     <h2 class="entry-hint-parent">ENA校验脚本
     </h2>
   </header>
@@ -267,12 +249,24 @@ wget https://ak-delivery04-mul.dhe.ibm.com/sar/CMA/OSA/09cne/0/ibm-aspera-connec
   <footer class="entry-footer"><span title='2026-02-01 11:58:07 +0800 CST'>2026-02-01</span>&nbsp;·&nbsp;<span>3 min</span></footer>
   <a class="entry-link" aria-label="post link to AI辅助教程" href="https://Tdxxxx-student.github.io/posts/ai%E8%BE%85%E5%8A%A9%E6%95%99%E7%A8%8B/"></a>
 </article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">部署文章
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>使用Hugo 搭建博客并部署到 GitHub Pages April 4, 2025 本教程将从 0 开始，手把手教你在 Windows 系统中使用 Hugo 创建一个静态博客，并通过 GitHub Actions 自动部署到 GitHub Pages.
+🧰 一、准备工作 ✅ 1. 安装 Git 下载并安装：https://git-scm.com 安装完成后，右键菜单应该出现 “Git Bash Here” 验证安装：
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-02-01 00:00:00 +0000 UTC'>2026-02-01</span>&nbsp;·&nbsp;<span>5 min</span></footer>
+  <a class="entry-link" aria-label="post link to 部署文章" href="https://Tdxxxx-student.github.io/posts/hello-hugo/"></a>
+</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="https://Tdxxxx-student.github.io/">
       «&nbsp;Prev&nbsp;
-    </a>
-    <a class="next" href="https://Tdxxxx-student.github.io/page/3/">Next&nbsp;&nbsp;»
     </a>
   </nav>
 </footer>
