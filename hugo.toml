@@ -20,10 +20,7 @@ hasCJKLanguage = true
   [markup.highlight]
     noClasses = false
 
-[params.author]
-  name = "您的名字"
-  email = "您的邮箱@example.com"
-  
+
 [params]
   customCSS = ["css/custom.css"]
   defaultTheme = "auto"
@@ -35,6 +32,7 @@ hasCJKLanguage = true
   TocOpen = true
   TocSide = "right"
   DateFormat = "2006-01-02"
+
 
 [params.homeInfoParams]
   Title = "你好，我是 Tdxxxx"

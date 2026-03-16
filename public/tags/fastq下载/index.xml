@@ -1,15 +1,34 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Fastq下载 on 我的空间</title><link>https://Tdxxxx-student.github.io/tags/fastq%E4%B8%8B%E8%BD%BD/</link><description>Recent content in Fastq下载 on 我的空间</description><generator>Hugo -- 0.155.1</generator><language>zh-cn</language><copyright>tdx0307</copyright><lastBuildDate>Tue, 03 Feb 2026 22:20:24 +0800</lastBuildDate><atom:link href="https://Tdxxxx-student.github.io/tags/fastq%E4%B8%8B%E8%BD%BD/index.xml" rel="self" type="application/rss+xml"/><item><title>Fq文件下载和校验</title><link>https://Tdxxxx-student.github.io/posts/fq%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%92%8C%E6%A0%A1%E9%AA%8C/</link><pubDate>Tue, 03 Feb 2026 22:20:24 +0800</pubDate><guid>https://Tdxxxx-student.github.io/posts/fq%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%92%8C%E6%A0%A1%E9%AA%8C/</guid><description>&lt;h2 id="aspera安装"&gt;Aspera安装&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Fastq下载 on 我的空间</title>
+    <link>https://Tdxxxx-student.github.io/tags/fastq%E4%B8%8B%E8%BD%BD/</link>
+    <description>Recent content in Fastq下载 on 我的空间</description>
+    <generator>Hugo -- 0.155.1</generator>
+    <language>zh-cn</language>
+    <copyright>tdx0307</copyright>
+    <lastBuildDate>Tue, 03 Feb 2026 22:20:24 +0800</lastBuildDate>
+    <atom:link href="https://Tdxxxx-student.github.io/tags/fastq%E4%B8%8B%E8%BD%BD/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fq文件下载和校验</title>
+      <link>https://Tdxxxx-student.github.io/posts/fq%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%92%8C%E6%A0%A1%E9%AA%8C/</link>
+      <pubDate>Tue, 03 Feb 2026 22:20:24 +0800</pubDate>
+      <guid>https://Tdxxxx-student.github.io/posts/fq%E6%96%87%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%92%8C%E6%A0%A1%E9%AA%8C/</guid>
+      <description>&lt;h2 id=&#34;aspera安装&#34;&gt;Aspera安装&lt;/h2&gt;
 &lt;p&gt;可以conda/mamba安装
-&lt;a href="https://zhuanlan.zhihu.com/p/640962215"&gt;Linux系统上安装aspera并用其批量高速下载转录组数据 - 知乎 (zhihu.com)&lt;/a&gt;
+&lt;a href=&#34;https://zhuanlan.zhihu.com/p/640962215&#34;&gt;Linux系统上安装aspera并用其批量高速下载转录组数据 - 知乎 (zhihu.com)&lt;/a&gt;
 手动安装&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;wget https://ak-delivery04-mul.dhe.ibm.com/sar/CMA/OSA/09cne/0/ibm-aspera-connect-3.11.0.5-linux-g2.12-64.tar.gz
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;tar -zxvf ibm-aspera-connect-3.11.0.5-linux-g2.12-64.tar.gz
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;## sh文件上一步解压生成的&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;./ibm-aspera-connect-3.11.0.5-linux-g2.12-64.sh
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 把USERNAME 换成自己的linux 账户名&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;$ &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;#34;&amp;#34;&amp;#34;export PATH=\&amp;#34;/home/xiaotiancai/.aspera/connect/bin:\$PATH\&amp;#34; &amp;#34;&amp;#34;&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; ~/.bashrc
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="c1"&gt;# 有输出帮助文档则安装成功&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;$ ascp -h
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="基本语法"&gt;基本语法&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;wget https://ak-delivery04-mul.dhe.ibm.com/sar/CMA/OSA/09cne/0/ibm-aspera-connect-3.11.0.5-linux-g2.12-64.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;tar -zxvf ibm-aspera-connect-3.11.0.5-linux-g2.12-64.tar.gz
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;## sh文件上一步解压生成的&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;./ibm-aspera-connect-3.11.0.5-linux-g2.12-64.sh
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 把USERNAME 换成自己的linux 账户名&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ &lt;span class=&#34;nb&#34;&gt;echo&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;&amp;#34;&amp;#34;export PATH=\&amp;#34;/home/xiaotiancai/.aspera/connect/bin:\$PATH\&amp;#34; &amp;#34;&amp;#34;&amp;#34;&lt;/span&gt; &amp;gt;&amp;gt; ~/.bashrc
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;c1&#34;&gt;# 有输出帮助文档则安装成功&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;$ ascp -h
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;基本语法&#34;&gt;基本语法&lt;/h3&gt;
 &lt;p&gt;借鉴
-&lt;a href="https://download.asperasoft.com/download/docs/ascp/2.7/html/index.html"&gt;Aspera ascp Usage (2.7) Documentation - All Aspera Server 2.7 Platforms (asperasoft.com)&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>
+&lt;a href=&#34;https://download.asperasoft.com/download/docs/ascp/2.7/html/index.html&#34;&gt;Aspera ascp Usage (2.7) Documentation - All Aspera Server 2.7 Platforms (asperasoft.com)&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
