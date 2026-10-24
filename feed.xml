@@ -46,11 +46,7 @@
 <link>https://Tdxxxx-student.github.io/posts/fastq-download/</link>
 <guid>https://Tdxxxx-student.github.io/posts/fastq-download/</guid>
 <pubDate>Tue, 03 Feb 2026 00:00:00 +0800</pubDate>
-<description><![CDATA[Aspera 高速下载 ENA 数据与 MD5 批量校验流程，附 R 整理与 shell 下载脚本。]]></description></item><item><title>配制侧边目录</title>
-<link>https://Tdxxxx-student.github.io/posts/hugo-toc/</link>
-<guid>https://Tdxxxx-student.github.io/posts/hugo-toc/</guid>
-<pubDate>Tue, 03 Feb 2026 00:00:00 +0800</pubDate>
-<description><![CDATA[Hugo PaperMod 主题右侧固定目录（TOC）的 CSS 配置方案。]]></description></item><item><title>基因家族分析</title>
+<description><![CDATA[Aspera 高速下载 ENA 数据与 MD5 批量校验流程，附 R 整理与 shell 下载脚本。]]></description></item><item><title>基因家族分析</title>
 <link>https://Tdxxxx-student.github.io/posts/gene-family/</link>
 <guid>https://Tdxxxx-student.github.io/posts/gene-family/</guid>
 <pubDate>Tue, 03 Feb 2026 00:00:00 +0800</pubDate>
@@ -62,13 +58,5 @@
 <link>https://Tdxxxx-student.github.io/posts/ynau-resequencing/</link>
 <guid>https://Tdxxxx-student.github.io/posts/ynau-resequencing/</guid>
 <pubDate>Tue, 03 Feb 2026 00:00:00 +0800</pubDate>
-<description><![CDATA[云南农业大学重测序项目教程：SNP/InDel/SV/CNV 检测、群体结构、选择分析与 GWAS、QTL-seq 全流程。]]></description></item><item><title>AI辅助教程</title>
-<link>https://Tdxxxx-student.github.io/posts/ai-blog-tutorial/</link>
-<guid>https://Tdxxxx-student.github.io/posts/ai-blog-tutorial/</guid>
-<pubDate>Sun, 01 Feb 2026 00:00:00 +0800</pubDate>
-<description><![CDATA[AI 辅助整理的 Hugo 极简建站避坑教程：环境、配置、自动部署与日常写文章流程。]]></description></item><item><title>部署文章</title>
-<link>https://Tdxxxx-student.github.io/posts/hugo-deploy/</link>
-<guid>https://Tdxxxx-student.github.io/posts/hugo-deploy/</guid>
-<pubDate>Sun, 01 Feb 2026 00:00:00 +0800</pubDate>
-<description><![CDATA[从零开始用 Hugo 搭建博客并部署到 GitHub Pages 的完整图文教程。]]></description></item>
+<description><![CDATA[云南农业大学重测序项目教程：SNP/InDel/SV/CNV 检测、群体结构、选择分析与 GWAS、QTL-seq 全流程。]]></description></item>
 </channel></rss>
